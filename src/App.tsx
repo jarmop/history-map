@@ -4,12 +4,12 @@
 // import simpleMap from "./assets/Simple_world_map.svg";
 // import { map as mapString } from "./map-svg-string.ts";
 import "./App.css";
-import { CustomMap } from "./CustomMap";
+import { CustomMap } from "./customMap/CustomMap";
 // import { Mapsvg } from "./map-components/Mapsvg";
 // import { BlankMap } from "./map-components/BlankMap";
 // import { SimpleWorldMap } from "./map-components/SimpleWorldMap";
 // import { TestSvg } from "./TestSvg";
-import { WorldMap } from "./world-map/WorldMap";
+// import { WorldMap } from "./world-map/WorldMap";
 
 // function getFirstElementNode(node: ElementNode | RootNode) {
 //   return node.children[0] as ElementNode;

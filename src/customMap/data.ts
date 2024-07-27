@@ -1,8 +1,3 @@
-import italy from "./assets/italy.png";
-
-const width = 600;
-const height = 800;
-
 const rome = [41.8967, 12.4822];
 const venice = [45.4404, 12.316];
 const milan = [45.4685, 9.1824];
@@ -19,7 +14,7 @@ const ravenna = [44.4184, 12.2035];
 const ancona = [43.6071, 13.5102];
 const pescara = [42.4618, 14.216];
 
-const cities = [
+export const cities = [
   rome,
   venice,
   milan,
@@ -34,7 +29,7 @@ const cities = [
 
 const romeCoast = [41.745331, 12.23065];
 
-const italyBorder = [
+export const italyBorder = [
   romeCoast,
   [43.004299, 10.555853],
   livorno,
@@ -79,72 +74,3 @@ const italyBorder = [
   [40.065084, 15.63209],
   naples,
 ];
-
-// x min = 7, max = 19
-// y min = 47 , max = 35
-// rome x 13, y 41
-const xC = 6;
-const yC = 48;
-
-type Coord = {
-  x: number;
-  y: number;
-};
-
-const cxRatio = 46;
-const cyRatio = 66;
-console.log(cxRatio);
-console.log(cyRatio);
-
-function cxToX(cx: number) {
-  return (cx - xC) * cxRatio;
-}
-
-function cyToY(cy: number) {
-  return (yC - cy) * cyRatio;
-}
-
-function cityToCoord(city: number[]): Coord {
-  const cx = city[1];
-  const cy = city[0];
-  return { x: cxToX(cx), y: cyToY(cy) };
-}
-
-function cityToCoordArr(city: number[]): number[] {
-  const cx = city[1];
-  const cy = city[0];
-  return [cxToX(cx), cyToY(cy)];
-}
-
-interface CityProps {
-  coord: Coord;
-}
-
-function City({ coord: { x, y } }: CityProps) {
-  return <circle cx={x} cy={y} r="5" />;
-}
-
-interface BorderProps {
-  border: number[][];
-}
-
-function Border({ border }: BorderProps) {
-  return (
-    <path fill="sandybrown" d={`M${border.map(cityToCoordArr).join(" ")} z`} />
-  );
-}
-
-export function CustomMap() {
-  return (
-    <div>
-      <svg width={width} height={height} style={{ background: "lightcyan" }}>
-        <Border border={italyBorder} />
-        {/* {italyBorder.map((city) => ( */}
-        {cities.map((city) => (
-          <City key={city[0]} coord={cityToCoord(city)} />
-        ))}
-      </svg>
-      <img src={italy} alt="italy" width={500} />
-    </div>
-  );
-}
