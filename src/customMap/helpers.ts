@@ -1,30 +1,31 @@
-const xC = 6;
-const yC = 48;
+const leftLon = -15;
+const topLat = 60;
 
 export type Coord = {
   x: number;
   y: number;
 };
 
-const cxRatio = 46;
-const cyRatio = 66;
+const latLonRatio = 3 / 4;
+const lonXRatio = 12;
+const latYRatio = lonXRatio / latLonRatio;
 
-function cxToX(cx: number) {
-  return (cx - xC) * cxRatio;
+function lonToX(lon: number) {
+  return (lon - leftLon) * lonXRatio;
 }
 
-function cyToY(cy: number) {
-  return (yC - cy) * cyRatio;
+function latToY(lat: number) {
+  return (topLat - lat) * latYRatio;
 }
 
-export function cityToCoord(city: number[]): Coord {
-  const cx = city[1];
-  const cy = city[0];
-  return { x: cxToX(cx), y: cyToY(cy) };
+export function latLonTupleToCoord(latLon: number[]): Coord {
+  const lat = latLon[0];
+  const lon = latLon[1];
+  return { x: lonToX(lon), y: latToY(lat) };
 }
 
-export function cityToCoordArr(city: number[]): number[] {
-  const cx = city[1];
-  const cy = city[0];
-  return [cxToX(cx), cyToY(cy)];
+export function latLonTupleToXYTuple(latLon: number[]): number[] {
+  const lat = latLon[0];
+  const lon = latLon[1];
+  return [lonToX(lon), latToY(lat)];
 }

@@ -1,16 +1,23 @@
 import italy from "./italy.png";
-import { italyBorder, cities } from "./data";
-import { Coord, cityToCoordArr, cityToCoord } from "./helpers";
+import {
+  africaBorder,
+  asiaBorder,
+  EurasiaBorder,
+  europeBorder,
+  italyBorder,
+  worldCities,
+} from "./data";
 
-const width = 600;
-const height = 800;
+const width = 1000;
+const height = 1000;
 
 interface CityProps {
-  coord: Coord;
+  city: number[];
+  onClick: () => void;
 }
 
-function City({ coord: { x, y } }: CityProps) {
-  return <circle cx={x} cy={y} r="5" />;
+function City({ city, onClick }: CityProps) {
+  return <circle cx={city[0]} cy={city[1]} r="1" onClick={onClick} />;
 }
 
 interface BorderProps {
@@ -19,7 +26,11 @@ interface BorderProps {
 
 function Border({ border }: BorderProps) {
   return (
-    <path fill="sandybrown" d={`M${border.map(cityToCoordArr).join(" ")} z`} />
+    <path
+      fill="sandybrown"
+      d={`M${border.join(" ")} z`}
+      // d={`M${border[0].join(" ")} ${border.slice(1).flat().join(" ")} z`}
+    />
   );
 }
 
@@ -27,11 +38,20 @@ export function CustomMap() {
   return (
     <div>
       <svg width={width} height={height} style={{ background: "lightcyan" }}>
-        <Border border={italyBorder} />
+        {/* <Border border={EurasiaBorder} /> */}
+        {/* <Border border={worldCities.map((city) => city.latLon)} /> */}
+        <Border border={europeBorder} />
+        <Border border={africaBorder} />
+        <Border border={asiaBorder} />
+        {/* <Border border={italyBorder} /> */}
         {/* {italyBorder.map((city) => ( */}
-        {cities.map((city) => (
-          <City key={city[0]} coord={cityToCoord(city)} />
-        ))}
+        {/* {worldCities.map((city, i) => (
+          <City
+            key={i}
+            city={city.latLon}
+            onClick={() => console.log(city.name)}
+          />
+        ))} */}
       </svg>
       <img src={italy} alt="italy" width={500} />
     </div>
