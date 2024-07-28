@@ -1,12 +1,6 @@
 import italy from "./italy.png";
-import {
-  africaBorder,
-  asiaBorder,
-  EurasiaBorder,
-  europeBorder,
-  italyBorder,
-  worldCities,
-} from "./data";
+import { africaBorder, asiaBorder, europeBorder } from "./continents";
+import { mediterraneanIslandsBorders } from "./islands";
 
 const width = 1000;
 const height = 1000;
@@ -43,6 +37,9 @@ export function CustomMap() {
         <Border border={europeBorder} />
         <Border border={africaBorder} />
         <Border border={asiaBorder} />
+        {mediterraneanIslandsBorders.map((border, i) => (
+          <Border key={i} border={border} />
+        ))}
         {/* <Border border={italyBorder} /> */}
         {/* {italyBorder.map((city) => ( */}
         {/* {worldCities.map((city, i) => (
