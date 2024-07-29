@@ -1,7 +1,8 @@
 import { latLonByName } from "./latLonByName";
-import { latLonTupleToXYTuple } from "./helpers";
+import { joinBorders, latLonTupleToXYTuple } from "./helpers";
+import { franceAtlantic, franceMediterranean, iberiaCoast } from "./regions";
 
-const europe: (keyof typeof latLonByName)[] = [
+const europe1: (keyof typeof latLonByName)[] = [
   "Tanais",
   "Mariupol",
   "Henichesk",
@@ -104,68 +105,17 @@ const europe: (keyof typeof latLonByName)[] = [
   "Genoa",
   "Savona",
   "Imperia",
-  "Nice",
-  "Toulon",
-  "Marseille",
-  "Montpellier",
-  "Narbonne",
-  "Girona",
-  "Barcelona",
-  "Tarragona",
-  "Valencia",
-  "Denia",
-  "Alicante",
-  "Cartagena",
-  "Almeria",
-  "Malaga",
-  "Gibraltar",
-  "Cadiz",
-  "Huelva",
-  "Faro",
-  "Sagres",
-  "Zambujeira",
-  "Sines",
-  "Setubal",
-  "Cascais",
-  "Peniche",
-  "Porto",
-  "Vigo",
-  "Camarinas",
-  "A Coruna",
-  "Carino",
-  "Foz",
-  "Gijon",
-  "Comillas",
-  "Santander",
-  "Sorrozuela",
-  "Bilbao",
-  "Donostia",
-  "Bayonne",
-  "La Rochelle",
-  "Vannes",
-  "Quimper",
-  "Brest",
-  "Lannion",
-  "Saint-Brieuc",
-  "Saint-Malo",
-  "Granville",
-  "Flamanville",
-  "Cherbourg",
-  "Barfleur",
-  "Crasville",
-  "Utah Beach",
-  "Ouistreham",
-  "Le Havre",
-  "Etretat",
-  "Treport",
-  "Calais",
-  "Dunkirk",
-  "Bruges",
-  "Rotterdam",
-  "Amsterdam",
-  "Groningen",
-  "Bremerhaven",
+  "Ludovico",
+];
+
+const europe2: (keyof typeof latLonByName)[] = [
+  "Perroquet",
+  "Zwin",
+  "The Hague",
+  "Den Helder",
+  "Cuxhaven",
   "Husum",
+  "Nordpunkt",
   "Esbjerg",
   "Agger",
   "Hanstholm",
@@ -245,7 +195,16 @@ const europe: (keyof typeof latLonByName)[] = [
   "Kem",
   "Onega",
   "Arkhangelsk",
+  "Tanais",
 ];
+
+const europe = joinBorders([
+  europe1,
+  franceMediterranean,
+  iberiaCoast,
+  franceAtlantic,
+  europe2,
+]);
 
 const asia: (keyof typeof latLonByName)[] = [
   "Arkhangelsk",
@@ -446,23 +405,14 @@ const africa: (keyof typeof latLonByName)[] = [
   "Port Said",
 ];
 
-export const europeBorder = europe.map((name) => {
-  const latLon = latLonByName[name];
-  const lat = latLon[0] || 0;
-  const lon = latLon[1] || 0;
-  return latLonTupleToXYTuple([lat, lon]);
-});
+export const europeBorder = europe.map((name) =>
+  latLonTupleToXYTuple(latLonByName[name])
+);
 
-export const africaBorder = africa.map((name) => {
-  const latLon = latLonByName[name];
-  const lat = latLon[0] || 0;
-  const lon = latLon[1] || 0;
-  return latLonTupleToXYTuple([lat, lon]);
-});
+export const africaBorder = africa.map((name) =>
+  latLonTupleToXYTuple(latLonByName[name])
+);
 
-export const asiaBorder = asia.map((name) => {
-  const latLon = latLonByName[name];
-  const lat = latLon[0] || 0;
-  const lon = latLon[1] || 0;
-  return latLonTupleToXYTuple([lat, lon]);
-});
+export const asiaBorder = asia.map((name) =>
+  latLonTupleToXYTuple(latLonByName[name])
+);

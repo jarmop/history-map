@@ -10,8 +10,6 @@ fs.readFile("../data/worldcities.csv", "utf8", (err, data) => {
   const row = arr[1].replace(/"/g, "").split(",");
   const obj = { [row[1]]: [row[2], row[3]] };
   console.log(obj);
-  //   console.log(arr[1].replace(/"/g, "").split(","));
-  //   console.log(arr[1].replace('"', "").split(","));
 
   const cities = {};
   const populations = {};
@@ -28,18 +26,15 @@ fs.readFile("../data/worldcities.csv", "utf8", (err, data) => {
     }
 
     if (
-      !cities[name] ||
-      countries[name] === "USA" ||
-      (country !== "USA" && population > populations[name])
+      name !== undefined &&
+      name !== "" &&
+      (!cities[name] ||
+        countries[name] === "USA" ||
+        (country !== "USA" && population > populations[name]))
     ) {
-      // if (!cities[name] || a[6] !== "USA") {
-      if (name === "Bayonne") {
-        console.log(a);
-      }
       populations[name] = population;
       countries[name] = country;
       cities[name] = latLon;
-      // cities[name] = { latLon, country };
     }
   });
 
