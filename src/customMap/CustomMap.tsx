@@ -1,6 +1,6 @@
 import italy from "./italy.png";
 import { africaBorder, asiaBorder, europeBorder } from "./continents";
-import { mediterraneanIslandsBorders } from "./islands";
+import { islandsBorders } from "./islands";
 
 const width = 1000;
 const height = 1000;
@@ -37,7 +37,7 @@ export function CustomMap() {
         <Border border={europeBorder} />
         <Border border={africaBorder} />
         <Border border={asiaBorder} />
-        {mediterraneanIslandsBorders.map((border, i) => (
+        {islandsBorders.map((border, i) => (
           <Border key={i} border={border} />
         ))}
         {/* <Border border={italyBorder} /> */}
