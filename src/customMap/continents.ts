@@ -65,6 +65,7 @@ const europe1: (keyof typeof latLonByName)[] = [
   "Psatha",
   "Galaxidi",
   "Missolonghi",
+  "Butrint",
   "Vlore",
   "Durres",
   "Lezhe",

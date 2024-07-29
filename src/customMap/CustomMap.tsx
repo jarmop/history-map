@@ -3,6 +3,9 @@ import { africaBorder, asiaBorder, europeBorder } from "./continents";
 import { islandsBorders } from "./islands";
 import { cities } from "./cities";
 import { france, iberia } from "./regions";
+import { veniceCities } from "./venice";
+import { useLatLonToXy } from "./useLatLonToXy";
+import { useState } from "react";
 
 const width = 1000;
 const height = 1000;
@@ -12,9 +15,9 @@ interface CityProps {
 }
 
 function City({ city }: CityProps) {
-  return <circle cx={city[0]} cy={city[1]} r="2" />;
+  const [x, y] = city;
+  return <circle cx={x} cy={y} r="2" />;
 }
-
 interface BorderProps {
   border: number[][];
 }
@@ -33,18 +36,35 @@ function Border({ border }: BorderProps) {
 }
 
 export function CustomMap() {
+  const [zoom, setZoom] = useState(1);
+
   return (
     <div>
-      <svg width={width} height={height} style={{ background: "lightcyan" }}>
+      <div style={{ position: "fixed" }}>
+        <button onClick={() => setZoom(zoom + 1)}>+</button>
+        <button onClick={() => setZoom(zoom - 1)} disabled={zoom === 1}>
+          -
+        </button>
+      </div>
+
+      <svg
+        // width={width}
+        // width={"auto"}
+        // height={height}
+        // height={"auto"}
+        // viewBox={`0 0 ${width} ${height}`}
+        viewBox={`0 0 4000 4000`}
+        style={{ background: "lightcyan" }}
+      >
         <Border border={europeBorder} />
-        <Border border={iberia} />
-        <Border border={france} />
+        {/* <Border border={iberia} /> */}
+        {/* <Border border={france} /> */}
         <Border border={africaBorder} />
         <Border border={asiaBorder} />
         {islandsBorders.map((border, i) => (
           <Border key={i} border={border} />
         ))}
-        {cities.map((city, i) => (
+        {veniceCities.map((city, i) => (
           <City key={i} city={city} />
         ))}
       </svg>

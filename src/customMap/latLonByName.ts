@@ -167,6 +167,7 @@ export const latLonByName = {
   Nordpunkt: [54.911264, 8.637728],
   FranceEast: [48.966739, 8.23322],
   Dolent: [45.923119, 7.043222],
+  Butrint: [39.746094, 20.019798],
   // Mediterranean Islands
   Palermo: [38.118766, 13.366381],
   Syracuse: [37.072707, 15.288126],
