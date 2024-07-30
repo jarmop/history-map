@@ -1,4 +1,4 @@
-import { joinBorders, latLonTupleToXYTuple } from "./helpers";
+import { joinBorders } from "./helpers";
 import { latLonByName } from "./latLonByName";
 
 const pyrenees: (keyof typeof latLonByName)[] = ["Irun", "Cerbere"];
@@ -40,7 +40,7 @@ export const iberiaCoast: (keyof typeof latLonByName)[] = [
 ];
 
 export const iberia = joinBorders([iberiaCoast, pyrenees]).map((name) => {
-  return latLonTupleToXYTuple(latLonByName[name]);
+  return latLonByName[name];
 });
 
 export const franceMediterranean: (keyof typeof latLonByName)[] = [
@@ -94,5 +94,5 @@ export const france = joinBorders([
   franceAtlantic,
   franceEast,
 ]).map((name) => {
-  return latLonTupleToXYTuple(latLonByName[name]);
+  return latLonByName[name];
 });

@@ -3,7 +3,7 @@ import { africaBorder, asiaBorder, europeBorder } from "./continents";
 import { islandsBorders } from "./islands";
 import { veniceCities } from "./venice";
 import { useEffect, useRef, useState } from "react";
-import { latLonTupleToXYTuple, maxHeight, maxWidth } from "./helpers";
+import { useLatLonToXy } from "./useLatLonToXy";
 
 interface CityProps {
   city: number[];
@@ -33,15 +33,23 @@ function Border({ border }: BorderProps) {
 const aspectRatio = 16 / 9;
 
 export function CustomMap() {
-  const [zoom, setZoom] = useState(4);
-  const [isMousedown, setMousedown] = useState(false);
-  const [xy, setXy] = useState(latLonTupleToXYTuple([60, -30]));
+  const [zoom, setZoom] = useState(1);
   const [containerSize, setContainersize] = useState([1, 1]);
+  const { latLonTupleToXYTuple, maxWidth, maxHeight } = useLatLonToXy(
+    zoom,
+    containerSize
+  );
+  const [isMousedown, setMousedown] = useState(false);
+  const [xy, setXy] = useState(latLonTupleToXYTuple([90, -180]));
+
   const domRef = useRef<HTMLDivElement>(null);
 
-  const multiplier = 10 / zoom;
-  const width = containerSize[0] * multiplier;
-  const height = containerSize[1] * multiplier;
+  // const multiplier = 1;
+  const width = containerSize[0];
+  const height = containerSize[1];
+
+  // console.log("containerSize", containerSize);
+  // console.log("width, height", width, height);
   const maxX = width < maxWidth ? maxWidth - width : 0;
   const maxY = height < maxHeight ? maxHeight - height : 0;
 
@@ -56,14 +64,16 @@ export function CustomMap() {
     }
     function mousemove(e: MouseEvent) {
       if (isMousedown) {
+        // const [dx, dy] = latLonTupleToXYTuple([e.movementX, e.movementY]);
+        const [dx, dy] = [e.movementX, e.movementY];
         setXy((xy) => {
-          const newX = xy[0] - e.movementX * multiplier;
-          const newY = xy[1] - e.movementY * multiplier;
-          return [
-            newX < 0 ? 0 : newX > maxX ? maxX : newX,
-            newY < 0 ? 0 : newY > maxY ? maxY : newY,
-          ];
-          // return [newX, newY];
+          const newX = xy[0] - dx;
+          const newY = xy[1] - dy;
+          // return [
+          //   newX < 0 ? 0 : newX > maxX ? maxX : newX,
+          //   newY < 0 ? 0 : newY > maxY ? maxY : newY,
+          // ];
+          return [newX, newY];
         });
       }
     }
@@ -79,7 +89,7 @@ export function CustomMap() {
       document.removeEventListener("mousemove", mousemove);
       document.removeEventListener("mouseup", mouseup);
     };
-  }, [isMousedown, multiplier, setXy, maxX, maxY]);
+  }, [isMousedown, setXy, maxX, maxY]);
 
   return (
     <div>
@@ -95,14 +105,16 @@ export function CustomMap() {
           viewBox={`${xy[0]} ${xy[1]} ${width} ${height}`}
           style={{ background: "lightcyan" }}
         >
-          <Border border={europeBorder} />
-          <Border border={africaBorder} />
-          <Border border={asiaBorder} />
-          {islandsBorders.map((border, i) => (
-            <Border key={i} border={border} />
-          ))}
+          {[europeBorder, africaBorder, asiaBorder, ...islandsBorders].map(
+            (border: number[][], i) => (
+              <Border
+                key={i}
+                border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
+              />
+            )
+          )}
           {veniceCities.map((city, i) => (
-            <City key={i} city={city} />
+            <City key={i} city={latLonTupleToXYTuple(city)} />
           ))}
         </svg>
       </div>

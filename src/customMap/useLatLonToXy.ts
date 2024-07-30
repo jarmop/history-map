@@ -1,15 +1,18 @@
-export function useLatLonToXy(zoom = 1) {
-  const leftLon = 5;
-  const topLat = 50;
+export function useLatLonToXy(zoom = 1, containerSize: number[]) {
+  const leftLon = -180;
+  const topLat = 90;
+  const lonSize = 360;
+  const latSize = 180;
 
-  // export type Coord = {
-  //   x: number;
-  //   y: number;
-  // };
+  const [containerX] = containerSize;
 
   const latLonRatio = 3 / 4;
-  const lonXRatio = 2 + 8 * zoom;
+  //   const lonXRatio = 0 + 1 * zoom;
+  const lonXRatio = (zoom * containerX) / lonSize;
   const latYRatio = lonXRatio / latLonRatio;
+
+  const maxWidth = lonXRatio * lonSize;
+  const maxHeight = latYRatio * latSize;
 
   function lonToX(lon: number) {
     return (lon - leftLon) * lonXRatio;
@@ -19,15 +22,15 @@ export function useLatLonToXy(zoom = 1) {
     return (topLat - lat) * latYRatio;
   }
 
-  // export function latLonTupleToCoord(latLon: number[]): Coord {
-  //   const lat = latLon[0];
-  //   const lon = latLon[1];
-  //   return { x: lonToX(lon), y: latToY(lat) };
-  // }
-
-  return function latLonTupleToXYTuple(latLon: number[]): number[] {
+  function latLonTupleToXYTuple(latLon: number[]): number[] {
     const lat = latLon[0];
     const lon = latLon[1];
     return [lonToX(lon), latToY(lat)];
+  }
+
+  return {
+    latLonTupleToXYTuple,
+    maxWidth,
+    maxHeight,
   };
 }

@@ -1,5 +1,5 @@
 import { latLonByName } from "./latLonByName";
-import { joinBorders, latLonTupleToXYTuple } from "./helpers";
+import { joinBorders } from "./helpers";
 import { franceAtlantic, franceMediterranean, iberiaCoast } from "./regions";
 
 const europe1: (keyof typeof latLonByName)[] = [
@@ -406,14 +406,8 @@ const africa: (keyof typeof latLonByName)[] = [
   "Port Said",
 ];
 
-export const europeBorder = europe.map((name) =>
-  latLonTupleToXYTuple(latLonByName[name])
-);
+export const europeBorder = europe.map((name) => latLonByName[name]);
 
-export const africaBorder = africa.map((name) =>
-  latLonTupleToXYTuple(latLonByName[name])
-);
+export const africaBorder = africa.map((name) => latLonByName[name]);
 
-export const asiaBorder = asia.map((name) =>
-  latLonTupleToXYTuple(latLonByName[name])
-);
+export const asiaBorder = asia.map((name) => latLonByName[name]);

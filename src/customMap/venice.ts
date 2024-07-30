@@ -1,4 +1,3 @@
-import { latLonTupleToXYTuple } from "./helpers";
 import { latLonByName } from "./latLonByName";
 
 const veniceCityNames: (keyof typeof latLonByName)[] = [
@@ -37,6 +36,4 @@ const veniceCityNames: (keyof typeof latLonByName)[] = [
   // Euboea (Negroponte) 1209-1470
 ];
 
-export const veniceCities = veniceCityNames.map((name) =>
-  latLonTupleToXYTuple(latLonByName[name])
-);
+export const veniceCities = veniceCityNames.map((name) => latLonByName[name]);

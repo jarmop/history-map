@@ -1,5 +1,4 @@
 import { latLonByName } from "./latLonByName";
-import { latLonTupleToXYTuple } from "./helpers";
 
 const britishIsles: Record<string, (keyof typeof latLonByName)[]> = {
   ["Great Britain"]: [
@@ -105,6 +104,6 @@ export const islandsBorders = Object.values({
     const latLon = latLonByName[name];
     const lat = latLon[0] || 0;
     const lon = latLon[1] || 0;
-    return latLonTupleToXYTuple([lat, lon]);
+    return [lat, lon];
   });
 });
