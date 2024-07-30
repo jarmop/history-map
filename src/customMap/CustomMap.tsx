@@ -33,7 +33,11 @@ function Border({ border }: BorderProps) {
 const aspectRatio = 16 / 9;
 const maxZoom = 350;
 
-export function CustomMap() {
+interface CustomMapProps {
+  cities: number[][];
+}
+
+export function CustomMap({ cities }: CustomMapProps) {
   const [zoom, setZoom] = useState(1);
   const [containerSize, setContainersize] = useState([1, 1]);
   const {
@@ -166,7 +170,7 @@ export function CustomMap() {
               />
             )
           )}
-          {veniceCities.map((city, i) => (
+          {cities.map((city, i) => (
             <City key={i} city={latLonTupleToXYTuple(city)} />
           ))}
         </svg>
