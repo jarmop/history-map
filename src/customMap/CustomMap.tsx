@@ -31,27 +31,28 @@ function Border({ border }: BorderProps) {
 }
 
 const aspectRatio = 16 / 9;
+const maxZoom = 350;
 
 export function CustomMap() {
   const [zoom, setZoom] = useState(1);
   const [containerSize, setContainersize] = useState([1, 1]);
-  const { latLonTupleToXYTuple, maxWidth, maxHeight } = useLatLonToXy(
-    zoom,
-    containerSize
-  );
+  const {
+    latLonTupleToXYTuple,
+    xYTupleToLatLonTuple,
+    totalWidth,
+    totalHeight,
+  } = useLatLonToXy(zoom, containerSize);
   const [isMousedown, setMousedown] = useState(false);
-  const [xy, setXy] = useState(latLonTupleToXYTuple([90, -180]));
+  const [latLon, setXy] = useState([90, -180]);
+
+  const xy = latLonTupleToXYTuple(latLon);
 
   const domRef = useRef<HTMLDivElement>(null);
 
-  // const multiplier = 1;
   const width = containerSize[0];
   const height = containerSize[1];
-
-  // console.log("containerSize", containerSize);
-  // console.log("width, height", width, height);
-  const maxX = width < maxWidth ? maxWidth - width : 0;
-  const maxY = height < maxHeight ? maxHeight - height : 0;
+  const maxX = width < totalWidth ? totalWidth - width : 0;
+  const maxY = height < totalHeight ? totalHeight - height : 0;
 
   useEffect(() => {
     const width = domRef.current?.offsetWidth || 1;
@@ -64,32 +65,50 @@ export function CustomMap() {
     }
     function mousemove(e: MouseEvent) {
       if (isMousedown) {
-        // const [dx, dy] = latLonTupleToXYTuple([e.movementX, e.movementY]);
         const [dx, dy] = [e.movementX, e.movementY];
-        setXy((xy) => {
+        setXy((latLon) => {
+          const xy = latLonTupleToXYTuple(latLon);
           const newX = xy[0] - dx;
           const newY = xy[1] - dy;
-          // return [
-          //   newX < 0 ? 0 : newX > maxX ? maxX : newX,
-          //   newY < 0 ? 0 : newY > maxY ? maxY : newY,
-          // ];
-          return [newX, newY];
+          return xYTupleToLatLonTuple([newX, newY]);
         });
       }
     }
     function mouseup() {
       setMousedown(false);
     }
-    document.addEventListener("mousedown", mousedown);
-    document.addEventListener("mousemove", mousemove);
-    document.addEventListener("mouseup", mouseup);
+    function wheel(e: WheelEvent) {
+      e.preventDefault();
+      const zoomD = -e.deltaY;
+      setZoom((zoom) => {
+        const newZoom = zoom + zoomD;
+        return newZoom > 0 && newZoom <= maxZoom ? newZoom : zoom;
+      });
+    }
+    const dom = domRef.current;
+    if (!dom) {
+      return;
+    }
+
+    dom.addEventListener("mousedown", mousedown);
+    dom.addEventListener("mousemove", mousemove);
+    dom.addEventListener("mouseup", mouseup);
+    dom.addEventListener("wheel", wheel);
 
     return () => {
-      document.removeEventListener("mousedown", mousedown);
-      document.removeEventListener("mousemove", mousemove);
-      document.removeEventListener("mouseup", mouseup);
+      dom.removeEventListener("mousedown", mousedown);
+      dom.removeEventListener("mousemove", mousemove);
+      dom.removeEventListener("mouseup", mouseup);
+      dom.removeEventListener("wheel", wheel);
     };
-  }, [isMousedown, setXy, maxX, maxY]);
+  }, [
+    isMousedown,
+    setXy,
+    maxX,
+    maxY,
+    latLonTupleToXYTuple,
+    xYTupleToLatLonTuple,
+  ]);
 
   return (
     <div>

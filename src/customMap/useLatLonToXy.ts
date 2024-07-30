@@ -7,19 +7,26 @@ export function useLatLonToXy(zoom = 1, containerSize: number[]) {
   const [containerX] = containerSize;
 
   const latLonRatio = 3 / 4;
-  //   const lonXRatio = 0 + 1 * zoom;
-  const lonXRatio = (zoom * containerX) / lonSize;
+  const lonXRatio = containerX / (lonSize - zoom);
   const latYRatio = lonXRatio / latLonRatio;
 
-  const maxWidth = lonXRatio * lonSize;
-  const maxHeight = latYRatio * latSize;
+  const totalWidth = lonXRatio * lonSize;
+  const totalHeight = latYRatio * latSize;
 
   function lonToX(lon: number) {
     return (lon - leftLon) * lonXRatio;
   }
 
+  function xToLon(x: number) {
+    return x / lonXRatio + leftLon;
+  }
+
   function latToY(lat: number) {
     return (topLat - lat) * latYRatio;
+  }
+
+  function yToLat(y: number) {
+    return topLat - y / latYRatio;
   }
 
   function latLonTupleToXYTuple(latLon: number[]): number[] {
@@ -28,9 +35,15 @@ export function useLatLonToXy(zoom = 1, containerSize: number[]) {
     return [lonToX(lon), latToY(lat)];
   }
 
+  function xYTupleToLatLonTuple(xy: number[]): number[] {
+    const [x, y] = xy;
+    return [yToLat(y), xToLon(x)];
+  }
+
   return {
     latLonTupleToXYTuple,
-    maxWidth,
-    maxHeight,
+    xYTupleToLatLonTuple,
+    totalWidth,
+    totalHeight,
   };
 }
