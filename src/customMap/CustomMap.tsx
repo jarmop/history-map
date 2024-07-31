@@ -40,7 +40,7 @@ interface CustomMapProps {
 
 export function CustomMap({ cities, borders }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
-  const [latLon, setLatLon] = useState(storage.getLatlon())
+  const [xy, setXy] = useState(storage.getXy())
 
   const [containerSize, setContainersize] = useState([1, 1])
   const {
@@ -58,13 +58,11 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
     | undefined
   >(undefined)
 
-  const xy = latLonTupleToXYTuple(latLon)
-
   const domRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    storage.setData({ zoom, latLon })
-  }, [zoom, latLon])
+    storage.setData({ zoom, xy: xy })
+  }, [zoom, xy])
 
   useEffect(() => {
     if (!mouseOnZoom) {
@@ -74,11 +72,10 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
 
     const newX = mouseXYAfterZoom[0] - mouseOnZoom.clientXY[0]
     const newY = mouseXYAfterZoom[1] - mouseOnZoom.clientXY[1]
-    const newLatLon = xYTupleToLatLonTuple([newX, newY])
 
     setMouseOnZoom(undefined)
-    setLatLon(newLatLon)
-  }, [latLonTupleToXYTuple, xYTupleToLatLonTuple, setLatLon, mouseOnZoom])
+    setXy([newX, newY])
+  }, [latLonTupleToXYTuple, xYTupleToLatLonTuple, setXy, mouseOnZoom])
 
   const width = containerSize[0]
   const height = containerSize[1]
@@ -97,11 +94,10 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
     function mousemove(e: MouseEvent) {
       if (isMousedown) {
         const [dx, dy] = [e.movementX, e.movementY]
-        setLatLon((latLon) => {
-          const xy = latLonTupleToXYTuple(latLon)
+        setXy((xy) => {
           const newX = xy[0] - dx
           const newY = xy[1] - dy
-          return xYTupleToLatLonTuple([newX, newY])
+          return [newX, newY]
         })
       }
     }
@@ -143,7 +139,7 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
     }
   }, [
     isMousedown,
-    setLatLon,
+    setXy,
     maxX,
     maxY,
     latLonTupleToXYTuple,
