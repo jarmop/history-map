@@ -59,7 +59,7 @@ const britishIsles: Record<string, (keyof typeof latLonByName)[]> = {
   ],
 };
 
-const mediterraneanIslands: Record<string, (keyof typeof latLonByName)[]> = {
+export const mediterraneanIslands: Record<string, (keyof typeof latLonByName)[]> = {
   Corse: ["Ajaccio", "Bonifacio", "Aleria", "Bastia", "Calvi"],
   Crete: [
     "Heraklion",

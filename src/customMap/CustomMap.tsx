@@ -14,12 +14,13 @@ function City({ city }: CityProps) {
 }
 interface BorderProps {
   border: number[][]
+  fill?: string
 }
 
-function Border({ border }: BorderProps) {
+function Border({ border, fill = 'lightgrey' }: BorderProps) {
   return (
     <path
-      fill="lightgrey"
+      fill={fill}
       // stroke="black"
       // strokeWidth={1}
       // strokeLinejoin="round"
@@ -34,9 +35,10 @@ const maxZoom = 350
 
 interface CustomMapProps {
   cities: number[][]
+  borders: number[][][]
 }
 
-export function CustomMap({ cities }: CustomMapProps) {
+export function CustomMap({ cities, borders }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [latLon, setLatLon] = useState(storage.getLatlon())
 
@@ -163,6 +165,13 @@ export function CustomMap({ cities }: CustomMapProps) {
             />
           )
         )}
+        {borders.map((border, i) => (
+          <Border
+            key={i}
+            border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
+            fill="red"
+          />
+        ))}
         {cities.map((city, i) => (
           <City key={i} city={latLonTupleToXYTuple(city)} />
         ))}
