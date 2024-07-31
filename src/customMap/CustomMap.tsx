@@ -53,7 +53,7 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
   const [mouseOnZoom, setMouseOnZoom] = useState<
     | {
         clientXY: number[]
-        clientLatLon: number[]
+        latLon: number[]
       }
     | undefined
   >(undefined)
@@ -70,21 +70,15 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
     if (!mouseOnZoom) {
       return
     }
-    const mouseLatOnZoomDiff = 90 - mouseOnZoom.clientLatLon[0]
-    const mouseLatOnZoom = latLon[0] - mouseLatOnZoomDiff
+    const mouseXYAfterZoom = latLonTupleToXYTuple(mouseOnZoom.latLon)
 
-    const mouseLonOnZoomDiff = mouseOnZoom.clientLatLon[1] + 180
-    const mouseLonOnZoom = latLon[1] + mouseLonOnZoomDiff
-    const mouseXYOnZoom = latLonTupleToXYTuple([mouseLatOnZoom, mouseLonOnZoom])
-
-    const newX = mouseXYOnZoom[0] - mouseOnZoom.clientXY[0]
-    const newY = mouseXYOnZoom[1] - mouseOnZoom.clientXY[1]
-
+    const newX = mouseXYAfterZoom[0] - mouseOnZoom.clientXY[0]
+    const newY = mouseXYAfterZoom[1] - mouseOnZoom.clientXY[1]
     const newLatLon = xYTupleToLatLonTuple([newX, newY])
 
     setMouseOnZoom(undefined)
     setLatLon(newLatLon)
-  }, [latLonTupleToXYTuple, xYTupleToLatLonTuple, setLatLon])
+  }, [latLonTupleToXYTuple, xYTupleToLatLonTuple, setLatLon, mouseOnZoom])
 
   const width = containerSize[0]
   const height = containerSize[1]
@@ -114,17 +108,22 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
     function mouseup() {
       setMousedown(false)
     }
+    let foo = 0
     function wheel(e: WheelEvent) {
       e.preventDefault()
       const zoomD = -e.deltaY
-      setMouseOnZoom({
-        clientXY: [e.clientX, e.clientY],
-        clientLatLon: xYTupleToLatLonTuple([e.clientX, e.clientY]),
-      })
-      setZoom((zoom) => {
-        const newZoom = zoom + zoomD
-        return newZoom > 0 && newZoom <= maxZoom ? newZoom : zoom
-      })
+      foo += Math.abs(e.deltaY)
+      if (foo > 5) {
+        foo = 0
+        setMouseOnZoom({
+          clientXY: [e.clientX, e.clientY],
+          latLon: xYTupleToLatLonTuple([xy[0] + e.clientX, xy[1] + e.clientY]),
+        })
+        setZoom((zoom) => {
+          const newZoom = zoom + zoomD
+          return newZoom > 0 && newZoom <= maxZoom ? newZoom : zoom
+        })
+      }
     }
     const dom = domRef.current
     if (!dom) {
@@ -149,6 +148,7 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
     maxY,
     latLonTupleToXYTuple,
     xYTupleToLatLonTuple,
+    xy,
   ])
 
   return (
