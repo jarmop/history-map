@@ -8,7 +8,6 @@ import { joinBorders } from './helpers'
 
 const latLonByName = {
   ...modernCities,
-
   // Luceria: [],
 }
 
@@ -29,7 +28,12 @@ const romanRepublic: Nation = {
 
 // After the Latin war
 romanRepublic['-338'] = {
-  borders: [],
+  borders: [
+    joinBorders([
+      sliceBorder(europe, 'Naples', 'Santa Severa'),
+      ['Santa Severa', 'Nepi', 'Frosinone', 'Caserta', 'Naples'],
+    ]),
+  ],
   cities: [
     ...romanRepublic['-500'].cities,
     'Veii',
@@ -40,7 +44,22 @@ romanRepublic['-338'] = {
 }
 // Start of 3rd Samnite war
 romanRepublic['-298'] = {
-  borders: [],
+  borders: [
+    joinBorders([
+      sliceBorder(europe, 'Amalfi', 'Santa Severa'),
+      ['Santa Severa', 'Narni', "L'Aquila", 'Giulianova'],
+      sliceBorder(europe, 'Giulianova', 'Trani'),
+      [
+        'Trani',
+        'Minervino Murge',
+        'Celano',
+        'Cassino',
+        'Caserta',
+        'Avellino',
+        'Amalfi',
+      ],
+    ]),
+  ],
   cities: [
     ...romanRepublic['-338'].cities,
     'Naples',
