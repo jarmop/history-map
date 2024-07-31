@@ -73,6 +73,7 @@ export const latLonByName = {
   Golcuk: [40.719875, 29.820015],
   Izmit: [40.758499, 29.937413],
   // Europe
+  Leon: [42.594837, -5.572022],
   Cordoba: [37.884507, -4.779568],
   Placentia: [45.047683, 9.693048],
   ['Minervino Murge']: [41.081938, 16.077494],

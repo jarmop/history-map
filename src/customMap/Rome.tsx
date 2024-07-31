@@ -70,12 +70,24 @@ romanRepublic['-298'] = {
 }
 // End of 3rd Samnite war
 romanRepublic['-290'] = {
-  borders: [],
+  borders: [
+    joinBorders([
+      sliceBorder(europe, 'Amalfi', 'Santa Severa'),
+      ['Santa Severa', 'Narni', 'Sansepolcro', 'Giulianova'],
+      sliceBorder(europe, 'Giulianova', 'Trani'),
+      ['Trani', 'Minervino Murge', 'Amalfi'],
+    ]),
+  ],
   cities: [...romanRepublic['-298'].cities, 'Spoleto', 'Benevento', 'Venosa'],
 }
 // End of the Pyrrhic war
 romanRepublic['-272'] = {
-  borders: [],
+  borders: [
+    joinBorders([
+      sliceBorder(europe, 'Giulianova', 'Santa Severa'),
+      ['Santa Severa', 'Narni', 'Sansepolcro', 'Giulianova'],
+    ]),
+  ],
   cities: [
     ...romanRepublic['-290'].cities,
     'Salerno',
@@ -90,7 +102,9 @@ romanRepublic['-272'] = {
 }
 // Start of 1st Punic war
 romanRepublic['-264'] = {
-  borders: [],
+  borders: [
+    joinBorders([sliceBorder(europe, 'Rimini', 'Pisa'), ['Pisa', 'Rimini']]),
+  ],
   cities: [
     ...romanRepublic['-272'].cities,
     'Cosa',
@@ -108,7 +122,25 @@ romanRepublic['-264'] = {
 }
 // Start of 2nd Punic war
 romanRepublic['-218'] = {
-  borders: [],
+  borders: [
+    joinBorders([
+      sliceBorder(europe, 'Monfalcone', 'Pisa'),
+      [
+        'Pisa',
+        'Maranello',
+        'Pavia',
+        'Novara',
+        'Legnano',
+        'Bergamo',
+        'Verona',
+        'Conegliano',
+        'Monfalcone',
+      ],
+    ]),
+    mediterraneanIslands.Corse,
+    mediterraneanIslands.Sardegna,
+    mediterraneanIslands.Sicily,
+  ],
   cities: [
     ...romanRepublic['-264'].cities,
     // ...mediterraneanIslands.Corse,
@@ -123,11 +155,38 @@ romanRepublic['-218'] = {
     'Cremona',
     'Pavia',
     'Milan', // Mediolanium
+    'Syracuse',
+    'Messina',
+    'Palermo',
+    'Agrigento',
+    'Gela',
+    'Aleria',
+    'Olbia',
+    'Cagliari',
+    'Mazara del Vallo', // Lilybaeum
   ],
 }
 // Start of 3rd Punic war
 romanRepublic['-149'] = {
-  borders: [],
+  borders: [
+    joinBorders([
+      sliceBorder(europe, 'Monfalcone', 'Pisa'),
+      [
+        'Pisa',
+        'Maranello',
+        'Pavia',
+        'Novara',
+        'Legnano',
+        'Bergamo',
+        'Verona',
+        'Conegliano',
+        'Monfalcone',
+      ],
+    ]),
+    mediterraneanIslands.Corse,
+    mediterraneanIslands.Sardegna,
+    mediterraneanIslands.Sicily,
+  ],
   cities: [
     ...romanRepublic['-218'].cities,
     // ...mediterraneanIslands.Mallorca,
@@ -172,7 +231,8 @@ romanRepublic['-44'] = {
   borders: [
     joinBorders([
       sliceBorder(europe, 'Kavala', 'Foz'),
-      sliceBorder(europe, 'Foz', 'Dunkirk'),
+      ['Foz', 'Leon', 'Burgos', 'Bilbao'],
+      sliceBorder(europe, 'Bilbao', 'Dunkirk'),
       [
         'Dunkirk',
         'Brussels',
