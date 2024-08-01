@@ -34,11 +34,10 @@ const aspectRatio = 16 / 9
 const maxZoom = 350
 
 interface CustomMapProps {
-  cities: number[][]
-  borders: number[][][]
+  states: { borders: number[][][]; cities: number[][] }[]
 }
 
-export function CustomMap({ cities, borders }: CustomMapProps) {
+export function CustomMap({ states }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [xy, setXy] = useState(storage.getXy())
 
@@ -147,6 +146,8 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
     xy,
   ])
 
+  const stateColors = ['red', 'green']
+
   return (
     <div ref={domRef}>
       <svg
@@ -161,7 +162,19 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
             />
           )
         )}
-        {borders.map((border, i) => (
+        {states.flatMap((state, i) => [
+          ...state.borders.map((border, j) => (
+            <Border
+              key={`border${i}-${j}`}
+              border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
+              fill={stateColors[i]}
+            />
+          )),
+          ...state.cities.map((city, j) => (
+            <City key={`city${i}-${j}`} city={latLonTupleToXYTuple(city)} />
+          )),
+        ])}
+        {/* {borders.map((border, i) => (
           <Border
             key={i}
             border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
@@ -170,7 +183,7 @@ export function CustomMap({ cities, borders }: CustomMapProps) {
         ))}
         {cities.map((city, i) => (
           <City key={i} city={latLonTupleToXYTuple(city)} />
-        ))}
+        ))} */}
       </svg>
     </div>
   )
