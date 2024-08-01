@@ -1,6 +1,6 @@
 import { LatLonName } from '../customMap/latLonByName'
 
-export type Nation = Record<
+export type State = Record<
   number,
   { borders: LatLonName[][]; cities: LatLonName[] }
 >

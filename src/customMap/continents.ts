@@ -13,6 +13,7 @@ const europe1: (keyof typeof latLonByName)[] = [
   'Krasnoperekopsk',
   'Kherson',
   'Odesa',
+  'Cardon',
   'Varna',
   'Burgas',
   'Rumelifeneri',
@@ -292,7 +293,7 @@ export const asia: (keyof typeof latLonByName)[] = [
   'Bandar `Abbas',
   'Mollu',
   'Bushehr',
-  'Abadan',
+  'Shadegan',
   'Kuwait City',
   'Dammam',
   'Al Mirfa',
@@ -311,6 +312,7 @@ export const asia: (keyof typeof latLonByName)[] = [
   'Al Mukalla',
   'Aden',
   'Jeddah',
+  'Umluj',
   'Sharma',
   'Ras Gasabah',
   'Aqaba',
@@ -367,6 +369,7 @@ export const asia: (keyof typeof latLonByName)[] = [
 
 export const africa: (keyof typeof latLonByName)[] = [
   'Suez',
+  'Berenice Troglodytica',
   'Djibouti',
   'Tohen',
   'Mogadishu',

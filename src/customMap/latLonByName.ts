@@ -3,6 +3,8 @@ import latLonByNameBase from '../assets/worldcities.json'
 export const latLonByName = {
   ...latLonByNameBase,
   // Africa
+  ['Berenice Troglodytica']: [23.908611, 35.4725],
+  Bawiti: [28.336517, 28.870431],
   ['Marina El Alamein']: [30.831506, 28.990232],
   ['Marsa Matruh']: [31.356951, 27.235784],
   ['Sidi Barrani']: [31.617231, 25.923276],
@@ -19,6 +21,9 @@ export const latLonByName = {
   Ceuta: [35.888487, -5.320367],
   Eddalya: [35.903756, -5.476859],
   // Asia
+  Shadegan: [30.380649, 48.889621],
+  Palmyra: [34.568898, 38.292718],
+  Umluj: [25.037131, 37.257367],
   ['El Jadida']: [33.246955, -8.494161],
   Tohen: [11.824187, 51.265149],
   Aqaba: [29.542977, 34.984474],
@@ -73,6 +78,8 @@ export const latLonByName = {
   Golcuk: [40.719875, 29.820015],
   Izmit: [40.758499, 29.937413],
   // Europe
+  Campbeltown: [55.427415, -5.605365],
+  Cardon: [45.205569, 29.681309],
   Leon: [42.594837, -5.572022],
   Cordoba: [37.884507, -4.779568],
   Placentia: [45.047683, 9.693048],

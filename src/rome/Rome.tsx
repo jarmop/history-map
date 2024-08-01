@@ -3,6 +3,7 @@ import { CustomMap } from '../customMap/CustomMap'
 import { latLonByName as modernCities } from '../customMap/latLonByName'
 import * as storage from '../storage'
 import { romanRepublic } from './romanRepublic'
+import { romanEmpire } from './romanEmpire'
 
 const latLonByName = {
   ...modernCities,
@@ -11,13 +12,14 @@ const latLonByName = {
 
 export function Rome() {
   const [yearIndex, setYearIndex] = useState(storage.getYearIndex())
-  const years = Object.keys(romanRepublic).map((year) => parseInt(year))
+  const rome = { ...romanRepublic, ...romanEmpire }
+  const years = Object.keys(rome)
+    .map((year) => parseInt(year))
+    .sort((a, b) => a - b)
   const year = years[yearIndex]
 
-  const romeCities = romanRepublic[year].cities.map(
-    (name) => latLonByName[name]
-  )
-  const romeBorders = romanRepublic[year].borders?.map((border) =>
+  const romeCities = rome[year].cities.map((name) => latLonByName[name])
+  const romeBorders = rome[year].borders?.map((border) =>
     border.map((name) => latLonByName[name])
   )
 
