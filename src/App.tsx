@@ -1,12 +1,12 @@
-import "./App.css";
-import { Rome } from "./customMap/Rome";
+import './App.css'
+import { Rome } from './rome/Rome'
 
 function App() {
   return (
     <div>
       <Rome />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,24 +1,14 @@
-import { useEffect, useState } from 'react'
-import { CustomMap } from './CustomMap'
-import { LatLonName, latLonByName as modernCities } from './latLonByName'
-import * as storage from '../storage'
-import { mediterraneanIslands } from './islands'
-import { africa, asia, europe } from './continents'
-import { joinBorders } from './helpers'
-
-const latLonByName = {
-  ...modernCities,
-  // Luceria: [],
-}
-
-type Nation = Record<number, { borders: LatLonName[][]; cities: LatLonName[] }>
+import { europe, asia, africa } from '../customMap/continents'
+import { joinBorders, sliceBorder } from '../customMap/helpers'
+import { mediterraneanIslands } from '../customMap/islands'
+import { Nation } from './types'
 
 // const romanKingdom: Nation = {
 //   753: ['Rome'],
 //   509: ['Rome'],
 // }
 
-const romanRepublic: Nation = {
+export const romanRepublic: Nation = {
   ['-500']: {
     borders: [],
     cities: ['Rome', 'Ostia'],
@@ -366,17 +356,6 @@ romanRepublic['-44'] = {
   ],
 }
 
-function sliceBorder(
-  latLonNames: LatLonName[],
-  start: LatLonName,
-  end: LatLonName
-) {
-  return latLonNames.slice(
-    latLonNames.indexOf(start),
-    latLonNames.indexOf(end) + 1
-  )
-}
-
 // const romanEmpire: Nation = {
 //   27: [],
 //   395: []
@@ -391,37 +370,3 @@ function sliceBorder(
 //   395: [],
 //   1453: [],
 // }
-
-export function Rome() {
-  const [yearIndex, setYearIndex] = useState(storage.getYearIndex())
-  const years = Object.keys(romanRepublic).map((year) => parseInt(year))
-  const year = years[yearIndex]
-
-  const romeCities = romanRepublic[year].cities.map(
-    (name) => latLonByName[name]
-  )
-  const romeBorders = romanRepublic[year].borders?.map((border) =>
-    border.map((name) => latLonByName[name])
-  )
-
-  useEffect(() => storage.setYearIndex(yearIndex), [yearIndex])
-
-  return (
-    <div>
-      <div style={{ position: 'fixed', fontSize: '40px' }}>{year}</div>
-      <CustomMap cities={romeCities} borders={romeBorders} />
-      <button
-        onClick={() => setYearIndex(yearIndex - 1)}
-        disabled={yearIndex === 0}
-      >
-        {'<'}
-      </button>
-      <button
-        onClick={() => setYearIndex(yearIndex + 1)}
-        disabled={yearIndex === years.length - 1}
-      >
-        {'>'}
-      </button>
-    </div>
-  )
-}
