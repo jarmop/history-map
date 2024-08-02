@@ -78,6 +78,7 @@ export const latLonByName = {
   Golcuk: [40.719875, 29.820015],
   Izmit: [40.758499, 29.937413],
   // Europe
+  Havelberg: [52.831439, 12.069837],
   Campbeltown: [55.427415, -5.605365],
   Cardon: [45.205569, 29.681309],
   Leon: [42.594837, -5.572022],

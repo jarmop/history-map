@@ -149,7 +149,7 @@ export function CustomMap({ states }: CustomMapProps) {
     xy,
   ])
 
-  const stateColors = ['red', 'green']
+  const stateColors = ['red', 'green', 'blue']
 
   return (
     <div ref={domRef}>

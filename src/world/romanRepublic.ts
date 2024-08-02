@@ -1,14 +1,14 @@
 import { europe, asia, africa } from '../customMap/continents'
 import { joinBorders, sliceBorder } from '../customMap/helpers'
 import { mediterraneanIslands } from '../customMap/islands'
-import { State } from './types'
+import { StateByYear } from './types'
 
 // const romanKingdom: Nation = {
 //   753: ['Rome'],
 //   509: ['Rome'],
 // }
 
-export const romanRepublic: State = {
+export const romanRepublic: StateByYear = {
   ['-500']: {
     borders: [],
     cities: ['Rome', 'Ostia'],

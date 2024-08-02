@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react'
 import { CustomMap } from '../customMap/CustomMap'
-import { LatLonName, latLonByName } from '../customMap/latLonByName'
+import { latLonByName } from '../customMap/latLonByName'
 import * as storage from '../storage'
 import { romanRepublic } from './romanRepublic'
 import { romanEmpire } from './romanEmpire'
 import { westernRomanEmpire } from './westernRomanEmpire'
 import { byzantineEmpire } from './byzantineEmpire'
+import { franks } from './franks'
+import { w843 } from './843'
+import { State } from './types'
 
-const world: Record<
-  number,
-  { borders: LatLonName[][]; cities: LatLonName[] }[]
-> = {}
-const states = [romanRepublic, romanEmpire, byzantineEmpire, westernRomanEmpire]
+const world: Record<number, State[]> = {}
+const states = [
+  romanRepublic,
+  romanEmpire,
+  byzantineEmpire,
+  westernRomanEmpire,
+  franks,
+]
 
 states.forEach((state) => {
   Object.keys(state)
@@ -23,6 +29,8 @@ states.forEach((state) => {
       world[year].push(state[year])
     })
 })
+
+world[843] = w843
 
 const years = Object.keys(world)
   .map((year) => parseInt(year))

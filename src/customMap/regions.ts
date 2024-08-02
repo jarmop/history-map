@@ -1,92 +1,93 @@
-import { joinBorders } from "./helpers";
-import { latLonByName } from "./latLonByName";
+import { joinBorders } from './helpers'
+import { latLonByName } from './latLonByName'
 
-const pyrenees: (keyof typeof latLonByName)[] = ["Irun", "Cerbere"];
+const pyrenees: (keyof typeof latLonByName)[] = ['Irun', 'Cerbere']
 
 export const iberiaCoast: (keyof typeof latLonByName)[] = [
-  "Cerbere",
-  "Girona",
-  "Barcelona",
-  "Tarragona",
-  "Valencia",
-  "Denia",
-  "Alicante",
-  "Cartagena",
-  "Almeria",
-  "Malaga",
-  "Gibraltar",
-  "Cadiz",
-  "Huelva",
-  "Faro",
-  "Sagres",
-  "Zambujeira",
-  "Sines",
-  "Setubal",
-  "Cascais",
-  "Peniche",
-  "Porto",
-  "Vigo",
-  "Camarinas",
-  "A Coruna",
-  "Carino",
-  "Foz",
-  "Gijon",
-  "Comillas",
-  "Santander",
-  "Sorrozuela",
-  "Bilbao",
-  "Donostia",
-  "Irun",
-];
+  'Cerbere',
+  'Palamos',
+  'Barcelona',
+  'Tarragona',
+  'Valencia',
+  'Denia',
+  'Alicante',
+  'Cartagena',
+  'Almeria',
+  'Malaga',
+  'Gibraltar',
+  'Cadiz',
+  'Huelva',
+  'Faro',
+  'Sagres',
+  'Zambujeira',
+  'Sines',
+  'Setubal',
+  'Cascais',
+  'Peniche',
+  'Porto',
+  'Vigo',
+  'Camarinas',
+  'A Coruna',
+  'Carino',
+  'Foz',
+  'Gijon',
+  'Comillas',
+  'Santander',
+  'Sorrozuela',
+  'Bilbao',
+  'Donostia',
+  'Irun',
+]
 
 export const iberia = joinBorders([iberiaCoast, pyrenees]).map((name) => {
-  return latLonByName[name];
-});
+  return latLonByName[name]
+})
 
 export const franceMediterranean: (keyof typeof latLonByName)[] = [
-  "Ludovico",
-  "Nice",
-  "Toulon",
-  "Marseille",
-  "Montpellier",
-  "Narbonne",
-  "Cerbere",
-];
+  'Ludovico',
+  'Nice',
+  'Toulon',
+  'Marseille',
+  'Montpellier',
+  'Narbonne',
+  'Cerbere',
+]
 
 export const franceAtlantic: (keyof typeof latLonByName)[] = [
-  "Irun",
-  "Bayonne",
-  "La Rochelle",
-  "Vannes",
-  "Quimper",
-  "Brest",
-  "Lannion",
-  "Saint-Brieuc",
-  "Saint-Malo",
-  "Granville",
-  "Flamanville",
-  "Cherbourg",
-  "Barfleur",
-  "Crasville",
-  "Utah Beach",
-  "Ouistreham",
-  "Le Havre",
-  "Etretat",
-  "Treport",
-  "Calais",
-  "Dunkirk",
-  "Perroquet",
-];
+  'Irun',
+  'Bayonne',
+  'La Rochelle',
+  'Saint-Nazaire',
+  'Vannes',
+  'Quimper',
+  'Brest',
+  'Lannion',
+  'Saint-Brieuc',
+  'Saint-Malo',
+  'Granville',
+  'Flamanville',
+  'Cherbourg',
+  'Barfleur',
+  'Crasville',
+  'Utah Beach',
+  'Ouistreham',
+  'Le Havre',
+  'Etretat',
+  'Treport',
+  'Calais',
+  'Dunkirk',
+  'Perroquet',
+]
 
 const franceEast: (keyof typeof latLonByName)[] = [
-  "Perroquet",
-  "FranceEast",
-  "Basel",
-  "Geneva",
-  "Montreux",
-  "Dolent",
-  "Ludovico",
-];
+  'Perroquet',
+  'FranceEast',
+  'Basel',
+  'Geneva',
+  'Montreux',
+  'Dolent',
+  'Ludovico',
+]
 
 export const france = joinBorders([
   franceMediterranean,
@@ -94,5 +95,5 @@ export const france = joinBorders([
   franceAtlantic,
   franceEast,
 ]).map((name) => {
-  return latLonByName[name];
-});
+  return latLonByName[name]
+})

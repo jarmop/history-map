@@ -1,9 +1,9 @@
 import { europe, asia, africa } from '../customMap/continents'
 import { joinBorders, sliceBorder } from '../customMap/helpers'
 import { britishIsles, mediterraneanIslands } from '../customMap/islands'
-import { State } from './types'
+import { StateByYear } from './types'
 
-export const romanEmpire: State = {}
+export const romanEmpire: StateByYear = {}
 
 romanEmpire[1] = {
   borders: [
