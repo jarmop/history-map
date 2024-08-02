@@ -10,7 +10,10 @@ interface CityProps {
 
 function City({ city }: CityProps) {
   const [x, y] = city
-  return <circle cx={x} cy={y} r="3" />
+  return <circle cx={x} cy={y} r="2" />
+  // return (
+  //   <circle cx={x} cy={y} r="2" fill="white" stroke="black" strokeWidth={2} />
+  // )
 }
 interface BorderProps {
   border: number[][]

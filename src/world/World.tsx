@@ -7,7 +7,7 @@ import { romanEmpire } from './romanEmpire'
 import { westernRomanEmpire } from './westernRomanEmpire'
 import { byzantineEmpire } from './byzantineEmpire'
 
-const rome: Record<
+const world: Record<
   number,
   { borders: LatLonName[][]; cities: LatLonName[] }[]
 > = {}
@@ -17,25 +17,25 @@ states.forEach((state) => {
   Object.keys(state)
     .map((year) => parseInt(year))
     .forEach((year) => {
-      if (!rome[year]) {
-        rome[year] = []
+      if (!world[year]) {
+        world[year] = []
       }
-      rome[year].push(state[year])
+      world[year].push(state[year])
     })
 })
 
-const years = Object.keys(rome)
+const years = Object.keys(world)
   .map((year) => parseInt(year))
   .sort((a, b) => a - b)
 
-export function Rome() {
+export function World() {
   const [yearIndex, setYearIndex] = useState(storage.getYearIndex())
 
   useEffect(() => storage.setYearIndex(yearIndex), [yearIndex])
 
   const year = years[yearIndex]
 
-  const states = rome[year].map((state) => ({
+  const states = world[year].map((state) => ({
     borders: state.borders.map((border) =>
       border.map((name) => latLonByName[name])
     ),

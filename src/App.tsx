@@ -1,10 +1,10 @@
 import './App.css'
-import { Rome } from './rome/Rome'
+import { World } from './world/World'
 
 function App() {
   return (
     <div>
-      <Rome />
+      <World />
     </div>
   )
 }
