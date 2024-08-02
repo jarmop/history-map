@@ -6,11 +6,12 @@ import * as storage from '../storage'
 
 interface CityProps {
   city: number[]
+  border: string
 }
 
-function City({ city }: CityProps) {
+function City({ city, border }: CityProps) {
   const [x, y] = city
-  return <circle cx={x} cy={y} r="2" />
+  return <circle cx={x} cy={y} r="3" stroke={border} strokeWidth={3} />
   // return (
   //   <circle cx={x} cy={y} r="2" fill="white" stroke="black" strokeWidth={2} />
   // )
@@ -35,6 +36,15 @@ function Border({ border, fill = 'lightgrey' }: BorderProps) {
 
 const aspectRatio = 16 / 9
 const maxZoom = 350
+const stateColors = [
+  'red',
+  'green',
+  'blue',
+  'purple',
+  'pink',
+  'brown',
+  'orange',
+]
 
 interface CustomMapProps {
   states: { borders: number[][][]; cities: number[][] }[]
@@ -149,8 +159,6 @@ export function CustomMap({ states }: CustomMapProps) {
     xy,
   ])
 
-  const stateColors = ['red', 'green', 'blue']
-
   return (
     <div ref={domRef}>
       <svg
@@ -174,7 +182,11 @@ export function CustomMap({ states }: CustomMapProps) {
             />
           )),
           ...state.cities.map((city, j) => (
-            <City key={`city${i}-${j}`} city={latLonTupleToXYTuple(city)} />
+            <City
+              key={`city${i}-${j}`}
+              city={latLonTupleToXYTuple(city)}
+              border={stateColors[i]}
+            />
           )),
         ])}
         {/* {borders.map((border, i) => (

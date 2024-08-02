@@ -48,6 +48,7 @@ export const franceMediterranean: (keyof typeof latLonByName)[] = [
   'Nice',
   'Toulon',
   'Marseille',
+  'Saintes-Maries-de-la-Mer',
   'Montpellier',
   'Narbonne',
   'Cerbere',

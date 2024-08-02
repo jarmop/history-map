@@ -9,6 +9,8 @@ import { byzantineEmpire } from './byzantineEmpire'
 import { franks } from './franks'
 import { w843 } from './843'
 import { State } from './types'
+import { w888 } from './888'
+import { w1075 } from './1075'
 
 const world: Record<number, State[]> = {}
 const states = [
@@ -31,6 +33,8 @@ states.forEach((state) => {
 })
 
 world[843] = w843
+world[888] = w888
+world[1075] = w1075
 
 const years = Object.keys(world)
   .map((year) => parseInt(year))
