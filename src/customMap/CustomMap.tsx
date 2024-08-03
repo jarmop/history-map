@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLatLonToXy } from './useLatLonToXy'
 import * as storage from '../storage'
 import { rivers } from '../world/rivers'
+import { seas } from '../world/seas'
 
 interface CityProps {
   city: number[]
@@ -12,7 +13,8 @@ interface CityProps {
 
 function City({ city, border }: CityProps) {
   const [x, y] = city
-  return <circle cx={x} cy={y} r="3" stroke={border} strokeWidth={3} />
+  return <circle cx={x} cy={y} r="2" />
+  // return <circle cx={x} cy={y} r="3" stroke={border} strokeWidth={3} />
   // return (
   //   <circle cx={x} cy={y} r="2" fill="white" stroke="black" strokeWidth={2} />
   // )
@@ -51,6 +53,15 @@ function River({ river }: RiverProps) {
       // d={`M${border[0].join(" ")} ${border.slice(1).flat().join(" ")} z`}
     />
   )
+}
+
+interface SeaProps {
+  border: number[][]
+  fill?: string
+}
+
+function Sea({ border }: SeaProps) {
+  return <path fill="lightcyan" d={`M${border.join(' ')} z`} />
 }
 
 const aspectRatio = 16 / 9
@@ -212,6 +223,12 @@ export function CustomMap({ states }: CustomMapProps) {
           <River
             key={i}
             river={river.map((latlon) => latLonTupleToXYTuple(latlon))}
+          />
+        ))}
+        {seas.map((sea, i) => (
+          <Sea
+            key={i}
+            border={sea.map((latLon) => latLonTupleToXYTuple(latLon))}
           />
         ))}
       </svg>

@@ -11,6 +11,7 @@ import { w843 } from './843'
 import { State } from './types'
 import { w888 } from './888'
 import { w1075 } from './1075'
+import { w720 } from './720'
 
 const world: Record<number, State[]> = {}
 const states = [
@@ -32,6 +33,7 @@ states.forEach((state) => {
     })
 })
 
+world[720] = w720
 world[843] = w843
 world[888] = w888
 world[1075] = w1075

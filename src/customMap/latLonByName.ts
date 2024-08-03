@@ -26,6 +26,7 @@ export const latLonByName = {
   Angoche: [-16.28823, 39.954025],
   Nacala: [-14.563861, 40.697206],
   // Asia
+  Akpetki: [44.27568, 59.929346],
   Shadegan: [30.380649, 48.889621],
   Palmyra: [34.568898, 38.292718],
   Umluj: [25.037131, 37.257367],
@@ -122,6 +123,7 @@ export const latLonByName = {
   ['Mouth of Oder']: [53.921943, 14.281676],
   ['Source of Vistula']: [49.605833, 19.003611],
   ['Mouth of Vistula']: [54.361667, 18.951944],
+  Gruissan: [43.110983, 3.124136],
   Chaicovychi: [49.59042, 23.522825],
   Dnistryk: [49.287299, 22.84683],
   Ustya: [49.512196, 23.922629],
