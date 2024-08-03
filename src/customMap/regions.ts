@@ -57,6 +57,7 @@ export const franceMediterranean: (keyof typeof latLonByName)[] = [
 export const franceAtlantic: (keyof typeof latLonByName)[] = [
   'Irun',
   'Bayonne',
+  'Royan',
   'La Rochelle',
   'Saint-Nazaire',
   'Vannes',

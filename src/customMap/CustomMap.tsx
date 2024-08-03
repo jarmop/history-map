@@ -3,6 +3,7 @@ import { islandsBorders } from './islands'
 import { useEffect, useRef, useState } from 'react'
 import { useLatLonToXy } from './useLatLonToXy'
 import * as storage from '../storage'
+import { rivers } from '../world/rivers'
 
 interface CityProps {
   city: number[]
@@ -27,8 +28,26 @@ function Border({ border, fill = 'lightgrey' }: BorderProps) {
       fill={fill}
       // stroke="black"
       // strokeWidth={1}
+      // strokeWidth={1}
       // strokeLinejoin="round"
       d={`M${border.join(' ')} z`}
+      // d={`M${border[0].join(" ")} ${border.slice(1).flat().join(" ")} z`}
+    />
+  )
+}
+
+interface RiverProps {
+  river: number[][]
+}
+
+function River({ river }: RiverProps) {
+  return (
+    <path
+      fill="none"
+      stroke="lightcyan"
+      strokeWidth={2}
+      strokeLinejoin="round"
+      d={`M${river.join(' ')}`}
       // d={`M${border[0].join(" ")} ${border.slice(1).flat().join(" ")} z`}
     />
   )
@@ -189,16 +208,12 @@ export function CustomMap({ states }: CustomMapProps) {
             />
           )),
         ])}
-        {/* {borders.map((border, i) => (
-          <Border
+        {rivers.map((river, i) => (
+          <River
             key={i}
-            border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
-            fill="red"
+            river={river.map((latlon) => latLonTupleToXYTuple(latlon))}
           />
         ))}
-        {cities.map((city, i) => (
-          <City key={i} city={latLonTupleToXYTuple(city)} />
-        ))} */}
       </svg>
     </div>
   )
