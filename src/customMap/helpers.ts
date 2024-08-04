@@ -27,3 +27,7 @@ export function getLatLonByName(name: string): number[] {
     ? latLonByName[name]
     : name.split(', ').map((str) => parseFloat(str))
 }
+
+export function toFixedNumber(value: number, digits: number) {
+  return parseFloat(value.toFixed(digits))
+}

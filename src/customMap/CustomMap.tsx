@@ -5,19 +5,16 @@ import { useLatLonToXy } from './useLatLonToXy'
 import * as storage from '../storage'
 import { rivers } from '../world/rivers'
 import { seas } from '../world/seas'
+import { toFixedNumber } from './helpers'
 
 interface CityProps {
   city: number[]
   border: string
 }
 
-function City({ city, border }: CityProps) {
+function City({ city }: CityProps) {
   const [x, y] = city
   return <circle cx={x} cy={y} r="2" />
-  // return <circle cx={x} cy={y} r="3" stroke={border} strokeWidth={3} />
-  // return (
-  //   <circle cx={x} cy={y} r="2" fill="white" stroke="black" strokeWidth={2} />
-  // )
 }
 interface BorderProps {
   border: number[][]
@@ -43,10 +40,7 @@ function Border({
         fill={fill}
         stroke={active ? 'black' : 'none'}
         strokeWidth={2}
-        // strokeLinejoin="round"
         d={`M${border.join(' ')} z`}
-        // d={`M${border[0].join(" ")} ${border.slice(1).flat().join(" ")} z`}
-        // onClick={() => setActive((active) => !active)}
         onMouseDown={(e) => {
           setDownXy([e.clientX, e.clientY])
         }}
@@ -67,9 +61,8 @@ function Border({
             fill={i === activePoint ? 'black' : 'transparent'}
             onMouseEnter={() => setActivePoint(i)}
             onMouseLeave={() => setActivePoint(-1)}
-            onClick={(e) => {
+            onMouseUp={(e) => {
               e.stopPropagation()
-              // selectPoint([e.clientX, e.clientY])
               selectPoint(point)
             }}
           />
@@ -90,7 +83,6 @@ function River({ river }: RiverProps) {
       strokeWidth={2}
       strokeLinejoin="round"
       d={`M${river.join(' ')}`}
-      // d={`M${border[0].join(" ")} ${border.slice(1).flat().join(" ")} z`}
     />
   )
 }
@@ -116,11 +108,6 @@ const stateColors = [
   'orange',
 ]
 
-interface CustomMapProps {
-  states: { borders: number[][][]; cities: number[][] }[]
-  editMode: boolean
-}
-
 interface FooProps {
   points: number[][]
   mouseXY: number[]
@@ -128,15 +115,12 @@ interface FooProps {
 
 function Foo({ points, mouseXY }: FooProps) {
   const dPoints = [...points, mouseXY]
-  return (
-    <path
-      fill="none"
-      stroke="black"
-      // strokeWidth={2}
-      // strokeLinejoin="round"
-      d={`M${dPoints.join(' ')}`}
-    />
-  )
+  return <path fill="none" stroke="black" d={`M${dPoints.join(' ')}`} />
+}
+
+interface CustomMapProps {
+  states: { borders: number[][][]; cities: number[][] }[]
+  editMode: boolean
 }
 
 export function CustomMap({ states, editMode }: CustomMapProps) {
@@ -254,7 +238,6 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
 
   const continents = [europeBorder, africaBorder, asiaBorder, ...islandsBorders]
 
-  // const contactPoints = [continents.flat(), ...states.flatMap(state => state.borders)].flat()
   const contactPoints = editMode
     ? [
         ...continents,
@@ -265,7 +248,6 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
         .flat()
         .map(latLonTupleToXYTuple)
     : []
-  // const contactPoints = [...states.flatMap(state => state.borders)]
 
   function toggleActiveBorder(id: string) {
     points.length < 1 &&
@@ -273,6 +255,10 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
   }
 
   function selectPoint(point: number[]) {
+    setPoints((points) => [...points, point])
+  }
+
+  function selectBorderPoint(point: number[]) {
     setPoints((points) => [...points, point])
   }
 
@@ -292,6 +278,12 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
   }, [])
 
   const [downXy, setDownXy] = useState([0, 0])
+
+  useEffect(() => {
+    console.log(points)
+  }, [points])
+
+  const [newRegions, setNewRegions] = useState<number[][][]>([])
 
   return (
     <div ref={domRef}>
@@ -332,7 +324,56 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
             border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
             onClick={() => toggleActiveBorder('continent' + i)}
             active={activeBorder === 'continent' + i}
-            selectPoint={selectPoint}
+            selectPoint={(point: number[]) => {
+              if (points.length > 0) {
+                const startPoint = points[0]
+                const endPoint = point
+                const startIndex = border.findIndex((borderPoint) => {
+                  const xyTuple = latLonTupleToXYTuple(borderPoint)
+                  return (
+                    startPoint[0] === xyTuple[0] && startPoint[1] === xyTuple[1]
+                  )
+                })
+
+                const endIndex = border.findIndex((borderPoint) => {
+                  const xyTuple = latLonTupleToXYTuple(borderPoint)
+                  return (
+                    endPoint[0] === xyTuple[0] && endPoint[1] === xyTuple[1]
+                  )
+                })
+
+                const divider = [
+                  border[startIndex],
+                  ...points
+                    .slice(1)
+                    .map((p) =>
+                      xYTupleToLatLonTuple(p).map((value) =>
+                        toFixedNumber(value, 5)
+                      )
+                    ),
+                  border[endIndex],
+                ]
+
+                const smallerIndex = Math.min(startIndex, endIndex)
+                const largerIndex = Math.max(startIndex, endIndex)
+                const firstRegion = [
+                  border.slice(0, smallerIndex),
+                  startIndex === smallerIndex
+                    ? divider
+                    : [...divider].reverse(),
+                  border.slice(largerIndex + 1),
+                ].flat()
+                const secondRegion = [
+                  border.slice(smallerIndex + 1, largerIndex),
+                  startIndex === largerIndex ? divider : [...divider].reverse(),
+                ].flat()
+
+                setNewRegions([firstRegion, secondRegion])
+                setPoints([])
+              } else {
+                selectBorderPoint(point)
+              }
+            }}
           />
         ))}
         {states.flatMap((state, i) => [
@@ -343,7 +384,7 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
               fill={stateColors[i]}
               onClick={() => toggleActiveBorder(`state${i}`)}
               active={activeBorder === `state${i}`}
-              selectPoint={selectPoint}
+              selectPoint={selectBorderPoint}
             />
           )),
           ...state.cities.map((city, j) => (
@@ -354,6 +395,16 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
             />
           )),
         ])}
+        {newRegions.map((region, i) => (
+          <Border
+            key={`newState${i}`}
+            border={region.map((latlon) => latLonTupleToXYTuple(latlon))}
+            fill={stateColors[i]}
+            onClick={() => toggleActiveBorder(`newState${i}`)}
+            active={activeBorder === `newState${i}`}
+            selectPoint={selectBorderPoint}
+          />
+        ))}
         {rivers.map((river, i) => (
           <River
             key={i}
@@ -372,8 +423,6 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
             cx={point[0]}
             cy={point[1]}
             r="5"
-            // fill="none"
-            // fill="black"
             fill={i === activePoint ? 'black' : 'transparent'}
             onMouseEnter={() => setActivePoint(i)}
             onMouseLeave={() => setActivePoint(-1)}
