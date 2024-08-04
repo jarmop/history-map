@@ -85,4 +85,57 @@ const franciaOrientalis: State = {
   cities: ['Verden', 'Fulda', 'Augsburg'],
 }
 
-export const w843 = [franciaOccidentalis, franciaMedia, franciaOrientalis]
+const abbasidCaliphate: State = {
+  borders: [
+    // joinBorders([
+    //   middleEast.reverse(),
+    //   sliceBorder(europe, 'Varel', 'Husum'),
+    //   [
+    //     'Husum',
+    //     'Eckernforde',
+    //     'Hamburg',
+    //     'Wittenberge',
+    //     'Havelberg',
+    //     'Magdeburg',
+    //     'Jena',
+    //     'Bayreuth',
+    //     'Linz',
+    //     'Vienna',
+    //     'Zagreb',
+    //     'Rijeka',
+    //   ],
+    // ]),
+  ],
+  cities: [
+    'Constantine',
+    'Tunis',
+    'Kairouan',
+    'Sfax',
+    'Tripoli',
+    'Misrata',
+    'Sirte',
+    // 'Barca',
+    'Alexandria',
+    'Damietta',
+    'Tarsus',
+    'Aswan',
+    // 'Derbend',
+    'Baku',
+    'Gorgan',
+    'Karachi',
+    // 'Mansura',
+    'Multan',
+    'Kabul',
+    'Balkh',
+    'Bukhara',
+    // 'Kath',
+    // 'Gurganj',
+  ],
+}
+
+export const w843 = [
+  franciaOccidentalis,
+  franciaMedia,
+  franciaOrientalis,
+  abbasidCaliphate,
+]

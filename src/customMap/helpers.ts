@@ -1,14 +1,14 @@
 import { latLonByName, LatLonName } from './latLonByName'
 
 // Remove overlap by slicing off the first item of each border
-export function joinBorders(borders: (keyof typeof latLonByName)[][]) {
+export function joinBorders(borders: string[][]) {
   return borders.flatMap((b) => b.slice(1))
 }
 
 export function sliceBorder(
-  latLonNames: LatLonName[],
-  start: LatLonName,
-  end?: LatLonName
+  latLonNames: string[],
+  start: string,
+  end?: string
 ) {
   return end
     ? latLonNames.slice(
@@ -16,4 +16,14 @@ export function sliceBorder(
         latLonNames.indexOf(end) + 1
       )
     : latLonNames.slice(latLonNames.indexOf(start))
+}
+
+function isLatLonName(name: string): name is LatLonName {
+  return name in latLonByName
+}
+
+export function getLatLonByName(name: string): number[] {
+  return isLatLonName(name)
+    ? latLonByName[name]
+    : name.split(', ').map((str) => parseFloat(str))
 }

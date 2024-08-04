@@ -1,5 +1,5 @@
 import { latLonByName } from './latLonByName'
-import { joinBorders } from './helpers'
+import { getLatLonByName, joinBorders } from './helpers'
 import { franceAtlantic, franceMediterranean, iberiaCoast } from './regions'
 
 const europe1: (keyof typeof latLonByName)[] = [
@@ -410,7 +410,7 @@ export const asia: (keyof typeof latLonByName)[] = [
   'Tanais',
 ]
 
-export const africa: (keyof typeof latLonByName)[] = [
+export const africa: string[] = [
   'Suez',
   'Berenice Troglodytica',
   'Djibouti',
@@ -455,6 +455,7 @@ export const africa: (keyof typeof latLonByName)[] = [
   'Oran',
   'Algiers',
   'Jijel',
+  '36.917586, 6.236173',
   'Annaba',
   'Carthage',
   'Sousse',
@@ -486,8 +487,8 @@ export const africa: (keyof typeof latLonByName)[] = [
   'Port Said',
 ]
 
-export const europeBorder = europe.map((name) => latLonByName[name])
+export const europeBorder = europe.map(getLatLonByName)
 
-export const africaBorder = africa.map((name) => latLonByName[name])
+export const africaBorder = africa.map(getLatLonByName)
 
-export const asiaBorder = asia.map((name) => latLonByName[name])
+export const asiaBorder = asia.map(getLatLonByName)

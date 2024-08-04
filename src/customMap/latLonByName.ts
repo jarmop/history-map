@@ -30,6 +30,10 @@ export const latLonByName = {
   Shadegan: [30.380649, 48.889621],
   Palmyra: [34.568898, 38.292718],
   Umluj: [25.037131, 37.257367],
+  ['Source of Amu Darya']: [37.451111, 73.5725],
+  ['Mouth of Amu Darya']: [44.261215, 59.613879],
+  ['Source of Syr Darya']: [40.900833, 71.7575],
+  ['Mouth of Syr Darya']: [46.154167, 60.873611],
   ['El Jadida']: [33.246955, -8.494161],
   Tohen: [11.824187, 51.265149],
   Aqaba: [29.542977, 34.984474],
@@ -142,6 +146,10 @@ export const latLonByName = {
   ['Mouth of Zambezi']: [-18.570556, 36.470278],
   ['Source of Indus River']: [31.200833, 81.754444],
   ['Mouth of Indus River']: [23.994444, 67.430833],
+  ['Source of Ravi River']: [32.332562, 77.046243], // Hanuman Tibba (mountain peak)
+  ['Mouth of Ravi River']: [30.621778, 71.825668], // Joins Chenab River
+  ['Source of Chenab River']: [32.635833, 77.480833],
+  ['Mouth of Chenab River']: [29.117518, 70.700211], // Joins Indus River
   ['Source of Jordan River']: [33.1875, 35.619444],
   ['Mouth of Jordan River']: [31.5, 35.5], // Dead Sea
   ['Source of Tigris']: [38.483333, 39.416667],

@@ -1,7 +1,6 @@
-import { sliceBorder } from '../customMap/helpers'
-import { latLonByName, LatLonName } from '../customMap/latLonByName'
+import { getLatLonByName, sliceBorder } from '../customMap/helpers'
 
-export const adige: LatLonName[] = [
+export const adige: string[] = [
   'Source of Adige',
   // 'Mals', The true source?
   'Sluderno',
@@ -20,8 +19,41 @@ export const adige: LatLonName[] = [
   'Mouth of Adige',
 ]
 
-export const congoRiver: LatLonName[] = [
-  //
+export const amuDarya: string[] = [
+  'Source of Amu Darya',
+  // '37.451111, 73.5725',
+  '36.690330, 71.862824',
+  '36.780461, 71.562785',
+  '37.060632, 71.431004',
+  '37.926954, 71.584698',
+  '38.455940, 70.771555',
+  '37.940601, 70.178403',
+  '37.526743, 70.167018',
+  '37.311318, 68.963439',
+  '36.927473, 68.032804',
+  '37.691511, 65.326285',
+  'Turkmenabat',
+  '39.779507, 62.571865',
+  '40.976649, 61.996504',
+  'Nukus',
+  '42.586653, 59.276345',
+  '43.196600, 59.129100',
+  'Mouth of Amu Darya',
+]
+
+export const chenabRiver: string[] = [
+  'Source of Chenab River',
+  // '32.287182, 77.513752',
+  '33.388535, 75.767189', // first big bend start
+  '33.342321, 75.721148', // first big bend end
+  '32.888936, 74.733488', // gets bigger, less swirling
+  '32.225121, 73.396308',
+  '31.720704, 72.923523',
+  '31.692385, 72.624297',
+  'Mouth of Chenab River',
+]
+
+export const congoRiver: string[] = [
   'Source of Congo River',
   'Likasi',
   'Kongolo',
@@ -38,9 +70,7 @@ export const congoRiver: LatLonName[] = [
   'Mouth of Congo River',
 ]
 
-export const danube: LatLonName[] = [
-  // 'Hufingen',
-  // 'Hufingen',
+export const danube: string[] = [
   'Donaueschingen',
   // 'Geisingen',
   'Tuttlingen',
@@ -99,7 +129,7 @@ export const danube: LatLonName[] = [
   'Cardon',
 ]
 
-export const dnieper: LatLonName[] = [
+export const dnieper: string[] = [
   //
   'Source of Dnieper',
   'Smolensk',
@@ -117,7 +147,7 @@ export const dnieper: LatLonName[] = [
   'Mouth of Dnieper',
 ]
 
-export const dniester: LatLonName[] = [
+export const dniester: string[] = [
   'Chaicovychi',
   'Sambir',
   'Staryi Sambir',
@@ -138,7 +168,7 @@ export const dniester: LatLonName[] = [
   'Mouth of Dniester',
 ]
 
-export const don: LatLonName[] = [
+export const don: string[] = [
   'Source of Don',
   'Voronezh',
   'Liski',
@@ -147,7 +177,7 @@ export const don: LatLonName[] = [
   'Mouth of Don',
 ]
 
-export const elbe: LatLonName[] = [
+export const elbe: string[] = [
   'Pramen Labe',
   'Spindleruv Mlyn',
   // 'Labska',
@@ -194,7 +224,7 @@ export const elbe: LatLonName[] = [
   'Cuxhaven',
 ]
 
-export const ganges: LatLonName[] = [
+export const ganges: string[] = [
   //
   'Source of Ganges',
   'Kanpur',
@@ -213,8 +243,7 @@ export const ganges: LatLonName[] = [
   'Mouth of Ganges',
 ]
 
-export const brahmaputra: LatLonName[] = [
-  //
+export const brahmaputra: string[] = [
   'Source of Brahmaputra',
   'Zuobudun',
   'Zhelong',
@@ -237,7 +266,7 @@ export const brahmaputra: LatLonName[] = [
   ...sliceBorder(ganges, 'Daulatdia'),
 ]
 
-export const garonne: LatLonName[] = [
+export const garonne: string[] = [
   'Source of Garonne',
   'Saint-Gaudens',
   // 'Carbonne',
@@ -251,28 +280,34 @@ export const garonne: LatLonName[] = [
   'Royan',
 ]
 
-export const indusRiver: LatLonName[] = [
-  //
+export const indusRiver: string[] = [
   'Source of Indus River',
-  'Lahore',
+  '35.850666, 74.736996',
+  // '35.827367, 74.655383',
+  '35.429548, 73.198175',
+  // '33.908346, 72.235519', // Peshawar junction
+  // '33.021098, 71.720938', // joins larger indus stream
+  '31.427219, 70.786728', // bend
+  // '29.115727, 70.700160', // joins the main indus stream
+  'Mouth of Chenab River', // joins the main indus stream
+  // 'Lahore',
+  'Larkana',
   'Sehwan',
   'Hyderabad (Pakistan)',
   'Mouth of Indus River',
 ]
 
-export const jordanRiver: LatLonName[] = [
-  //
+export const jordanRiver: string[] = [
   'Source of Jordan River',
   'Mouth of Jordan River',
 ]
 
-export const kizilirmak: LatLonName[] = [
-  //
+export const kizilirmak: string[] = [
   'Source of Kizilirmak',
   'Mouth of Kizilirmak',
 ]
 
-export const loire: LatLonName[] = [
+export const loire: string[] = [
   'Sources de la Loire',
   // 'Sainte-Eulalie',
   'Rieuford',
@@ -298,7 +333,7 @@ export const loire: LatLonName[] = [
   'Saint-Nazaire',
 ]
 
-export const nigerRiver: LatLonName[] = [
+export const nigerRiver: string[] = [
   //
   'Source of Niger River',
   'Faranah',
@@ -317,8 +352,7 @@ export const nigerRiver: LatLonName[] = [
   'Okumbiri', // beach between the substreams
 ]
 
-export const nile: LatLonName[] = [
-  //
+export const nile: string[] = [
   'Source of Nile',
   'Juba',
   'Khartoum',
@@ -327,7 +361,15 @@ export const nile: LatLonName[] = [
   'Cairo',
 ]
 
-export const rhine: LatLonName[] = [
+export const raviRiver: string[] = [
+  'Source of Ravi River',
+  '32.620522, 76.078494',
+  '32.615573, 75.922146',
+  'Lahore',
+  'Mouth of Ravi River',
+]
+
+export const rhine: string[] = [
   'Stein am Rhein',
   'Neuhausen am Rheinfall',
   'Eglisau',
@@ -362,7 +404,7 @@ export const rhine: LatLonName[] = [
   'Rockanje',
 ]
 
-export const meuse: LatLonName[] = [
+export const meuse: string[] = [
   'Source of Meuse',
   'Verdun',
   'Namur',
@@ -373,8 +415,7 @@ export const meuse: LatLonName[] = [
   ...sliceBorder(rhine, 'Nijmegen'),
 ]
 
-export const oder: LatLonName[] = [
-  //
+export const oder: string[] = [
   'Source of Oder',
   'Ostrava',
   'Opole',
@@ -385,7 +426,7 @@ export const oder: LatLonName[] = [
   'Mouth of Oder',
 ]
 
-export const po: LatLonName[] = [
+export const po: string[] = [
   'Source of Po',
   'Saluzzo',
   'Turin',
@@ -402,7 +443,7 @@ export const po: LatLonName[] = [
   'Mouth of Po',
 ]
 
-export const rhone: LatLonName[] = [
+export const rhone: string[] = [
   'Rhone Glacier',
   'Sion',
   'Martigny',
@@ -422,7 +463,7 @@ export const rhone: LatLonName[] = [
   'Arles',
 ]
 
-export const seine: LatLonName[] = [
+export const seine: string[] = [
   'Sources de la Seine',
   // 'Chatillon',
   'Troyes',
@@ -431,7 +472,27 @@ export const seine: LatLonName[] = [
   'Le Havre',
 ]
 
-export const tiber: LatLonName[] = [
+export const syrDarya: string[] = [
+  //'Source of Syr Darya',
+  '40.900833, 71.7575', // source (confluence of some rivers)
+  '40.816180, 70.990926',
+  '40.357547, 70.278855', // mouth to Kairakum Reservoir
+  '40.187972, 69.321868',
+  '40.213978, 69.164745',
+  '40.565783, 69.104002',
+  '41.246491, 67.967738', // exiting Shardara Reservoir
+  '42.951073, 68.163474',
+  '44.835137, 65.492703', // 'Kyzylorda',
+  '45.089514, 64.441644',
+  '45.751201, 63.779741',
+  '45.648789, 61.966498',
+  '46.068458, 61.628876',
+  '46.154167, 60.873611', // mouth to North Aral
+
+  // 'Mouth of Syr Darya'
+]
+
+export const tiber: string[] = [
   'Source of Tiber',
   'Sansepolcro',
   'Perugia',
@@ -442,7 +503,7 @@ export const tiber: LatLonName[] = [
   'Mouth of Tiber',
 ]
 
-export const tigris: LatLonName[] = [
+export const tigris: string[] = [
   //
   'Source of Tigris',
   'Diyarbakir',
@@ -460,7 +521,7 @@ export const tigris: LatLonName[] = [
   'Abadan',
 ]
 
-export const euphrates: LatLonName[] = [
+export const euphrates: string[] = [
   //
   'Source of Euphrates',
   'Keban',
@@ -482,7 +543,7 @@ export const euphrates: LatLonName[] = [
   ...sliceBorder(tigris, 'Al Qurnah'),
 ]
 
-export const vistula: LatLonName[] = [
+export const vistula: string[] = [
   //
   'Source of Vistula',
   'Krakow',
@@ -497,7 +558,7 @@ export const vistula: LatLonName[] = [
   'Mouth of Vistula',
 ]
 
-export const vltava: LatLonName[] = [
+export const vltava: string[] = [
   'Pramen Vltavy',
   'Kvilda',
   'Borova Lada',
@@ -514,7 +575,7 @@ export const vltava: LatLonName[] = [
   ...sliceBorder(elbe, 'Melnik'),
 ]
 
-export const volga: LatLonName[] = [
+export const volga: string[] = [
   'Source of Volga',
   'Rzhev',
   'Tver',
@@ -531,7 +592,7 @@ export const volga: LatLonName[] = [
   'Mouth of Volga',
 ]
 
-export const yangtse: LatLonName[] = [
+export const yangtse: string[] = [
   //
   'Source of Yangtse',
   'Lijiang',
@@ -555,7 +616,7 @@ export const yangtse: LatLonName[] = [
   'Mouth of Yangtse',
 ]
 
-export const yellowRiver: LatLonName[] = [
+export const yellowRiver: string[] = [
   //
   'Source of Yellow River',
   'Changna',
@@ -573,8 +634,7 @@ export const yellowRiver: LatLonName[] = [
   'Mouth of Yellow River',
 ]
 
-export const zambezi: LatLonName[] = [
-  //
+export const zambezi: string[] = [
   'Source of Zambezi',
   'Cazombo',
   'Mongu',
@@ -586,7 +646,9 @@ export const zambezi: LatLonName[] = [
 
 export const rivers = [
   adige,
+  amuDarya,
   brahmaputra,
+  chenabRiver,
   congoRiver,
   danube,
   dnieper,
@@ -605,9 +667,11 @@ export const rivers = [
   nile,
   oder,
   po,
+  raviRiver,
   rhine,
   rhone,
   seine,
+  syrDarya,
   tiber,
   tigris,
   vistula,
@@ -616,4 +680,4 @@ export const rivers = [
   yangtse,
   yellowRiver,
   zambezi,
-].map((river) => river.map((name) => latLonByName[name]))
+].map((river) => river.map(getLatLonByName))
