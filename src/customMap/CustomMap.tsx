@@ -24,6 +24,7 @@ interface BorderProps {
   onClick: () => void
   fill?: string
   active?: boolean
+  selectPoint: (point: number[]) => void
 }
 
 function Border({
@@ -31,6 +32,7 @@ function Border({
   onClick,
   fill = 'lightgrey',
   active = false,
+  selectPoint,
 }: BorderProps) {
   const [downXy, setDownXy] = useState([0, 0])
   const [activePoint, setActivePoint] = useState(-1)
@@ -62,14 +64,13 @@ function Border({
             cx={point[0]}
             cy={point[1]}
             r="5"
-            // fill="none"
-            // fill="black"
             fill={i === activePoint ? 'black' : 'transparent'}
             onMouseEnter={() => setActivePoint(i)}
             onMouseLeave={() => setActivePoint(-1)}
             onClick={(e) => {
-              // e.stopPropagation()
-              console.log('point')
+              e.stopPropagation()
+              // selectPoint([e.clientX, e.clientY])
+              selectPoint(point)
             }}
           />
         ))}
@@ -120,19 +121,48 @@ interface CustomMapProps {
   editMode: boolean
 }
 
+interface FooProps {
+  points: number[][]
+  mouseXY: number[]
+}
+
+function Foo({ points, mouseXY }: FooProps) {
+  const dPoints = [...points, mouseXY]
+  return (
+    <path
+      fill="none"
+      stroke="black"
+      // strokeWidth={2}
+      // strokeLinejoin="round"
+      d={`M${dPoints.join(' ')}`}
+    />
+  )
+}
+
 export function CustomMap({ states, editMode }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [xy, setXy] = useState(storage.getXy())
   const [activePoint, setActivePoint] = useState(-1)
   const [activeBorder, setActiveBorder] = useState('')
+  const [points, setPoints] = useState<number[][]>([])
+  const [width, setWidth] = useState(1)
 
-  const [containerSize, setContainersize] = useState([1, 1])
+  const domRef = useRef<HTMLDivElement>(null)
+
+  const height = width / aspectRatio
+
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      setWidth(domRef.current?.offsetWidth || 1)
+    })
+  }, [])
+
   const {
     latLonTupleToXYTuple,
     xYTupleToLatLonTuple,
     totalWidth,
     totalHeight,
-  } = useLatLonToXy(zoom, containerSize)
+  } = useLatLonToXy(zoom, width)
   const [isMousedown, setMousedown] = useState(false)
   const [mouseOnZoom, setMouseOnZoom] = useState<
     | {
@@ -141,8 +171,6 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
       }
     | undefined
   >(undefined)
-
-  const domRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     storage.setData({ zoom, xy: xy })
@@ -161,15 +189,8 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
     setXy([newX, newY])
   }, [latLonTupleToXYTuple, xYTupleToLatLonTuple, setXy, mouseOnZoom])
 
-  const width = containerSize[0]
-  const height = containerSize[1]
   const maxX = width < totalWidth ? totalWidth - width : 0
   const maxY = height < totalHeight ? totalHeight - height : 0
-
-  useEffect(() => {
-    const width = domRef.current?.offsetWidth || 1
-    setContainersize([width, width / aspectRatio])
-  }, [])
 
   useEffect(() => {
     function mousedown() {
@@ -205,11 +226,11 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
         })
       }
     }
+
     const dom = domRef.current
     if (!dom) {
       return
     }
-
     dom.addEventListener('mousedown', mousedown)
     dom.addEventListener('mousemove', mousemove)
     dom.addEventListener('mouseup', mouseup)
@@ -247,23 +268,62 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
   // const contactPoints = [...states.flatMap(state => state.borders)]
 
   function toggleActiveBorder(id: string) {
-    setActiveBorder((activeBorder) => (activeBorder === id ? '' : id))
+    points.length < 1 &&
+      setActiveBorder((activeBorder) => (activeBorder === id ? '' : id))
   }
 
-  // function
+  function selectPoint(point: number[]) {
+    setPoints((points) => [...points, point])
+  }
+
+  const [mouseXY, setMouseXy] = useState<number[]>()
+
+  useEffect(() => {
+    function keyup(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        setPoints([])
+        setMouseXy(undefined)
+      }
+    }
+    document.addEventListener('keyup', keyup)
+    return () => {
+      document.removeEventListener('keyup', keyup)
+    }
+  }, [])
+
+  const [downXy, setDownXy] = useState([0, 0])
 
   return (
     <div ref={domRef}>
       <svg
         viewBox={`${xy[0]} ${xy[1]} ${width} ${height}`}
         style={{ background: 'lightcyan' }}
-        onClick={(e) => {
+        // onClick={(e) => {
+        //   selectPoint([e.clientX, e.clientY])
+        //   // const x = e.clientX + xy[0]
+        //   // const y = e.clientY + xy[1]
+        //   // const latLon = xYTupleToLatLonTuple([x, y])
+        //   // const latLonString = latLon.map((val) => val.toFixed(2)).join(', ')
+        //   // navigator.clipboard.writeText(latLonString)
+        // }}
+        onMouseMove={(e) => {
+          if (points.length < 1) return
           const x = e.clientX + xy[0]
           const y = e.clientY + xy[1]
-          const latLon = xYTupleToLatLonTuple([x, y])
-          const latLonString = latLon.map((val) => val.toFixed(2)).join(', ')
-          console.log(latLonString)
-          navigator.clipboard.writeText(latLonString)
+          setMouseXy([x, y])
+        }}
+        onMouseDown={(e) => {
+          setDownXy([e.clientX, e.clientY])
+        }}
+        onMouseUp={(e) => {
+          if (
+            points.length > 0 &&
+            e.clientX === downXy[0] &&
+            e.clientY === downXy[1]
+          ) {
+            selectPoint([e.clientX + xy[0], e.clientY + xy[1]])
+          }
+          setDownXy([0, 0])
         }}
       >
         {continents.map((border: number[][], i) => (
@@ -272,6 +332,7 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
             border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
             onClick={() => toggleActiveBorder('continent' + i)}
             active={activeBorder === 'continent' + i}
+            selectPoint={selectPoint}
           />
         ))}
         {states.flatMap((state, i) => [
@@ -282,6 +343,7 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
               fill={stateColors[i]}
               onClick={() => toggleActiveBorder(`state${i}`)}
               active={activeBorder === `state${i}`}
+              selectPoint={selectPoint}
             />
           )),
           ...state.cities.map((city, j) => (
@@ -317,10 +379,15 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
             onMouseLeave={() => setActivePoint(-1)}
             onClick={(e) => {
               e.stopPropagation()
-              console.log('point')
+              const x = e.clientX + xy[0]
+              const y = e.clientY + xy[1]
+              setPoints((points) => [...points, [x, y]])
             }}
           />
         ))}
+        {points.length > 0 && mouseXY && (
+          <Foo points={points} mouseXY={mouseXY} />
+        )}
       </svg>
     </div>
   )

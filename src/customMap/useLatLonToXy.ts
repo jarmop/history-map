@@ -5,11 +5,9 @@ const topLat = 90
 const lonSize = 360
 const latSize = 180
 
-export function useLatLonToXy(zoom = 1, containerSize: number[]) {
-  const [containerX] = containerSize
-
+export function useLatLonToXy(zoom = 1, width: number) {
   const latLonRatio = 3 / 4
-  const lonXRatio = containerX / (lonSize - zoom)
+  const lonXRatio = width / (lonSize - zoom)
   const latYRatio = lonXRatio / latLonRatio
 
   const totalWidth = lonXRatio * lonSize
