@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CustomMap } from '../customMap/CustomMap'
+import { CustomMap, NewRegion } from '../customMap/CustomMap'
 import { latLonByName } from '../customMap/latLonByName'
 import * as storage from '../storage'
 import { romanRepublic } from './romanRepublic'
@@ -13,6 +13,7 @@ import { w888 } from './888'
 import { w1075 } from './1075'
 import { w720 } from './720'
 import { getLatLonByName } from '../customMap/helpers'
+import { useData } from './useData'
 
 const world: Record<number, State[]> = {}
 const states = [
@@ -45,7 +46,6 @@ const years = Object.keys(world)
 
 export function World() {
   const [yearIndex, setYearIndex] = useState(storage.getYearIndex())
-  const [editMode, setEditMode] = useState(false)
 
   useEffect(() => storage.setYearIndex(yearIndex), [yearIndex])
 
@@ -55,10 +55,12 @@ export function World() {
     cities: state.cities.map((name) => latLonByName[name]),
   }))
 
+  const data = useData()
+
   return (
     <div>
       <div style={{ position: 'fixed', fontSize: '40px' }}>{year}</div>
-      <CustomMap states={states} editMode={editMode} />
+      <CustomMap states={states} islands={data.islands} />
       <button
         onClick={() => setYearIndex(yearIndex - 1)}
         disabled={yearIndex === 0}
@@ -70,9 +72,6 @@ export function World() {
         disabled={yearIndex === years.length - 1}
       >
         {'>'}
-      </button>
-      <button onClick={() => setEditMode((editMode) => !editMode)}>
-        set edit mode {editMode ? 'Off' : 'On'}
       </button>
     </div>
   )

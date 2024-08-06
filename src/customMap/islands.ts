@@ -1,3 +1,4 @@
+import { getLatLonByName } from './helpers'
 import { latLonByName } from './latLonByName'
 
 export const britishIsles: Record<string, (keyof typeof latLonByName)[]> = {
@@ -117,3 +118,29 @@ export const islandsBorders = Object.values({
     return [lat, lon]
   })
 })
+
+// export const islands = Object.entries({
+//   ...britishIsles,
+//   ...mediterraneanIslands,
+// }).reduce((acc, curr) => {
+//   const [key, value] = curr
+
+//   acc[key] =
+// }, {})
+
+const allIslands = {
+  ...britishIsles,
+  ...mediterraneanIslands,
+}
+
+export const islandBorders = Object.entries(allIslands).map(([name, border]) => {
+  return {
+    id: name,
+    path: border.map(getLatLonByName),
+  }
+})
+
+export const islandRegions = Object.keys(allIslands).map((key) => ({
+  id: key,
+  borderIds: [key],
+}))

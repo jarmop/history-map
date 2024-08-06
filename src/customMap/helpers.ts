@@ -1,3 +1,4 @@
+import { LatLon } from '../world/data'
 import { latLonByName, LatLonName } from './latLonByName'
 
 // Remove overlap by slicing off the first item of each border
@@ -22,10 +23,10 @@ function isLatLonName(name: string): name is LatLonName {
   return name in latLonByName
 }
 
-export function getLatLonByName(name: string): number[] {
+export function getLatLonByName(name: string): LatLon {
   return isLatLonName(name)
-    ? latLonByName[name]
-    : name.split(', ').map((str) => parseFloat(str))
+    ? (latLonByName[name] as LatLon)
+    : (name.split(', ').map((str) => parseFloat(str)) as LatLon)
 }
 
 export function toFixedNumber(value: number, digits: number) {
