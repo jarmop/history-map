@@ -6,6 +6,11 @@ import * as storage from '../storage'
 import { rivers } from '../world/rivers'
 import { seas } from '../world/seas'
 import { toFixedNumber } from './helpers'
+import { Path, World } from '../world/data'
+
+export type NewRegion = {
+  index: number
+}
 
 interface CityProps {
   city: number[]
@@ -121,9 +126,10 @@ function Foo({ points, mouseXY }: FooProps) {
 interface CustomMapProps {
   states: { borders: number[][][]; cities: number[][] }[]
   editMode: boolean
+  islands: Path[]
 }
 
-export function CustomMap({ states, editMode }: CustomMapProps) {
+export function CustomMap({ states, editMode, islands }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [xy, setXy] = useState(storage.getXy())
   const [activePoint, setActivePoint] = useState(-1)
@@ -279,11 +285,11 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
 
   const [downXy, setDownXy] = useState([0, 0])
 
-  useEffect(() => {
-    console.log(points)
-  }, [points])
+  // useEffect(() => {
+  //   console.log(points)
+  // }, [points])
 
-  const [newRegions, setNewRegions] = useState<number[][][]>([])
+  // const [newRegions, setNewRegions] = useState<number[][][]>([])
 
   return (
     <div ref={domRef}>
@@ -342,33 +348,92 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
                   )
                 })
 
-                const divider = [
-                  border[startIndex],
-                  ...points
-                    .slice(1)
-                    .map((p) =>
-                      xYTupleToLatLonTuple(p).map((value) =>
-                        toFixedNumber(value, 5)
-                      )
-                    ),
-                  border[endIndex],
+                // const divider = [
+                //   border[startIndex],
+                //   ...points
+                //     .slice(1)
+                //     .map((p) =>
+                //       xYTupleToLatLonTuple(p).map((value) =>
+                //         toFixedNumber(value, 5)
+                //       )
+                //     ),
+                //   border[endIndex],
+                // ]
+
+                const divider = points
+                  .slice(1)
+                  .map((p) =>
+                    xYTupleToLatLonTuple(p).map((value) =>
+                      toFixedNumber(value, 5)
+                    )
+                  )
+
+                // if (startIndex > endIndex) {
+                //   divider.reverse()
+
+                // }
+
+                // const newBorder = {
+                //   id: 'africa' + Date.now()
+                //   points:
+                // }
+
+                const firstRegion = [
+                  divider,
+                  {
+                    share: 'africa',
+                    start: endIndex,
+                    end: startIndex,
+                  },
+                ]
+                // console.log(
+                //   `[${divider
+                //     .map((tuple) => `'${tuple.join(', ')}'`)
+                //     .join(',')}]`
+                // )
+                // // Object.keys(africa)
+                // console.log(
+                //   `sliceBorder(africa, ${africa[endIndex]}, ${africa[startIndex]})`
+                // )
+
+                const secondRegion = [
+                  divider,
+
+                  {
+                    share: 'africa',
+                    start: startIndex,
+                    end: endIndex,
+                  },
                 ]
 
-                const smallerIndex = Math.min(startIndex, endIndex)
-                const largerIndex = Math.max(startIndex, endIndex)
-                const firstRegion = [
-                  border.slice(0, smallerIndex),
-                  startIndex === smallerIndex
-                    ? divider
-                    : [...divider].reverse(),
-                  border.slice(largerIndex + 1),
-                ].flat()
-                const secondRegion = [
-                  border.slice(smallerIndex + 1, largerIndex),
-                  startIndex === largerIndex ? divider : [...divider].reverse(),
-                ].flat()
+                // console.log(firstRegion)
+                // // console.log(secondRegion)
 
-                setNewRegions([firstRegion, secondRegion])
+                console.log(JSON.stringify(firstRegion))
+                console.log(JSON.stringify(secondRegion))
+                // console.log(secondRegion)
+
+                //   startIndex: endIndex,
+                //   endIndex: startIndex,
+                //   divider,
+                //   container: activeBorder,
+                // }
+
+                // const smallerIndex = Math.min(startIndex, endIndex)
+                // const largerIndex = Math.max(startIndex, endIndex)
+                // const firstRegion = [
+                //   border.slice(0, smallerIndex),
+                //   startIndex === smallerIndex
+                //     ? divider
+                //     : [...divider].reverse(),
+                //   border.slice(largerIndex + 1),
+                // ].flat()
+                // const secondRegion = [
+                //   border.slice(smallerIndex + 1, largerIndex),
+                //   startIndex === largerIndex ? divider : [...divider].reverse(),
+                // ].flat()
+
+                // setNewRegions([firstRegion, secondRegion])
                 setPoints([])
               } else {
                 selectBorderPoint(point)
@@ -395,16 +460,24 @@ export function CustomMap({ states, editMode }: CustomMapProps) {
             />
           )),
         ])}
-        {newRegions.map((region, i) => (
-          <Border
+        {/* {newRegions.map((region, i) => (
+          <path
             key={`newState${i}`}
-            border={region.map((latlon) => latLonTupleToXYTuple(latlon))}
-            fill={stateColors[i]}
-            onClick={() => toggleActiveBorder(`newState${i}`)}
-            active={activeBorder === `newState${i}`}
-            selectPoint={selectBorderPoint}
+            d={`M${region.map(latLonTupleToXYTuple).join(' ')} z`}
+            fill="transparent"
+            stroke="black"
+            onClick={() => {}}
           />
-        ))}
+          // <Border
+          //   key={`newState${i}`}
+          //   border={region.map((latlon) => latLonTupleToXYTuple(latlon))}
+          //   // fill={stateColors[i]}
+          //   fill="none"
+          //   onClick={() => toggleActiveBorder(`newState${i}`)}
+          //   active={activeBorder === `newState${i}`}
+          //   selectPoint={selectBorderPoint}
+          // />
+        ))} */}
         {rivers.map((river, i) => (
           <River
             key={i}
