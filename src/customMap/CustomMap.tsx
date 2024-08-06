@@ -1,12 +1,10 @@
-import { africaBorder, asiaBorder, europeBorder } from './continents'
-import { islandsBorders } from './islands'
 import { useEffect, useRef, useState } from 'react'
 import { useLatLonToXy } from './useLatLonToXy'
 import * as storage from '../storage'
 import { rivers } from '../world/rivers'
 import { seas } from '../world/seas'
 import { toFixedNumber } from './helpers'
-import { Path, World } from '../world/data'
+import { Path } from '../world/data'
 
 export type NewRegion = {
   index: number
@@ -125,14 +123,12 @@ function Foo({ points, mouseXY }: FooProps) {
 
 interface CustomMapProps {
   states: { borders: number[][][]; cities: number[][] }[]
-  editMode: boolean
   islands: Path[]
 }
 
-export function CustomMap({ states, editMode, islands }: CustomMapProps) {
+export function CustomMap({ states, islands }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [xy, setXy] = useState(storage.getXy())
-  const [activePoint, setActivePoint] = useState(-1)
   const [activeBorder, setActiveBorder] = useState('')
   const [points, setPoints] = useState<number[][]>([])
   const [width, setWidth] = useState(1)
@@ -242,19 +238,6 @@ export function CustomMap({ states, editMode, islands }: CustomMapProps) {
     xy,
   ])
 
-  const continents = [europeBorder, africaBorder, asiaBorder, ...islandsBorders]
-
-  const contactPoints = editMode
-    ? [
-        ...continents,
-        ...states.flatMap((state) => state.borders),
-        ...seas,
-        ...rivers,
-      ]
-        .flat()
-        .map(latLonTupleToXYTuple)
-    : []
-
   function toggleActiveBorder(id: string) {
     points.length < 1 &&
       setActiveBorder((activeBorder) => (activeBorder === id ? '' : id))
@@ -285,25 +268,11 @@ export function CustomMap({ states, editMode, islands }: CustomMapProps) {
 
   const [downXy, setDownXy] = useState([0, 0])
 
-  // useEffect(() => {
-  //   console.log(points)
-  // }, [points])
-
-  // const [newRegions, setNewRegions] = useState<number[][][]>([])
-
   return (
     <div ref={domRef}>
       <svg
         viewBox={`${xy[0]} ${xy[1]} ${width} ${height}`}
         style={{ background: 'lightcyan' }}
-        // onClick={(e) => {
-        //   selectPoint([e.clientX, e.clientY])
-        //   // const x = e.clientX + xy[0]
-        //   // const y = e.clientY + xy[1]
-        //   // const latLon = xYTupleToLatLonTuple([x, y])
-        //   // const latLonString = latLon.map((val) => val.toFixed(2)).join(', ')
-        //   // navigator.clipboard.writeText(latLonString)
-        // }}
         onMouseMove={(e) => {
           if (points.length < 1) return
           const x = e.clientX + xy[0]
@@ -324,7 +293,7 @@ export function CustomMap({ states, editMode, islands }: CustomMapProps) {
           setDownXy([0, 0])
         }}
       >
-        {continents.map((border: number[][], i) => (
+        {islands.map((border: number[][], i) => (
           <Border
             key={i}
             border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
@@ -460,24 +429,6 @@ export function CustomMap({ states, editMode, islands }: CustomMapProps) {
             />
           )),
         ])}
-        {/* {newRegions.map((region, i) => (
-          <path
-            key={`newState${i}`}
-            d={`M${region.map(latLonTupleToXYTuple).join(' ')} z`}
-            fill="transparent"
-            stroke="black"
-            onClick={() => {}}
-          />
-          // <Border
-          //   key={`newState${i}`}
-          //   border={region.map((latlon) => latLonTupleToXYTuple(latlon))}
-          //   // fill={stateColors[i]}
-          //   fill="none"
-          //   onClick={() => toggleActiveBorder(`newState${i}`)}
-          //   active={activeBorder === `newState${i}`}
-          //   selectPoint={selectBorderPoint}
-          // />
-        ))} */}
         {rivers.map((river, i) => (
           <River
             key={i}
@@ -488,23 +439,6 @@ export function CustomMap({ states, editMode, islands }: CustomMapProps) {
           <Sea
             key={i}
             border={sea.map((latLon) => latLonTupleToXYTuple(latLon))}
-          />
-        ))}
-        {contactPoints.map((point, i) => (
-          <circle
-            key={i}
-            cx={point[0]}
-            cy={point[1]}
-            r="5"
-            fill={i === activePoint ? 'black' : 'transparent'}
-            onMouseEnter={() => setActivePoint(i)}
-            onMouseLeave={() => setActivePoint(-1)}
-            onClick={(e) => {
-              e.stopPropagation()
-              const x = e.clientX + xy[0]
-              const y = e.clientY + xy[1]
-              setPoints((points) => [...points, [x, y]])
-            }}
           />
         ))}
         {points.length > 0 && mouseXY && (
