@@ -515,9 +515,11 @@ const europeFixed = [
 const asiaEast = sliceBorder(asia, 'Chizha', 'Sharm El-Sheikh')
 const asiaWest = sliceBorder(asia, 'Rafah', 'Azov')
 
-export const eurasiaAfrica = [
+export const eurasiaAfricaNames = [
   ...europeFixed,
   ...asiaEast,
   ...africa,
   ...asiaWest,
-].map(getLatLonByName)
+]
+
+export const eurasiaAfrica = eurasiaAfricaNames.map(getLatLonByName)

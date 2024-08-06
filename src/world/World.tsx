@@ -55,12 +55,12 @@ export function World() {
     cities: state.cities.map((name) => latLonByName[name]),
   }))
 
-  const data = useData()
+  const data = useData(year)
 
   return (
     <div>
       <div style={{ position: 'fixed', fontSize: '40px' }}>{year}</div>
-      <CustomMap states={states} islands={data.islands} />
+      <CustomMap states={states} islands={data.islands} stateBorders={ data.stateBorders} />
       <button
         onClick={() => setYearIndex(yearIndex - 1)}
         disabled={yearIndex === 0}

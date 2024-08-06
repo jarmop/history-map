@@ -1,6 +1,12 @@
-import { europe, asia, africa } from '../customMap/continents'
-import { joinBorders, sliceBorder } from '../customMap/helpers'
+import {
+  europe,
+  asia,
+  africa,
+  eurasiaAfricaNames,
+} from '../customMap/continents'
+import { getLatLonByName, joinBorders, sliceBorder } from '../customMap/helpers'
 import { mediterraneanIslands } from '../customMap/islands'
+import { State } from './data'
 import { StateByYear } from './types'
 
 // const romanKingdom: Nation = {
@@ -356,17 +362,146 @@ romanRepublic['-44'] = {
   ],
 }
 
-// const romanEmpire: Nation = {
-//   27: [],
-//   395: []
-// }
-
-// const WesternRomanEmpire: Nation = {
-//   395: [],
-//   476: [],
-// }
-
-// const EasternRomanEmpire: Nation = {
-//   395: [],
-//   1453: [],
-// }
+export const romanRepublicObject: State = {
+  name: 'Roman Republic',
+  regionsByYear: {
+    ['-338']: [
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Naples'),
+          end: eurasiaAfricaNames.indexOf('Santa Severa'),
+        },
+        ['Nepi', 'Frosinone', 'Caserta'].map(getLatLonByName),
+      ],
+    ],
+    ['-298']: [
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Amalfi'),
+          end: eurasiaAfricaNames.indexOf('Santa Severa'),
+        },
+        ['Narni', "L'Aquila"].map(getLatLonByName),
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Giulianova'),
+          end: eurasiaAfricaNames.indexOf('Trani'),
+        },
+        ['Minervino Murge', 'Celano', 'Cassino', 'Caserta', 'Avellino'].map(
+          getLatLonByName
+        ),
+      ],
+    ],
+    ['-290']: [
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Amalfi'),
+          end: eurasiaAfricaNames.indexOf('Santa Severa'),
+        },
+        ['Santa Severa', 'Narni', 'Sansepolcro', 'Giulianova'].map(
+          getLatLonByName
+        ),
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Giulianova'),
+          end: eurasiaAfricaNames.indexOf('Trani'),
+        },
+        ['Minervino Murge'].map(getLatLonByName),
+      ],
+    ],
+    ['-272']: [
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Giulianova'),
+          end: eurasiaAfricaNames.indexOf('Santa Severa'),
+        },
+        ['Narni', 'Sansepolcro'].map(getLatLonByName),
+      ],
+    ],
+    ['-264']: [
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Rimini'),
+          end: eurasiaAfricaNames.indexOf('Pisa'),
+        },
+      ],
+    ],
+    ['-218']: [
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Monfalcone'),
+          end: eurasiaAfricaNames.indexOf('Pisa'),
+        },
+        [
+          'Maranello',
+          'Pavia',
+          'Novara',
+          'Legnano',
+          'Bergamo',
+          'Verona',
+          'Conegliano',
+        ].map(getLatLonByName),
+      ],
+    ],
+    ['-44']: [
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Kavala'),
+          end: eurasiaAfricaNames.indexOf('Foz'),
+        },
+        ['Leon', 'Burgos'].map(getLatLonByName),
+        // ],
+        // [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Bilbao'),
+          end: eurasiaAfricaNames.indexOf('Dunkirk'),
+        },
+        [
+          'Brussels',
+          'Nancy',
+          'Dijon',
+          'Lyon',
+          'Geneva',
+          'Montreux',
+          'Innsbruck',
+          'Skopje',
+        ].map(getLatLonByName),
+      ],
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Haifa'),
+          end: eurasiaAfricaNames.indexOf('Samsun'),
+        },
+        [
+          'Bolu',
+          'Eskisehir',
+          'Aksaray',
+          'Kahramanmaras',
+          'Gaziantep',
+          'Damascus',
+        ].map(getLatLonByName),
+      ],
+      [
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Jijel'),
+          end: eurasiaAfricaNames.indexOf('Marsa Matruh'),
+        },
+        ['Al Jaghbub', 'Maradah', 'Tozeur', 'Biskra', 'Barika'].map(
+          getLatLonByName
+        ),
+      ],
+      ...Object.values(mediterraneanIslands).map((borders) => [
+        borders.map(getLatLonByName),
+      ]),
+    ],
+  },
+}

@@ -133,14 +133,16 @@ const allIslands = {
   ...mediterraneanIslands,
 }
 
-export const islandBorders = Object.entries(allIslands).map(([name, border]) => {
-  return {
-    id: name,
-    path: border.map(getLatLonByName),
+export const islandBorders = Object.entries(allIslands).map(
+  ([name, border]) => {
+    return {
+      id: name,
+      path: border.map(getLatLonByName),
+    }
   }
-})
+)
 
 export const islandRegions = Object.keys(allIslands).map((key) => ({
   id: key,
-  borderIds: [key],
+  borders: [key],
 }))

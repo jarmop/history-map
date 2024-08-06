@@ -1,6 +1,7 @@
 import { eurasiaAfrica } from '../customMap/continents'
 import { islandBorders, islandRegions } from '../customMap/islands'
-import { World } from './data'
+import { BorderSlice, Path, World } from './data'
+import { romanRepublicObject } from './romanRepublic'
 
 const data: World = {
   borders: [
@@ -13,22 +14,49 @@ const data: World = {
   regions: [
     {
       id: 'eurasiaAfrica',
-      borderIds: ['eurasiaAfrica'],
+      borders: ['eurasiaAfrica'],
     },
     ...islandRegions,
   ],
   cities: [{ name: 'Rome', latLon: [1, 2] }],
-  states: [
-    {
-      name: 'Roman Republic',
-      regionIdsByYear: { ['-500']: ['region'] },
-    },
-  ],
+  states: [romanRepublicObject],
 }
 
-export function useData() {
+function isBorderSlice(border: Path | BorderSlice): border is BorderSlice {
+  return border.hasOwnProperty('borderId')
+}
+
+export function useData(year: number) {
   // return {islands: data.regions.map(region => region.borderIds.map(id => ))}
-  return { islands: data.borders.map((border) => border.path) }
-}
+  const stateBorders: Path[][] = []
 
-console.log(data)
+  data.states.forEach((state) => {
+    const regions = state.regionsByYear[year]
+    if (!regions) {
+      return
+    }
+
+    const regionBorders: Path[] = regions.map((region) => {
+      const foo = region
+        .flatMap((borderData) => {
+          if (isBorderSlice(borderData)) {
+            const foo = data.borders.find(
+              (border) => border.id === borderData.borderId
+            )
+            const border = foo?.path
+
+            return border && border.slice(borderData.start, borderData.end + 1)
+          } else {
+            return borderData
+          }
+        })
+        .filter((val) => val !== undefined)
+
+      return foo
+    })
+
+    stateBorders.push(regionBorders)
+  })
+
+  return { islands: data.borders.map((border) => border.path), stateBorders }
+}

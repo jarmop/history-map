@@ -124,9 +124,10 @@ function Foo({ points, mouseXY }: FooProps) {
 interface CustomMapProps {
   states: { borders: number[][][]; cities: number[][] }[]
   islands: Path[]
+  stateBorders: Path[][]
 }
 
-export function CustomMap({ states, islands }: CustomMapProps) {
+export function CustomMap({ states, islands, stateBorders }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [xy, setXy] = useState(storage.getXy())
   const [activeBorder, setActiveBorder] = useState('')
@@ -410,7 +411,19 @@ export function CustomMap({ states, islands }: CustomMapProps) {
             }}
           />
         ))}
-        {states.flatMap((state, i) => [
+        {stateBorders.flatMap((borders, i) =>
+          borders.map((border, j) => (
+            <Border
+              key={`border${i}-${j}`}
+              border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
+              fill={stateColors[i]}
+              onClick={() => toggleActiveBorder(`state${i}`)}
+              active={activeBorder === `state${i}`}
+              selectPoint={selectBorderPoint}
+            />
+          ))
+        )}
+        {/* {states.flatMap((state, i) => [
           ...state.borders.map((border, j) => (
             <Border
               key={`border${i}-${j}`}
@@ -428,7 +441,7 @@ export function CustomMap({ states, islands }: CustomMapProps) {
               border={stateColors[i]}
             />
           )),
-        ])}
+        ])} */}
         {rivers.map((river, i) => (
           <River
             key={i}
