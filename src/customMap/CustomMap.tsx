@@ -122,12 +122,11 @@ function Foo({ points, mouseXY }: FooProps) {
 }
 
 interface CustomMapProps {
-  states: { borders: number[][][]; cities: number[][] }[]
   islands: Path[]
   stateBorders: Path[][]
 }
 
-export function CustomMap({ states, islands, stateBorders }: CustomMapProps) {
+export function CustomMap({ islands, stateBorders }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [xy, setXy] = useState(storage.getXy())
   const [activeBorder, setActiveBorder] = useState('')

@@ -1,6 +1,6 @@
 import { eurasiaAfrica } from '../customMap/continents'
 import { islandBorders, islandRegions } from '../customMap/islands'
-import { BorderSlice, Path, World } from './data'
+import { BorderSlice, Path, State, World } from './data'
 import { romanRepublicObject } from './romanRepublic'
 
 const data: World = {
@@ -26,12 +26,29 @@ function isBorderSlice(border: Path | BorderSlice): border is BorderSlice {
   return border.hasOwnProperty('borderId')
 }
 
+function findRegions(state: State, year: number) {
+  const yearsOfChange = Object.keys(state.regionsByYear)
+  const yearString = yearsOfChange.find((testYear, i) => {
+    const currentYear = parseInt(testYear)
+    const nextYear =
+      i < yearsOfChange.length - 1 && parseInt(yearsOfChange[i + 1])
+    return currentYear <= year && (!nextYear || nextYear > year)
+  })
+  if (!yearString) {
+    return undefined
+  }
+
+  return state.regionsByYear[parseInt(yearString)]
+}
+
 export function useData(year: number) {
-  // return {islands: data.regions.map(region => region.borderIds.map(id => ))}
   const stateBorders: Path[][] = []
+  const years = Array.from(
+    new Set(data.states.flatMap((state) => Object.keys(state).map(parseInt)))
+  )
 
   data.states.forEach((state) => {
-    const regions = state.regionsByYear[year]
+    const regions = findRegions(state, year)
     if (!regions) {
       return
     }
@@ -58,5 +75,21 @@ export function useData(year: number) {
     stateBorders.push(regionBorders)
   })
 
-  return { islands: data.borders.map((border) => border.path), stateBorders }
+  return {
+    islands: data.borders.map((border) => border.path),
+    stateBorders,
+    years,
+  }
+}
+
+export function useYears() {
+  const years = Array.from(
+    new Set(
+      data.states.flatMap((state) =>
+        Object.keys(state.regionsByYear).map((year) => parseInt(year))
+      )
+    )
+  )
+
+  return years
 }

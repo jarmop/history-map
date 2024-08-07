@@ -1,77 +1,51 @@
 import { useEffect, useState } from 'react'
-import { CustomMap, NewRegion } from '../customMap/CustomMap'
-import { latLonByName } from '../customMap/latLonByName'
+import { CustomMap } from '../customMap/CustomMap'
 import * as storage from '../storage'
-import { romanRepublic } from './romanRepublic'
-import { romanEmpire } from './romanEmpire'
-import { westernRomanEmpire } from './westernRomanEmpire'
-import { byzantineEmpire } from './byzantineEmpire'
-import { franks } from './franks'
-import { w843 } from './843'
-import { State } from './types'
-import { w888 } from './888'
-import { w1075 } from './1075'
-import { w720 } from './720'
-import { getLatLonByName } from '../customMap/helpers'
-import { useData } from './useData'
-
-const world: Record<number, State[]> = {}
-const states = [
-  romanRepublic,
-  romanEmpire,
-  byzantineEmpire,
-  westernRomanEmpire,
-  franks,
-]
-
-states.forEach((state) => {
-  Object.keys(state)
-    .map((year) => parseInt(year))
-    .forEach((year) => {
-      if (!world[year]) {
-        world[year] = []
-      }
-      world[year].push(state[year])
-    })
-})
-
-world[720] = w720
-world[843] = w843
-world[888] = w888
-world[1075] = w1075
-
-const years = Object.keys(world)
-  .map((year) => parseInt(year))
-  .sort((a, b) => a - b)
+import { useData, useYears } from './useData'
 
 export function World() {
-  const [yearIndex, setYearIndex] = useState(storage.getYearIndex())
+  const years = useYears()
+  const [year, setYear] = useState(storage.getYear() || years[0])
 
-  useEffect(() => storage.setYearIndex(yearIndex), [yearIndex])
+  useEffect(() => storage.setYear(year), [year])
 
-  const year = years[yearIndex]
-  const states = world[year].map((state) => ({
-    borders: state.borders.map((border) => border.map(getLatLonByName)),
-    cities: state.cities.map((name) => latLonByName[name]),
-  }))
+  const { islands, stateBorders } = useData(year)
 
-  const data = useData(year)
+  let yearOfPreviousChange: number | undefined = undefined
+  let yearOfNextChange: number | undefined = undefined
+  years.forEach((testYear) => {
+    if (testYear < year) {
+      yearOfPreviousChange = testYear
+    }
+
+    if (yearOfNextChange === undefined && testYear > year) {
+      yearOfNextChange = testYear
+    }
+  })
 
   return (
     <div>
       <div style={{ position: 'fixed', fontSize: '40px' }}>{year}</div>
-      <CustomMap states={states} islands={data.islands} stateBorders={ data.stateBorders} />
+      <CustomMap islands={islands} stateBorders={stateBorders} />
       <button
-        onClick={() => setYearIndex(yearIndex - 1)}
-        disabled={yearIndex === 0}
+        onClick={() =>
+          yearOfPreviousChange !== undefined && setYear(yearOfPreviousChange)
+        }
+        disabled={yearOfPreviousChange === undefined}
       >
-        {'<'}
+        {yearOfPreviousChange || '-'}
       </button>
+      <button onClick={() => setYear(year - 10)}>{'- 10'}</button>
+      <button onClick={() => setYear(year - 1)}>{'- 1'}</button>
+      <button onClick={() => setYear(year + 1)}>{'+ 1'}</button>
+      <button onClick={() => setYear(year + 10)}>{'+ 10'}</button>
       <button
-        onClick={() => setYearIndex(yearIndex + 1)}
-        disabled={yearIndex === years.length - 1}
+        onClick={() =>
+          yearOfNextChange !== undefined && setYear(yearOfNextChange)
+        }
+        disabled={yearOfNextChange === undefined}
       >
-        {'>'}
+        {yearOfNextChange || '-'}
       </button>
     </div>
   )

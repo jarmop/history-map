@@ -1,10 +1,10 @@
 type Storage = {
-  yearIndex: number
+  year: number
   zoom: number
   xy: number[]
 }
 
-const defaultStorage = { yearIndex: 0, zoom: 1, xy: [0, 0] }
+const defaultStorage = { year: 0, zoom: 1, xy: [0, 0] }
 
 const storageKey = 'history-map'
 
@@ -17,13 +17,13 @@ function setStorage(storage: Storage) {
   localStorage.setItem(storageKey, JSON.stringify(storage))
 }
 
-export function getYearIndex() {
+export function getYear() {
   const storage = getStorage()
-  return storage && storage.yearIndex
+  return storage && storage.year
 }
 
-export function setYearIndex(yearIndex: number) {
-  setData({ yearIndex })
+export function setYear(year: number) {
+  setData({ year })
 }
 
 export function getZoom() {
