@@ -1,10 +1,12 @@
 import { useMemo } from 'react'
 import { equirectangular } from './mapProjections/equiRectangular'
+import { mercator } from './mapProjections/mercator'
 
 // Change this to compare different projection algorithms
-const mapProjection = equirectangular
+// const mapProjection = equirectangular
+const mapProjection = mercator
 
-export function useLatLonToXy(zoom = 1, width: number) {
+export function useLatLonToXy(zoom = 5000, width: number) {
   const {
     latLonTupleToXYTuple,
     xYTupleToLatLonTuple,
