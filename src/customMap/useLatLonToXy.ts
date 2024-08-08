@@ -1,62 +1,36 @@
-import { useCallback } from 'react'
+import { useMemo } from 'react'
+import { equirectangular } from './mapProjections/equiRectangular'
 
-const leftLon = -180
-const topLat = 90
-const lonSize = 360
-const latSize = 180
+// Change this to compare different projection algorithms
+const mapProjection = equirectangular
 
 export function useLatLonToXy(zoom = 1, width: number) {
-  const latLonRatio = 3 / 4
-  const lonXRatio = width / (lonSize - zoom)
-  const latYRatio = lonXRatio / latLonRatio
+  const {
+    latLonTupleToXYTuple,
+    xYTupleToLatLonTuple,
+    totalWidth,
+    totalHeight,
+  } = useMemo(() => {
+    const { totalWidth, totalHeight, lonToX, xToLon, latToY, yToLat } =
+      mapProjection(width + zoom * 10)
 
-  const totalWidth = lonXRatio * lonSize
-  const totalHeight = latYRatio * latSize
-
-  const lonToX = useCallback(
-    (lon: number) => {
-      return (lon - leftLon) * lonXRatio
-    },
-    [lonXRatio]
-  )
-
-  const xToLon = useCallback(
-    (x: number) => {
-      return x / lonXRatio + leftLon
-    },
-    [lonXRatio]
-  )
-
-  const latToY = useCallback(
-    (lat: number) => {
-      return (topLat - lat) * latYRatio
-    },
-    [latYRatio]
-  )
-
-  const yToLat = useCallback(
-    (y: number) => {
-      return topLat - y / latYRatio
-    },
-    [latYRatio]
-  )
-
-  const latLonTupleToXYTuple = useCallback(
-    (latLon: number[]): number[] => {
+    const latLonTupleToXYTuple = (latLon: number[]): number[] => {
       const lat = latLon[0]
       const lon = latLon[1]
       return [lonToX(lon), latToY(lat)]
-    },
-    [lonToX, latToY]
-  )
+    }
 
-  const xYTupleToLatLonTuple = useCallback(
-    (xy: number[]): number[] => {
+    const xYTupleToLatLonTuple = (xy: number[]): number[] => {
       const [x, y] = xy
       return [yToLat(y), xToLon(x)]
-    },
-    [yToLat, xToLon]
-  )
+    }
+    return {
+      latLonTupleToXYTuple,
+      xYTupleToLatLonTuple,
+      totalWidth,
+      totalHeight,
+    }
+  }, [zoom, width])
 
   return {
     latLonTupleToXYTuple,

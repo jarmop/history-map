@@ -100,7 +100,7 @@ function Sea({ border }: SeaProps) {
 }
 
 const aspectRatio = 16 / 9
-const maxZoom = 350
+const maxZoom = 10000
 const stateColors = [
   'red',
   'green',
