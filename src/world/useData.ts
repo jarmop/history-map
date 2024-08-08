@@ -1,5 +1,6 @@
+import { americas } from '../customMap/americas'
 import { eurasiaAfrica } from '../customMap/continents'
-import { islandBorders, islandRegions } from '../customMap/islands'
+import { islandBorders } from '../customMap/islands'
 import { BorderSlice, Path, State, World } from './data'
 import { romanRepublicObject } from './romanRepublic'
 
@@ -9,14 +10,18 @@ const data: World = {
       id: 'eurasiaAfrica',
       path: eurasiaAfrica,
     },
+    {
+      id: 'americas',
+      path: americas,
+    },
     ...islandBorders,
   ],
   regions: [
-    {
-      id: 'eurasiaAfrica',
-      borders: ['eurasiaAfrica'],
-    },
-    ...islandRegions,
+    // {
+    //   id: 'eurasiaAfrica',
+    //   borders: ['eurasiaAfrica'],
+    // },
+    // ...islandRegions,
   ],
   cities: [{ name: 'Rome', latLon: [1, 2] }],
   states: [romanRepublicObject],
