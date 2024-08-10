@@ -5,6 +5,8 @@ import { rivers } from '../world/rivers'
 import { seas } from '../world/seas'
 import { toFixedNumber } from './helpers'
 import { Path } from '../world/data'
+import { meridians, parallels } from './parallelsAndMeridiansData'
+import { Meridians, Parallels } from './ParallelsAndMeridians'
 
 export type NewRegion = {
   index: number
@@ -456,6 +458,14 @@ export function CustomMap({ islands, stateBorders }: CustomMapProps) {
         {points.length > 0 && mouseXY && (
           <Foo points={points} mouseXY={mouseXY} />
         )}
+        <Parallels
+          parallels={parallels}
+          latLonTupleToXYTuple={latLonTupleToXYTuple}
+        />
+        <Meridians
+          meridians={meridians}
+          latLonTupleToXYTuple={latLonTupleToXYTuple}
+        />
       </svg>
     </div>
   )

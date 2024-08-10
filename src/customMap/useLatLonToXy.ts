@@ -2,6 +2,9 @@ import { useMemo } from 'react'
 import { equirectangular } from './mapProjections/equiRectangular'
 import { mercator } from './mapProjections/mercator'
 
+export type LatLonTupleToXYTuple = (latLon: number[]) => number[]
+export type XYTupleToLatLonTuple = (xy: number[]) => number[]
+
 // Change this to compare different projection algorithms
 // const mapProjection = equirectangular
 const mapProjection = mercator
