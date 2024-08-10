@@ -3,19 +3,27 @@ import { LatLon } from '../../data'
 export const meridians: LatLon[][] = []
 
 for (let lon = -180; lon <= 180; lon += 10) {
-  const meridian: LatLon[] = []
-  for (let lat = -80; lat <= 80; lat += 10) {
-    meridian.push([lat, lon])
-  }
-  meridians.push(meridian)
+  meridians.push([
+    [-85, lon],
+    [85, lon],
+  ])
 }
 
 export const parallels: LatLon[][] = []
 
+parallels.push([
+  [-85, -180],
+  [-85, 180],
+])
+
 for (let lat = -80; lat <= 80; lat += 10) {
-  const parallel: LatLon[] = []
-  for (let lon = -180; lon <= 180; lon += 10) {
-    parallel.push([lat, lon])
-  }
-  parallels.push(parallel)
+  parallels.push([
+    [lat, -180],
+    [lat, 180],
+  ])
 }
+
+parallels.push([
+  [85, -180],
+  [85, 180],
+])
