@@ -1,5 +1,7 @@
 import { romanRepublicObject } from './coordinates/civilization/bordersByYear/romanRepublic'
 import { americas } from './coordinates/natural/continents/americas'
+import { antarctica } from './coordinates/natural/continents/antarctica'
+import { australia } from './coordinates/natural/continents/australia'
 import { eurasiaAfrica } from './coordinates/natural/continents/eurasiaAfrica'
 import { islandBorders } from './coordinates/natural/islands/islands'
 import { BorderSlice, Path, State, World } from './data'
@@ -13,6 +15,14 @@ const data: World = {
     {
       id: 'americas',
       path: americas,
+    },
+    {
+      id: 'australia',
+      path: australia,
+    },
+    {
+      id: 'antarctica',
+      path: antarctica,
     },
     ...islandBorders,
   ],

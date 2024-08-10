@@ -1,5 +1,7 @@
 import { getLatLonByName } from '../../../../helpers'
 import { latLonByName } from '../../latLonByName'
+import { greenland } from './greenland'
+import { iceland } from './iceland'
 
 export const britishIsles: Record<string, (keyof typeof latLonByName)[]> = {
   ['Great Britain']: [
@@ -131,6 +133,8 @@ export const islandsBorders = Object.values({
 const allIslands = {
   ...britishIsles,
   ...mediterraneanIslands,
+  greenland,
+  iceland,
 }
 
 export const islandBorders = Object.entries(allIslands).map(
