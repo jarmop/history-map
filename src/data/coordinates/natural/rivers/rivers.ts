@@ -1,4 +1,4 @@
-import { getLatLonByName, sliceBorder } from '../../../helpers'
+import { getLatLonByName, sliceBorder } from '../../../../helpers'
 
 export const adige: string[] = [
   'Source of Adige',

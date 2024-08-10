@@ -1,6 +1,6 @@
-import { europe } from '../../natural/continents'
+import { europe } from '../../natural/continents/eurasiaAfrica'
 import { joinBorders, sliceBorder } from '../../../../helpers'
-import { mediterraneanIslands } from '../../natural/islands'
+import { mediterraneanIslands } from '../../natural/islands/islands'
 import { byzantineEmpire } from './byzantineEmpire'
 import {
   holyRomanEmpire,

@@ -1,4 +1,4 @@
-import { africa, asia, europe } from '../../natural/continents'
+import { africa, asia, europe } from '../../natural/continents/eurasiaAfrica'
 import { joinBorders, sliceBorder } from '../../../../helpers'
 import { caspianSea } from '../../natural/seas'
 import { State } from '../../../types'

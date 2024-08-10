@@ -1,7 +1,7 @@
-import { europe, asia, africa } from '../../natural/continents'
+import { europe, asia, africa } from '../../natural/continents/eurasiaAfrica'
 import { joinBorders, sliceBorder } from '../../../../helpers'
-import { mediterraneanIslands } from '../../natural/islands'
-import { danube } from '../../natural/rivers'
+import { mediterraneanIslands } from '../../natural/islands/islands'
+import { danube } from '../../natural/rivers/rivers'
 import { StateByYear } from '../../../types'
 
 export const byzantineEmpire: StateByYear = {}

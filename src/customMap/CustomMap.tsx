@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { rivers } from '../data/coordinates/natural/rivers'
+import { rivers } from '../data/coordinates/natural/rivers/rivers'
 import { seas } from '../data/coordinates/natural/seas'
 import { toFixedNumber } from '../helpers'
 import { Path } from '../data/data'

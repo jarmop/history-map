@@ -3,9 +3,9 @@ import {
   asia,
   africa,
   eurasiaAfricaNames,
-} from '../../natural/continents'
+} from '../../natural/continents/eurasiaAfrica'
 import { getLatLonByName, joinBorders, sliceBorder } from '../../../../helpers'
-import { mediterraneanIslands } from '../../natural/islands'
+import { mediterraneanIslands } from '../../natural/islands/islands'
 import { State } from '../../../data'
 import { StateByYear } from '../../../types'
 

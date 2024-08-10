@@ -1,6 +1,6 @@
-import { latLonByName } from '../latLonByName'
-import { getLatLonByName, joinBorders, sliceBorder } from '../../../helpers'
-import { franceAtlantic, franceMediterranean, iberiaCoast } from '../regions'
+import { latLonByName } from '../../latLonByName'
+import { getLatLonByName, joinBorders, sliceBorder } from '../../../../helpers'
+import { franceAtlantic, franceMediterranean, iberiaCoast } from '../../regions'
 
 const europe1: (keyof typeof latLonByName)[] = [
   'Tanais',

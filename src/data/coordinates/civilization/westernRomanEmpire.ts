@@ -1,9 +1,6 @@
-import { europe, africa } from '../natural/continents'
+import { europe, africa } from '../natural/continents/eurasiaAfrica'
 import { joinBorders, sliceBorder } from '../../../helpers'
-import {
-  britishIsles,
-  mediterraneanIslands,
-} from '../natural/islands'
+import { britishIsles, mediterraneanIslands } from '../natural/islands/islands'
 import { StateByYear } from '../../types'
 
 export const westernRomanEmpire: StateByYear = {}

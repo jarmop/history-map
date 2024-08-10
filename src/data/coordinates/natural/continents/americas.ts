@@ -1,4 +1,4 @@
-import { getLatLonByName } from '../../../helpers'
+import { getLatLonByName } from '../../../../helpers'
 
 export const americasNames: string[] = [
   // 'Portsmouth',

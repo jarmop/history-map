@@ -1,5 +1,5 @@
-import { getLatLonByName } from '../../../helpers'
-import { latLonByName } from '../latLonByName'
+import { getLatLonByName } from '../../../../helpers'
+import { latLonByName } from '../../latLonByName'
 
 export const britishIsles: Record<string, (keyof typeof latLonByName)[]> = {
   ['Great Britain']: [
