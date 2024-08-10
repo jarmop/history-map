@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLatLonToXy } from './useLatLonToXy'
 import * as storage from '../storage'
-import { rivers } from '../world/rivers'
-import { seas } from '../world/seas'
-import { toFixedNumber } from './helpers'
-import { Path } from '../world/data'
-import { meridians, parallels } from './parallelsAndMeridiansData'
+import { rivers } from '../data/coordinates/natural/rivers'
+import { seas } from '../data/coordinates/natural/seas'
+import { toFixedNumber } from '../helpers'
+import { Path } from '../data/data'
+import {
+  meridians,
+  parallels,
+} from '../data/coordinates/natural/parallelsAndMeridiansData'
 import { Meridians, Parallels } from './ParallelsAndMeridians'
 import { Config } from '../types'
 

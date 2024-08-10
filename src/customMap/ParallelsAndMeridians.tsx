@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { LatLon } from '../world/data'
+import { LatLon } from '../data/data'
 import { LatLonTupleToXYTuple } from './useLatLonToXy'
 
 interface ParallelsProps {
