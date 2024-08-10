@@ -1,10 +1,18 @@
+import { Config } from './types'
+
 type Storage = {
   year: number
   zoom: number
   xy: number[]
+  config: Config
 }
 
-const defaultStorage = { year: 0, zoom: 1, xy: [0, 0] }
+const defaultStorage = {
+  year: 0,
+  zoom: 1,
+  xy: [0, 0],
+  config: { zoomEnabled: true },
+}
 
 const storageKey = 'history-map'
 
@@ -43,4 +51,17 @@ export function setData(data: Partial<Storage>) {
   const storage = getStorage()
 
   setStorage({ ...storage, ...data })
+}
+
+export function getConfig() {
+  const storage = getStorage()
+  return storage && storage.config
+}
+
+export function setConfig(config: Config) {
+  setData({ config })
+}
+
+export function reset() {
+  localStorage.removeItem(storageKey)
 }

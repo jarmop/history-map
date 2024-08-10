@@ -6,6 +6,7 @@ import { useData, useYears } from './useData'
 export function World() {
   const years = useYears()
   const [year, setYear] = useState(storage.getYear() || years[0])
+  const [config, setConfig] = useState(storage.getConfig)
 
   useEffect(() => storage.setYear(year), [year])
 
@@ -26,7 +27,11 @@ export function World() {
   return (
     <div>
       <div style={{ position: 'fixed', fontSize: '40px' }}>{year}</div>
-      <CustomMap islands={islands} stateBorders={stateBorders} />
+      <CustomMap
+        islands={islands}
+        stateBorders={stateBorders}
+        config={config}
+      />
       <button
         onClick={() =>
           yearOfPreviousChange !== undefined && setYear(yearOfPreviousChange)
@@ -46,6 +51,25 @@ export function World() {
         disabled={yearOfNextChange === undefined}
       >
         {yearOfNextChange || '-'}
+      </button>
+      <h4>Dev tools</h4>
+      <button
+        onClick={() =>
+          setConfig((config) => ({
+            ...config,
+            zoomEnabled: !config.zoomEnabled,
+          }))
+        }
+      >
+        {`${config.zoomEnabled ? 'Disable' : 'Enable'} Zoom`}
+      </button>
+      <button
+        onClick={() => {
+          storage.reset()
+          location.reload()
+        }}
+      >
+        Reset cache
       </button>
     </div>
   )

@@ -7,6 +7,7 @@ import { toFixedNumber } from './helpers'
 import { Path } from '../world/data'
 import { meridians, parallels } from './parallelsAndMeridiansData'
 import { Meridians, Parallels } from './ParallelsAndMeridians'
+import { Config } from '../types'
 
 export type NewRegion = {
   index: number
@@ -126,9 +127,10 @@ function Foo({ points, mouseXY }: FooProps) {
 interface CustomMapProps {
   islands: Path[]
   stateBorders: Path[][]
+  config: Config
 }
 
-export function CustomMap({ islands, stateBorders }: CustomMapProps) {
+export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
   const [zoom, setZoom] = useState(storage.getZoom())
   const [xy, setXy] = useState(storage.getXy())
   const [activeBorder, setActiveBorder] = useState('')
@@ -199,6 +201,9 @@ export function CustomMap({ islands, stateBorders }: CustomMapProps) {
     }
     let foo = 0
     function wheel(e: WheelEvent) {
+      if (!config.zoomEnabled) {
+        return
+      }
       e.preventDefault()
       const zoomD = -e.deltaY
       foo += Math.abs(e.deltaY)
@@ -238,6 +243,7 @@ export function CustomMap({ islands, stateBorders }: CustomMapProps) {
     latLonTupleToXYTuple,
     xYTupleToLatLonTuple,
     xy,
+    config,
   ])
 
   function toggleActiveBorder(id: string) {
