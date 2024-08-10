@@ -1,5 +1,5 @@
-import { reset } from './storage'
-import { Config } from './types'
+import { reset } from '../storage'
+import { Config } from '../types'
 
 interface DevToolsProps {
   config: Config
@@ -9,6 +9,7 @@ interface DevToolsProps {
 export function DevTools({ config, setConfig }: DevToolsProps) {
   return (
     <>
+      <h4>Dev tools</h4>
       <button
         onClick={() =>
           setConfig({

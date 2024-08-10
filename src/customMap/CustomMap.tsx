@@ -19,7 +19,8 @@ export type NewRegion = {
   index: number
 }
 
-const aspectRatio = 16 / 9
+// const aspectRatio = 16 / 9
+const aspectRatio = 4 / 3
 // const aspectRatio = 1
 
 const stateColors = [
