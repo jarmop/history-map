@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CustomMap } from './customMap/CustomMap'
+import { CustomMap } from './CustomMap/CustomMap'
 import * as storage from './storage'
 import { useData, useYears } from './data/useData'
 

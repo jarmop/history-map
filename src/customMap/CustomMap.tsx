@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLatLonToXy } from './useLatLonToXy'
-import * as storage from '../storage'
 import { rivers } from '../data/coordinates/natural/rivers'
 import { seas } from '../data/coordinates/natural/seas'
 import { toFixedNumber } from '../helpers'
@@ -11,102 +9,17 @@ import {
 } from '../data/coordinates/natural/parallelsAndMeridiansData'
 import { Meridians, Parallels } from './ParallelsAndMeridians'
 import { Config } from '../types'
+import { Border } from './Border'
+import { River } from './River'
+import { Sea } from './Sea'
+import { DrawPath } from './DrawPath'
+import { useMouse } from './useMouse'
 
 export type NewRegion = {
   index: number
 }
 
-interface CityProps {
-  city: number[]
-  border: string
-}
-
-function City({ city }: CityProps) {
-  const [x, y] = city
-  return <circle cx={x} cy={y} r="2" />
-}
-interface BorderProps {
-  border: number[][]
-  onClick: () => void
-  fill?: string
-  active?: boolean
-  selectPoint: (point: number[]) => void
-}
-
-function Border({
-  border,
-  onClick,
-  fill = 'lightgrey',
-  active = false,
-  selectPoint,
-}: BorderProps) {
-  const [downXy, setDownXy] = useState([0, 0])
-  const [activePoint, setActivePoint] = useState(-1)
-
-  return (
-    <>
-      <path
-        fill={fill}
-        stroke={active ? 'black' : 'none'}
-        strokeWidth={2}
-        d={`M${border.join(' ')} z`}
-        onMouseDown={(e) => {
-          setDownXy([e.clientX, e.clientY])
-        }}
-        onMouseUp={(e) => {
-          if (e.clientX === downXy[0] && e.clientY === downXy[1]) {
-            onClick()
-          }
-          setDownXy([0, 0])
-        }}
-      />
-      {active &&
-        border.map((point, i) => (
-          <circle
-            key={i}
-            cx={point[0]}
-            cy={point[1]}
-            r="5"
-            fill={i === activePoint ? 'black' : 'transparent'}
-            onMouseEnter={() => setActivePoint(i)}
-            onMouseLeave={() => setActivePoint(-1)}
-            onMouseUp={(e) => {
-              e.stopPropagation()
-              selectPoint(point)
-            }}
-          />
-        ))}
-    </>
-  )
-}
-
-interface RiverProps {
-  river: number[][]
-}
-
-function River({ river }: RiverProps) {
-  return (
-    <path
-      fill="none"
-      stroke="lightcyan"
-      strokeWidth={2}
-      strokeLinejoin="round"
-      d={`M${river.join(' ')}`}
-    />
-  )
-}
-
-interface SeaProps {
-  border: number[][]
-  fill?: string
-}
-
-function Sea({ border }: SeaProps) {
-  return <path fill="lightcyan" d={`M${border.join(' ')} z`} />
-}
-
 const aspectRatio = 16 / 9
-const maxZoom = 10000
 const stateColors = [
   'red',
   'green',
@@ -117,16 +30,6 @@ const stateColors = [
   'orange',
 ]
 
-interface FooProps {
-  points: number[][]
-  mouseXY: number[]
-}
-
-function Foo({ points, mouseXY }: FooProps) {
-  const dPoints = [...points, mouseXY]
-  return <path fill="none" stroke="black" d={`M${dPoints.join(' ')}`} />
-}
-
 interface CustomMapProps {
   islands: Path[]
   stateBorders: Path[][]
@@ -134,8 +37,6 @@ interface CustomMapProps {
 }
 
 export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
-  const [zoom, setZoom] = useState(storage.getZoom())
-  const [xy, setXy] = useState(storage.getXy())
   const [activeBorder, setActiveBorder] = useState('')
   const [points, setPoints] = useState<number[][]>([])
   const [width, setWidth] = useState(1)
@@ -150,104 +51,11 @@ export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
     })
   }, [])
 
-  const {
-    latLonTupleToXYTuple,
-    xYTupleToLatLonTuple,
-    totalWidth,
-    totalHeight,
-  } = useLatLonToXy(zoom, width)
-  const [isMousedown, setMousedown] = useState(false)
-  const [mouseOnZoom, setMouseOnZoom] = useState<
-    | {
-        clientXY: number[]
-        latLon: number[]
-      }
-    | undefined
-  >(undefined)
-
-  useEffect(() => {
-    storage.setData({ zoom, xy: xy })
-  }, [zoom, xy])
-
-  useEffect(() => {
-    if (!mouseOnZoom) {
-      return
-    }
-    const mouseXYAfterZoom = latLonTupleToXYTuple(mouseOnZoom.latLon)
-
-    const newX = mouseXYAfterZoom[0] - mouseOnZoom.clientXY[0]
-    const newY = mouseXYAfterZoom[1] - mouseOnZoom.clientXY[1]
-
-    setMouseOnZoom(undefined)
-    setXy([newX, newY])
-  }, [latLonTupleToXYTuple, xYTupleToLatLonTuple, setXy, mouseOnZoom])
-
-  const maxX = width < totalWidth ? totalWidth - width : 0
-  const maxY = height < totalHeight ? totalHeight - height : 0
-
-  useEffect(() => {
-    function mousedown() {
-      setMousedown(true)
-    }
-    function mousemove(e: MouseEvent) {
-      if (isMousedown) {
-        const [dx, dy] = [e.movementX, e.movementY]
-        setXy((xy) => {
-          const newX = xy[0] - dx
-          const newY = xy[1] - dy
-          return [newX, newY]
-        })
-      }
-    }
-    function mouseup() {
-      setMousedown(false)
-    }
-    let foo = 0
-    function wheel(e: WheelEvent) {
-      if (!config.zoomEnabled) {
-        return
-      }
-      e.preventDefault()
-      const zoomD = -e.deltaY
-      foo += Math.abs(e.deltaY)
-      if (foo > 5) {
-        foo = 0
-        setMouseOnZoom({
-          clientXY: [e.clientX, e.clientY],
-          latLon: xYTupleToLatLonTuple([xy[0] + e.clientX, xy[1] + e.clientY]),
-        })
-        setZoom((zoom) => {
-          const newZoom = zoom + zoomD
-          return newZoom > 0 && newZoom <= maxZoom ? newZoom : zoom
-        })
-      }
-    }
-
-    const dom = domRef.current
-    if (!dom) {
-      return
-    }
-    dom.addEventListener('mousedown', mousedown)
-    dom.addEventListener('mousemove', mousemove)
-    dom.addEventListener('mouseup', mouseup)
-    dom.addEventListener('wheel', wheel)
-
-    return () => {
-      dom.removeEventListener('mousedown', mousedown)
-      dom.removeEventListener('mousemove', mousemove)
-      dom.removeEventListener('mouseup', mouseup)
-      dom.removeEventListener('wheel', wheel)
-    }
-  }, [
-    isMousedown,
-    setXy,
-    maxX,
-    maxY,
-    latLonTupleToXYTuple,
-    xYTupleToLatLonTuple,
-    xy,
-    config,
-  ])
+  const { xy, latLonTupleToXYTuple, xYTupleToLatLonTuple } = useMouse(
+    width,
+    config.zoomEnabled,
+    domRef.current
+  )
 
   function toggleActiveBorder(id: string) {
     points.length < 1 &&
@@ -465,7 +273,7 @@ export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
           />
         ))}
         {points.length > 0 && mouseXY && (
-          <Foo points={points} mouseXY={mouseXY} />
+          <DrawPath points={points} mouseXY={mouseXY} />
         )}
         <Parallels
           parallels={parallels}
