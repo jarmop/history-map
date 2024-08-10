@@ -11,7 +11,7 @@ const defaultStorage = {
   year: 0,
   zoom: 1,
   xy: [0, 0],
-  config: { zoomEnabled: true },
+  config: { zoomEnabled: true, showParallelsAndMeridians: false },
 }
 
 const storageKey = 'history-map'

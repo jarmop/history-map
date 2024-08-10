@@ -19,8 +19,8 @@ export type NewRegion = {
   index: number
 }
 
-// const aspectRatio = 16 / 9
-const aspectRatio = 1
+const aspectRatio = 16 / 9
+// const aspectRatio = 1
 
 const stateColors = [
   'red',
@@ -277,14 +277,18 @@ export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
         {points.length > 0 && mouseXY && (
           <DrawPath points={points} mouseXY={mouseXY} />
         )}
-        <Parallels
-          parallels={parallels}
-          latLonTupleToXYTuple={latLonTupleToXYTuple}
-        />
-        <Meridians
-          meridians={meridians}
-          latLonTupleToXYTuple={latLonTupleToXYTuple}
-        />
+        {config.showParallelsAndMeridians && (
+          <>
+            <Parallels
+              parallels={parallels}
+              latLonTupleToXYTuple={latLonTupleToXYTuple}
+            />
+            <Meridians
+              meridians={meridians}
+              latLonTupleToXYTuple={latLonTupleToXYTuple}
+            />
+          </>
+        )}
       </svg>
     </div>
   )

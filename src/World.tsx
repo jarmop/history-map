@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { CustomMap } from './CustomMap/CustomMap'
 import * as storage from './storage'
 import { useData, useYears } from './data/useData'
+import { DevTools } from './DevTools'
 
 export function World() {
   const years = useYears()
@@ -53,24 +54,8 @@ export function World() {
         {yearOfNextChange || '-'}
       </button>
       <h4>Dev tools</h4>
-      <button
-        onClick={() =>
-          setConfig((config) => ({
-            ...config,
-            zoomEnabled: !config.zoomEnabled,
-          }))
-        }
-      >
-        {`${config.zoomEnabled ? 'Disable' : 'Enable'} Zoom`}
-      </button>
-      <button
-        onClick={() => {
-          storage.reset()
-          location.reload()
-        }}
-      >
-        Reset cache
-      </button>
+      
+      <DevTools config={config} setConfig={setConfig} />
     </div>
   )
 }
