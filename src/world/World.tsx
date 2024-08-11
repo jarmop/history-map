@@ -12,18 +12,18 @@ export function World() {
 
   useEffect(() => storage.setYear(year), [year])
 
-  const { islands, stateBorders } = useData(year)
+  const { islands, rivers, stateBorders } = useData(year)
 
   return (
     <div>
       <div style={{ position: 'fixed', fontSize: '40px' }}>{year}</div>
       <CustomMap
         islands={islands}
+        rivers={rivers}
         stateBorders={stateBorders}
         config={config}
       />
       <YearInput year={year} years={years} onChange={(year) => setYear(year)} />
-
 
       <DevTools config={config} setConfig={setConfig} />
     </div>

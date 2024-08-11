@@ -2,7 +2,7 @@ export type LatLon = [number, number]
 
 export type Path = LatLon[]
 
-type Border = { id: string; path: Path }
+export type Border = { id: string; path: Path }
 
 // type Region = { id: string; borders: (Border['id'] | Border)[] }
 type Region = { id: string; borders: Border['id'][] }
@@ -32,10 +32,13 @@ type City = {
   latLon: LatLon
 }
 
+export type River = { id: string; borderId: string }
+
 export type World = {
   borders: Border[]
   // Any area, enclosing path
   regions: Region[]
+  rivers: River[]
   // mapped to regions by an algorithm
   cities: City[]
   // occupies regions

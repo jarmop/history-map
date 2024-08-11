@@ -29,7 +29,7 @@ export function YearInput({ year, years, onChange: setYear }: YearInput) {
   })
 
   return (
-    <>
+    <div className='yearinput'>
       <button
         onClick={() =>
           yearOfPreviousChange !== undefined && setYear(yearOfPreviousChange)
@@ -40,18 +40,18 @@ export function YearInput({ year, years, onChange: setYear }: YearInput) {
       </button>
       <button onClick={() => setYear(year - 100)}>{'- 100'}</button>
       <button onClick={() => setYear(year - 10)}>{'- 10'}</button>
-      {/* <button onClick={() => setYear(year - 1)}>{'- 1'}</button>
-      <button onClick={() => setYear(year + 1)}>{'+ 1'}</button> */}
+      <button onClick={() => setYear(year - 1)}>{'- 1'}</button>
       <input
         ref={inputDomRef}
-        type="number"
+        type="text"
         defaultValue={year}
         onChange={(e) => {
           const year = parseInt(e.target.value)
           !isNaN(year) && setYear(year)
         }}
-        style={{ width: '50px' }}
+        style={{ width: '30px' }}
       />
+      <button onClick={() => setYear(year + 1)}>{'+ 1'}</button>
       <button onClick={() => setYear(year + 10)}>{'+ 10'}</button>
       <button onClick={() => setYear(year + 100)}>{'+ 100'}</button>
       <button
@@ -62,6 +62,6 @@ export function YearInput({ year, years, onChange: setYear }: YearInput) {
       >
         {yearOfNextChange || '-'}
       </button>
-    </>
+    </div>
   )
 }

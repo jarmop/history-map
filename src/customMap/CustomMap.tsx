@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { rivers } from '../data/coordinates/natural/rivers/rivers'
 import { seas } from '../data/coordinates/natural/seas'
 import { toFixedNumber } from '../helpers'
 import { Path } from '../data/data'
@@ -10,6 +9,7 @@ import {
 import { Meridians, Parallels } from './ParallelsAndMeridians'
 import { Config } from '../types'
 import { Border } from './Border'
+import { Border as BorderData } from '../data/data'
 import { River } from './River'
 import { Sea } from './Sea'
 import { DrawPath } from './DrawPath'
@@ -34,12 +34,18 @@ const stateColors = [
 ]
 
 interface CustomMapProps {
-  islands: Path[]
+  islands: BorderData[]
+  rivers: BorderData[]
   stateBorders: Path[][]
   config: Config
 }
 
-export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
+export function CustomMap({
+  islands,
+  stateBorders,
+  config,
+  rivers,
+}: CustomMapProps) {
   const [activeBorder, setActiveBorder] = useState('')
   const [points, setPoints] = useState<number[][]>([])
   const [width, setWidth] = useState(1)
@@ -115,24 +121,24 @@ export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
           setDownXy([0, 0])
         }}
       >
-        {islands.map((border: number[][], i) => (
+        {islands.map((border: BorderData, i) => (
           <Border
             key={i}
-            border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
+            border={border.path.map((latlon) => latLonTupleToXYTuple(latlon))}
             onClick={() => toggleActiveBorder('continent' + i)}
             active={activeBorder === 'continent' + i}
             selectPoint={(point: number[]) => {
               if (points.length > 0) {
                 const startPoint = points[0]
                 const endPoint = point
-                const startIndex = border.findIndex((borderPoint) => {
+                const startIndex = border.path.findIndex((borderPoint) => {
                   const xyTuple = latLonTupleToXYTuple(borderPoint)
                   return (
                     startPoint[0] === xyTuple[0] && startPoint[1] === xyTuple[1]
                   )
                 })
 
-                const endIndex = border.findIndex((borderPoint) => {
+                const endIndex = border.path.findIndex((borderPoint) => {
                   const xyTuple = latLonTupleToXYTuple(borderPoint)
                   return (
                     endPoint[0] === xyTuple[0] && endPoint[1] === xyTuple[1]
@@ -266,7 +272,7 @@ export function CustomMap({ islands, stateBorders, config }: CustomMapProps) {
         {rivers.map((river, i) => (
           <River
             key={i}
-            river={river.map((latlon) => latLonTupleToXYTuple(latlon))}
+            river={river.path.map((latlon) => latLonTupleToXYTuple(latlon))}
           />
         ))}
         {seas.map((sea, i) => (

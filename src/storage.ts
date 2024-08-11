@@ -19,6 +19,7 @@ const defaultStorage: Storage = {
     regions: [],
     cities: [],
     states: [],
+    rivers: [],
   },
 }
 

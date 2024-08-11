@@ -1,2 +1,7 @@
-.map {
+.yearinput input {
+  margin: 0 4px;
+}
+
+.yearinput button {
+  min-width: 40px;
 }
