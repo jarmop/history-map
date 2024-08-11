@@ -290,7 +290,7 @@
         [65.0142, 25.4719],
         [65.4686, 25.337815],
         [65.7361, 24.5636],
-        [65.85, 24.15],
+        [65.815422, 24.155167],
         [65.906809, 22.650069],
         [65.5844, 22.1539],
         [65.3167, 21.4833],
@@ -1724,7 +1724,8 @@
         [66.299172, 23.656491],
         [66.155396, 23.924435],
         [65.815422, 24.155167]
-      ]
+      ],
+      "end": { "borderId": "eurasiaAfrica", "i": 249 }
     },
     {
       "id": "vistula",
@@ -1854,7 +1855,7 @@
       ]
     }
   ],
-  "regions": [
+  "islands": [
     { "id": "eurasiaAfrica", "borders": ["eurasiaAfrica"] },
     { "id": "americas", "borders": ["americas"] },
     { "id": "australia", "borders": ["australia"] },
@@ -1872,6 +1873,8 @@
   ],
   "cities": [{ "name": "Rome", "latLon": [1, 2] }],
   "states": [
+    { "name": "Umayyad Caliphate", "endYear": 750, "regionsByYear": {} },
+    { "name": "Abbasid Caliphate", "endYear": 1258, "regionsByYear": {} },
     {
       "name": "Roman Republic",
       "endYear": -23,

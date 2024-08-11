@@ -2,10 +2,15 @@ export type LatLon = [number, number]
 
 export type Path = LatLon[]
 
-export type Border = { id: string; path: Path }
+export type Border = {
+  id: string
+  path: Path
+  start?: { borderId: string; i: number }
+  end?: { borderId: string; i: number }
+}
 
 // type Region = { id: string; borders: (Border['id'] | Border)[] }
-type Region = { id: string; borders: Border['id'][] }
+type Island = { id: string; borders: Border['id'][] }
 
 export type BorderSlice = {
   borderId: string
@@ -13,7 +18,7 @@ export type BorderSlice = {
   end: number
 }
 
-type Foo = (BorderSlice | Path)[]
+export type Region = (BorderSlice | Path)[]
 
 // founded on the year of the first region
 export type State = {
@@ -24,7 +29,7 @@ export type State = {
   of existence. */
   // regionIdsByYear: Record<number, (Region['id'] | undefined)[]>
   // regionsByYear: Record<number, (Region['id'] | Region | Foo)[] | undefined>
-  regionsByYear: Record<number, Foo[]>
+  regionsByYear: Record<number, Region[]>
 }
 
 type City = {
@@ -37,7 +42,7 @@ export type River = { id: string; borderId: string }
 export type World = {
   borders: Border[]
   // Any area, enclosing path
-  regions: Region[]
+  islands: Island[]
   rivers: River[]
   // mapped to regions by an algorithm
   cities: City[]

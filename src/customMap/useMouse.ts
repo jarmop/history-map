@@ -15,8 +15,8 @@ export function useMouse(
 
   const [mouseOnZoom, setMouseOnZoom] = useState<
     | {
-        clientXY: number[]
-        latLon: number[]
+        clientXY: [number, number]
+        latLon: [number, number]
       }
     | undefined
   >(undefined)

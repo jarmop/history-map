@@ -1,4 +1,4 @@
-import { sliceBorder } from "../../../../helpers"
+import { sliceBorder } from '../../../../helpers'
 
 export const adige: string[] = [
   'Source of Adige',
@@ -125,8 +125,6 @@ export const don: string[] = [
   'Rostov',
   'Mouth of Don',
 ]
-
-
 
 export const elbe: string[] = [
   'Pramen Labe',

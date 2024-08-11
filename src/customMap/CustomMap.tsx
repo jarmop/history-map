@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { seas } from '../data/coordinates/natural/seas'
-import { toFixedNumber } from '../helpers'
-import { Path } from '../data/data'
+import { isBorderSlice, isEqualPoint, sliceBorder } from '../helpers'
+import { BorderSlice, Path, Region } from '../data/data'
 import {
   meridians,
   parallels,
@@ -14,6 +14,7 @@ import { River } from './River'
 import { Sea } from './Sea'
 import { DrawPath } from './DrawPath'
 import { useMouse } from './useMouse'
+import { NewPath } from '../world/types'
 
 export type NewRegion = {
   index: number
@@ -38,6 +39,9 @@ interface CustomMapProps {
   rivers: BorderData[]
   stateBorders: Path[][]
   config: Config
+  onPathCompleted: (newPath: NewPath) => void
+  onRegionCompleted: (newRegion: Region) => void
+  borderById: Record<string, BorderData>
 }
 
 export function CustomMap({
@@ -45,9 +49,17 @@ export function CustomMap({
   stateBorders,
   config,
   rivers,
+  onPathCompleted,
+  onRegionCompleted,
+  borderById,
 }: CustomMapProps) {
   const [activeBorder, setActiveBorder] = useState('')
-  const [points, setPoints] = useState<number[][]>([])
+  const [newPath, setNewPath] = useState<{
+    start?: { borderId: string; i: number }
+    points: [number, number][]
+  }>()
+  const [newPaths, setNewPaths] = useState<(NewPath | BorderSlice)[]>([])
+  const points = newPath?.points || []
   const [width, setWidth] = useState(1)
 
   const domRef = useRef<HTMLDivElement>(null)
@@ -71,12 +83,17 @@ export function CustomMap({
       setActiveBorder((activeBorder) => (activeBorder === id ? '' : id))
   }
 
-  function selectPoint(point: number[]) {
-    setPoints((points) => [...points, point])
-  }
+  function selectPoint(
+    point: [number, number],
+    start?: { borderId: string; i: number }
+  ) {
+    setNewPath((newPath) => {
+      const wtf = newPath
+        ? { ...newPath, points: [...points, point] }
+        : { start: start, points: [point] }
 
-  function selectBorderPoint(point: number[]) {
-    setPoints((points) => [...points, point])
+      return wtf
+    })
   }
 
   const [mouseXY, setMouseXy] = useState<number[]>()
@@ -84,7 +101,8 @@ export function CustomMap({
   useEffect(() => {
     function keyup(e: KeyboardEvent) {
       if (e.key === 'Escape') {
-        setPoints([])
+        setNewPath(undefined)
+        setNewPaths([])
         setMouseXy(undefined)
       }
     }
@@ -95,6 +113,87 @@ export function CustomMap({
   }, [])
 
   const [downXy, setDownXy] = useState([0, 0])
+
+  /**
+   * Clicking a border either ends a path or starts it. Region may then share the border
+   * and continue with another path from some point
+   */
+  function selectBorderPoint(
+    border: BorderData,
+    point: [number, number],
+    i: number
+  ) {
+    if (points.length > 0) {
+      // Ending a path
+      if (!newPath) {
+        // This shouldn't happen
+        return
+      }
+
+      if (
+        newPaths.length > 0 &&
+        points.length === 1 &&
+        isEqualPoint(points[0], point)
+      ) {
+        // Clicking again the same point on a border selects the whole border
+        // Only if there are two possible endings?
+        const lastPath = newPaths[newPaths.length - 1]
+        // const borderSlice =
+        if (!isBorderSlice(lastPath)) {
+          setNewPaths((newPaths) => [
+            ...newPaths,
+            {
+              borderId: border.id,
+              start: lastPath.end?.i || 0,
+              // end at whatever the next connection point?
+              end: border.path.length - 1,
+            },
+          ])
+
+          setNewPath(undefined)
+          return
+        }
+      }
+      const completedPath = {
+        ...newPath,
+        points: [...points, point],
+        end: { borderId: border.id, i },
+      }
+
+      setNewPaths((newPaths) => [...newPaths, completedPath])
+      setNewPath(undefined)
+    } else {
+      if (newPaths.length > 0) {
+        const firstPath = newPaths[0]
+        const startId = !isBorderSlice(firstPath) && firstPath.start?.borderId
+        if (border.id === startId) {
+          const lastPath = newPaths[newPaths.length - 1]
+          const newPathStart = isBorderSlice(lastPath)
+            ? borderById[lastPath.borderId].end?.i || 0
+            : lastPath.end?.i
+          const newPathsTemp = [
+            ...newPaths,
+            {
+              borderId: border.id,
+              start: newPathStart || 0,
+              // end at whatever the next connection point?
+              end: (!isBorderSlice(firstPath) && firstPath.start?.i) || 0,
+            },
+          ]
+          const newRegion: Region = newPathsTemp.map((newPath) =>
+            isBorderSlice(newPath)
+              ? { ...newPath }
+              : newPath.points.map(xYTupleToLatLonTuple)
+          )
+          onRegionCompleted(newRegion)
+          setNewPaths(newPathsTemp)
+          return
+        }
+      }
+      // Starting a new Path
+      selectPoint(point, { borderId: border.id, i })
+    }
+  }
 
   return (
     <div ref={domRef}>
@@ -127,115 +226,9 @@ export function CustomMap({
             border={border.path.map((latlon) => latLonTupleToXYTuple(latlon))}
             onClick={() => toggleActiveBorder('continent' + i)}
             active={activeBorder === 'continent' + i}
-            selectPoint={(point: number[]) => {
-              if (points.length > 0) {
-                const startPoint = points[0]
-                const endPoint = point
-                const startIndex = border.path.findIndex((borderPoint) => {
-                  const xyTuple = latLonTupleToXYTuple(borderPoint)
-                  return (
-                    startPoint[0] === xyTuple[0] && startPoint[1] === xyTuple[1]
-                  )
-                })
-
-                const endIndex = border.path.findIndex((borderPoint) => {
-                  const xyTuple = latLonTupleToXYTuple(borderPoint)
-                  return (
-                    endPoint[0] === xyTuple[0] && endPoint[1] === xyTuple[1]
-                  )
-                })
-
-                // const divider = [
-                //   border[startIndex],
-                //   ...points
-                //     .slice(1)
-                //     .map((p) =>
-                //       xYTupleToLatLonTuple(p).map((value) =>
-                //         toFixedNumber(value, 5)
-                //       )
-                //     ),
-                //   border[endIndex],
-                // ]
-
-                const divider = points
-                  .slice(1)
-                  .map((p) =>
-                    xYTupleToLatLonTuple(p).map((value) =>
-                      toFixedNumber(value, 5)
-                    )
-                  )
-
-                // if (startIndex > endIndex) {
-                //   divider.reverse()
-
-                // }
-
-                // const newBorder = {
-                //   id: 'africa' + Date.now()
-                //   points:
-                // }
-
-                const firstRegion = [
-                  divider,
-                  {
-                    share: 'africa',
-                    start: endIndex,
-                    end: startIndex,
-                  },
-                ]
-                // console.log(
-                //   `[${divider
-                //     .map((tuple) => `'${tuple.join(', ')}'`)
-                //     .join(',')}]`
-                // )
-                // // Object.keys(africa)
-                // console.log(
-                //   `sliceBorder(africa, ${africa[endIndex]}, ${africa[startIndex]})`
-                // )
-
-                const secondRegion = [
-                  divider,
-
-                  {
-                    share: 'africa',
-                    start: startIndex,
-                    end: endIndex,
-                  },
-                ]
-
-                // console.log(firstRegion)
-                // // console.log(secondRegion)
-
-                console.log(JSON.stringify(firstRegion))
-                console.log(JSON.stringify(secondRegion))
-                // console.log(secondRegion)
-
-                //   startIndex: endIndex,
-                //   endIndex: startIndex,
-                //   divider,
-                //   container: activeBorder,
-                // }
-
-                // const smallerIndex = Math.min(startIndex, endIndex)
-                // const largerIndex = Math.max(startIndex, endIndex)
-                // const firstRegion = [
-                //   border.slice(0, smallerIndex),
-                //   startIndex === smallerIndex
-                //     ? divider
-                //     : [...divider].reverse(),
-                //   border.slice(largerIndex + 1),
-                // ].flat()
-                // const secondRegion = [
-                //   border.slice(smallerIndex + 1, largerIndex),
-                //   startIndex === largerIndex ? divider : [...divider].reverse(),
-                // ].flat()
-
-                // setNewRegions([firstRegion, secondRegion])
-                setPoints([])
-              } else {
-                selectBorderPoint(point)
-              }
-            }}
+            selectPoint={(point: [number, number], i: number) =>
+              selectBorderPoint(border, point, i)
+            }
           />
         ))}
         {stateBorders.flatMap((borders, i) =>
@@ -246,35 +239,24 @@ export function CustomMap({
               fill={stateColors[i]}
               onClick={() => toggleActiveBorder(`state${i}`)}
               active={activeBorder === `state${i}`}
-              selectPoint={selectBorderPoint}
+              selectPoint={(point: [number, number], i: number) => {
+                //selectBorderPoint(border, point, i)
+              }}
             />
           ))
         )}
-        {/* {states.flatMap((state, i) => [
-          ...state.borders.map((border, j) => (
-            <Border
-              key={`border${i}-${j}`}
-              border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
-              fill={stateColors[i]}
-              onClick={() => toggleActiveBorder(`state${i}`)}
-              active={activeBorder === `state${i}`}
-              selectPoint={selectBorderPoint}
+        {rivers
+          .filter((b) => b.id === 'torne')
+          .map((river, i) => (
+            <River
+              key={i}
+              river={river.path.map((latlon) => latLonTupleToXYTuple(latlon))}
+              active={activeBorder !== ''}
+              selectPoint={(point: [number, number], i: number) =>
+                selectBorderPoint(river, point, i)
+              }
             />
-          )),
-          ...state.cities.map((city, j) => (
-            <City
-              key={`city${i}-${j}`}
-              city={latLonTupleToXYTuple(city)}
-              border={stateColors[i]}
-            />
-          )),
-        ])} */}
-        {rivers.map((river, i) => (
-          <River
-            key={i}
-            river={river.path.map((latlon) => latLonTupleToXYTuple(latlon))}
-          />
-        ))}
+          ))}
         {seas.map((sea, i) => (
           <Sea
             key={i}
@@ -296,6 +278,36 @@ export function CustomMap({
             />
           </>
         )}
+        {newPaths.map((newPath: NewPath | BorderSlice, i) => {
+          if (isBorderSlice(newPath)) {
+            const slicedPoints = sliceBorder(
+              borderById[newPath.borderId].path,
+              newPath.start,
+              newPath.end
+            )
+            return (
+              <path
+                key={i}
+                fill="none"
+                stroke="red"
+                strokeWidth={2}
+                strokeLinejoin="round"
+                d={`M${slicedPoints.map(latLonTupleToXYTuple).join(' ')}`}
+              />
+            )
+          } else {
+            return (
+              <path
+                key={i}
+                fill="none"
+                stroke="red"
+                strokeWidth={2}
+                strokeLinejoin="round"
+                d={`M${newPath.points.join(' ')}`}
+              />
+            )
+          }
+        })}
       </svg>
     </div>
   )

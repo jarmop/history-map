@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { getWorld, setWorld } from '../storage'
-import { Border, BorderSlice, Path, State, World } from './data'
+import { Border, Path, State, World } from './data'
 import dataJson from './data.json'
+import { isBorderSlice, sliceBorder } from '../helpers'
 
 function getData() {
   const storageData = getWorld()
@@ -11,11 +13,6 @@ function getData() {
   }
 
   return storageData
-}
-
-function isBorderSlice(border: Path | BorderSlice): border is BorderSlice {
-  // eslint-disable-next-line no-prototype-builtins
-  return border.hasOwnProperty('borderId')
 }
 
 function findRegions(state: State, year: number) {
@@ -36,16 +33,16 @@ function findRegions(state: State, year: number) {
   return state.regionsByYear[parseInt(yearString)]
 }
 
-function sliceBorder(path: Path, start: number, end: number) {
-  if (start < end) {
-    return path.slice(start, end + 1)
-  } else {
-    return path.toReversed().slice(end, start + 1)
-  }
-}
+// function sliceBorder(path: Path, start: number, end: number) {
+//   if (start < end) {
+//     return path.slice(start, end + 1)
+//   } else {
+//     return path.toReversed().slice(end, start + 1)
+//   }
+// }
 
 export function useData(year: number) {
-  const data = getData()
+  const [data, setData] = useState(getData)
   const stateBorders: Path[][] = []
 
   data.states.forEach((state) => {
@@ -78,21 +75,38 @@ export function useData(year: number) {
     stateBorders.push(regionBorders)
   })
 
-  const borderById = data.borders.reduce<Record<string, Border>>((acc, curr) => {
-    acc[curr.id] = curr
-    return acc
-  }, {})
+  const borderById = data.borders.reduce<Record<string, Border>>(
+    (acc, curr) => {
+      acc[curr.id] = curr
+      return acc
+    },
+    {}
+  )
 
-  const islands = data.regions.flatMap(({ borders }) =>
+  const islands = data.islands.flatMap(({ borders }) =>
     borders.map((id) => borderById[id])
   )
 
   const rivers = data.rivers.map(({ borderId }) => borderById[borderId])
 
+  function saveState(state: State) {
+    const newStates = data.states.map((s) =>
+      s.name === state.name ? { ...state } : { ...s }
+    )
+
+    const newData = { ...data, states: newStates }
+    setData(newData)
+    setWorld(newData)
+    console.info('Saved state!')
+  }
+
   return {
     islands,
     rivers,
     stateBorders,
+    saveState,
+    borderById,
+    allStates: data.states,
   }
 }
 

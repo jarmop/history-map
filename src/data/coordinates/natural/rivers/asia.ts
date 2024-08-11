@@ -1,4 +1,4 @@
-import { sliceBorder } from "../../../../helpers"
+import { sliceBorder } from '../../../../helpers'
 
 export const amuDarya: string[] = [
   'Source of Amu Darya',

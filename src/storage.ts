@@ -16,7 +16,7 @@ const defaultStorage: Storage = {
   config: { zoomEnabled: true, showParallelsAndMeridians: false },
   world: {
     borders: [],
-    regions: [],
+    islands: [],
     cities: [],
     states: [],
     rivers: [],
@@ -71,9 +71,18 @@ export function setConfig(config: Config) {
   setData({ config })
 }
 
-export function reset() {
-  const storage = getStorage()
-  setStorage({ ...defaultStorage, world: storage.world })
+export function resetAll() {
+  setStorage(defaultStorage)
+}
+
+export function resetNavigation() {
+  const { zoom, xy } = defaultStorage
+  setData({ zoom, xy })
+}
+
+export function resetWorld() {
+  const { world } = defaultStorage
+  setData({ world })
 }
 
 export function getWorld() {

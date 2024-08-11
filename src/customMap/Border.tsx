@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 interface BorderProps {
-  border: number[][]
+  border: [number, number][]
   onClick: () => void
   fill?: string
   active?: boolean
-  selectPoint: (point: number[]) => void
+  selectPoint: (point: [number, number], i: number) => void
 }
 
 export function Border({
@@ -41,13 +41,16 @@ export function Border({
             key={i}
             cx={point[0]}
             cy={point[1]}
-            r="5"
+            r="6"
             fill={i === activePoint ? 'black' : 'transparent'}
-            onMouseEnter={() => setActivePoint(i)}
+            onMouseEnter={() => {
+              setActivePoint(i)
+            }}
             onMouseLeave={() => setActivePoint(-1)}
             onMouseUp={(e) => {
               e.stopPropagation()
-              selectPoint(point)
+              selectPoint(point, i)
+              // console.log('point index:', i, point)
             }}
           />
         ))}

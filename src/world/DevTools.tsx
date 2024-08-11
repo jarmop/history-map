@@ -1,4 +1,4 @@
-import { getWorld, reset } from '../storage'
+import { getWorld, resetNavigation, resetWorld } from '../storage'
 import { Config } from '../types'
 
 interface DevToolsProps {
@@ -22,11 +22,19 @@ export function DevTools({ config, setConfig }: DevToolsProps) {
       </button>
       <button
         onClick={() => {
-          reset()
+          resetNavigation()
           location.reload()
         }}
       >
-        Reset cache
+        Reset navigation
+      </button>
+      <button
+        onClick={() => {
+          resetWorld()
+          location.reload()
+        }}
+      >
+        Reset data
       </button>
       <input
         id="parallelsAndMeridians"
@@ -42,7 +50,7 @@ export function DevTools({ config, setConfig }: DevToolsProps) {
         onClick={() =>
           navigator.clipboard
             .writeText(JSON.stringify(getWorld()))
-            .then(() => console.log('Data copied to clipboard'))
+            .then(() => console.info('Data copied to clipboard'))
         }
       >
         Export data
