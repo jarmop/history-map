@@ -364,6 +364,7 @@ romanRepublic['-44'] = {
 
 export const romanRepublicObject: State = {
   name: 'Roman Republic',
+  endYear: -23,
   regionsByYear: {
     ['-338']: [
       [
@@ -456,8 +457,6 @@ export const romanRepublicObject: State = {
           end: eurasiaAfricaNames.indexOf('Foz'),
         },
         ['Leon', 'Burgos'].map(getLatLonByName),
-        // ],
-        // [
         {
           borderId: 'eurasiaAfrica',
           start: eurasiaAfricaNames.indexOf('Bilbao'),

@@ -1,3 +1,4 @@
+import { romanEmpire } from './coordinates/civilization/bordersByYear/romanEmpire'
 import { romanRepublicObject } from './coordinates/civilization/bordersByYear/romanRepublic'
 import { americas } from './coordinates/natural/continents/americas'
 import { antarctica } from './coordinates/natural/continents/antarctica'
@@ -34,7 +35,7 @@ const data: World = {
     // ...islandRegions,
   ],
   cities: [{ name: 'Rome', latLon: [1, 2] }],
-  states: [romanRepublicObject],
+  states: [romanRepublicObject, romanEmpire],
 }
 
 function isBorderSlice(border: Path | BorderSlice): border is BorderSlice {
@@ -43,6 +44,9 @@ function isBorderSlice(border: Path | BorderSlice): border is BorderSlice {
 }
 
 function findRegions(state: State, year: number) {
+  if (state.endYear < year) {
+    return undefined
+  }
   const yearsOfChange = Object.keys(state.regionsByYear)
   const yearString = yearsOfChange.find((testYear, i) => {
     const currentYear = parseInt(testYear)

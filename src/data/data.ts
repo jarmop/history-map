@@ -17,6 +17,7 @@ type Foo = (BorderSlice | Path)[]
 // founded on the year of the first region
 export type State = {
   name: string
+  endYear: number
   /* Region of ids mapped by start year of occupation. Undefined means the 
   end date of the state. State may perhaps have multiple separate sequences 
   of existence. */

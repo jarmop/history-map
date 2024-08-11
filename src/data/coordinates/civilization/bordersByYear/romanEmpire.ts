@@ -1,135 +1,115 @@
-import { europe, asia, africa } from './coordinates/natural/continents'
-import { joinBorders, sliceBorder } from '../helpers'
+import { getLatLonByName} from '../../../../helpers'
+import { State } from '../../../data'
+import { eurasiaAfricaNames } from '../../natural/continents/eurasiaAfrica'
 import {
-  britishIsles,
   mediterraneanIslands,
-} from './coordinates/natural/islands'
-import { StateByYear } from './types'
+  britishIsles,
+} from '../../natural/islands/islands'
 
-export const romanEmpire: StateByYear = {}
-
-romanEmpire[1] = {
-  borders: [
-    joinBorders([
-      sliceBorder(europe, 'Cardon', 'Zwin'),
+export const romanEmpire: State = {
+  name: 'Roman Empire',
+  endYear: 394,
+  regionsByYear: {
+    ['1']: [
       [
-        'Zwin',
-        'Brussels',
-        'Rastatt',
-        'Basel',
-        'Munich',
-        'Budapest',
-        'Pecs',
-        'Cardon',
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Cardon'),
+          end: eurasiaAfricaNames.indexOf('Zwin'),
+        },
+        ['Brussels', 'Rastatt', 'Basel', 'Munich', 'Budapest', 'Pecs'].map(
+          getLatLonByName
+        ),
       ],
-    ]),
-    joinBorders([
-      sliceBorder(asia, 'Umluj', 'Rize'),
-      ['Rize', 'Sanliurfa', 'Ar Raqqah', 'Al Mayadin', 'Al Qurayyat', 'Umluj'],
-    ]),
-    joinBorders([
-      sliceBorder(africa, 'Suez', 'Berenice Troglodytica'),
       [
-        'Berenice Troglodytica',
-        "Wadi Halfa'",
-        'Bawiti',
-        'Al Jaghbub',
-        'Maradah',
-        'Tozeur',
-        'Biskra',
-        'Barika',
-        'El Jadida',
+        ['Sanliurfa', 'Ar Raqqah', 'Al Mayadin', 'Al Qurayyat'].map(
+          getLatLonByName
+        ),
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Umluj'),
+          end: eurasiaAfricaNames.indexOf('Berenice Troglodytica'),
+        },
+        [
+          "Wadi Halfa'",
+          'Bawiti',
+          'Al Jaghbub',
+          'Maradah',
+          'Tozeur',
+          'Biskra',
+          'Barika',
+        ].map(getLatLonByName),
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('El Jadida'),
+          end: eurasiaAfricaNames.indexOf('Rize'),
+        },
       ],
-      sliceBorder(africa, 'El Jadida', 'Port Said'),
-    ]),
-    ...Object.values(mediterraneanIslands),
-  ],
-  cities: [
-    'Rome',
-    'Ostia',
-    'Naples',
-    'Syracuse',
-    'Valencia',
-    'Paris',
-    'Marseille',
-    'Montpellier',
-    'Toulouse',
-    'Lyon',
-    'Athens',
-    'Corinth',
-    'Izmir',
-    'Sinop',
-    'Latakia',
-    'Damascus',
-    'Carthage',
-  ],
-}
-
-romanEmpire[117] = {
-  borders: [
-    joinBorders([
-      sliceBorder(europe, 'Cardon', 'The Hague'),
+      ...Object.values(mediterraneanIslands).map((borders) => [
+        borders.map(getLatLonByName),
+      ]),
+    ],
+    ['117']: [
       [
-        'The Hague',
-        'Eindhoven',
-        'Mannheim',
-        'Heilbronn',
-        'Memmingen',
-        'Munich',
-        'Vienna',
-        'Budapest',
-        'Bistrita',
-        'Vatra Dornei',
-        'Cardon',
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Cardon'),
+          end: eurasiaAfricaNames.indexOf('The Hague'),
+        },
+        [
+          'Eindhoven',
+          'Mannheim',
+          'Heilbronn',
+          'Memmingen',
+          'Munich',
+          'Vienna',
+          'Budapest',
+          'Bistrita',
+          'Vatra Dornei',
+        ].map(getLatLonByName),
       ],
-    ]),
-    joinBorders([
-      sliceBorder(asia, 'Umluj', 'Sochi'),
-      ['Sochi', 'Baku', 'Marand', 'Kalar', 'Shadegan'],
-      sliceBorder(asia, 'Shadegan', 'Kuwait City'),
-
-      ['Kuwait City', 'Ar Ramadi', 'Ar Rutbah', 'Dawmat al Jandal', 'Umluj'],
-    ]),
-    joinBorders([
-      sliceBorder(africa, 'Suez', 'Berenice Troglodytica'),
       [
-        'Berenice Troglodytica',
-        "Wadi Halfa'",
-        'Al Jaghbub',
-        'Maradah',
-        'Tozeur',
-        'Biskra',
-        'Barika',
-        'Casablanca',
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Umluj'),
+          end: eurasiaAfricaNames.indexOf('Berenice Troglodytica'),
+        },
+        [
+          "Wadi Halfa'",
+          'Al Jaghbub',
+          'Maradah',
+          'Tozeur',
+          'Biskra',
+          'Barika',
+        ].map(getLatLonByName),
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Casablanca'),
+          end: eurasiaAfricaNames.indexOf('Sochi'),
+        },
+        ['Baku', 'Marand', 'Kalar'].map(getLatLonByName),
+        {
+          borderId: 'eurasiaAfrica',
+          start: eurasiaAfricaNames.indexOf('Shadegan'),
+          end: eurasiaAfricaNames.indexOf('Kuwait City'),
+        },
+        ['Ar Ramadi', 'Ar Rutbah', 'Dawmat al Jandal'].map(getLatLonByName),
       ],
-      sliceBorder(africa, 'Casablanca', 'Port Said'),
-      ['Port Said', 'Suez'],
-    ]),
-    joinBorders([
-      sliceBorder(britishIsles['Great Britain'], 'Dover', 'Annan'),
-      ['Annan', 'Sunderland'],
-      sliceBorder(britishIsles['Great Britain'], 'Sunderland', 'Southend'),
-      ['Southend', 'Dover'],
-    ]),
-    ...Object.values(mediterraneanIslands),
-  ],
-  cities: [
-    'Rome',
-    'Ostia',
-    'Naples',
-    'Syracuse',
-    'Valencia',
-    'Paris',
-    'Marseille',
-    'Montpellier',
-    'Toulouse',
-    'Lyon',
-    'Athens',
-    'Corinth',
-    'Izmir',
-    'Sinop',
-    'Latakia',
-    'Damascus',
-    'Carthage',
-  ],
+      [
+        {
+          borderId: 'Great Britain',
+          start: britishIsles['Great Britain'].indexOf('Dover'),
+          end: britishIsles['Great Britain'].indexOf('Annan'),
+        },
+        {
+          borderId: 'Great Britain',
+          start: britishIsles['Great Britain'].indexOf('Sunderland'),
+          end: britishIsles['Great Britain'].indexOf('Southend'),
+        },
+      ],
+      ...Object.values(mediterraneanIslands).map((borders) => [
+        borders.map(getLatLonByName),
+      ]),
+    ],
+  },
 }
