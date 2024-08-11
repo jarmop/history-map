@@ -1,4 +1,5 @@
 import { getLatLonByName } from '../helpers'
+import { getWorld, setWorld } from '../storage'
 import {
   franciaMiddleEast,
   franciaWestMiddle,
@@ -79,6 +80,16 @@ const data: World = {
   ],
 }
 
+function getData() {
+  const storageData = getWorld()
+  if (storageData.borders.length === 0) {
+    setWorld(data)
+    return data
+  }
+
+  return storageData
+}
+
 function isBorderSlice(border: Path | BorderSlice): border is BorderSlice {
   // eslint-disable-next-line no-prototype-builtins
   return border.hasOwnProperty('borderId')
@@ -111,6 +122,7 @@ function sliceBorder(path: Path, start: number, end: number) {
 }
 
 export function useData(year: number) {
+  const data = getData()
   const stateBorders: Path[][] = []
   const years = Array.from(
     new Set(data.states.flatMap((state) => Object.keys(state).map(parseInt)))
@@ -166,7 +178,7 @@ export function useData(year: number) {
 export function useYears() {
   const years = Array.from(
     new Set(
-      data.states.flatMap((state) =>
+      getData().states.flatMap((state) =>
         Object.keys(state.regionsByYear).map((year) => parseInt(year))
       )
     )

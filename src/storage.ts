@@ -1,3 +1,4 @@
+import { World } from './data/data'
 import { Config } from './types'
 
 type Storage = {
@@ -5,13 +6,20 @@ type Storage = {
   zoom: number
   xy: number[]
   config: Config
+  world: World
 }
 
-const defaultStorage = {
+const defaultStorage: Storage = {
   year: 0,
   zoom: 1,
   xy: [0, 0],
   config: { zoomEnabled: true, showParallelsAndMeridians: false },
+  world: {
+    borders: [],
+    regions: [],
+    cities: [],
+    states: [],
+  },
 }
 
 const storageKey = 'history-map'
@@ -63,5 +71,15 @@ export function setConfig(config: Config) {
 }
 
 export function reset() {
-  localStorage.removeItem(storageKey)
+  const storage = getStorage()
+  setStorage({ ...defaultStorage, world: storage.world })
+}
+
+export function getWorld() {
+  const storage = getStorage()
+  return storage && storage.world
+}
+
+export function setWorld(world: World) {
+  setData({ world })
 }

@@ -1,4 +1,4 @@
-import { reset } from '../storage'
+import { getWorld, reset } from '../storage'
 import { Config } from '../types'
 
 interface DevToolsProps {
@@ -38,6 +38,15 @@ export function DevTools({ config, setConfig }: DevToolsProps) {
       <label htmlFor="parallelsAndMeridians">
         Show parallels and meridians
       </label>
+      <button
+        onClick={() =>
+          navigator.clipboard
+            .writeText(JSON.stringify(getWorld()))
+            .then(() => console.log('Data copied to clipboard'))
+        }
+      >
+        Export data
+      </button>
     </>
   )
 }
