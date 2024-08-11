@@ -1,10 +1,6 @@
-import { europe } from '../../natural/continents/eurasiaAfrica'
-import { joinBorders, sliceBorder } from '../../../../helpers'
-import { mediterraneanIslands } from '../../natural/islands/islands'
 import { LatLonName } from '../../latLonByName'
-import { State } from '../../../types'
 
-const westMiddle: LatLonName[] = [
+export const franciaWestMiddle: LatLonName[] = [
   'Perroquet',
   'Zelzate',
   'Saint-Quentin',
@@ -16,7 +12,7 @@ const westMiddle: LatLonName[] = [
   'Montpellier',
 ]
 
-const middleEast: LatLonName[] = [
+export const franciaMiddleEast: LatLonName[] = [
   'Varel',
   'Veendam',
   'Almelo',
@@ -30,112 +26,4 @@ const middleEast: LatLonName[] = [
   'Bolzano',
   'Villach',
   'Rijeka',
-]
-
-const franciaOccidentalis: State = {
-  borders: [
-    joinBorders([
-      sliceBorder(europe, 'Montpellier', 'Barcelona'),
-      ['Barcelona', 'Huesca', 'Logrono', 'Donostia'],
-      sliceBorder(europe, 'Donostia', 'Saint-Nazaire'),
-      ['Saint-Nazaire', 'Rennes', 'Saint-Malo'],
-      sliceBorder(europe, 'Saint-Malo', 'Perroquet'),
-      westMiddle,
-    ]),
-  ],
-  cities: ['Paris', 'Montpellier', 'Toulouse', 'Lyon'],
-}
-
-const franciaMedia: State = {
-  borders: [
-    joinBorders([
-      sliceBorder(europe, 'Terracina', 'Montpellier'),
-      westMiddle.reverse(),
-      sliceBorder(europe, 'Perroquet', 'Varel'),
-      middleEast,
-      sliceBorder(europe, 'Rijeka', 'Vasto'),
-      ['Vasto', 'Terracina'],
-    ]),
-    mediterraneanIslands.Corse,
-  ],
-  cities: ['Aachen', 'Rome', 'Ostia', 'Marseille'],
-}
-
-const franciaOrientalis: State = {
-  borders: [
-    joinBorders([
-      middleEast.reverse(),
-      sliceBorder(europe, 'Varel', 'Husum'),
-      [
-        'Husum',
-        'Eckernforde',
-        'Hamburg',
-        'Wittenberge',
-        'Havelberg',
-        'Magdeburg',
-        'Jena',
-        'Bayreuth',
-        'Linz',
-        'Vienna',
-        'Zagreb',
-        'Rijeka',
-      ],
-    ]),
-  ],
-  cities: ['Verden', 'Fulda', 'Augsburg'],
-}
-
-const abbasidCaliphate: State = {
-  borders: [
-    // joinBorders([
-    //   middleEast.reverse(),
-    //   sliceBorder(europe, 'Varel', 'Husum'),
-    //   [
-    //     'Husum',
-    //     'Eckernforde',
-    //     'Hamburg',
-    //     'Wittenberge',
-    //     'Havelberg',
-    //     'Magdeburg',
-    //     'Jena',
-    //     'Bayreuth',
-    //     'Linz',
-    //     'Vienna',
-    //     'Zagreb',
-    //     'Rijeka',
-    //   ],
-    // ]),
-  ],
-  cities: [
-    'Constantine',
-    'Tunis',
-    'Kairouan',
-    'Sfax',
-    'Tripoli',
-    'Misrata',
-    'Sirte',
-    // 'Barca',
-    'Alexandria',
-    'Damietta',
-    'Tarsus',
-    'Aswan',
-    // 'Derbend',
-    'Baku',
-    'Gorgan',
-    'Karachi',
-    // 'Mansura',
-    'Multan',
-    'Kabul',
-    'Balkh',
-    'Bukhara',
-    // 'Kath',
-    // 'Gurganj',
-  ],
-}
-
-export const w843 = [
-  franciaOccidentalis,
-  franciaMedia,
-  franciaOrientalis,
-  abbasidCaliphate,
 ]

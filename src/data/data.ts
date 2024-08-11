@@ -4,7 +4,8 @@ export type Path = LatLon[]
 
 type Border = { id: string; path: Path }
 
-type Region = { id: string; borders: (Border['id'] | Border)[] }
+// type Region = { id: string; borders: (Border['id'] | Border)[] }
+type Region = { id: string; borders: Border['id'][] }
 
 export type BorderSlice = {
   borderId: string
@@ -63,4 +64,3 @@ const exampleWorld: World = {
     },
   ],
 }
-
