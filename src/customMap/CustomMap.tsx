@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { seas } from '../data/coordinates/natural/seas'
-import { isBorderSlice, isEqualPoint, sliceBorder } from '../helpers'
+import { isBorderSlice, sliceBorder } from '../helpers'
 import { BorderSlice, Path, Region } from '../data/data'
 import {
   meridians,
@@ -15,6 +15,7 @@ import { Sea } from './Sea'
 import { DrawPath } from './DrawPath'
 import { useMouse } from './useMouse'
 import { NewPath } from '../world/types'
+import { useRegionBuilder } from './useRegionBuilder'
 
 export type NewRegion = {
   index: number
@@ -39,7 +40,6 @@ interface CustomMapProps {
   rivers: BorderData[]
   stateBorders: Path[][]
   config: Config
-  onPathCompleted: (newPath: NewPath) => void
   onRegionCompleted: (newRegion: Region) => void
   borderById: Record<string, BorderData>
 }
@@ -49,17 +49,11 @@ export function CustomMap({
   stateBorders,
   config,
   rivers,
-  onPathCompleted,
   onRegionCompleted,
   borderById,
 }: CustomMapProps) {
   const [activeBorder, setActiveBorder] = useState('')
-  const [newPath, setNewPath] = useState<{
-    start?: { borderId: string; i: number }
-    points: [number, number][]
-  }>()
-  const [newPaths, setNewPaths] = useState<(NewPath | BorderSlice)[]>([])
-  const points = newPath?.points || []
+
   const [width, setWidth] = useState(1)
 
   const domRef = useRef<HTMLDivElement>(null)
@@ -78,22 +72,12 @@ export function CustomMap({
     domRef.current
   )
 
+  const { selectBorderPoint, selectPoint, newPaths, resetNewPaths, points } =
+    useRegionBuilder(onRegionCompleted, xYTupleToLatLonTuple, borderById)
+
   function toggleActiveBorder(id: string) {
     points.length < 1 &&
       setActiveBorder((activeBorder) => (activeBorder === id ? '' : id))
-  }
-
-  function selectPoint(
-    point: [number, number],
-    start?: { borderId: string; i: number }
-  ) {
-    setNewPath((newPath) => {
-      const wtf = newPath
-        ? { ...newPath, points: [...points, point] }
-        : { start: start, points: [point] }
-
-      return wtf
-    })
   }
 
   const [mouseXY, setMouseXy] = useState<number[]>()
@@ -101,99 +85,17 @@ export function CustomMap({
   useEffect(() => {
     function keyup(e: KeyboardEvent) {
       if (e.key === 'Escape') {
-        setNewPath(undefined)
-        setNewPaths([])
         setMouseXy(undefined)
+        resetNewPaths()
       }
     }
     document.addEventListener('keyup', keyup)
     return () => {
       document.removeEventListener('keyup', keyup)
     }
-  }, [])
+  }, [resetNewPaths])
 
   const [downXy, setDownXy] = useState([0, 0])
-
-  /**
-   * Clicking a border either ends a path or starts it. Region may then share the border
-   * and continue with another path from some point
-   */
-  function selectBorderPoint(
-    border: BorderData,
-    point: [number, number],
-    i: number
-  ) {
-    if (points.length > 0) {
-      // Ending a path
-      if (!newPath) {
-        // This shouldn't happen
-        return
-      }
-
-      if (
-        newPaths.length > 0 &&
-        points.length === 1 &&
-        isEqualPoint(points[0], point)
-      ) {
-        // Clicking again the same point on a border selects the whole border
-        // Only if there are two possible endings?
-        const lastPath = newPaths[newPaths.length - 1]
-        // const borderSlice =
-        if (!isBorderSlice(lastPath)) {
-          setNewPaths((newPaths) => [
-            ...newPaths,
-            {
-              borderId: border.id,
-              start: lastPath.end?.i || 0,
-              // end at whatever the next connection point?
-              end: border.path.length - 1,
-            },
-          ])
-
-          setNewPath(undefined)
-          return
-        }
-      }
-      const completedPath = {
-        ...newPath,
-        points: [...points, point],
-        end: { borderId: border.id, i },
-      }
-
-      setNewPaths((newPaths) => [...newPaths, completedPath])
-      setNewPath(undefined)
-    } else {
-      if (newPaths.length > 0) {
-        const firstPath = newPaths[0]
-        const startId = !isBorderSlice(firstPath) && firstPath.start?.borderId
-        if (border.id === startId) {
-          const lastPath = newPaths[newPaths.length - 1]
-          const newPathStart = isBorderSlice(lastPath)
-            ? borderById[lastPath.borderId].end?.i || 0
-            : lastPath.end?.i
-          const newPathsTemp = [
-            ...newPaths,
-            {
-              borderId: border.id,
-              start: newPathStart || 0,
-              // end at whatever the next connection point?
-              end: (!isBorderSlice(firstPath) && firstPath.start?.i) || 0,
-            },
-          ]
-          const newRegion: Region = newPathsTemp.map((newPath) =>
-            isBorderSlice(newPath)
-              ? { ...newPath }
-              : newPath.points.map(xYTupleToLatLonTuple)
-          )
-          onRegionCompleted(newRegion)
-          setNewPaths(newPathsTemp)
-          return
-        }
-      }
-      // Starting a new Path
-      selectPoint(point, { borderId: border.id, i })
-    }
-  }
 
   return (
     <div ref={domRef}>
