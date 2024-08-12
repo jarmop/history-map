@@ -19,6 +19,12 @@ export function World() {
   const { islands, rivers, stateBorders, borderById, allStates, saveState } =
     useData(year)
 
+  function handlePathCompleted(newPath: NewPath) {
+    if (!newPath.start || !newPath.end) {
+      return
+    }
+  }
+
   function addRegionToState(state: State, region: Region) {
     const wtf = state.regionsByYear[year] || []
     saveState({
@@ -46,6 +52,7 @@ export function World() {
         rivers={rivers}
         stateBorders={stateBorders}
         config={config}
+        onPathCompleted={handlePathCompleted}
         onRegionCompleted={handleRegionCompleted}
         borderById={borderById}
         // newState={ newState}
