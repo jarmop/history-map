@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { getWorld, setWorld } from '../storage'
-import { Border, Path, State, World } from './data'
+import { Border, BorderSlice, Path, Region, State, World } from './data'
 import dataJson from './data.json'
 import { isBorderSlice, sliceBorder } from '../helpers'
+import { NewPath } from '../world/types'
 
 function getData() {
   const storageData = getWorld()
@@ -41,9 +42,44 @@ function findRegions(state: State, year: number) {
 //   }
 // }
 
+export type StateRegions = { name: string; regions: Path[] }
+
+export type Region2 = { id: string; borders: (BorderSlice | Border['id'])[] }
+
 export function useData(year: number) {
   const [data, setData] = useState(getData)
-  const stateBorders: Path[][] = []
+  const [newData, setNewData] = useState<{
+    borders: Border[]
+    regions: Region2[]
+  }>({ borders: [], regions: [] })
+
+  const borderById = [...data.borders, ...newData.borders].reduce<
+    Record<string, Border>
+  >((acc, curr) => {
+    acc[curr.id] = curr
+    return acc
+  }, {})
+  // const stateBorders: Path[][] = []
+  // const [newStateRegions, setNewStateRegions] = useState<StateRegions[]>()
+  // const states: StateRegions[] = newStateRegions
+  const states: StateRegions[] = []
+  // const stateRegions: {name: string, regions: Region[]}[] = []
+
+  function regionIntoPath(region: Region) {
+    const foo = region
+      .flatMap((borderData) => {
+        if (isBorderSlice(borderData)) {
+          const border = borderById[borderData.borderId]
+
+          return sliceBorder(border.path, borderData.start, borderData.end)
+        } else {
+          return borderData
+        }
+      })
+      .filter((val) => val !== undefined)
+
+    return foo
+  }
 
   data.states.forEach((state) => {
     const regions = findRegions(state, year)
@@ -51,37 +87,12 @@ export function useData(year: number) {
       return
     }
 
-    const regionBorders: Path[] = regions.map((region) => {
-      const foo = region
-        .flatMap((borderData) => {
-          if (isBorderSlice(borderData)) {
-            const foo = data.borders.find(
-              (border) => border.id === borderData.borderId
-            )
-            const border = foo?.path
+    // stateRegions.push({ name: state.name, regions })
 
-            return (
-              border && sliceBorder(border, borderData.start, borderData.end)
-            )
-          } else {
-            return borderData
-          }
-        })
-        .filter((val) => val !== undefined)
+    const regionBorders: Path[] = regions.map(regionIntoPath)
 
-      return foo
-    })
-
-    stateBorders.push(regionBorders)
+    states.push({ name: state.name, regions: regionBorders })
   })
-
-  const borderById = data.borders.reduce<Record<string, Border>>(
-    (acc, curr) => {
-      acc[curr.id] = curr
-      return acc
-    },
-    {}
-  )
 
   const islands = data.islands.flatMap(({ borders }) =>
     borders.map((id) => borderById[id])
@@ -100,13 +111,53 @@ export function useData(year: number) {
     console.info('Saved state!')
   }
 
+  function addPath(newPath: NewPath) {
+    const newBorder = {
+      id: 'newBorder1',
+      path: newPath.points,
+      start: newPath.start,
+      end: newPath.end,
+    }
+    const border = borderById[newPath.start.borderId]
+    const newRegion1: Region2 = { id: 'newRegion1', borders: [newBorder.id] }
+    const newRegion2: Region2 = { id: 'newRegion1', borders: [newBorder.id] }
+
+    setNewData({
+      borders: [...newData.borders, newBorder],
+      regions: [...newData.regions, newRegion1, newRegion2],
+    })
+
+    // setData({ ...data, borders: [...data.borders, newBorder] })
+  }
+
+  console.log('newData')
+  console.log(newData)
+
+  function region2BordersIntoPath(borders: Region2['borders']) {
+    const foo = borders
+      .flatMap((borderData) => {
+        if (isBorderSlice(borderData)) {
+          const border = borderById[borderData.borderId]
+          return sliceBorder(border.path, borderData.start, borderData.end)
+        } else {
+          return borderById[borderData].path
+        }
+      })
+      .filter((val) => val !== undefined)
+
+    return foo
+  }
+
   return {
     islands,
     rivers,
-    stateBorders,
-    saveState,
+    states,
+    addPath,
     borderById,
     allStates: data.states,
+    regions: newData.regions.map((region) => {
+      return { name: region.id, path: region2BordersIntoPath(region.borders) }
+    }),
   }
 }
 

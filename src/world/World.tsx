@@ -5,7 +5,7 @@ import { useData, useYears } from '../data/useData'
 import { DevTools } from './DevTools'
 import { YearInput } from './YearInput'
 import { NewPath } from './types'
-import { Region, State } from '../data/data'
+import { Border, BorderSlice, Region, State } from '../data/data'
 
 export function World() {
   const years = useYears()
@@ -13,36 +13,48 @@ export function World() {
   const [config, setConfig] = useState(storage.getConfig)
   const [selectedState, setSelectedState] = useState<State>()
   const [newRegion, setNewRegion] = useState<Region>()
+  const [newPaths, setNewPaths] = useState<(NewPath | BorderSlice)[]>([])
 
   useEffect(() => storage.setYear(year), [year])
 
-  const { islands, rivers, stateBorders, borderById, allStates, saveState } =
+  const { islands, rivers, states, borderById, allStates, addPath, regions } =
     useData(year)
 
+  // function addRegionToState(state: State, region: Region) {
+  //   const stateRegionsForYear = state.regionsByYear[year] || []
+  //   saveState({
+  //     ...state,
+  //     regionsByYear: {
+  //       ...state.regionsByYear,
+  //       [year]: [...stateRegionsForYear, region],
+  //     },
+  //   })
+  // }
+
+  // Island (cultural) creation is handled in a separate function?
   function handlePathCompleted(newPath: NewPath) {
-    if (!newPath.start || !newPath.end) {
-      return
-    }
+    addPath(newPath)
+    console.log('handlePathCompleted')
+    console.log(newPath)
+    const border =  newPath.start.borderId
+    // const { start, end } = newPath
+    // const islandBorder = islandBordersById[start.borderId]
+    // if (islandBorder) {
+    //   const region1: Region = [
+    //     newPath.points,
+    //     { borderId: start.borderId, start: end.i, end: start.i },
+    //   ]
+    //   const region2: Region = [newPath.points]
+    // }
   }
 
-  function addRegionToState(state: State, region: Region) {
-    const wtf = state.regionsByYear[year] || []
-    saveState({
-      ...state,
-      regionsByYear: {
-        ...state.regionsByYear,
-        [year]: [...wtf, region],
-      },
-    })
-  }
-
-  function handleRegionCompleted(region: Region) {
-    if (selectedState) {
-      addRegionToState(selectedState, region)
-    } else {
-      setNewRegion(region)
-    }
-  }
+  // function handleRegionCompleted(region: Region) {
+  //   if (selectedState) {
+  //     addRegionToState(selectedState, region)
+  //   } else {
+  //     setNewRegion(region)
+  //   }
+  // }
 
   return (
     <div>
@@ -50,12 +62,14 @@ export function World() {
       <CustomMap
         islands={islands}
         rivers={rivers}
-        stateBorders={stateBorders}
+        states={states}
         config={config}
         onPathCompleted={handlePathCompleted}
-        onRegionCompleted={handleRegionCompleted}
+        // onRegionCompleted={handleRegionCompleted}
         borderById={borderById}
-        // newState={ newState}
+        newPaths={newPaths}
+        onEsc={() => setNewPaths([])}
+        regions={ regions}
       />
       <YearInput year={year} years={years} onChange={(year) => setYear(year)} />
 
