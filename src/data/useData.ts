@@ -46,12 +46,43 @@ export type StateRegions = { name: string; regions: Path[] }
 
 export type Region2 = { id: string; borders: (BorderSlice | Border['id'])[] }
 
+const defaultNewData = { borders: [], regions: [] }
+// const defaultNewData = {
+//   borders: [
+//     {
+//       id: 'newBorder1',
+//       path: [],
+//       start: {
+//         borderId: 'eurasiaAfrica',
+//         i: 169,
+//       },
+//       end: {
+//         borderId: 'eurasiaAfrica',
+//         i: 140,
+//       },
+//     },
+//   ],
+//   regions: [
+//     {
+//       id: 'newRegion1',
+//       borders: [
+//         'newBorder1',
+//         {
+//           borderId: 'eurasiaAfrica',
+//           start: 140,
+//           end: 169,
+//         },
+//       ],
+//     },
+//   ],
+// }
+
 export function useData(year: number) {
   const [data, setData] = useState(getData)
   const [newData, setNewData] = useState<{
     borders: Border[]
     regions: Region2[]
-  }>({ borders: [], regions: [] })
+  }>(defaultNewData)
 
   const borderById = [...data.borders, ...newData.borders].reduce<
     Record<string, Border>
@@ -76,7 +107,7 @@ export function useData(year: number) {
           return borderData
         }
       })
-      .filter((val) => val !== undefined)
+      // .filter((val) => val !== undefined)
 
     return foo
   }
@@ -100,6 +131,10 @@ export function useData(year: number) {
 
   const rivers = data.rivers.map(({ borderId }) => borderById[borderId])
 
+  // const regions = newData.regions.map((region) => {
+  //   return { name: region.id, path: region2BordersIntoPath(region.borders) }
+  // })
+
   function saveState(state: State) {
     const newStates = data.states.map((s) =>
       s.name === state.name ? { ...state } : { ...s }
@@ -112,26 +147,48 @@ export function useData(year: number) {
   }
 
   function addPath(newPath: NewPath) {
+    /* Todo handle start border different from end border, e.g. region and river
+    Perhaps that should be handled in the map */
+    
+    const border = borderById[newPath.start.borderId]
+
     const newBorder = {
       id: 'newBorder1',
       path: newPath.points,
       start: newPath.start,
       end: newPath.end,
     }
-    const border = borderById[newPath.start.borderId]
-    const newRegion1: Region2 = { id: 'newRegion1', borders: [newBorder.id] }
-    const newRegion2: Region2 = { id: 'newRegion1', borders: [newBorder.id] }
+    const newRegion1: Region2 = {
+      id: 'newRegion1',
+      borders: [
+        newBorder.id,
+        { borderId: border.id, start: newPath.end.i, end: newPath.start.i },
+      ],
+    }
+    const newRegion2: Region2 = {
+      id: 'newRegion2',
+      borders: [
+        newBorder.id,
+        { borderId: border.id, start: newPath.end.i, end: 0 },
+        {
+          borderId: border.id,
+          start: border.path.length - 1,
+          end: newPath.start.i,
+        },
+      ],
+    }
 
     setNewData({
       borders: [...newData.borders, newBorder],
+      // regions: [...newData.regions, newRegion1],
       regions: [...newData.regions, newRegion1, newRegion2],
     })
 
     // setData({ ...data, borders: [...data.borders, newBorder] })
   }
 
-  console.log('newData')
-  console.log(newData)
+  // console.log('newData')
+  // console.log(newData)
 
   function region2BordersIntoPath(borders: Region2['borders']) {
     const foo = borders
@@ -143,7 +200,7 @@ export function useData(year: number) {
           return borderById[borderData].path
         }
       })
-      .filter((val) => val !== undefined)
+      // .filter((val) => val !== undefined)
 
     return foo
   }

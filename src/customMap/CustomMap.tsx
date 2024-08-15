@@ -152,7 +152,7 @@ export function CustomMap({
     }
   }
 
-  console.log('regions', regions)
+  // console.log('regions', regions)
 
   return (
     <div ref={domRef}>
@@ -194,8 +194,8 @@ export function CustomMap({
           <Border
             key={i}
             border={region.path.map(latLonTupleToXYTuple)}
-            onClick={() => toggleActiveBorder('continent' + i)}
-            active={activeBorder === 'continent' + i}
+            onClick={() => toggleActiveBorder('region' + i)}
+            active={activeBorder === 'region' + i}
             selectPoint={(point: [number, number], i: number) =>
               selectBorderPoint(
                 { id: region.name, path: region.path },
