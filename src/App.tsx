@@ -1,10 +1,10 @@
 import './App.css'
-import { World } from './world/World'
+import { TestWorld } from './testbed/TestWorld'
 
 function App() {
   return (
     <div>
-      <World />
+      <TestWorld />
     </div>
   )
 }

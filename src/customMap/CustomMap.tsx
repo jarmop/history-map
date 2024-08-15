@@ -8,7 +8,7 @@ import {
 } from '../data/coordinates/natural/parallelsAndMeridiansData'
 import { Meridians, Parallels } from './ParallelsAndMeridians'
 import { Config } from '../types'
-import { Border } from './Border'
+import { Region } from '../testbed/Region'
 import { Border as BorderData } from '../data/data'
 import { River } from './River'
 import { Sea } from './Sea'
@@ -180,7 +180,7 @@ export function CustomMap({
         }}
       >
         {islands.map((border: BorderData, i) => (
-          <Border
+          <Region
             key={i}
             border={border.path.map((latlon) => latLonTupleToXYTuple(latlon))}
             onClick={() => toggleActiveBorder('continent' + i)}
@@ -191,7 +191,7 @@ export function CustomMap({
           />
         ))}
         {regions.map((region, i) => (
-          <Border
+          <Region
             key={i}
             border={region.path.map(latLonTupleToXYTuple)}
             onClick={() => toggleActiveBorder('region' + i)}
@@ -207,7 +207,7 @@ export function CustomMap({
         ))}
         {states.flatMap((state, i) =>
           state.regions.map((border, j) => (
-            <Border
+            <Region
               key={`border${i}-${j}`}
               border={border.map((latlon) => latLonTupleToXYTuple(latlon))}
               fill={stateColors[i]}
