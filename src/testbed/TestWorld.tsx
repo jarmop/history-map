@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { borderById, connectionById, regions as regionsData } from './newData'
 import { MapRegion, TestMap } from './TestMap'
 import { Region } from './newTypes'
+import { sliceBorders } from './helpers'
 
 export function TestWorld() {
   const [regions, setRegions] = useState(regionsData)
@@ -38,11 +39,9 @@ export function TestWorld() {
 
     const region = regionsById[mapRegion.id]
 
-    // const regionBorder = 
+    const regionBorders = region.borderIds.map(id => borderById[id])
 
-    const border2 = {
-
-    }
+    const borders = sliceBorders(regionBorders, start)
 
 
 
