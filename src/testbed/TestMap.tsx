@@ -95,8 +95,6 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
     }
   }
 
-  console.log('activeBorder', activeBorder)
-
   return (
     <div ref={domRef}>
       <svg

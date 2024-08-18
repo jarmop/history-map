@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { borders as bordersData, regions as regionsData } from './newData'
 import { MapRegion, TestMap } from './TestMap'
 import { Border, Region } from './newTypes'
-import { sliceRegion } from './helpers'
+import { YearInput } from '../world/YearInput'
 
 export function TestWorld() {
+  const years = [0]
+  const [year, setYear] = useState(years[0])
   const [borders, setBorders] = useState(bordersData)
   // const [paths, setPaths] = useState(pathsData)
   const [regions, setRegions] = useState(regionsData)
@@ -29,43 +31,59 @@ export function TestWorld() {
     return acc
   }, {})
 
-  const mapRegions: MapRegion[] = regions.map((region) => {
-    const path = region.borders.flatMap((borderConnection) => {
+  // function getBranches(border: Border) {
+  //   return borders.filter((b) => b.startPoint?.borderId === border.id)
+  // }
+
+  // use this for now
+  // const islandBorder = borders[0]
+  // getBranches(islandBorder).forEach((b) => {
+  //   getBranches(b)
+  // })
+
+  /**
+   * Find borders by year, and then regions that are defined by those borders but don't have dividers
+   */
+
+  const mapRegions: MapRegion[] = regions
+    .filter((r) => !r.divider)
+    .map((region) => {
+      const borderConnection = region.border
       const border = borderById[borderConnection.borderId]
+
       if (!border.startPoint || !border.endPoint) {
-        return border.path
+        return {
+          id: region.id,
+          path: border.path,
+        }
       }
 
       const parentBorder = borderById[border.startPoint.borderId]
 
       if (borderConnection.reverse) {
-        return [
-          ...[...border.path].reverse(),
-          ...parentBorder.path.slice(
-            border.startPoint.index,
-            border.endPoint.index + 1
-          ),
-        ]
+        return {
+          id: region.id,
+          path: [
+            ...[...border.path].reverse(),
+            ...parentBorder.path.slice(
+              border.startPoint.index,
+              border.endPoint.index + 1
+            ),
+          ],
+        }
       }
 
-      return [
-        ...border.path,
-        ...parentBorder.path.slice(border.endPoint.index),
-        ...parentBorder.path.slice(0, border.startPoint.index + 1),
-      ]
-
-      // const path = pathById[border.pathId]
-      // if (border.startPoint > border.endPoint) {
-      //   return
-      // }
-      // return [startPoint.point, ...border.path]
+      return {
+        id: region.id,
+        path: [
+          ...border.path,
+          ...parentBorder.path.slice(border.endPoint.index),
+          ...parentBorder.path.slice(0, border.startPoint.index + 1),
+        ],
+      }
     })
-    return {
-      id: region.id,
-      path,
-    }
-  })
 
+  console.log('mapRegions')
   console.log(mapRegions)
 
   // function getMaxConnectionNum() {
@@ -88,9 +106,8 @@ export function TestWorld() {
     start: number,
     end: number
   ) {
-    console.log('onPathCompleted')
     const region = regionById[mapRegion.id]
-    const border = borderById[region.borders[0].borderId]
+    const border = borderById[region.border.borderId]
 
     const newBorder: Border = {
       id: 'border2',
@@ -100,78 +117,25 @@ export function TestWorld() {
     }
     setBorders([...borders, newBorder])
 
-    const region2 = { id: 'region2', borders: [{ borderId: newBorder.id }] }
+    const region2 = { id: 'region2', border: { borderId: newBorder.id } }
     const region3 = {
       id: 'region3',
-      borders: [{ borderId: newBorder.id, reverse: true }],
+      border: { borderId: newBorder.id, reverse: true },
     }
 
-    setRegions([...regions, region2, region3])
-
-    // const regionBorders = region.borderIds.map((id) => borderById[id])
-
-    // const { borders, newConnections } = sliceRegion(regionBorders, start, end)
-
-    // console.log(newConnections)
-
-    // let maxConnectionNum = getMaxConnectionNum()
-    // const cs = newConnections.map((c) => {
-    //   const connection = {
-    //     ...c,
-    //     id: 'connection' + maxConnectionNum + 1,
-    //   }
-    //   maxConnectionNum++
-
-    //   return connection
-    // })
-
-    // let maxBorderNum = getMaxBorderNum()
-    // const newBorders = [
-    //   borders[0][borders[0].length - 1],
-    //   borders[1][0],
-    //   borders[2][0],
-    // ].map((b) => {
-    //   const border = { ...b, id: 'border' + maxBorderNum + 1 }
-    //   maxBorderNum++
-
-    //   return border
-    // })
-
-    // newBorders[0].endPoint = cs[0].id
-    // newBorders[1].startPoint = cs[0].id
-    // newBorders[1].endPoint = cs[1].id
-    // newBorders[2].startPoint = cs[1].id
-
-    // const divider = {
-    //   id: 'border' + maxBorderNum + 1,
-    //   path,
-    //   startPoint: cs[0].id,
-    //   endPoint: cs[1].id,
-    // }
-
-    // // const region1: Region = {
-    // //   ...region,
-    // //   borderIds: newBorders.map((b) => b.id),
-    // // }
-    // const region2: Region = {
-    //   id: 'region2',
-    //   borderIds: [newBorders[0].id, divider.id, newBorders[2].id],
-    // }
-    // const region3: Region = {
-    //   id: 'region3',
-    //   borderIds: [newBorders[1].id, divider.id],
-    // }
-
-    // setConnections((connections) => [...connections, ...cs])
-    // setBorders((borders) => [...borders, ...newBorders, divider])
-    // setRegions([region2, region3])
-
-    // // console.log('onPathCompleted')
-    // // console.log(region)
-    // // console.log(path)
-    // // console.log(start)
-    // // console.log(end)
+    setRegions([
+      ...regions.filter((r) => r.id !== region.id),
+      { ...region, divider: newBorder.id },
+      region2,
+      region3,
+    ])
   }
 
-  return <TestMap regions={mapRegions} onPathCompleted={onPathCompleted} />
+  return (
+    <>
+      <div style={{ position: 'fixed', fontSize: '40px' }}>{year}</div>
+      <TestMap regions={mapRegions} onPathCompleted={onPathCompleted} />
+      <YearInput year={year} years={years} onChange={(year) => setYear(year)} />
+    </>
+  )
 }

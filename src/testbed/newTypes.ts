@@ -12,17 +12,21 @@ export type Border = {
   path: LatLon[]
   startPoint?: BorderConnection
   endPoint?: BorderConnection
-  // startYear?: number
-  // endYear?: number
+  startYear?: number
+  endYear?: number
 }
 
 type RegionBorder = { borderId: Border['id']; reverse?: boolean }
 
+/**
+ * Maybe it's easiest if region has only one border and one divider.
+ */
 export type Region = {
   id: string
-  borders: RegionBorder[]
-  startYear?: number
-  endYear?: number
+  border: RegionBorder
+  // Can have multiple dividers over time, but they must not overlap in time.
+  // (They won't overlap in space either because they won't overlap in time)
+  divider?: Border['id']
 }
 
 // type State = { id: string; regionsByYear: Record<string, Region[]> }
