@@ -1,6 +1,6 @@
 import { Border, Connection, Region } from './newTypes'
 
-const connections: Connection[] = [{ id: 'connection1', point: [100, 50] }]
+export const connections: Connection[] = [{ id: 'connection1', point: [100, 50] }]
 
 export const connectionById = connections.reduce<Record<string, Connection>>(
   (acc, curr) => {
@@ -10,7 +10,7 @@ export const connectionById = connections.reduce<Record<string, Connection>>(
   {}
 )
 
-const borders: Border[] = [
+export const borders: Border[] = [
   {
     id: 'border1',
     path: [

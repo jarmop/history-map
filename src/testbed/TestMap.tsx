@@ -80,7 +80,6 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
     point: [number, number],
     i: number
   ) {
-    console.log(region)
     if (points.length > 0) {
       if (!newPath?.start) {
         return
@@ -128,7 +127,8 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
             key={i}
             border={region.path}
             onClick={() => toggleActiveBorder('region' + i)}
-            active={activeBorder === 'region' + i}
+            // active={activeBorder === 'region' + i}
+            active={activeBorder !== undefined}
             selectPoint={(point: [number, number], i: number) =>
               selectBorderPoint(region, point, i)
             }

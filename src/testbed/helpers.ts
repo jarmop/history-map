@@ -51,10 +51,10 @@ export function sliceBorders(borders: Border[], index: number) {
   }
 }
 
-function getBordersLength(borders: Border[]) { 
-  return borders.reduce((acc, curr) => { 
+function getBordersLength(borders: Border[]) {
+  return borders.reduce((acc, curr) => {
     return acc + 1 + curr.path.length
-   }, 0)
+  }, 0)
 }
 
 export function sliceRegion(borders: Border[], start: number, end: number) {
@@ -73,8 +73,14 @@ export function sliceRegion(borders: Border[], start: number, end: number) {
   const result2 = sliceBorders(result1.bordersAfter, newEnd)
 
   return {
-    borders: [result1.bordersBefore, result2.bordersBefore, result2.bordersAfter],
-    newConnections: [result1.newConnection, result2.newConnection]
+    borders: [
+      result1.bordersBefore,
+      result2.bordersBefore,
+      result2.bordersAfter,
+    ],
+    newConnections: [result1.newConnection, result2.newConnection].filter(
+      (c) => c !== undefined
+    ),
   }
 
   // const borders2 = result2[0]
