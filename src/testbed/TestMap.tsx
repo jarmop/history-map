@@ -95,7 +95,7 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
     }
   }
 
-  // console.log('regions', regions)
+  console.log('activeBorder', activeBorder)
 
   return (
     <div ref={domRef}>
@@ -122,18 +122,23 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
           setDownXy([0, 0])
         }}
       >
-        {regions.map((region, i) => (
-          <Region
-            key={i}
-            border={region.path}
-            onClick={() => toggleActiveBorder('region' + i)}
-            // active={activeBorder === 'region' + i}
-            active={activeBorder !== undefined}
-            selectPoint={(point: [number, number], i: number) =>
-              selectBorderPoint(region, point, i)
-            }
-          />
-        ))}
+        {regions
+          // .filter((r) => r.id !== activeBorder)
+          .sort((r1, r2) =>
+            r1.id === activeBorder ? 1 : r2.id === activeBorder ? -1 : 0
+          )
+          .map((region, i) => (
+            <Region
+              key={i}
+              border={region.path}
+              onClick={() => toggleActiveBorder(region.id)}
+              active={activeBorder === region.id}
+              // active={activeBorder !== undefined}
+              selectPoint={(point: [number, number], i: number) =>
+                selectBorderPoint(region, point, i)
+              }
+            />
+          ))}
         {points.length > 0 && mouseXY && (
           <DrawPath points={points} mouseXY={mouseXY} />
         )}

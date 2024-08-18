@@ -5,16 +5,25 @@ export type Connection = {
   point: LatLon
 }
 
+type BorderConnection = { borderId: Border['id'], index: number }
+
 export type Border = {
   id: string
   path: LatLon[]
-  startPoint: Connection['id']
-  endPoint: Connection['id']
+  startPoint?: BorderConnection
+  endPoint?: BorderConnection
+  // startYear?: number
+  // endYear?: number
+}
+
+type RegionBorder = { borderId: Border['id']; reverse?: boolean }
+
+export type Region = {
+  id: string
+  borders: RegionBorder[]
   startYear?: number
   endYear?: number
 }
-
-export type Region = { id: string; borderIds: Border['id'][] }
 
 // type State = { id: string; regionsByYear: Record<string, Region[]> }
 // type State = { id: string; regions: Region['id'][] }

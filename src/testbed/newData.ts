@@ -1,19 +1,10 @@
-import { Border, Connection, Region } from './newTypes'
-
-export const connections: Connection[] = [{ id: 'connection1', point: [100, 50] }]
-
-export const connectionById = connections.reduce<Record<string, Connection>>(
-  (acc, curr) => {
-    acc[curr.id] = curr
-    return acc
-  },
-  {}
-)
+import { Border, Region } from './newTypes'
 
 export const borders: Border[] = [
   {
     id: 'border1',
     path: [
+      [100, 50],
       [100, 100],
       [100, 150],
       [100, 200],
@@ -37,22 +28,48 @@ export const borders: Border[] = [
       [200, 50],
       [150, 50],
     ],
-    startPoint: connections[0].id,
-    endPoint: connections[0].id,
+  },
+  {
+    id: 'border2',
+    path: [
+      [211, 219],
+      [301, 159],
+    ],
+    startPoint: {
+      borderId: 'border1',
+      index: 2,
+    },
+    endPoint: {
+      borderId: 'border1',
+      index: 14,
+    },
   },
 ]
-
-export const borderById = borders.reduce<Record<string, Border>>(
-  (acc, curr) => {
-    acc[curr.id] = curr
-    return acc
-  },
-  {}
-)
 
 export const regions: Region[] = [
   {
     id: 'region1',
-    borderIds: [borders[0].id],
+    borders: [
+      {
+        borderId: 'border1',
+      },
+    ],
+  },
+  {
+    id: 'region2',
+    borders: [
+      {
+        borderId: 'border2',
+      },
+    ],
+  },
+  {
+    id: 'region3',
+    borders: [
+      {
+        borderId: 'border2',
+        reverse: true,
+      },
+    ],
   },
 ]
