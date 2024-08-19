@@ -2,7 +2,7 @@ import { Border, Region } from './newTypes'
 
 export const borders: Border[] = [
   {
-    id: 'border1',
+    id: 1,
     path: [
       [100, 50],
       [150, 50],
@@ -33,9 +33,9 @@ export const borders: Border[] = [
 
 export const regions: Region[] = [
   {
-    id: 'region1',
+    id: 1,
     border: {
-      borderId: 'border1',
+      borderId: 1,
     },
   },
 ]

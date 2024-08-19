@@ -110,16 +110,16 @@ export function TestWorld() {
     const border = borderById[region.border.borderId]
 
     const newBorder: Border = {
-      id: 'border2',
+      id: 2,
       path: path,
       startPoint: { borderId: border.id, index: start },
       endPoint: { borderId: border.id, index: end },
     }
     setBorders([...borders, newBorder])
 
-    const region2 = { id: 'region2', border: { borderId: newBorder.id } }
+    const region2 = { id: 2, border: { borderId: newBorder.id } }
     const region3 = {
-      id: 'region3',
+      id: 3,
       border: { borderId: newBorder.id, reverse: true },
     }
 

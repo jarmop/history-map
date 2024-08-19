@@ -3,7 +3,7 @@ import { useMouse } from './useMouse'
 import { Region } from './Region'
 import { DrawPath } from './DrawPath'
 
-export type MapRegion = { id: string; path: [number, number][] }
+export type MapRegion = { id: number; path: [number, number][] }
 
 // const aspectRatio = 16 / 9
 const aspectRatio = 4 / 3
@@ -20,7 +20,7 @@ interface CustomMapProps {
 }
 
 export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
-  const [activeBorder, setActiveBorder] = useState('')
+  const [activeBorder, setActiveBorder] = useState(-1)
   const [newPath, setNewPath] = useState<{
     start?: { regionId: MapRegion['id']; i: number }
     points: [number, number][]
@@ -40,9 +40,9 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
 
   const { xy } = useMouse(domRef.current)
 
-  function toggleActiveBorder(id: string) {
+  function toggleActiveBorder(id: number) {
     points.length < 1 &&
-      setActiveBorder((activeBorder) => (activeBorder === id ? '' : id))
+      setActiveBorder((activeBorder) => (activeBorder === id ? -1 : id))
   }
 
   function selectPoint(

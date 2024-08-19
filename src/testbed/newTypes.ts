@@ -8,7 +8,7 @@ export type Connection = {
 type BorderConnection = { borderId: Border['id'], index: number }
 
 export type Border = {
-  id: string
+  id: number
   path: LatLon[]
   startPoint?: BorderConnection
   endPoint?: BorderConnection
@@ -22,7 +22,7 @@ type RegionBorder = { borderId: Border['id']; reverse?: boolean }
  * Maybe it's easiest if region has only one border and one divider.
  */
 export type Region = {
-  id: string
+  id: number
   border: RegionBorder
   // Can have multiple dividers over time, but they must not overlap in time.
   // (They won't overlap in space either because they won't overlap in time)
