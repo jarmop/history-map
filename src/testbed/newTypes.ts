@@ -5,7 +5,17 @@ export type Connection = {
   point: LatLon
 }
 
-type BorderConnection = { borderId: Border['id'], index: number }
+// Use region id, or specify reverse boolean here, to indicate which side of the border the connection is
+
+// The reverse information tells which way to continue on from the connection. The index always refers to the
+// original border. So when traversing backwards the discount starts from that, or if reversed the point needs to be flipped.
+// Perhaps traversing backwards (with index discounts) is less confusing than reversing the array.
+export type BorderConnection = {
+  borderId: Border['id']
+  index: number
+  reverse?: boolean // connecting to the reverse side
+  endConnection?: boolean // connecting with end point
+}
 
 export type Border = {
   id: number
@@ -16,7 +26,7 @@ export type Border = {
   endYear?: number
 }
 
-type RegionBorder = { borderId: Border['id']; reverse?: boolean }
+export type RegionBorder = { borderId: Border['id']; reverse?: boolean }
 
 /**
  * Maybe it's easiest if region has only one border and one divider.

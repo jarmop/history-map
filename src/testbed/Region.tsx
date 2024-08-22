@@ -16,7 +16,7 @@ export function Region({
   selectPoint,
 }: BorderProps) {
   const [downXy, setDownXy] = useState([0, 0])
-  // const [activePoint, setActivePoint] = useState(-1)
+  const [activePoint, setActivePoint] = useState(-1)
 
   return (
     <>
@@ -42,12 +42,12 @@ export function Region({
             cx={point[0]}
             cy={point[1]}
             r="6"
-            // fill={i === activePoint ? 'black' : 'transparent'}
-            fill={'black'}
-            // onMouseEnter={() => {
-            //   setActivePoint(i)
-            // }}
-            // onMouseLeave={() => setActivePoint(-1)}
+            fill={i === activePoint ? 'green' : 'black'}
+            // fill={'black'}
+            onMouseEnter={() => {
+              setActivePoint(i)
+            }}
+            onMouseLeave={() => setActivePoint(-1)}
             onMouseUp={(e) => {
               e.stopPropagation()
               selectPoint(point, i)

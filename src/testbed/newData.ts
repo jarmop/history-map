@@ -29,6 +29,42 @@ export const borders: Border[] = [
       [100, 100],
     ],
   },
+  {
+    id: 2,
+    path: [
+      [272, 111],
+      [242, 161],
+      [277, 203],
+      [236, 249],
+    ],
+    startPoint: {
+      borderId: 1,
+      index: 3,
+    },
+    endPoint: {
+      borderId: 1,
+      index: 14,
+    },
+  },
+  {
+    id: 3,
+    path: [
+      [348, 150],
+      [290, 140],
+    ],
+    startPoint: {
+      borderId: 1,
+      // index: 4,
+      index: 8,
+    },
+    endPoint: {
+      borderId: 2,
+      index: 1,
+      // index: 2,
+      // index: 3,
+      reverse: true,
+    },
+  },
 ]
 
 export const regions: Region[] = [
@@ -36,6 +72,34 @@ export const regions: Region[] = [
     id: 1,
     border: {
       borderId: 1,
+    },
+    divider: 2,
+  },
+  {
+    id: 2,
+    border: {
+      borderId: 2,
+    },
+  },
+  {
+    id: 3,
+    border: {
+      borderId: 2,
+      reverse: true,
+    },
+    divider: 3,
+  },
+  {
+    id: 4,
+    border: {
+      borderId: 3,
+    },
+  },
+  {
+    id: 5,
+    border: {
+      borderId: 3,
+      reverse: true,
     },
   },
 ]
