@@ -36,7 +36,7 @@ export type Region = {
   border: RegionBorder
   // Can have multiple dividers over time, but they must not overlap in time.
   // (They won't overlap in space either because they won't overlap in time)
-  divider?: Border['id']
+  dividers?: Border['id'][]
 }
 
 // type State = { id: string; regionsByYear: Record<string, Region[]> }

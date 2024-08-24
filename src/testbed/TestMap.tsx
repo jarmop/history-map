@@ -19,6 +19,17 @@ interface CustomMapProps {
   ) => void
 }
 
+const regionColors = [
+  'red',
+  'green',
+  'blue',
+  'yellow',
+  'purple',
+  'pink',
+  'brown',
+  'gray',
+]
+
 export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
   const [activeBorder, setActiveBorder] = useState(-1)
   const [newPath, setNewPath] = useState<{
@@ -130,6 +141,7 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
               key={i}
               border={region.path}
               onClick={() => toggleActiveBorder(region.id)}
+              fill={regionColors[i]}
               active={activeBorder === region.id}
               // active={activeBorder !== undefined}
               selectPoint={(point: [number, number], i: number) =>

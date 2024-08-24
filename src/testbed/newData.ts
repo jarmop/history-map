@@ -74,7 +74,7 @@ export const regions: Region[] = [
     border: {
       borderId: 1,
     },
-    divider: 2,
+    dividers: [2],
   },
   {
     id: 2,
@@ -88,7 +88,7 @@ export const regions: Region[] = [
       borderId: 2,
       reverse: true,
     },
-    divider: 3,
+    dividers: [3],
   },
   {
     id: 4,

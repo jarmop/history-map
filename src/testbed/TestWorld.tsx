@@ -4,8 +4,14 @@ import { MapRegion, TestMap } from './TestMap'
 import { Border, BorderConnection, Region } from './newTypes'
 import { YearInput } from '../world/YearInput'
 
+type BorderData = {
+  borderId: Border['id']
+  path: [number, number][]
+  reverse: boolean
+}
+
 export function TestWorld() {
-  const years = [0]
+  const years = [-11]
   const [year, setYear] = useState(years[0])
   const [allBorders, setBorders] = useState(bordersData)
   const [regions, setRegions] = useState(regionsData)
@@ -87,12 +93,12 @@ export function TestWorld() {
         )[0]
   }
 
-  function getNextPath(
+  function getNextPaths(
     border: Border,
     reverse: boolean,
     startIndex: number,
     firstBorderId: number
-  ): [number, number][] {
+  ): BorderData[] {
     let nextConnection = getNextBranch(border, reverse, startIndex)
     let nextBorder = undefined
     let nextStartIndex = 0
@@ -118,12 +124,12 @@ export function TestWorld() {
       : border.path.slice(startIndex, endIndex + 1)
 
     if (nextConnection.borderId === firstBorderId) {
-      return nextPath
+      return [{ borderId: border.id, path: nextPath, reverse }]
     }
 
     return [
-      ...nextPath,
-      ...getNextPath(
+      { borderId: border.id, path: nextPath, reverse },
+      ...getNextPaths(
         nextBorder,
         nextConnection.reverse || false,
         nextStartIndex,
@@ -134,7 +140,8 @@ export function TestWorld() {
 
   function regionExistsInYear(region: Region): boolean {
     const border = borderById[region.border.borderId]
-    const dividerBorder = region.divider && borderById[region.divider]
+    const dividerBorder =
+      region.dividers && region.dividers.some((d) => borderById[d])
     return border && !dividerBorder
   }
 
@@ -142,47 +149,58 @@ export function TestWorld() {
    * Find borders by year, and then regions that are defined by those borders but don't have dividers.
    * That way we can test the parent region creation as well.
    */
-  const mapRegions: MapRegion[] = regions
-    .filter(regionExistsInYear)
-    .map((region) => {
-      const border = borderById[region.border.borderId]
+  const mapRegions: MapRegion[] = []
+  const mapRegionData: Record<Region['id'], BorderData[]> = {}
+  regions.filter(regionExistsInYear).forEach((region) => {
+    const border = borderById[region.border.borderId]
 
-      if (!border.startPoint || !border.endPoint) {
-        return {
-          id: region.id,
-          path: border.path,
-        }
-      }
-
-      const nextBorder = region.border.reverse
-        ? borderById[border.startPoint.borderId]
-        : borderById[border.endPoint.borderId]
-
-      const firstPath = region.border.reverse
-        ? [...border.path].reverse()
-        : border.path
-
-      const point = region.border.reverse ? border.startPoint : border.endPoint
-
-      const nextPath = getNextPath(
-        nextBorder,
-        point.reverse || false,
-        point.index,
-        region.border.borderId
-      )
-
-      return {
+    if (!border.startPoint || !border.endPoint) {
+      mapRegions.push({
         id: region.id,
-        path: [...firstPath, ...nextPath],
-      }
+        path: border.path,
+      })
+      mapRegionData[region.id] = [
+        {
+          borderId: border.id,
+          path: border.path,
+          reverse: false,
+        },
+      ]
+      return
+    }
+
+    const nextBorder = region.border.reverse
+      ? borderById[border.startPoint.borderId]
+      : borderById[border.endPoint.borderId]
+
+    const firstPath = region.border.reverse
+      ? [...border.path].reverse()
+      : border.path
+
+    const point = region.border.reverse ? border.startPoint : border.endPoint
+
+    const nextPaths = getNextPaths(
+      nextBorder,
+      point.reverse || false,
+      point.index,
+      region.border.borderId
+    )
+
+    mapRegions.push({
+      id: region.id,
+      path: [...firstPath, ...nextPaths.flatMap((p) => p.path)],
     })
+    mapRegionData[region.id] = nextPaths
+  })
 
   console.log('mapRegions')
   console.log(mapRegions)
+  console.log('mapRegionData')
+  console.log(mapRegionData)
 
   function getNextBorderId() {
     return (
-      borders.reduce((acc, curr) => {
+      allBorders.reduce((acc, curr) => {
         return curr.id > acc ? curr.id : acc
       }, 0) + 1
     )
@@ -196,60 +214,81 @@ export function TestWorld() {
     )
   }
 
-  function getRegionBorders(region: Region): Record<Border['id'], boolean> {
-    const parentRegion = regions.find(
-      (r) => r.divider === region.border.borderId
+  // function getRegionBorders(region: Region): Record<Border['id'], boolean> {
+  //   const parentRegion = regions.find(
+  //     (r) => r.divider === region.border.borderId
+  //   )
+  //   if (!parentRegion) {
+  //     return { [region.border.borderId]: false }
+  //   }
+
+  //   return {
+  //     ...getRegionBorders(parentRegion),
+  //     [region.border.borderId]: region.border.reverse || false,
+  //   }
+  // }
+
+  // function getBorderIndexByRegionIndex(region: Region, regionIndex: number) {
+  //   // get list of region borders of all the parent regions {borderId, reverse: boolean}
+  //   // Then start travelling from the closest parents border. Go to next border. Whether it's start
+  //   // or end point, is described by the reverse boolean. Travel around the region borders like this
+  //   // until you find the borders where the new border is connecting to
+  //   const border = borderById[region.border.borderId]
+  //   let lengthSoFar = 0
+  //   if (regionIndex < lengthSoFar + border.path.length) {
+  //     const relativeIndex = regionIndex - lengthSoFar
+  //     return {
+  //       borderId: border.id,
+  //       index: region.border.reverse
+  //         ? border.path.length - 1 - relativeIndex
+  //         : relativeIndex,
+  //       reverse: region.border.reverse,
+  //     }
+  //   }
+  //   lengthSoFar += border.path.length
+  //   const reverseMap = getRegionBorders(region)
+
+  //   const borderEndPoint = region.border.reverse
+  //     ? border.startPoint
+  //     : border.endPoint
+  //   if (!borderEndPoint) {
+  //     throw new Error('No border end point!')
+  //   }
+
+  //   const nextBorder = borderById[borderEndPoint.borderId]
+  //   // need to slice this border from "borderEndPoint.index" to next (rightside) connection
+  //   // Do borders always start from the "right side" of another border? If reverse, needs to be "left side".
+  //   if (regionIndex < lengthSoFar + nextBorder.path.length) {
+  //     const relativeIndex = regionIndex - lengthSoFar
+  //     return {
+  //       borderId: nextBorder.id,
+  //       index: reverseMap[nextBorder.id] // check if border is used in reverse by its region
+  //         ? nextBorder.path.length - 1 - relativeIndex
+  //         : relativeIndex,
+  //     }
+  //   }
+  //   lengthSoFar += nextBorder.path.length
+  // }
+
+  function getBorderDataByRegionIndex(region: Region, regionIndex: number) {
+    const lengthSoFar = 0
+    let index = 0
+    const borderData = mapRegionData[region.id].find((data) => {
+      const { path } = data
+      if (regionIndex < lengthSoFar + path.length) {
+        index = regionIndex - lengthSoFar
+        return true
+      }
+      return false
+    })
+
+    return (
+      borderData && {
+        borderId: borderData.borderId,
+        index,
+        reverse: borderData.reverse,
+      }
     )
-    if (!parentRegion) {
-      return { [region.border.borderId]: false }
-    }
-
-    return {
-      ...getRegionBorders(parentRegion),
-      [region.border.borderId]: region.border.reverse || false,
-    }
-  }
-
-  function getBorderIndexByRegionIndex(region: Region, regionIndex: number) {
-    // get list of region borders of all the parent regions {borderId, reverse: boolean}
-    // Then start travelling from the closest parents border. Go to next border. Whether it's start
-    // or end point, is described by the reverse boolean. Travel around the region borders like this
-    // until you find the borders where the new border is connecting to
-    const border = borderById[region.border.borderId]
-    let lengthSoFar = 0
-    if (regionIndex < lengthSoFar + border.path.length) {
-      const relativeIndex = regionIndex - lengthSoFar
-      return {
-        borderId: border.id,
-        index: region.border.reverse
-          ? border.path.length - 1 - relativeIndex
-          : relativeIndex,
-        reverse: region.border.reverse,
-      }
-    }
-    lengthSoFar += border.path.length
-    const reverseMap = getRegionBorders(region)
-
-    const borderEndPoint = region.border.reverse
-      ? border.startPoint
-      : border.endPoint
-    if (!borderEndPoint) {
-      throw new Error('No border end point!')
-    }
-
-    const nextBorder = borderById[borderEndPoint.borderId]
-    // need to slice this border from "borderEndPoint.index" to next (rightside) connection
-    // Do borders always start from the "right side" of another border? If reverse, needs to be "left side".
-    if (regionIndex < lengthSoFar + nextBorder.path.length) {
-      const relativeIndex = regionIndex - lengthSoFar
-      return {
-        borderId: nextBorder.id,
-        index: reverseMap[nextBorder.id] // check if border is used in reverse by its region
-          ? nextBorder.path.length - 1 - relativeIndex
-          : relativeIndex,
-      }
-    }
-    lengthSoFar += nextBorder.path.length
   }
 
   function onPathCompleted(
@@ -261,18 +300,24 @@ export function TestWorld() {
     console.log('onPathCompleted')
     const region = regionById[mapRegion.id]
 
-    const startBorder = getBorderIndexByRegionIndex(region, start)
-    console.log('startBorder', startBorder)
-    const endBorder = getBorderIndexByRegionIndex(region, end)
-    console.log('endBorder', endBorder)
+    const startPoint = getBorderDataByRegionIndex(region, start)
+    console.log('startBorder', startPoint)
+    const endPoint = getBorderDataByRegionIndex(region, end)
+    console.log('endBorder', endPoint)
+
+    if (!startPoint || !endPoint) {
+      throw new Error('Start and end border data not found')
+    }
 
     const newBorder: Border = {
       id: getNextBorderId(),
       path: path,
-      startPoint: startBorder,
-      endPoint: endBorder,
+      startPoint: startPoint,
+      endPoint: endPoint,
+      startYear: year,
+      endYear: year + 5,
     }
-    setBorders([...borders, newBorder])
+    setBorders([...allBorders, newBorder])
 
     const region2 = {
       id: getNextRegionId(),
@@ -285,11 +330,16 @@ export function TestWorld() {
 
     setRegions([
       ...regions.filter((r) => r.id !== region.id),
-      { ...region, divider: newBorder.id },
+      { ...region, dividers: [...(region.dividers || []), newBorder.id] },
       region2,
       region3,
     ])
   }
+
+  console.log('regions')
+  console.log(regions)
+  console.log('allBorders')
+  console.log(allBorders)
 
   return (
     <>
