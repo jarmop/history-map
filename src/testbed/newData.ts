@@ -45,6 +45,8 @@ export const borders: Border[] = [
       borderId: 1,
       index: 14,
     },
+    startYear: -10,
+    endYear: 10,
   },
   {
     id: 3,
@@ -54,16 +56,15 @@ export const borders: Border[] = [
     ],
     startPoint: {
       borderId: 1,
-      // index: 4,
       index: 8,
     },
     endPoint: {
       borderId: 2,
       index: 1,
-      // index: 2,
-      // index: 3,
       reverse: true,
     },
+    startYear: 2,
+    endYear: 7,
   },
 ]
 

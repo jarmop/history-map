@@ -7,8 +7,13 @@ import { YearInput } from '../world/YearInput'
 export function TestWorld() {
   const years = [0]
   const [year, setYear] = useState(years[0])
-  const [borders, setBorders] = useState(bordersData)
+  const [allBorders, setBorders] = useState(bordersData)
   const [regions, setRegions] = useState(regionsData)
+
+  const borders = allBorders.filter(
+    ({ startYear, endYear }) =>
+      (!startYear || startYear <= year) && (!endYear || endYear >= year)
+  )
 
   // Use this to get next border branch
 
@@ -127,11 +132,18 @@ export function TestWorld() {
     ]
   }
 
+  function regionExistsInYear(region: Region): boolean {
+    const border = borderById[region.border.borderId]
+    const dividerBorder = region.divider && borderById[region.divider]
+    return border && !dividerBorder
+  }
+
   /**
-   * Find borders by year, and then regions that are defined by those borders but don't have dividers
+   * Find borders by year, and then regions that are defined by those borders but don't have dividers.
+   * That way we can test the parent region creation as well.
    */
   const mapRegions: MapRegion[] = regions
-    .filter((r) => !r.divider)
+    .filter(regionExistsInYear)
     .map((region) => {
       const border = borderById[region.border.borderId]
 
