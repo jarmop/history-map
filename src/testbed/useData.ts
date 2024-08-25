@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Border, BorderConnection, Region } from './newTypes'
 import { MapRegion } from './TestMap'
-import { borders as bordersData, regions as regionsData } from './newData'
+import { getBorders, getRegions } from './geographicData'
+// import { getBorders, getRegions } from './testData'
 
 type BorderData = {
   borderId: Border['id']
@@ -10,8 +11,8 @@ type BorderData = {
 }
 
 export function useData(year: number) {
-  const [allBorders, setBorders] = useState(bordersData)
-  const [regions, setRegions] = useState(regionsData)
+  const [allBorders, setBorders] = useState<Border[]>(getBorders)
+  const [regions, setRegions] = useState<Region[]>(getRegions)
 
   const borders = allBorders.filter(
     ({ startYear, endYear }) =>
