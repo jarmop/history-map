@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import { Border, BorderConnection, Region } from './newTypes'
 import { MapRegion } from './TestMap'
-import { getBorders, getRegions } from './geographicData'
-// import { getBorders, getRegions } from './testData'
+// import { getBorders, getRegions } from './geographicData'
+import { getBorders, getRegions } from './testData'
 
 type BorderData = {
   borderId: Border['id']
   path: [number, number][]
   reverse: boolean
+  start: number // index where the sliced path starts
 }
 
 export function useData(year: number) {
   const [allBorders, setBorders] = useState<Border[]>(getBorders)
   const [regions, setRegions] = useState<Region[]>(getRegions)
 
+  // const borders = allBorders
   const borders = allBorders.filter(
     ({ startYear, endYear }) =>
       (!startYear || startYear <= year) && (!endYear || endYear >= year)
@@ -68,41 +70,83 @@ export function useData(year: number) {
     return acc
   }, {})
 
+  // console.log('branchesByBorderId')
+  // console.log(branchesByBorderId)
+  // console.log('allBorders')
+  // console.log(allBorders)
+  // console.log('borders')
+  // console.log(borders)
+  // console.log('regions')
+  // console.log(regions)
+
   function getNextBranch(
     border: Border,
     reverse: boolean,
-    startIndex?: number
+    startIndex: number,
+    previousBorderId: Border['id']
   ) {
-    return reverse
-      ? branchesByBorderId[border.id].reverse.filter(
-          (bc) => !startIndex || bc.index < startIndex
-        )[0]
-      : branchesByBorderId[border.id].forward.filter(
-          (bc) => !startIndex || bc.index > startIndex
-        )[0]
+    const branch = branchesByBorderId[border.id]
+
+    return (
+      branch &&
+      (reverse
+        ? branch.reverse.filter(
+            (bc) =>
+              startIndex === undefined ||
+              bc.index < startIndex ||
+              (bc.index === startIndex && bc.borderId !== previousBorderId)
+          )[0]
+        : branch.forward.filter(
+            (bc) =>
+              startIndex === undefined ||
+              bc.index > startIndex ||
+              (bc.index === startIndex && bc.borderId !== previousBorderId)
+          )[0])
+    )
   }
 
   function getBorderData(
     border: Border,
     reverse: boolean,
     startIndex: number,
-    firstBorderId: number
+    firstBorderId: number,
+    previousBorderId: Border['id']
   ): BorderData[] {
-    let nextConnection = getNextBranch(border, reverse, startIndex)
+    // console.log(border)
+    // console.log(reverse)
+    // console.log(startIndex)
+    // console.log(firstBorderId)
+
+    let nextConnection = getNextBranch(
+      border,
+      reverse,
+      startIndex,
+      previousBorderId
+    )
+    // console.log('nextConnection')
+    // console.log(nextConnection)
     let nextBorder = undefined
     let nextStartIndex = 0
     let endIndex = 0
     if (!nextConnection) {
       if (border.startPoint && border.endPoint) {
+        // console.log('a')
         nextConnection = reverse ? border.startPoint : border.endPoint
+        nextBorder = borderById[nextConnection.borderId]
+        // nextStartIndex = reverse ? nextBorder.path.length - 1 : 0
+        nextStartIndex = nextConnection.index
       } else {
         // Connecting to itself
-        nextConnection = { borderId: border.id, reverse, index: 0 }
+        // console.log('b')
+        nextBorder = border
+        nextStartIndex = reverse ? nextBorder.path.length - 1 : 0
+        nextConnection = { borderId: border.id, reverse, index: nextStartIndex }
+        // nextBorder = borderById[nextConnection.borderId]
       }
-      nextBorder = borderById[nextConnection.borderId]
-      nextStartIndex = reverse ? border.path.length - 1 : 0
-      endIndex = reverse ? 0 : border.path.length - 1
+
+      endIndex = reverse ? 0 : nextBorder.path.length - 1
     } else {
+      // console.log('c')
       nextBorder = borderById[nextConnection.borderId]
       nextStartIndex = nextConnection.reverse ? nextBorder.path.length - 1 : 0
       endIndex = nextConnection.index
@@ -112,17 +156,27 @@ export function useData(year: number) {
       ? border.path.slice(endIndex, startIndex + 1).reverse()
       : border.path.slice(startIndex, endIndex + 1)
 
+    const borderData = {
+      borderId: border.id,
+      path: nextPath,
+      reverse,
+      start: startIndex,
+    }
+
     if (nextConnection.borderId === firstBorderId) {
-      return [{ borderId: border.id, path: nextPath, reverse }]
+      // console.log('returning', nextConnection.borderId, firstBorderId)
+      // console.log(border)
+      return [borderData]
     }
 
     return [
-      { borderId: border.id, path: nextPath, reverse },
+      borderData,
       ...getBorderData(
         nextBorder,
         nextConnection.reverse || false,
         nextStartIndex,
-        firstBorderId
+        firstBorderId,
+        border.id
       ),
     ]
   }
@@ -149,6 +203,7 @@ export function useData(year: number) {
           borderId: border.id,
           path: border.path,
           reverse: false,
+          start: 0,
         },
       ]
       return
@@ -164,11 +219,13 @@ export function useData(year: number) {
 
     const point = region.border.reverse ? border.startPoint : border.endPoint
 
+    // console.log('getting border data', region.id)
     const borderData = getBorderData(
       nextBorder,
       point.reverse || false,
       point.index,
-      region.border.borderId
+      region.border.borderId,
+      border.id
     )
 
     mapRegions.push({
@@ -194,15 +251,38 @@ export function useData(year: number) {
     )
   }
 
+  // console.log('mapRegions')
+  // console.log(mapRegions)
+  // console.log('mapRegionData')
+  // console.log(mapRegionData)
+
   function getBorderDataByRegionIndex(region: Region, regionIndex: number) {
-    const lengthSoFar = 0
+    // console.log('regionIndex', regionIndex)
+    // console.log('mapRegionData', mapRegionData[region.id])
+    let lengthSoFar = borderById[region.border.borderId].path.length
     let index = 0
+
+    if (regionIndex < lengthSoFar) {
+      return {
+        borderId: region.border.borderId,
+        index: region.border.reverse
+          ? lengthSoFar - 1 - regionIndex
+          : regionIndex,
+        reverse: region.border.reverse,
+      }
+    }
+
     const borderData = mapRegionData[region.id].find((data) => {
-      const { path } = data
+      // console.log('lengthSoFar', lengthSoFar)
+      const { path, start, reverse } = data
       if (regionIndex < lengthSoFar + path.length) {
-        index = regionIndex - lengthSoFar
+        index = reverse
+          ? start - (regionIndex - lengthSoFar)
+          : start + regionIndex - lengthSoFar
         return true
       }
+
+      lengthSoFar += path.length
       return false
     })
 
@@ -225,9 +305,9 @@ export function useData(year: number) {
     const region = regionById[mapRegion.id]
 
     const startPoint = getBorderDataByRegionIndex(region, start)
-    // console.log('startBorder', startPoint)
+    console.log('startPoint', startPoint)
     const endPoint = getBorderDataByRegionIndex(region, end)
-    // console.log('endBorder', endPoint)
+    console.log('endPoint', endPoint)
 
     if (!startPoint || !endPoint) {
       throw new Error('Start and end border data not found')
@@ -259,19 +339,6 @@ export function useData(year: number) {
       region3,
     ])
   }
-
-  // console.log('branchesByBorderId')
-  // console.log(branchesByBorderId)
-  // console.log('allBorders')
-  // console.log(allBorders)
-  // console.log('borders')
-  // console.log(borders)
-  // console.log('regions')
-  // console.log(regions)
-  // console.log('mapRegions')
-  // console.log(mapRegions)
-  // console.log('mapRegionData')
-  // console.log(mapRegionData)
 
   return { mapRegions, onPathCompleted }
 }

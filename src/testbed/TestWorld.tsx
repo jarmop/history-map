@@ -4,7 +4,7 @@ import { YearInput } from '../world/YearInput'
 import { useData } from './useData'
 
 export function TestWorld() {
-  const years = [0]
+  const years = [5]
   const [year, setYear] = useState(years[0])
 
   const { mapRegions, onPathCompleted } = useData(year)

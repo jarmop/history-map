@@ -46,7 +46,7 @@ export const borders: Border[] = [
       index: 14,
     },
     startYear: -10,
-    endYear: 10,
+    endYear: 20,
   },
   {
     id: 3,
@@ -64,7 +64,22 @@ export const borders: Border[] = [
       reverse: true,
     },
     startYear: 2,
-    endYear: 7,
+    endYear: 17,
+  },
+  {
+    id: 4,
+    path: [[328, 96]],
+    startPoint: {
+      borderId: 1,
+      index: 5,
+      reverse: false,
+    },
+    endPoint: {
+      borderId: 3,
+      index: 0,
+    },
+    startYear: 5,
+    endYear: 10,
   },
 ]
 
@@ -95,11 +110,25 @@ export const regions: Region[] = [
     border: {
       borderId: 3,
     },
+    dividers: [4],
   },
   {
     id: 5,
     border: {
       borderId: 3,
+      reverse: true,
+    },
+  },
+  {
+    id: 6,
+    border: {
+      borderId: 4,
+    },
+  },
+  {
+    id: 7,
+    border: {
+      borderId: 4,
       reverse: true,
     },
   },
