@@ -14,9 +14,7 @@ export function getBorders(): Border[] {
 
   const borders = [{ ...eurasiaAfrica, id: 1 }]
 
-  const { totalWidth, totalHeight, lonToX, latToY } = mapProjection(1000)
-
-  console.log(totalWidth, totalHeight)
+  const { lonToX, latToY } = mapProjection(1000)
 
   return borders.map((border) => {
     const path = border.path.map((latLon) => {

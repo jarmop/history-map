@@ -8,9 +8,11 @@ export type MapRegion = { id: number; path: [number, number][] }
 // const aspectRatio = 16 / 9
 const aspectRatio = 4 / 3
 // const aspectRatio = 1
+// const aspectRatio = 2 / 1
 
 interface CustomMapProps {
   regions: MapRegion[]
+  zoom: number
   onPathCompleted: (
     region: MapRegion,
     points: [number, number][],
@@ -19,18 +21,18 @@ interface CustomMapProps {
   ) => void
 }
 
-const regionColors = [
-  'red',
-  'green',
-  'blue',
-  'yellow',
-  'purple',
-  'pink',
-  'brown',
-  'gray',
-]
+// const regionColors = [
+//   'red',
+//   'green',
+//   'blue',
+//   'yellow',
+//   'purple',
+//   'pink',
+//   'brown',
+//   'gray',
+// ]
 
-export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
+export function TestMap({ regions, zoom, onPathCompleted }: CustomMapProps) {
   const [activeBorder, setActiveBorder] = useState(-1)
   const [newPath, setNewPath] = useState<{
     start?: { regionId: MapRegion['id']; i: number }
@@ -40,6 +42,7 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
   const [width, setWidth] = useState(1)
 
   const domRef = useRef<HTMLDivElement>(null)
+  const prevZoom = useRef(zoom)
 
   const height = width / aspectRatio
 
@@ -49,7 +52,22 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
     })
   }, [])
 
-  const { xy } = useMouse(domRef.current)
+  const { xy, setXy } = useMouse(domRef.current)
+
+  useEffect(() => {
+    if (zoom === prevZoom.current) {
+      return
+    }
+
+    const zoomMultiplier = zoom > prevZoom.current ? 2 : 1 / 2
+
+    setXy((xy) => [
+      (xy[0] + width / 2) * zoomMultiplier - width / 2,
+      (xy[1] + height / 2) * zoomMultiplier - height / 2,
+    ])
+
+    prevZoom.current = zoom
+  }, [zoom, setXy, height, width])
 
   function toggleActiveBorder(id: number) {
     points.length < 1 &&
@@ -141,7 +159,8 @@ export function TestMap({ regions, onPathCompleted }: CustomMapProps) {
               key={i}
               border={region.path}
               onClick={() => toggleActiveBorder(region.id)}
-              fill={regionColors[i]}
+              // fill={regionColors[i]}
+              fill={'lightgrey'}
               active={activeBorder === region.id}
               // active={activeBorder !== undefined}
               selectPoint={(point: [number, number], i: number) =>

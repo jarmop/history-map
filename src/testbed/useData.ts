@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Border, BorderConnection, Region } from './newTypes'
 import { MapRegion } from './TestMap'
-// import { getBorders, getRegions } from './geographicData'
-import { getBorders, getRegions } from './testData'
+import { getBorders, getRegions } from './geographicData'
+import { LatLon } from '../data/data'
+// import { getBorders, getRegions } from './testData'
 
 type BorderData = {
   borderId: Border['id']
@@ -11,15 +12,25 @@ type BorderData = {
   start: number // index where the sliced path starts
 }
 
-export function useData(year: number) {
+export function useData(year: number, zoom: number) {
   const [allBorders, setBorders] = useState<Border[]>(getBorders)
   const [regions, setRegions] = useState<Region[]>(getRegions)
 
-  // const borders = allBorders
-  const borders = allBorders.filter(
-    ({ startYear, endYear }) =>
-      (!startYear || startYear <= year) && (!endYear || endYear >= year)
-  )
+  const borders = useMemo(() => {
+    const zoomMultiplier = Math.pow(2, zoom - 1)
+
+    return allBorders
+      .filter(
+        ({ startYear, endYear }) =>
+          (!startYear || startYear <= year) && (!endYear || endYear >= year)
+      )
+      .map((b) => ({
+        ...b,
+        path: b.path.map(
+          (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
+        ),
+      }))
+  }, [allBorders, zoom, year])
 
   const branchesByBorderId = borders.reduce<
     Record<
@@ -313,9 +324,13 @@ export function useData(year: number) {
       throw new Error('Start and end border data not found')
     }
 
+    const zoomMultiplier = 1 / Math.pow(2, zoom - 1)
+
     const newBorder: Border = {
       id: getNextBorderId(),
-      path: path,
+      path: path.map(
+        (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
+      ),
       startPoint: startPoint,
       endPoint: endPoint,
       startYear: year,

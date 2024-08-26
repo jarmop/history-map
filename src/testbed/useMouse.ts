@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export function useMouse(dom: HTMLDivElement | null) {
-  const [xy, setXy] = useState([0, 0])
+  const [xy, setXy] = useState([3700, 1100])
   const [isMousedown, setMousedown] = useState(false)
 
   useEffect(() => {
@@ -38,5 +38,6 @@ export function useMouse(dom: HTMLDivElement | null) {
 
   return {
     xy,
+    setXy,
   }
 }

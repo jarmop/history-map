@@ -16,7 +16,7 @@ function mercatorYToLat(y: number) {
   return 2 * Math.atan(Math.exp(y)) - Math.PI / 2
 }
 
-const topLatM = radToDeg(mercatorLatToY(degToRad(70)))
+const topLatM = radToDeg(mercatorLatToY(degToRad(75)))
 
 export function mercator(width: number) {
   const lonXRatio = width / lonSize
