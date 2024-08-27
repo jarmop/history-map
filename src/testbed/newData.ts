@@ -37,50 +37,44 @@ export const borders: Border[] = [
       [277, 203],
       [236, 249],
     ],
-    startPoint: {
-      borderId: 1,
-      index: 3,
-    },
     endPoint: {
       borderId: 1,
       index: 14,
-    },
-    startYear: -10,
-    endYear: 20,
+    }
   },
-  {
-    id: 3,
-    path: [
-      [348, 150],
-      [290, 140],
-    ],
-    startPoint: {
-      borderId: 1,
-      index: 8,
-    },
-    endPoint: {
-      borderId: 2,
-      index: 1,
-      reverse: true,
-    },
-    startYear: 2,
-    endYear: 17,
-  },
-  {
-    id: 4,
-    path: [[328, 96]],
-    startPoint: {
-      borderId: 1,
-      index: 5,
-      reverse: false,
-    },
-    endPoint: {
-      borderId: 3,
-      index: 0,
-    },
-    startYear: 5,
-    endYear: 10,
-  },
+  // {
+  //   id: 3,
+  //   path: [
+  //     [348, 150],
+  //     [290, 140],
+  //   ],
+  //   startPoint: {
+  //     borderId: 1,
+  //     index: 8,
+  //   },
+  //   endPoint: {
+  //     borderId: 2,
+  //     index: 1,
+  //     reverse: true,
+  //   },
+  //   startYear: 2,
+  //   endYear: 17,
+  // },
+  // {
+  //   id: 4,
+  //   path: [[328, 96]],
+  //   startPoint: {
+  //     borderId: 1,
+  //     index: 5,
+  //     reverse: false,
+  //   },
+  //   endPoint: {
+  //     borderId: 3,
+  //     index: 0,
+  //   },
+  //   startYear: 5,
+  //   endYear: 10,
+  // },
 ]
 
 export const regions: Region[] = [
@@ -89,47 +83,46 @@ export const regions: Region[] = [
     border: {
       borderId: 1,
     },
-    dividers: [2],
   },
-  {
-    id: 2,
-    border: {
-      borderId: 2,
-    },
-  },
-  {
-    id: 3,
-    border: {
-      borderId: 2,
-      reverse: true,
-    },
-    dividers: [3],
-  },
-  {
-    id: 4,
-    border: {
-      borderId: 3,
-    },
-    dividers: [4],
-  },
-  {
-    id: 5,
-    border: {
-      borderId: 3,
-      reverse: true,
-    },
-  },
-  {
-    id: 6,
-    border: {
-      borderId: 4,
-    },
-  },
-  {
-    id: 7,
-    border: {
-      borderId: 4,
-      reverse: true,
-    },
-  },
+  // {
+  //   id: 2,
+  //   border: {
+  //     borderId: 2,
+  //   },
+  // },
+  // {
+  //   id: 3,
+  //   border: {
+  //     borderId: 2,
+  //     reverse: true,
+  //   },
+  //   dividers: [3],
+  // },
+  // {
+  //   id: 4,
+  //   border: {
+  //     borderId: 3,
+  //   },
+  //   dividers: [4],
+  // },
+  // {
+  //   id: 5,
+  //   border: {
+  //     borderId: 3,
+  //     reverse: true,
+  //   },
+  // },
+  // {
+  //   id: 6,
+  //   border: {
+  //     borderId: 4,
+  //   },
+  // },
+  // {
+  //   id: 7,
+  //   border: {
+  //     borderId: 4,
+  //     reverse: true,
+  //   },
+  // },
 ]
