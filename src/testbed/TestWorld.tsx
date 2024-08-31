@@ -3,6 +3,7 @@ import { TestMap } from './TestMap'
 import { YearInput } from '../world/YearInput'
 import { useData } from './useData'
 import { useYear, useZoom } from './data/usePersistedState'
+import { Tools } from './Tools'
 
 export function TestWorld() {
   const years = [-4000]
@@ -36,6 +37,7 @@ export function TestWorld() {
           </button>
         </div>
       </div>
+      <Tools />
     </>
   )
 }

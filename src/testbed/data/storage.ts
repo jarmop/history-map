@@ -49,3 +49,8 @@ export function getXy() {
 export function setXy(xy: [number, number]) {
   setData({ xy })
 }
+
+export function resetNavigation() {
+  const { zoom, xy } = defaultStorage
+  setData({ zoom, xy })
+}
