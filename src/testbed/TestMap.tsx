@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useMouse } from './useMouse'
 import { Region } from './Region'
 import { DrawPath } from './DrawPath'
+import { River } from './newTypes'
 
 export type MapRegion = { id: number; path: [number, number][] }
 
@@ -12,6 +13,7 @@ const aspectRatio = 4 / 3
 
 interface CustomMapProps {
   regions: MapRegion[]
+  rivers: River[]
   zoom: number
   onPathCompleted: (
     region: MapRegion,
@@ -32,7 +34,12 @@ interface CustomMapProps {
 //   'gray',
 // ]
 
-export function TestMap({ regions, zoom, onPathCompleted }: CustomMapProps) {
+export function TestMap({
+  regions,
+  rivers,
+  zoom,
+  onPathCompleted,
+}: CustomMapProps) {
   const [activeBorder, setActiveBorder] = useState(-1)
   const [newPath, setNewPath] = useState<{
     start?: { regionId: MapRegion['id']; i: number }
@@ -168,6 +175,16 @@ export function TestMap({ regions, zoom, onPathCompleted }: CustomMapProps) {
               }
             />
           ))}
+        {rivers.map((river) => (
+          <path
+            key={river.id}
+            fill="none"
+            stroke="lightcyan"
+            strokeWidth={1}
+            strokeLinejoin="round"
+            d={`M${river.path.join(' ')}`}
+          />
+        ))}
         {points.length > 0 && mouseXY && (
           <DrawPath points={points} mouseXY={mouseXY} />
         )}

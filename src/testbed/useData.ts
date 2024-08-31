@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Border, BorderConnection, Region } from './newTypes'
 import { MapRegion } from './TestMap'
-import { getBorders, getRegions } from './geographicData'
+import { getBorders, getRegions, getRivers } from './geographicData'
 import { LatLon } from '../data/data'
 // import { getBorders, getRegions } from './testData'
 
@@ -39,6 +39,17 @@ export function useData(year: number, zoom: number) {
         ),
       }))
   }, [allBorders, zoom, year])
+
+  const rivers = useMemo(() => {
+    const zoomMultiplier = Math.pow(2, zoom - 1)
+
+    return getRivers().map((b) => ({
+      ...b,
+      path: b.path.map(
+        (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
+      ),
+    }))
+  }, [zoom])
 
   const branchesByBorderId = borders.reduce<
     Record<
@@ -420,5 +431,5 @@ export function useData(year: number, zoom: number) {
     ])
   }
 
-  return { mapRegions, onPathCompleted }
+  return { mapRegions, onPathCompleted, rivers }
 }

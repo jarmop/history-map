@@ -7,7 +7,7 @@ export type Connection = {
 
 // Use region id, or specify reverse boolean here, to indicate which side of the border the connection is
 
-// The reverse information tells which way to continue on from the connection. 
+// The reverse information tells which way to continue on from the connection.
 // The index always refers to the original border.
 export type BorderConnection = {
   borderId: Border['id']
@@ -22,6 +22,11 @@ export type Border = {
   endPoint?: BorderConnection
   startYear?: number
   endYear?: number
+}
+
+export type River = {
+  id: string
+  path: LatLon[]
 }
 
 export type RegionBorder = { borderId: Border['id']; reverse?: boolean }
