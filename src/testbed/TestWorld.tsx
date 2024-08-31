@@ -1,12 +1,13 @@
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { TestMap } from './TestMap'
 import { YearInput } from '../world/YearInput'
 import { useData } from './useData'
+import { useYear, useZoom } from './data/usePersistedState'
 
 export function TestWorld() {
-  const years = [5]
-  const [year, setYear] = useState(years[0])
-  const [zoom, setZoom] = useState(4)
+  const years = [-4000]
+  const [year, setYear] = useYear()
+  const [zoom, setZoom] = useZoom()
 
   const { mapRegions, onPathCompleted } = useData(year, zoom)
 

@@ -87,7 +87,7 @@ export function TestMap({ regions, zoom, onPathCompleted }: CustomMapProps) {
     })
   }
 
-  const [mouseXY, setMouseXy] = useState<number[]>()
+  const [mouseXY, setMouseXy] = useState<[number, number]>()
 
   useEffect(() => {
     function keyup(e: KeyboardEvent) {

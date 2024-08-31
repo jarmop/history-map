@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useXy } from './data/usePersistedState'
 
 export function useMouse(dom: HTMLDivElement | null) {
-  const [xy, setXy] = useState([3700, 1100])
+  const [xy, setXy] = useXy()
   const [isMousedown, setMousedown] = useState(false)
 
   useEffect(() => {
