@@ -4,16 +4,20 @@ import { Border, Region } from './newTypes'
 // import { equirectangular as mapProjection } from '../CustomMap/mapProjections/equiRectangular'
 import { mercator as mapProjection } from '../CustomMap/mapProjections/mercator'
 
-export function getBorders(): Border[] {
-  const oldWorld = dataJson as unknown as OldWorld
+const oldWorld = dataJson as unknown as OldWorld
 
-  const eurasiaAfrica = oldWorld.borders.find((b) => b.id === 'eurasiaAfrica')
-  if (!eurasiaAfrica) {
-    throw new Error('data not found')
+const borders = oldWorld.islands.map((island, i) => {
+  const border = oldWorld.borders.find((b) => b.id === island.borders[0])
+  if (!border) {
+    throw new Error('border not found')
   }
+  return {
+    ...border,
+    id: i + 1,
+  }
+})
 
-  const borders = [{ ...eurasiaAfrica, id: 1 }]
-
+export function getBorders(): Border[] {
   const { lonToX, latToY } = mapProjection(1000)
 
   return borders.map((border) => {
@@ -28,12 +32,5 @@ export function getBorders(): Border[] {
 }
 
 export function getRegions(): Region[] {
-  return [
-    {
-      id: 1,
-      border: {
-        borderId: 1,
-      },
-    },
-  ]
+  return borders.map((b) => ({ id: b.id, border: { borderId: b.id } }))
 }
