@@ -9,7 +9,7 @@ export function TestWorld() {
   const [year, setYear] = useYear()
   const [zoom, setZoom] = useZoom()
 
-  const { mapRegions, onPathCompleted, rivers } = useData(year, zoom)
+  const { mapRegions, onPathCompleted, rivers, cities } = useData(year, zoom)
 
   useCallback
 
@@ -19,6 +19,7 @@ export function TestWorld() {
       <TestMap
         regions={mapRegions}
         rivers={rivers}
+        cities={cities}
         onPathCompleted={onPathCompleted}
         zoom={zoom}
       />

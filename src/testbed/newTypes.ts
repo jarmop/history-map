@@ -29,6 +29,11 @@ export type River = {
   path: LatLon[]
 }
 
+export type City = {
+  id: string
+  xy: [number, number]
+}
+
 export type RegionBorder = { borderId: Border['id']; reverse?: boolean }
 
 /**

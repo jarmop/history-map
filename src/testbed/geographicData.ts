@@ -1,10 +1,11 @@
 import dataJson from '../data/data.json'
 import { LatLon, World as OldWorld, Border as OldBorder } from '../data/data'
-import { Border, Region, River } from './newTypes'
+import { Border, City, Region, River } from './newTypes'
 // import { equirectangular as mapProjection } from '../CustomMap/mapProjections/equiRectangular'
 import { mercator as mapProjection } from '../CustomMap/mapProjections/mercator'
+import { latLonByName, LatLonName } from '../data/coordinates/latLonByName'
 
-const { lonToX, latToY } = mapProjection(1000)
+const { lonToX, latToY, latLonToXy } = mapProjection(1000)
 
 const oldWorld = dataJson as unknown as OldWorld
 
@@ -38,6 +39,12 @@ const rivers = oldWorld.rivers.map((r) => ({
   }),
 }))
 
+const cityNames: LatLonName[] = ['Jerusalem']
+const cities = cityNames.map((city) => {
+  const latLon = latLonByName[city] as [number, number]
+  return { id: city, xy: latLonToXy(latLon) }
+})
+
 export function getBorders(): Border[] {
   return borders.map((border) => {
     const path = border.path.map((latLon) => {
@@ -56,4 +63,8 @@ export function getRegions(): Region[] {
 
 export function getRivers(): River[] {
   return rivers
+}
+
+export function getCities(): City[] {
+  return cities
 }

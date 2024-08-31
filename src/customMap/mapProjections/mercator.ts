@@ -1,3 +1,4 @@
+import { LatLon } from '../../data/data'
 import { latSize, leftLon, lonSize } from './constants'
 
 export function degToRad(deg: number) {
@@ -41,6 +42,12 @@ export function mercator(width: number) {
     return radToDeg(mercatorYToLat(degToRad(topLatM - y / latYRatio)))
   }
 
+  function latLonToXy(latLon: [number, number]): [number, number] {
+    const lat = latLon[0]
+    const lon = latLon[1]
+    return [lonToX(lon), latToY(lat)] as [number, number]
+  }
+
   return {
     totalWidth,
     totalHeight,
@@ -48,5 +55,6 @@ export function mercator(width: number) {
     xToLon,
     latToY,
     yToLat,
+    latLonToXy,
   }
 }

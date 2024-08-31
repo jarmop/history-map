@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Border, BorderConnection, Region } from './newTypes'
 import { MapRegion } from './TestMap'
-import { getBorders, getRegions, getRivers } from './geographicData'
+import { getBorders, getCities, getRegions, getRivers } from './geographicData'
 import { LatLon } from '../data/data'
 // import { getBorders, getRegions } from './testData'
 
@@ -48,6 +48,15 @@ export function useData(year: number, zoom: number) {
       path: b.path.map(
         (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
       ),
+    }))
+  }, [zoom])
+
+  const cities = useMemo(() => {
+    const zoomMultiplier = Math.pow(2, zoom - 1)
+
+    return getCities().map((b) => ({
+      ...b,
+      xy: [b.xy[0] * zoomMultiplier, b.xy[1] * zoomMultiplier] as LatLon,
     }))
   }, [zoom])
 
@@ -431,5 +440,5 @@ export function useData(year: number, zoom: number) {
     ])
   }
 
-  return { mapRegions, onPathCompleted, rivers }
+  return { mapRegions, onPathCompleted, rivers, cities }
 }

@@ -14,6 +14,7 @@ const aspectRatio = 4 / 3
 interface CustomMapProps {
   regions: MapRegion[]
   rivers: River[]
+  cities: Cities[]
   zoom: number
   onPathCompleted: (
     region: MapRegion,
@@ -37,6 +38,7 @@ interface CustomMapProps {
 export function TestMap({
   regions,
   rivers,
+  cities,
   zoom,
   onPathCompleted,
 }: CustomMapProps) {
@@ -183,6 +185,15 @@ export function TestMap({
             strokeWidth={1}
             strokeLinejoin="round"
             d={`M${river.path.join(' ')}`}
+          />
+        ))}
+        {cities.map((city) => (
+          <circle
+            key={city.id}
+            fill="black"
+            r="3"
+            cx={city.xy[0]}
+            cy={city.xy[1]}
           />
         ))}
         {points.length > 0 && mouseXY && (
