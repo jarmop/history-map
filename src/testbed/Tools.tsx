@@ -1,5 +1,5 @@
-import { getWorld, resetWorld } from '../storage'
-import { resetNavigation } from './data/storage'
+import { getWorld, resetNavigation, resetWorld } from './data/storage'
+import { prepareForExport } from './geographicData'
 
 export function Tools() {
   return (
@@ -22,11 +22,17 @@ export function Tools() {
         Reset data
       </button>
       <button
-        onClick={() =>
+        onClick={() => {
+          const world = getWorld()
+          if (!world) {
+            console.log('wolrd not stored')
+            return
+          }
+
           navigator.clipboard
-            .writeText(JSON.stringify(getWorld()))
+            .writeText(JSON.stringify(prepareForExport(world)))
             .then(() => console.info('Data copied to clipboard'))
-        }
+        }}
       >
         Export data
       </button>

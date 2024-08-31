@@ -53,8 +53,8 @@ export type State = { id: string; regions: Region[] } // Age of regions is defin
 // State can have different age than the regions it is occupying
 
 export type World = {
-  connections: Connection[]
   borders: Border[]
-  regions: Region[] // physical regions and borders in different properties, or separate some other way?
-  states: State[]
+  regions: Region[]
+  rivers: River[]
+  cities: City[]
 }

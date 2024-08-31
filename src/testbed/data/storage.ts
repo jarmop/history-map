@@ -1,13 +1,17 @@
+import { World } from '../newTypes'
+
 export type StorageData = {
   year: number
   zoom: number
   xy: [number, number]
+  world: World | undefined
 }
 
 const defaultStorage: StorageData = {
   year: 0,
   zoom: 4,
   xy: [3700, 1100],
+  world: undefined,
 }
 
 const storageKey = 'test-history-map'
@@ -53,4 +57,18 @@ export function setXy(xy: [number, number]) {
 export function resetNavigation() {
   const { zoom, xy } = defaultStorage
   setData({ zoom, xy })
+}
+
+export function resetWorld() {
+  const { world } = defaultStorage
+  setData({ world })
+}
+
+export function getWorld() {
+  const storage = getStorage()
+  return storage && storage.world
+}
+
+export function setWorld(world: World) { 
+  setData({world})
 }
