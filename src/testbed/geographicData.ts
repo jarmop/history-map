@@ -4,7 +4,6 @@ import { Border, City, Region, River, World } from './newTypes'
 // import { equirectangular as mapProjection } from '../CustomMap/mapProjections/equiRectangular'
 import { mercator as mapProjection } from '../CustomMap/mapProjections/mercator'
 import { latLonByName, LatLonName } from '../data/coordinates/latLonByName'
-import { setWorld } from './data/storage'
 import { roundFloat } from './helpers'
 
 const { lonToX, latToY, latLonToXy, xyToLatLon } = mapProjection(1000)
@@ -79,9 +78,18 @@ export function prepareForExport(world: World) {
   }
 }
 
-setWorld({
-  borders: getBorders(),
-  regions: getRegions(),
-  rivers: getRivers(),
-  cities: getCities(),
-})
+export function getWorld() {
+  return {
+    borders: getBorders(),
+    regions: getRegions(),
+    rivers: getRivers(),
+    cities: getCities(),
+  }
+}
+
+// setWorld({
+//   borders: getBorders(),
+//   regions: getRegions(),
+//   rivers: getRivers(),
+//   cities: getCities(),
+// })

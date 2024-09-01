@@ -1,9 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Border, BorderConnection, Region } from './newTypes'
 import { MapRegion } from './Map/TestMap'
-import { getBorders, getCities, getRegions, getRivers } from './geographicData'
+import { getCities, getRivers, getWorld } from './geographicData'
 import { LatLon } from '../data/data'
-// import { getBorders, getRegions } from './testData'
+import { useWorld } from './data/usePersistedState'
 
 type BorderData = {
   borderId: Border['id']
@@ -21,8 +21,9 @@ function isRiver(border: Border) {
 }
 
 export function useData(year: number, zoom: number) {
-  const [allBorders, setBorders] = useState<Border[]>(getBorders)
-  const [regions, setRegions] = useState<Region[]>(getRegions)
+  const [world, setWorld] = useWorld(getWorld())
+  const allBorders = world.borders
+  const regions = world.regions
 
   const borders = useMemo(() => {
     const zoomMultiplier = Math.pow(2, zoom - 1)
@@ -421,7 +422,7 @@ export function useData(year: number, zoom: number) {
       startYear: year,
       endYear: year + 5,
     }
-    setBorders([...allBorders, newBorder])
+    // setBorders([...allBorders, newBorder])
 
     const region2 = {
       id: getNextRegionId(),
@@ -432,12 +433,23 @@ export function useData(year: number, zoom: number) {
       border: { borderId: newBorder.id, reverse: true },
     }
 
-    setRegions([
-      ...regions.filter((r) => r.id !== region.id),
-      { ...region, dividers: [...(region.dividers || []), newBorder.id] },
-      region2,
-      region3,
-    ])
+    // setRegions([
+    //   ...regions.filter((r) => r.id !== region.id),
+    //   { ...region, dividers: [...(region.dividers || []), newBorder.id] },
+    //   region2,
+    //   region3,
+    // ])
+
+    setWorld({
+      ...world,
+      borders: [...allBorders, newBorder],
+      regions: [
+        ...regions.filter((r) => r.id !== region.id),
+        { ...region, dividers: [...(region.dividers || []), newBorder.id] },
+        region2,
+        region3,
+      ],
+    })
   }
 
   return { mapRegions, onPathCompleted, rivers, cities }
