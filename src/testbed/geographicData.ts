@@ -31,11 +31,17 @@ const rivers = world.rivers.map((r) => ({
   }),
 }))
 
-const cityNames: LatLonName[] = ['Jerusalem']
-const cities = cityNames.map((city) => {
+const cityNames: LatLonName[] = []
+const newCities = cityNames.map((city) => {
   const latLon = latLonByName[city] as [number, number]
   return { id: city, xy: latLonToXy(latLon) }
 })
+
+const persistedCities = world.cities.map((city) => {
+  return { ...city, xy: latLonToXy(city.xy) }
+})
+
+const cities = [...persistedCities, ...newCities]
 
 export function getBorders(): Border[] {
   return borders

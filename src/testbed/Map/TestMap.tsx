@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useMouse } from './useMouse'
 import { Region } from './Region'
 import { DrawPath } from './DrawPath'
-import { River } from './newTypes'
+import { City as CityObj, River } from '../newTypes'
+import { City } from './City'
 
 export type MapRegion = { id: number; path: [number, number][] }
 
@@ -14,7 +15,7 @@ const aspectRatio = 4 / 3
 interface CustomMapProps {
   regions: MapRegion[]
   rivers: River[]
-  cities: Cities[]
+  cities: CityObj[]
   zoom: number
   onPathCompleted: (
     region: MapRegion,
@@ -40,6 +41,7 @@ export function TestMap({
   rivers,
   cities,
   zoom,
+  config,
   onPathCompleted,
 }: CustomMapProps) {
   const [activeBorder, setActiveBorder] = useState(-1)
@@ -188,13 +190,7 @@ export function TestMap({
           />
         ))}
         {cities.map((city) => (
-          <circle
-            key={city.id}
-            fill="black"
-            r="3"
-            cx={city.xy[0]}
-            cy={city.xy[1]}
-          />
+          <City key={city.id} city={city} />
         ))}
         {points.length > 0 && mouseXY && (
           <DrawPath points={points} mouseXY={mouseXY} />

@@ -58,3 +58,7 @@ export type World = {
   rivers: River[]
   cities: City[]
 }
+
+export type Config = {
+  showCities: boolean
+}

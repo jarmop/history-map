@@ -8,7 +8,7 @@ import {
 } from '../data/coordinates/natural/parallelsAndMeridiansData'
 import { Meridians, Parallels } from './ParallelsAndMeridians'
 import { Config } from '../types'
-import { Region } from '../testbed/Region'
+import { Region } from '../testbed/Map/Region'
 import { Border as BorderData } from '../data/data'
 import { River } from './River'
 import { Sea } from './Sea'

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getData, setData, StorageData } from './storage'
+import { Config } from '../newTypes'
 
 function usePersistedState<T>(storageKey: keyof StorageData) {
   const [value, setValue] = useState<T>(getData(storageKey) as T)
@@ -21,4 +22,8 @@ export function useZoom() {
 
 export function useXy() {
   return usePersistedState<[number, number]>('xy')
+}
+
+export function useConfig() {
+  return usePersistedState<Config>('config')
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useXy } from './data/usePersistedState'
+import { useXy } from '../data/usePersistedState'
 
 export function useMouse(dom: HTMLDivElement | null) {
   const [xy, setXy] = useXy()

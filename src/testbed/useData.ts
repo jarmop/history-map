@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Border, BorderConnection, Region } from './newTypes'
-import { MapRegion } from './TestMap'
+import { MapRegion } from './Map/TestMap'
 import { getBorders, getCities, getRegions, getRivers } from './geographicData'
 import { LatLon } from '../data/data'
 // import { getBorders, getRegions } from './testData'

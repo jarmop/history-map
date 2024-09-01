@@ -1,14 +1,15 @@
 import { useCallback } from 'react'
-import { TestMap } from './TestMap'
+import { TestMap } from './Map/TestMap'
 import { YearInput } from '../world/YearInput'
 import { useData } from './useData'
-import { useYear, useZoom } from './data/usePersistedState'
+import { useConfig, useYear, useZoom } from './data/usePersistedState'
 import { Tools } from './Tools'
 
 export function TestWorld() {
   const years = [-4000]
   const [year, setYear] = useYear()
   const [zoom, setZoom] = useZoom()
+  const [config, setConfig] = useConfig()
 
   const { mapRegions, onPathCompleted, rivers, cities } = useData(year, zoom)
 
@@ -20,7 +21,7 @@ export function TestWorld() {
       <TestMap
         regions={mapRegions}
         rivers={rivers}
-        cities={cities}
+        cities={config.showCities ? cities : []}
         onPathCompleted={onPathCompleted}
         zoom={zoom}
       />
@@ -38,6 +39,20 @@ export function TestWorld() {
         </div>
       </div>
       <Tools />
+      <br />
+      <br />
+      <div>
+        <input
+          type="checkbox"
+          id="showCities"
+          name="showCities"
+          checked={config.showCities}
+          onChange={(e) =>
+            setConfig({ ...config, showCities: e.target.checked })
+          }
+        />
+        <label htmlFor="showCities">Show cities</label>
+      </div>
     </>
   )
 }
