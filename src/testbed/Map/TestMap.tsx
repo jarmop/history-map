@@ -23,6 +23,11 @@ interface CustomMapProps {
     start: number,
     end: number
   ) => void
+  onPointEdited: (
+    regionId: MapRegion['id'],
+    index: number,
+    newPoint: [number, number]
+  ) => void
 }
 
 // const regionColors = [
@@ -42,11 +47,16 @@ export function TestMap({
   cities,
   zoom,
   onPathCompleted,
+  onPointEdited,
 }: CustomMapProps) {
   const [activeRegions, setActiveRegions] = useState<number[]>([])
   const [newPath, setNewPath] = useState<{
     start?: { regionId: MapRegion['id']; i: number }
     points: [number, number][]
+  }>()
+  const [activeBorderPoint, setActiveBorderPoint] = useState<{
+    regionId: MapRegion['id']
+    i: number
   }>()
   const points = newPath?.points || []
   const [width, setWidth] = useState(1)
@@ -113,6 +123,7 @@ export function TestMap({
       if (e.key === 'Escape') {
         setNewPath(undefined)
         setMouseXy(undefined)
+        setActiveBorderPoint(undefined)
       }
     }
     document.addEventListener('keyup', keyup)
@@ -149,7 +160,7 @@ export function TestMap({
         viewBox={`${xy[0]} ${xy[1]} ${width} ${height}`}
         style={{ background: 'lightcyan' }}
         onMouseMove={(e) => {
-          if (points.length < 1) return
+          if (points.length < 1 && !activeBorderPoint) return
           const x = e.clientX + xy[0]
           const y = e.clientY + xy[1]
           setMouseXy([x, y])
@@ -189,9 +200,18 @@ export function TestMap({
               fill={'lightgrey'}
               active={activeRegions.includes(region.id)}
               // active={activeBorder !== undefined}
-              selectPoint={(point: [number, number], i: number) =>
-                selectBorderPoint(region, point, i)
-              }
+              selectPoint={(
+                point: [number, number],
+                i: number,
+                initMove: boolean
+              ) => {
+                if (initMove) {
+                  setActiveBorderPoint({ regionId: region.id, i })
+                  setNewPath(undefined)
+                } else {
+                  selectBorderPoint(region, point, i)
+                }
+              }}
             />
           ))}
         {rivers.map((river) => (
@@ -209,6 +229,24 @@ export function TestMap({
         ))}
         {points.length > 0 && mouseXY && (
           <DrawPath points={points} mouseXY={mouseXY} />
+        )}
+        {activeBorderPoint && mouseXY && (
+          <circle
+            cx={mouseXY[0]}
+            cy={mouseXY[1]}
+            r="6"
+            fill="red"
+            onClick={(e) => {
+              // const region =
+              e.stopPropagation()
+              onPointEdited(
+                activeBorderPoint.regionId,
+                activeBorderPoint.i,
+                mouseXY
+              )
+              setActiveBorderPoint(undefined)
+            }}
+          />
         )}
       </svg>
     </div>

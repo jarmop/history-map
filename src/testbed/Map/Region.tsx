@@ -5,7 +5,7 @@ interface BorderProps {
   onClick: (multiSelect: boolean) => void
   fill?: string
   active?: boolean
-  selectPoint: (point: [number, number], i: number) => void
+  selectPoint: (point: [number, number], i: number, initMove: boolean) => void
 }
 
 export function Region({
@@ -50,7 +50,7 @@ export function Region({
             onMouseLeave={() => setActivePoint(-1)}
             onMouseUp={(e) => {
               e.stopPropagation()
-              selectPoint(point, i)
+              selectPoint(point, i, e.detail === 2)
               // console.log('point index:', i, point)
             }}
           />

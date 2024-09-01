@@ -11,7 +11,7 @@ export function TestWorld() {
   const [zoom, setZoom] = useZoom()
   const [config, setConfig] = useConfig()
 
-  const { mapRegions, onPathCompleted, rivers, cities } = useData(year, zoom)
+  const { mapRegions, onPathCompleted, onPointEdited, rivers, cities } = useData(year, zoom)
 
   useCallback
 
@@ -23,6 +23,7 @@ export function TestWorld() {
         rivers={rivers}
         cities={config.showCities ? cities : []}
         onPathCompleted={onPathCompleted}
+        onPointEdited={onPointEdited}
         zoom={zoom}
       />
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>

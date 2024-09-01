@@ -24,10 +24,9 @@ export function useData(year: number, zoom: number) {
   const [world, setWorld] = useWorld(getWorld())
   const allBorders = world.borders
   const regions = world.regions
+  const zoomMultiplier = Math.pow(2, zoom - 1)
 
   const borders = useMemo(() => {
-    const zoomMultiplier = Math.pow(2, zoom - 1)
-
     return allBorders
       .filter(
         ({ startYear, endYear }) =>
@@ -39,27 +38,23 @@ export function useData(year: number, zoom: number) {
           (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
         ),
       }))
-  }, [allBorders, zoom, year])
+  }, [allBorders, zoomMultiplier, year])
 
   const rivers = useMemo(() => {
-    const zoomMultiplier = Math.pow(2, zoom - 1)
-
     return getRivers().map((b) => ({
       ...b,
       path: b.path.map(
         (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
       ),
     }))
-  }, [zoom])
+  }, [zoomMultiplier])
 
   const cities = useMemo(() => {
-    const zoomMultiplier = Math.pow(2, zoom - 1)
-
     return getCities().map((b) => ({
       ...b,
       xy: [b.xy[0] * zoomMultiplier, b.xy[1] * zoomMultiplier] as LatLon,
     }))
-  }, [zoom])
+  }, [zoomMultiplier])
 
   const branchesByBorderId = borders.reduce<
     Record<
@@ -410,12 +405,16 @@ export function useData(year: number, zoom: number) {
       getBorderDataByRegionIndex(region, end)
     )
 
-    const zoomMultiplier = 1 / Math.pow(2, zoom - 1)
+    const invertedZoomMultiplier = 1 / zoomMultiplier
 
     const newBorder: Border = {
       id: getNextBorderId(),
       path: path.map(
-        (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
+        (xy) =>
+          [
+            xy[0] * invertedZoomMultiplier,
+            xy[1] * invertedZoomMultiplier,
+          ] as LatLon
       ),
       startPoint: startPoint,
       endPoint: endPoint,
@@ -452,5 +451,47 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  return { mapRegions, onPathCompleted, rivers, cities }
+  function onPointEdited(
+    regionId: MapRegion['id'],
+    index: number,
+    newPoint: [number, number]
+  ) {
+    const region = regions.find((r) => r.id === regionId)
+    if (!region) {
+      throw new Error('region not found')
+    }
+
+    const borderData = getBorderDataByRegionIndex(region, index)
+    if (!borderData) {
+      throw new Error('borderData not found')
+    }
+
+    const newPointWithoutZoom = [
+      newPoint[0] / zoomMultiplier,
+      newPoint[1] / zoomMultiplier,
+    ] as [number, number]
+
+    const border = allBorders.find((b) => b.id === borderData.borderId)
+    if (!border) {
+      throw new Error('border not found')
+    }
+    const editedBorder: Border = {
+      ...border,
+      path: [
+        ...border.path.slice(0, borderData.index),
+        newPointWithoutZoom,
+        ...border.path.slice(borderData.index + 1),
+      ],
+    }
+
+    setWorld({
+      ...world,
+      borders: [
+        ...allBorders.filter((b) => b.id !== editedBorder.id),
+        editedBorder,
+      ],
+    })
+  }
+
+  return { mapRegions, onPathCompleted, onPointEdited, rivers, cities }
 }
