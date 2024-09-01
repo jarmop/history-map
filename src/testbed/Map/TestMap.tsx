@@ -41,10 +41,9 @@ export function TestMap({
   rivers,
   cities,
   zoom,
-  config,
   onPathCompleted,
 }: CustomMapProps) {
-  const [activeBorder, setActiveBorder] = useState(-1)
+  const [activeRegions, setActiveRegions] = useState<number[]>([])
   const [newPath, setNewPath] = useState<{
     start?: { regionId: MapRegion['id']; i: number }
     points: [number, number][]
@@ -80,9 +79,18 @@ export function TestMap({
     prevZoom.current = zoom
   }, [zoom, setXy, height, width])
 
-  function toggleActiveBorder(id: number) {
-    points.length < 1 &&
-      setActiveBorder((activeBorder) => (activeBorder === id ? -1 : id))
+  function selectRegion(id: number) {
+    points.length < 1 && setActiveRegions([id])
+  }
+
+  function multiSelectRegion(regionId: number) {
+    setActiveRegions((activeBorders) => {
+      if (activeBorders.includes(regionId)) {
+        return activeBorders.filter((activeId) => activeId !== regionId)
+      }
+
+      return [...activeBorders, regionId]
+    })
   }
 
   function selectPoint(
@@ -161,18 +169,25 @@ export function TestMap({
         }}
       >
         {regions
-          // .filter((r) => r.id !== activeBorder)
           .sort((r1, r2) =>
-            r1.id === activeBorder ? 1 : r2.id === activeBorder ? -1 : 0
+            activeRegions.includes(r1.id)
+              ? 1
+              : activeRegions.includes(r2.id)
+              ? -1
+              : 0
           )
           .map((region, i) => (
             <Region
               key={i}
               border={region.path}
-              onClick={() => toggleActiveBorder(region.id)}
+              onClick={(multiSelect) =>
+                multiSelect
+                  ? multiSelectRegion(region.id)
+                  : selectRegion(region.id)
+              }
               // fill={regionColors[i]}
               fill={'lightgrey'}
-              active={activeBorder === region.id}
+              active={activeRegions.includes(region.id)}
               // active={activeBorder !== undefined}
               selectPoint={(point: [number, number], i: number) =>
                 selectBorderPoint(region, point, i)

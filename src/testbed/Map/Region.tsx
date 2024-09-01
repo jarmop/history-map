@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 interface BorderProps {
   border: [number, number][]
-  onClick: () => void
+  onClick: (multiSelect: boolean) => void
   fill?: string
   active?: boolean
   selectPoint: (point: [number, number], i: number) => void
@@ -30,7 +30,7 @@ export function Region({
         }}
         onMouseUp={(e) => {
           if (e.clientX === downXy[0] && e.clientY === downXy[1]) {
-            onClick()
+            onClick(e.metaKey)
           }
           setDownXy([0, 0])
         }}
