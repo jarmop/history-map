@@ -1,5 +1,5 @@
-import { getWorld, resetNavigation, resetWorld } from './data/storage'
-import { prepareForExport } from './geographicData'
+import { getWorld, resetNavigation, resetWorld } from '../data/storage'
+import { prepareForExport } from '../geographicData'
 
 export function Tools() {
   return (

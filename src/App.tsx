@@ -1,5 +1,5 @@
 import './App.css'
-import { TestWorld } from './testbed/TestWorld'
+import { TestWorld } from './testbed/World/TestWorld'
 
 function App() {
   return (

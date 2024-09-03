@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
-import { TestMap } from './Map/TestMap'
-import { YearInput } from '../world/YearInput'
-import { useData } from './useData'
-import { useConfig, useYear, useZoom } from './data/usePersistedState'
+import { TestMap } from '../Map/TestMap'
+import { YearInput } from '../../world/YearInput'
+import { useData } from '../useData'
+import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
 
 export function TestWorld() {
@@ -11,7 +11,8 @@ export function TestWorld() {
   const [zoom, setZoom] = useZoom()
   const [config, setConfig] = useConfig()
 
-  const { mapRegions, onPathCompleted, onPointEdited, rivers, cities } = useData(year, zoom)
+  const { mapRegions, onPathCompleted, onPointEdited, rivers, cities } =
+    useData(year, zoom)
 
   useCallback
 
@@ -53,6 +54,15 @@ export function TestWorld() {
           }
         />
         <label htmlFor="showCities">Show cities</label>
+      </div>
+      <div>
+        <input
+          type="text"
+          onChange={(e) => {
+            const year = parseInt(e.target.value)
+            !isNaN(year) && setYear(year)
+          }}
+        />
       </div>
     </>
   )
