@@ -1,7 +1,7 @@
-import { useMemo } from 'react'
-import { Border, BorderConnection, Region } from './newTypes'
+import { useCallback, useMemo } from 'react'
+import { Border, BorderConnection, City, Region } from './newTypes'
 import { MapRegion } from './Map/TestMap'
-import { getCities, getRivers, getWorld } from './geographicData'
+import { getRivers, getWorld, latLonToXy } from './geographicData'
 import { LatLon } from '../data/data'
 import { useWorld } from './data/usePersistedState'
 
@@ -26,6 +26,13 @@ export function useData(year: number, zoom: number) {
   const regions = world.regions
   const zoomMultiplier = Math.pow(2, zoom - 1)
 
+  const zoomXy = useCallback(
+    (xy: [number, number]): [number, number] => {
+      return [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier]
+    },
+    [zoomMultiplier]
+  )
+
   const borders = useMemo(() => {
     return allBorders
       .filter(
@@ -34,27 +41,29 @@ export function useData(year: number, zoom: number) {
       )
       .map((b) => ({
         ...b,
-        path: b.path.map(
-          (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
-        ),
+        path: b.path.map(zoomXy),
       }))
-  }, [allBorders, zoomMultiplier, year])
+  }, [allBorders, zoomXy, year])
 
   const rivers = useMemo(() => {
     return getRivers().map((b) => ({
       ...b,
-      path: b.path.map(
-        (xy) => [xy[0] * zoomMultiplier, xy[1] * zoomMultiplier] as LatLon
-      ),
+      path: b.path.map(zoomXy),
     }))
-  }, [zoomMultiplier])
+  }, [zoomXy])
 
   const cities = useMemo(() => {
-    return getCities().map((b) => ({
-      ...b,
-      xy: [b.xy[0] * zoomMultiplier, b.xy[1] * zoomMultiplier] as LatLon,
-    }))
-  }, [zoomMultiplier])
+    return world.cities
+      .filter(
+        (city) =>
+          (!city.startYear || city.startYear <= year) &&
+          (!city.endYear || city.endYear >= year)
+      )
+      .map((b) => ({
+        ...b,
+        xy: zoomXy(b.xy),
+      }))
+  }, [world.cities, zoomXy, year])
 
   const branchesByBorderId = borders.reduce<
     Record<
@@ -493,5 +502,12 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  return { mapRegions, onPathCompleted, onPointEdited, rivers, cities }
+  function addCity(city: City) {
+    setWorld({
+      ...world,
+      cities: [...world.cities, { ...city, xy: latLonToXy(city.xy) }],
+    })
+  }
+
+  return { mapRegions, onPathCompleted, onPointEdited, rivers, cities, addCity }
 }

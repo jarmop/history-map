@@ -4,6 +4,7 @@ import { YearInput } from '../../world/YearInput'
 import { useData } from '../useData'
 import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
+import { NewCity } from './NewCity'
 
 export function TestWorld() {
   const years = [-4000]
@@ -11,7 +12,7 @@ export function TestWorld() {
   const [zoom, setZoom] = useZoom()
   const [config, setConfig] = useConfig()
 
-  const { mapRegions, onPathCompleted, onPointEdited, rivers, cities } =
+  const { mapRegions, onPathCompleted, onPointEdited, rivers, cities, addCity } =
     useData(year, zoom)
 
   useCallback
@@ -55,15 +56,7 @@ export function TestWorld() {
         />
         <label htmlFor="showCities">Show cities</label>
       </div>
-      <div>
-        <input
-          type="text"
-          onChange={(e) => {
-            const year = parseInt(e.target.value)
-            !isNaN(year) && setYear(year)
-          }}
-        />
-      </div>
+      <NewCity onSave={addCity} />
     </>
   )
 }

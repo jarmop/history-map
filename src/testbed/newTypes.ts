@@ -32,6 +32,8 @@ export type River = {
 export type City = {
   id: string
   xy: [number, number]
+  startYear?: number
+  endYear?: number
 }
 
 export type RegionBorder = { borderId: Border['id']; reverse?: boolean }

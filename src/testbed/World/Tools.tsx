@@ -25,7 +25,7 @@ export function Tools() {
         onClick={() => {
           const world = getWorld()
           if (!world) {
-            console.log('wolrd not stored')
+            console.log('world not stored')
             return
           }
 

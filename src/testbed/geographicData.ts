@@ -6,7 +6,7 @@ import { mercator as mapProjection } from '../CustomMap/mapProjections/mercator'
 import { latLonByName, LatLonName } from '../data/coordinates/latLonByName'
 import { roundFloat } from './helpers'
 
-const { lonToX, latToY, latLonToXy, xyToLatLon } = mapProjection(1000)
+export const { lonToX, latToY, latLonToXy, xyToLatLon } = mapProjection(1000)
 
 const world = data as World
 

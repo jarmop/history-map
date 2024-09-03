@@ -1803,17 +1803,52 @@
     }
   ],
   "cities": [
-    { "id": "Jerusalem", "xy": [31.7789, 35.2256] },
-    { "id": "Aleppo", "xy": [36.2, 37.16] },
-    { "id": "Beirut", "xy": [33.8983, 35.5057] },
-    { "id": "Damascus", "xy": [33.5131, 36.2919] },
-    { "id": "Tel Aviv-Yafo", "xy": [32.08, 34.78] },
-    { "id": "Haifa", "xy": [32.8192, 34.9992] },
-    { "id": "Amman", "xy": [31.9497, 35.9328] },
-    { "id": "Latakia", "xy": [35.5167, 35.7833] },
-    { "id": "Homs", "xy": [34.7308, 36.7094] },
-    { "id": "Palmyra", "xy": [34.5689, 38.2927] },
-    { "id": "Sidon", "xy": [33.5606, 35.3758] },
-    { "id": "Rafah", "xy": [31.2725, 34.2586] }
+    { "id": "Jerusalem", "xy": [31.7789, 35.2256], "startYear": -1000 },
+    { "id": "Aleppo", "xy": [36.2, 37.16], "startYear": -8000 },
+    { "id": "Beirut", "xy": [33.8983, 35.5057], "startYear": -5000 },
+    { "id": "Damascus", "xy": [33.5131, 36.2919], "startYear": -10000 },
+    { "id": "Tel Aviv-Yafo", "xy": [32.08, 34.78], "startYear": 1909 },
+    { "id": "Haifa", "xy": [32.8192, 34.9992], "startYear": -1400 },
+    { "id": "Amman", "xy": [31.9497, 35.9328], "startYear": -8000 },
+    { "id": "Latakia", "xy": [35.5167, 35.7833], "startYear": -327 },
+    { "id": "Homs", "xy": [34.7308, 36.7094], "startYear": -2000 },
+    {
+      "id": "Palmyra",
+      "xy": [34.5689, 38.2927],
+      "startYear": -3000,
+      "endYear": 1932
+    },
+    { "id": "Sidon", "xy": [33.5606, 35.3758], "startYear": -3000 },
+    { "id": "Rafah", "xy": [31.2725, 34.2586], "startYear": 1906 },
+    { "id": "Baghdad", "xy": [33.3153, 44.3661], "startYear": 762 },
+    { "id": "Ankara", "xy": [39.93, 32.85], "startYear": -280 },
+    { "id": "Cairo", "xy": [30.0444, 31.2358], "startYear": 969 },
+    { "id": "Alexandria", "xy": [31.1975, 29.8925], "startYear": -331 },
+    { "id": "Rome", "xy": [41.8933, 12.4828], "startYear": -753 },
+    { "id": "Toledo", "xy": [39.8622, -4.0277], "startYear": 0 },
+    { "id": "Madrid", "xy": [40.4169, -3.7033], "startYear": 852 },
+    { "id": "Marseille", "xy": [43.2964, 5.37], "startYear": -600 },
+    { "id": "Syracuse", "xy": [37.0727, 15.2881], "startYear": -733 },
+    { "id": "Cordoba", "xy": [37.8845, -4.7796], "startYear": -169 },
+    { "id": "Narbonne", "xy": [43.1836, 3.0042], "startYear": -118 },
+    { "id": "Lisbon", "xy": [38.7253, -9.15], "startYear": -700 },
+    { "id": "A Coruna", "xy": [43.365, -8.41], "startYear": -200 },
+    { "id": "Athens", "xy": [37.9842, 23.7281], "startYear": -508 },
+    { "id": "Carthage", "xy": [36.8528, 10.3233], "startYear": -814 },
+    { "id": "Istanbul", "xy": [41.0136, 28.955], "startYear": -330 },
+    { "id": "Memphis", "xy": [29.8447, 31.2508], "startYear": -3100 },
+    {
+      "id": "Uruk",
+      "xy": [31.3242, 45.6372],
+      "startYear": -5000,
+      "endYear": 700
+    },
+    { "id": "Babylon", "xy": [32.5425, 44.4211], "startYear": -1894 },
+    {
+      "id": "Assur",
+      "xy": [35.4567, 43.2625],
+      "startYear": -2025,
+      "endYear": 200
+    }
   ]
 }
