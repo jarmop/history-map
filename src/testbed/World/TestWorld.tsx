@@ -25,13 +25,12 @@ export function TestWorld() {
     addCity,
     cultures,
     saveCultures,
+    deleteRegion,
   } = useData(year, zoom)
 
   const activeCulture = cultures.find((c) =>
     activeRegions.every((r) => c.regions.includes(r))
   )
-
-  console.log(mapRegions)
 
   return (
     <>
@@ -84,6 +83,7 @@ export function TestWorld() {
               cultures={cultures}
               activeRegions={activeRegions}
               saveCultures={saveCultures}
+              onDelete={(regionId: Region['id']) => deleteRegion(regionId)}
             />
             <EditCulture
               culture={activeCulture}

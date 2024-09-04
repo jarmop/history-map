@@ -4,12 +4,14 @@ interface EditRegionProps {
   cultures: Culture[]
   activeRegions: Region['id'][]
   saveCultures: (cultures: Culture[]) => void
+  onDelete: (regionId: Region['id']) => void
 }
 
 export function EditRegion({
   cultures,
   activeRegions,
   saveCultures,
+  onDelete,
 }: EditRegionProps) {
   return (
     <div style={{ border: '1px solid black' }}>
@@ -56,6 +58,12 @@ export function EditRegion({
           <option key={c.id}>{c.id}</option>
         ))}
       </select>
+      {activeRegions.length === 1 && (
+        <>
+          <br />
+          <button onClick={() => onDelete(activeRegions[0])}>Delete</button>
+        </>
+      )}
     </div>
   )
 }

@@ -533,6 +533,29 @@ export function useData(year: number, zoom: number) {
     })
   }
 
+  function deleteRegion(regionId: Region['id']) {
+    const regionsToRemove = [regionId]
+    const region1 = regionById[regionId]
+    const border = borderById[region1.border.borderId]
+    const region2 = regions.find(
+      (r) => r.id !== regionId && r.border.borderId === border.id
+    )
+    if (!region2) {
+      throw new Error('region2 not found')
+    }
+    if (!region2.dividers) {
+      regionsToRemove.push(region2.id)
+      setWorld({
+        ...world,
+        borders: [...world.borders.filter(b => b.id !== border.id)],
+        regions: [...world.regions.filter((r) => !regionsToRemove.includes(r.id))],
+      })
+    } else { 
+      // merge region1 to region2
+      // what if border has a connection? Simply cannot remove the region in that case
+    }
+  }
+
   return {
     mapRegions,
     onPathCompleted,
@@ -542,5 +565,6 @@ export function useData(year: number, zoom: number) {
     addCity,
     cultures: world.cultures,
     saveCultures,
+    deleteRegion,
   }
 }
