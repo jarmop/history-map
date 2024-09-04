@@ -2,10 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useMouse } from './useMouse'
 import { Region } from './Region'
 import { DrawPath } from './DrawPath'
-import { City as CityObj, River } from '../newTypes'
+import { City as CityObj, MapRegion, River } from '../newTypes'
 import { City } from './City'
-
-export type MapRegion = { id: number; path: [number, number][]; color?: string }
 
 // const aspectRatio = 16 / 9
 const aspectRatio = 4 / 3

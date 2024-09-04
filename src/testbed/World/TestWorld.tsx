@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TestMap } from '../Map/TestMap'
 import { YearInput } from '../../world/YearInput'
 import { useData } from '../useData'
@@ -26,11 +26,21 @@ export function TestWorld() {
     cultures,
     saveCultures,
     deleteRegion,
+    saveRegionYears,
   } = useData(year, zoom)
 
   const activeCulture = cultures.find((c) =>
     activeRegions.every((r) => c.regions.includes(r))
   )
+
+  useEffect(() => {
+    const filteredRegions = activeRegions.filter((id) =>
+      mapRegions.find((mr) => mr.id === id)
+    )
+    if (activeRegions.length !== filteredRegions.length) {
+      setActiveRegions(filteredRegions)
+    }
+  }, [mapRegions, activeRegions])
 
   return (
     <>
@@ -80,10 +90,12 @@ export function TestWorld() {
         {activeRegions.length > 0 && (
           <>
             <EditRegion
+              mapRegions={mapRegions}
               cultures={cultures}
               activeRegions={activeRegions}
               saveCultures={saveCultures}
               onDelete={(regionId: Region['id']) => deleteRegion(regionId)}
+              onSaveYears={saveRegionYears}
             />
             <EditCulture
               culture={activeCulture}

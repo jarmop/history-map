@@ -67,3 +67,18 @@ export type World = {
 export type Config = {
   showCities: boolean
 }
+
+export type BorderData = {
+  borderId: Border['id']
+  path: [number, number][]
+  reverse: boolean
+  start: number // index where the sliced path starts
+}
+
+export type MapRegion = {
+  id: number
+  path: [number, number][]
+  color?: string
+  border: Border
+  borderData: BorderData[]
+}

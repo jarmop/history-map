@@ -1,17 +1,17 @@
 import { useCallback, useMemo } from 'react'
-import { Border, BorderConnection, City, Culture, Region } from './newTypes'
-import { MapRegion } from './Map/TestMap'
+import {
+  Border,
+  BorderConnection,
+  BorderData,
+  City,
+  Culture,
+  MapRegion,
+  Region,
+} from './newTypes'
 import { getRivers, getWorld, latLonToXy } from './geographicData'
 import { LatLon } from '../data/data'
 import { useWorld } from './data/usePersistedState'
 import { sortById } from './helpers'
-
-type BorderData = {
-  borderId: Border['id']
-  path: [number, number][]
-  reverse: boolean
-  start: number // index where the sliced path starts
-}
 
 function isIsland(border: Border) {
   return !border.startPoint && !border.endPoint
@@ -34,17 +34,19 @@ export function useData(year: number, zoom: number) {
     [zoomMultiplier]
   )
 
-  const borders = useMemo(() => {
-    return allBorders
-      .filter(
-        ({ startYear, endYear }) =>
-          (!startYear || startYear <= year) && (!endYear || endYear >= year)
-      )
-      .map((b) => ({
-        ...b,
-        path: b.path.map(zoomXy),
-      }))
-  }, [allBorders, zoomXy, year])
+  const visibleBorders = useMemo(() => {
+    return allBorders.filter(
+      ({ startYear, endYear }) =>
+        (!startYear || startYear <= year) && (!endYear || endYear >= year)
+    )
+  }, [allBorders, year])
+
+  const zoomedBorders = useMemo(() => {
+    return visibleBorders.map((b) => ({
+      ...b,
+      path: b.path.map(zoomXy),
+    }))
+  }, [visibleBorders, zoomXy])
 
   const rivers = useMemo(() => {
     return getRivers().map((b) => ({
@@ -66,7 +68,7 @@ export function useData(year: number, zoom: number) {
       }))
   }, [world.cities, zoomXy, year])
 
-  const branchesByBorderId = borders.reduce<
+  const branchesByBorderId = zoomedBorders.reduce<
     Record<
       Border['id'],
       { forward: BorderConnection[]; reverse: BorderConnection[] }
@@ -116,10 +118,21 @@ export function useData(year: number, zoom: number) {
     bcs.reverse.sort((a, b) => b.index - a.index)
   })
 
-  const borderById = borders.reduce<Record<string, Border>>((acc, curr) => {
-    acc[curr.id] = curr
-    return acc
-  }, {})
+  const visibleBorderById = visibleBorders.reduce<Record<string, Border>>(
+    (acc, curr) => {
+      acc[curr.id] = curr
+      return acc
+    },
+    {}
+  )
+
+  const zoomedBorderById = zoomedBorders.reduce<Record<string, Border>>(
+    (acc, curr) => {
+      acc[curr.id] = curr
+      return acc
+    },
+    {}
+  )
 
   const regionById = regions.reduce<Record<string, Region>>((acc, curr) => {
     acc[curr.id] = curr
@@ -189,7 +202,7 @@ export function useData(year: number, zoom: number) {
       if (border.startPoint && border.endPoint) {
         // console.log('a')
         nextConnection = reverse ? border.startPoint : border.endPoint
-        nextBorder = borderById[nextConnection.borderId]
+        nextBorder = zoomedBorderById[nextConnection.borderId]
         // nextStartIndex = reverse ? nextBorder.path.length - 1 : 0
         nextStartIndex = nextConnection.index
       } else if (border.endPoint) {
@@ -202,7 +215,7 @@ export function useData(year: number, zoom: number) {
         } else {
           // river connecting to another border
           nextConnection = border.endPoint
-          nextBorder = borderById[nextConnection.borderId]
+          nextBorder = zoomedBorderById[nextConnection.borderId]
           nextStartIndex = nextConnection.index
         }
         // nextBorder = borderById[nextConnection.borderId]
@@ -230,7 +243,7 @@ export function useData(year: number, zoom: number) {
       if (nextConnection.borderId === firstBorderId) {
         nextConnection = undefined
       } else {
-        nextBorder = borderById[nextConnection.borderId]
+        nextBorder = zoomedBorderById[nextConnection.borderId]
         nextStartIndex = nextConnection.reverse ? nextBorder.path.length - 1 : 0
       }
     }
@@ -265,9 +278,9 @@ export function useData(year: number, zoom: number) {
   }
 
   function regionExistsInYear(region: Region): boolean {
-    const border = borderById[region.border.borderId]
+    const border = zoomedBorderById[region.border.borderId]
     const dividerBorder =
-      region.dividers && region.dividers.some((d) => borderById[d])
+      region.dividers && region.dividers.some((d) => zoomedBorderById[d])
     return border && !dividerBorder
   }
 
@@ -285,7 +298,7 @@ export function useData(year: number, zoom: number) {
   const mapRegions: MapRegion[] = []
   const mapRegionData: Record<Region['id'], BorderData[]> = {}
   regions.filter(regionExistsInYear).forEach((region) => {
-    const border = borderById[region.border.borderId]
+    const border = zoomedBorderById[region.border.borderId]
 
     if (!border.startPoint || !border.endPoint) {
       const borderData = getBorderData(border, false, 0, border.id, border.id)
@@ -294,6 +307,8 @@ export function useData(year: number, zoom: number) {
         id: region.id,
         path,
         color: cultureByRegion[region.id]?.color,
+        border: zoomedBorderById[region.border.borderId],
+        borderData,
       })
       mapRegionData[region.id] = borderData
 
@@ -301,8 +316,8 @@ export function useData(year: number, zoom: number) {
     }
 
     const nextBorder = region.border.reverse
-      ? borderById[border.startPoint.borderId]
-      : borderById[border.endPoint.borderId]
+      ? zoomedBorderById[border.startPoint.borderId]
+      : zoomedBorderById[border.endPoint.borderId]
 
     const firstPath = region.border.reverse
       ? [...border.path].reverse()
@@ -323,6 +338,8 @@ export function useData(year: number, zoom: number) {
       id: region.id,
       path: [...firstPath, ...borderData.flatMap((p) => p.path)],
       color: cultureByRegion[region.id]?.color,
+      border: zoomedBorderById[region.border.borderId],
+      borderData,
     })
     mapRegionData[region.id] = borderData
   })
@@ -351,7 +368,7 @@ export function useData(year: number, zoom: number) {
   function getBorderDataByRegionIndex(region: Region, regionIndex: number) {
     // console.log('regionIndex', regionIndex)
     // console.log('mapRegionData', mapRegionData[region.id])
-    const startBorder = borderById[region.border.borderId]
+    const startBorder = zoomedBorderById[region.border.borderId]
     let lengthSoFar =
       isIsland(startBorder) && mapRegionData[region.id].length > 0
         ? 0
@@ -400,7 +417,7 @@ export function useData(year: number, zoom: number) {
       throw new Error(`${name} data not found`)
     }
 
-    const border = borderById[bc.borderId]
+    const border = zoomedBorderById[bc.borderId]
 
     return isRiver(border) && !confirm(`${name} reverse: ${bc.reverse}?`)
       ? { ...bc, reverse: !bc.reverse }
@@ -536,7 +553,7 @@ export function useData(year: number, zoom: number) {
   function deleteRegion(regionId: Region['id']) {
     const regionsToRemove = [regionId]
     const region1 = regionById[regionId]
-    const border = borderById[region1.border.borderId]
+    const border = zoomedBorderById[region1.border.borderId]
     const region2 = regions.find(
       (r) => r.id !== regionId && r.border.borderId === border.id
     )
@@ -547,13 +564,52 @@ export function useData(year: number, zoom: number) {
       regionsToRemove.push(region2.id)
       setWorld({
         ...world,
-        borders: [...world.borders.filter(b => b.id !== border.id)],
-        regions: [...world.regions.filter((r) => !regionsToRemove.includes(r.id))],
+        borders: [...world.borders.filter((b) => b.id !== border.id)],
+        regions: [
+          ...world.regions.filter((r) => !regionsToRemove.includes(r.id)),
+        ],
       })
-    } else { 
+    } else {
       // merge region1 to region2
       // what if border has a connection? Simply cannot remove the region in that case
     }
+  }
+
+  function getTemporaryRegionBorders(regionId: Region['id']) {
+    const region = regionById[regionId]
+    const borderData = mapRegionData[regionId]
+    const borderById = borderData.reduce<Record<Border['id'], Border>>(
+      (acc, curr) => {
+        const border = visibleBorderById[curr.borderId]
+        if (border.startYear || border.endYear) {
+          acc[border.id] = border
+        }
+        return acc
+      },
+      {
+        [region.border.borderId]: visibleBorderById[region.border.borderId],
+      }
+    )
+
+    return Object.values(borderById)
+  }
+
+  function saveRegionYears(
+    regionId: Region['id'],
+    startYear?: number,
+    endYear?: number
+  ) {
+    const borders = getTemporaryRegionBorders(regionId)
+    const editerBorders = borders.map((b) => ({ ...b, startYear, endYear }))
+    const editerBorderIds = editerBorders.map((b) => b.id)
+
+    setWorld({
+      ...world,
+      borders: sortById([
+        ...world.borders.filter((b) => !editerBorderIds.includes(b.id)),
+        ...editerBorders,
+      ]),
+    })
   }
 
   return {
@@ -566,5 +622,6 @@ export function useData(year: number, zoom: number) {
     cultures: world.cultures,
     saveCultures,
     deleteRegion,
+    saveRegionYears,
   }
 }

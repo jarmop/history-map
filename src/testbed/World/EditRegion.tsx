@@ -1,18 +1,38 @@
-import { Culture, Region } from '../newTypes'
+import { useState } from 'react'
+import { Culture, MapRegion, Region } from '../newTypes'
 
 interface EditRegionProps {
+  mapRegions: MapRegion[]
   cultures: Culture[]
   activeRegions: Region['id'][]
   saveCultures: (cultures: Culture[]) => void
   onDelete: (regionId: Region['id']) => void
+  onSaveYears: (
+    mapRegionId: MapRegion['id'],
+    startYear?: number,
+    endYear?: number
+  ) => void
 }
 
 export function EditRegion({
+  mapRegions,
   cultures,
   activeRegions,
   saveCultures,
   onDelete,
+  onSaveYears,
 }: EditRegionProps) {
+  const mapRegion = mapRegions.find((r) => r.id === activeRegions[0])
+
+  const [years, setYears] = useState({
+    startYear: mapRegion?.border.startYear || 0,
+    endYear: mapRegion?.border.endYear || 0,
+  })
+
+  if (!mapRegion) {
+    return
+  }
+
   return (
     <div style={{ border: '1px solid black' }}>
       Add region {activeRegions} to culture
@@ -58,10 +78,42 @@ export function EditRegion({
           <option key={c.id}>{c.id}</option>
         ))}
       </select>
-      {activeRegions.length === 1 && (
+      <br />
+      <label>Start:</label>
+      <br />
+      <input
+        type="number"
+        value={years.startYear || ''}
+        onChange={(e) =>
+          setYears({ ...years, startYear: parseInt(e.target.value) })
+        }
+      />
+      <br />
+      <label>End:</label>
+      <br />
+      <input
+        type="number"
+        value={years.endYear || ''}
+        onChange={(e) => {
+          setYears({ ...years, endYear: parseInt(e.target.value) })
+        }}
+      />
+      <br />
+      <button
+        onClick={() => {
+          onSaveYears(mapRegion.id, years.startYear, years.endYear)
+          console.log('Saved years!')
+        }}
+      >
+        Save years
+      </button>
+      <br />
+      {mapRegion && (
         <>
           <br />
-          <button onClick={() => onDelete(activeRegions[0])}>Delete</button>
+          <button onClick={() => onDelete(mapRegion.id)}>
+            Delete region {mapRegion.id}
+          </button>
         </>
       )}
     </div>

@@ -1085,8 +1085,8 @@
       ],
       "startPoint": { "borderId": 1, "index": 371, "reverse": false },
       "endPoint": { "borderId": 1, "index": 470, "reverse": false },
-      "startYear": -1600,
-      "endYear": -1595
+      "startYear": -2334,
+      "endYear": -2154
     },
     {
       "id": 16,
@@ -1100,8 +1100,8 @@
       ],
       "startPoint": { "borderId": 1, "index": 473, "reverse": false },
       "endPoint": { "borderId": 1, "index": 370, "reverse": false },
-      "startYear": -1600,
-      "endYear": -1595
+      "startYear": -2334,
+      "endYear": -2154
     }
   ],
   "regions": [
