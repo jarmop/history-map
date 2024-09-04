@@ -5,7 +5,7 @@ import { DrawPath } from './DrawPath'
 import { City as CityObj, River } from '../newTypes'
 import { City } from './City'
 
-export type MapRegion = { id: number; path: [number, number][] }
+export type MapRegion = { id: number; path: [number, number][]; color?: string }
 
 // const aspectRatio = 16 / 9
 const aspectRatio = 4 / 3
@@ -188,8 +188,7 @@ export function TestMap({
                   ? multiSelectRegion(region.id)
                   : selectRegion(region.id)
               }
-              // fill={regionColors[i]}
-              fill={'lightgrey'}
+              fill={region.color}
               active={activeRegions.includes(region.id)}
               // active={activeBorder !== undefined}
               selectPoint={(

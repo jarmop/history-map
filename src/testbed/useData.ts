@@ -271,6 +271,17 @@ export function useData(year: number, zoom: number) {
     return border && !dividerBorder
   }
 
+  const cultureByRegion = world.cultures.reduce<Record<Region['id'], Culture>>(
+    (acc, curr) => {
+      curr.regions.forEach((r) => {
+        acc[r] = curr
+      })
+
+      return acc
+    },
+    {}
+  )
+
   const mapRegions: MapRegion[] = []
   const mapRegionData: Record<Region['id'], BorderData[]> = {}
   regions.filter(regionExistsInYear).forEach((region) => {
@@ -279,11 +290,10 @@ export function useData(year: number, zoom: number) {
     if (!border.startPoint || !border.endPoint) {
       const borderData = getBorderData(border, false, 0, border.id, border.id)
       const path = borderData.flatMap((p) => p.path)
-      // console.log('borderData')
-      // console.log(borderData)
       mapRegions.push({
         id: region.id,
         path,
+        color: cultureByRegion[region.id]?.color,
       })
       mapRegionData[region.id] = borderData
 
@@ -312,6 +322,7 @@ export function useData(year: number, zoom: number) {
     mapRegions.push({
       id: region.id,
       path: [...firstPath, ...borderData.flatMap((p) => p.path)],
+      color: cultureByRegion[region.id]?.color,
     })
     mapRegionData[region.id] = borderData
   })

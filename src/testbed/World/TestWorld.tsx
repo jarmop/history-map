@@ -1,12 +1,13 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { TestMap } from '../Map/TestMap'
 import { YearInput } from '../../world/YearInput'
 import { useData } from '../useData'
 import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
 import { NewCity } from './NewCity'
-import { Region } from '../newTypes'
+import { Culture, Region } from '../newTypes'
 import { EditRegion } from './EditRegion'
+import { EditCulture } from './EditCulture'
 
 export function TestWorld() {
   const years = [-4000]
@@ -26,7 +27,11 @@ export function TestWorld() {
     saveCultures,
   } = useData(year, zoom)
 
-  useCallback
+  const activeCulture = cultures.find((c) =>
+    activeRegions.every((r) => c.regions.includes(r))
+  )
+
+  console.log(mapRegions)
 
   return (
     <>
@@ -73,11 +78,19 @@ export function TestWorld() {
       </div>
       <div style={{ display: 'flex' }}>
         <NewCity onSave={addCity} />
-        <EditRegion
-          cultures={cultures}
-          activeRegions={activeRegions}
-          saveCultures={saveCultures}
-        />
+        {activeRegions.length > 0 && (
+          <>
+            <EditRegion
+              cultures={cultures}
+              activeRegions={activeRegions}
+              saveCultures={saveCultures}
+            />
+            <EditCulture
+              culture={activeCulture}
+              saveCulture={(culture: Culture) => saveCultures([culture])}
+            />
+          </>
+        )}
       </div>
     </>
   )

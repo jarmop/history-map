@@ -1898,7 +1898,7 @@
     }
   ],
   "cultures": [
-    { "id": "Akkadian Empire", "regions": [17] },
-    { "id": "Babylonian Empire", "regions": [] }
+    { "id": "Akkadian Empire", "regions": [17], "color": "rgb(100,200,133)" },
+    { "id": "Babylonian Empire", "regions": [], "color": "lightgreen" }
   ]
 }
