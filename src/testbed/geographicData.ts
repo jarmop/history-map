@@ -1,6 +1,6 @@
 import data from './data/data.json'
 import { LatLon } from '../data/data'
-import { Border, City, Region, River, World } from './newTypes'
+import { Border, City, Culture, Region, River, World } from './newTypes'
 // import { equirectangular as mapProjection } from '../CustomMap/mapProjections/equiRectangular'
 import { mercator as mapProjection } from '../CustomMap/mapProjections/mercator'
 import { latLonByName, LatLonName } from '../data/coordinates/latLonByName'
@@ -8,7 +8,7 @@ import { roundFloat } from './helpers'
 
 export const { lonToX, latToY, latLonToXy, xyToLatLon } = mapProjection(1000)
 
-const world = data as World
+const world = data as unknown as World
 
 const borders = world.borders.map((b) => ({
   ...b,
@@ -58,6 +58,10 @@ export function getCities(): City[] {
   return cities
 }
 
+export function getCultures(): Culture[] {
+  return world.cultures
+}
+
 function xyToRoundedLatLon(xy: [number, number]) {
   const latLon = xyToLatLon(xy)
   return [roundFloat(latLon[0], 4), roundFloat(latLon[1], 4)] as const
@@ -84,6 +88,7 @@ export function getWorld() {
     regions: getRegions(),
     rivers: getRivers(),
     cities: getCities(),
+    cultures: getCultures(),
   }
 }
 

@@ -1896,5 +1896,9 @@
       "startYear": -4200,
       "endYear": 1218
     }
+  ],
+  "cultures": [
+    { "id": "Akkadian Empire", "regions": [17] },
+    { "id": "Babylonian Empire", "regions": [] }
   ]
 }

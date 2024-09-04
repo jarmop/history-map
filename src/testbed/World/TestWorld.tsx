@@ -6,13 +6,14 @@ import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
 import { NewCity } from './NewCity'
 import { Region } from '../newTypes'
+import { EditRegion } from './EditRegion'
 
 export function TestWorld() {
   const years = [-4000]
   const [year, setYear] = useYear()
   const [zoom, setZoom] = useZoom()
   const [config, setConfig] = useConfig()
-  const [activeRegions, setActiveRegions] = useState<number[]>([])
+  const [activeRegions, setActiveRegions] = useState<number[]>([17])
 
   const {
     mapRegions,
@@ -21,6 +22,8 @@ export function TestWorld() {
     rivers,
     cities,
     addCity,
+    cultures,
+    saveCultures,
   } = useData(year, zoom)
 
   useCallback
@@ -68,7 +71,14 @@ export function TestWorld() {
         />
         <label htmlFor="showCities">Show cities</label>
       </div>
-      <NewCity onSave={addCity} />
+      <div style={{ display: 'flex' }}>
+        <NewCity onSave={addCity} />
+        <EditRegion
+          cultures={cultures}
+          activeRegions={activeRegions}
+          saveCultures={saveCultures}
+        />
+      </div>
     </>
   )
 }

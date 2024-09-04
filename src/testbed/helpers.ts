@@ -16,3 +16,7 @@ function isLatLonName(name: string): name is LatLonName {
 export function getLatLonByName(name: string): LatLon | undefined {
   return isLatLonName(name) ? (latLonByName[name] as LatLon) : undefined
 }
+
+export function sortById<T extends { id: string }>(arr: T[]) {
+  return [...arr].sort((a, b) => (a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
+}

@@ -1,9 +1,10 @@
 import { useCallback, useMemo } from 'react'
-import { Border, BorderConnection, City, Region } from './newTypes'
+import { Border, BorderConnection, City, Culture, Region } from './newTypes'
 import { MapRegion } from './Map/TestMap'
 import { getRivers, getWorld, latLonToXy } from './geographicData'
 import { LatLon } from '../data/data'
 import { useWorld } from './data/usePersistedState'
+import { sortById } from './helpers'
 
 type BorderData = {
   borderId: Border['id']
@@ -509,6 +510,18 @@ export function useData(year: number, zoom: number) {
     })
   }
 
+  function saveCultures(cultures: Culture[]) {
+    const updatedCultureIds = cultures.map((c) => c.id)
+    const newCultures = [
+      ...world.cultures.filter((c) => !updatedCultureIds.includes(c.id)),
+      ...cultures,
+    ]
+    setWorld({
+      ...world,
+      cultures: sortById(newCultures),
+    })
+  }
+
   return {
     mapRegions,
     onPathCompleted,
@@ -516,5 +529,7 @@ export function useData(year: number, zoom: number) {
     rivers,
     cities,
     addCity,
+    cultures: world.cultures,
+    saveCultures,
   }
 }
