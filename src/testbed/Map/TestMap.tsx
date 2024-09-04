@@ -17,6 +17,8 @@ interface CustomMapProps {
   rivers: River[]
   cities: CityObj[]
   zoom: number
+  activeRegions: MapRegion['id'][]
+  setActiveRegions: (regions: MapRegion['id'][]) => void
   onPathCompleted: (
     region: MapRegion,
     points: [number, number][],
@@ -30,26 +32,16 @@ interface CustomMapProps {
   ) => void
 }
 
-// const regionColors = [
-//   'red',
-//   'green',
-//   'blue',
-//   'yellow',
-//   'purple',
-//   'pink',
-//   'brown',
-//   'gray',
-// ]
-
 export function TestMap({
   regions,
   rivers,
   cities,
   zoom,
+  activeRegions,
+  setActiveRegions,
   onPathCompleted,
   onPointEdited,
 }: CustomMapProps) {
-  const [activeRegions, setActiveRegions] = useState<number[]>([])
   const [newPath, setNewPath] = useState<{
     start?: { regionId: MapRegion['id']; i: number }
     points: [number, number][]
@@ -94,13 +86,13 @@ export function TestMap({
   }
 
   function multiSelectRegion(regionId: number) {
-    setActiveRegions((activeBorders) => {
-      if (activeBorders.includes(regionId)) {
-        return activeBorders.filter((activeId) => activeId !== regionId)
-      }
-
-      return [...activeBorders, regionId]
-    })
+    if (activeRegions.includes(regionId)) {
+      setActiveRegions(
+        activeRegions.filter((activeId) => activeId !== regionId)
+      )
+    } else {
+      setActiveRegions([...activeRegions, regionId])
+    }
   }
 
   function selectPoint(

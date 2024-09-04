@@ -509,5 +509,12 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  return { mapRegions, onPathCompleted, onPointEdited, rivers, cities, addCity }
+  return {
+    mapRegions,
+    onPathCompleted,
+    onPointEdited,
+    rivers,
+    cities,
+    addCity,
+  }
 }

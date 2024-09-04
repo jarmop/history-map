@@ -1,19 +1,27 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { TestMap } from '../Map/TestMap'
 import { YearInput } from '../../world/YearInput'
 import { useData } from '../useData'
 import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
 import { NewCity } from './NewCity'
+import { Region } from '../newTypes'
 
 export function TestWorld() {
   const years = [-4000]
   const [year, setYear] = useYear()
   const [zoom, setZoom] = useZoom()
   const [config, setConfig] = useConfig()
+  const [activeRegions, setActiveRegions] = useState<number[]>([])
 
-  const { mapRegions, onPathCompleted, onPointEdited, rivers, cities, addCity } =
-    useData(year, zoom)
+  const {
+    mapRegions,
+    onPathCompleted,
+    onPointEdited,
+    rivers,
+    cities,
+    addCity,
+  } = useData(year, zoom)
 
   useCallback
 
@@ -27,6 +35,10 @@ export function TestWorld() {
         onPathCompleted={onPathCompleted}
         onPointEdited={onPointEdited}
         zoom={zoom}
+        activeRegions={activeRegions}
+        setActiveRegions={(regionIds: Region['id'][]) =>
+          setActiveRegions(regionIds)
+        }
       />
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <YearInput

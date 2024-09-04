@@ -1073,10 +1073,39 @@
         [63.9805, -22.5299],
         [64.0686, -21.97]
       ]
+    },
+    {
+      "id": 15,
+      "path": [
+        [31.1823, 43.9988],
+        [33.2757, 41.9288],
+        [34.9521, 39.2288],
+        [35.0259, 38.5088],
+        [33.9876, 36.7537]
+      ],
+      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 470, "reverse": false },
+      "startYear": -1600,
+      "endYear": -1595
+    },
+    {
+      "id": 16,
+      "path": [
+        [37.35, 36.3487],
+        [37.6712, 40.3088],
+        [37.4215, 42.1538],
+        [36.1602, 44.1338],
+        [33.2381, 47.1038],
+        [32.2921, 48.9938]
+      ],
+      "startPoint": { "borderId": 1, "index": 473, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "startYear": -1600,
+      "endYear": -1595
     }
   ],
   "regions": [
-    { "id": 1, "border": { "borderId": 1 } },
+    { "id": 1, "border": { "borderId": 1 }, "dividers": [15] },
     { "id": 2, "border": { "borderId": 2 } },
     { "id": 3, "border": { "borderId": 3 } },
     { "id": 4, "border": { "borderId": 4 } },
@@ -1089,7 +1118,11 @@
     { "id": 11, "border": { "borderId": 11 } },
     { "id": 12, "border": { "borderId": 12 } },
     { "id": 13, "border": { "borderId": 13 } },
-    { "id": 14, "border": { "borderId": 14 } }
+    { "id": 14, "border": { "borderId": 14 } },
+    { "id": 15, "border": { "borderId": 15 }, "dividers": [16] },
+    { "id": 16, "border": { "borderId": 15, "reverse": true } },
+    { "id": 17, "border": { "borderId": 16 } },
+    { "id": 18, "border": { "borderId": 16, "reverse": true } }
   ],
   "rivers": [
     {
@@ -1849,6 +1882,19 @@
       "xy": [35.4567, 43.2625],
       "startYear": -2025,
       "endYear": 200
+    },
+    {
+      "id": "Tuttul",
+      "xy": [35.9575, 39.0475],
+      "startYear": -4000,
+      "endYear": -1500
+    },
+    { "id": "Byblos", "xy": [34.1236, 35.6519], "startYear": -5000 },
+    {
+      "id": "Susa",
+      "xy": [32.1906, 48.2578],
+      "startYear": -4200,
+      "endYear": 1218
     }
   ]
 }
