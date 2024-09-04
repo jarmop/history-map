@@ -26,10 +26,10 @@ export function Region({
         strokeWidth={2}
         d={`M${border.join(' ')} z`}
         onMouseDown={(e) => {
-          setDownXy([e.clientX, e.clientY])
+          setDownXy([e.pageX, e.pageY])
         }}
         onMouseUp={(e) => {
-          if (e.clientX === downXy[0] && e.clientY === downXy[1]) {
+          if (e.pageX === downXy[0] && e.pageY === downXy[1]) {
             onClick(e.metaKey)
           }
           setDownXy([0, 0])

@@ -161,20 +161,20 @@ export function TestMap({
         style={{ background: 'lightcyan' }}
         onMouseMove={(e) => {
           if (points.length < 1 && !activeBorderPoint) return
-          const x = e.clientX + xy[0]
-          const y = e.clientY + xy[1]
+          const x = e.pageX + xy[0]
+          const y = e.pageY + xy[1]
           setMouseXy([x, y])
         }}
         onMouseDown={(e) => {
-          setDownXy([e.clientX, e.clientY])
+          setDownXy([e.pageX, e.pageY])
         }}
         onMouseUp={(e) => {
           if (
             points.length > 0 &&
-            e.clientX === downXy[0] &&
-            e.clientY === downXy[1]
+            e.pageX === downXy[0] &&
+            e.pageY === downXy[1]
           ) {
-            selectPoint([e.clientX + xy[0], e.clientY + xy[1]])
+            selectPoint([e.pageX + xy[0], e.pageY + xy[1]])
           }
           setDownXy([0, 0])
         }}
