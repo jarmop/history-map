@@ -6,18 +6,27 @@ interface EditCultureProps {
   saveCulture: (culture: Culture) => void
 }
 
+const newCulture = {
+  id: 0,
+  name: 'New culture',
+  regions: [],
+  color: 'burlywood',
+}
+
 export function EditCulture({ culture, saveCulture }: EditCultureProps) {
   const [editedCulture, setEditedCulture] = useState(culture)
 
   useEffect(() => setEditedCulture(culture), [culture])
 
   if (!editedCulture) {
-    return
+    return (
+      <button onClick={() => saveCulture(newCulture)}>Add new culture</button>
+    )
   }
 
   return (
     <div style={{ border: '1px solid black' }}>
-      Edit {editedCulture.id}
+      Edit {editedCulture.name}
       <br />
       <br />
       Name

@@ -1118,10 +1118,168 @@
       "endPoint": { "borderId": 1, "index": 370, "reverse": false },
       "startYear": -1894,
       "endYear": -1595
+    },
+    {
+      "id": 18,
+      "path": [
+        [29.4709, 45.855],
+        [33.6113, 40.275],
+        [33.8359, 38.205],
+        [33.6113, 37.44],
+        [31.2953, 35.91],
+        [30.7167, 33.93],
+        [30.4843, 32.22],
+        [29.7838, 31.905],
+        [21.6864, 34.56],
+        [16.7593, 33.3],
+        [16.5438, 31.185],
+        [22.4371, 31.68],
+        [27.6928, 30.645],
+        [29.6666, 30.465]
+      ],
+      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 458, "reverse": false },
+      "startYear": -911,
+      "endYear": -609
+    },
+    {
+      "id": 19,
+      "path": [
+        [31.679, 50.175],
+        [35.4646, 49.275],
+        [36.3031, 45.135],
+        [37.5977, 44.64],
+        [38.8351, 40.725],
+        [38.4485, 38.79],
+        [39.3937, 38.16],
+        [39.7406, 36.45],
+        [39.2196, 35.37],
+        [37.5621, 33.525],
+        [37.1328, 33.39]
+      ],
+      "startPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 474, "reverse": false },
+      "startYear": -911,
+      "endYear": -609
+    },
+    {
+      "id": 20,
+      "path": [
+        [30.2805, 44.82],
+        [33.3392, 41.49],
+        [33.4143, 38.97],
+        [31.8225, 37.44],
+        [30.0471, 37.17],
+        [27.8421, 38.97],
+        [26.8026, 39.33]
+      ],
+      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 389, "reverse": false },
+      "startYear": -626,
+      "endYear": -539
+    },
+    {
+      "id": 21,
+      "path": [],
+      "startPoint": { "borderId": 1, "index": 392, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 466, "reverse": false },
+      "startYear": -626,
+      "endYear": -539
+    },
+    {
+      "id": 22,
+      "path": [
+        [37.3477, 37.26],
+        [37.4907, 40.05],
+        [37.4907, 41.67],
+        [36.701, 43.47],
+        [34.3576, 47.115],
+        [32.3278, 48.96],
+        [31.7173, 49.185]
+      ],
+      "startPoint": { "borderId": 1, "index": 473, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "startYear": -626,
+      "endYear": -539
+    },
+    {
+      "id": 23,
+      "path": [
+        [26.6921, 49.14],
+        [31.4106, 44.055],
+        [34.2088, 40.32],
+        [34.1716, 38.295],
+        [32.5935, 36.45],
+        [31.2568, 36.36],
+        [29.039, 37.755],
+        [26.8528, 38.25]
+      ],
+      "startPoint": { "borderId": 1, "index": 372, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 389, "reverse": false },
+      "startYear": -538,
+      "endYear": -330
+    },
+    {
+      "id": 24,
+      "path": [
+        [23.7616, 30.87],
+        [23.9674, 30.33],
+        [27.4135, 28.08],
+        [28.9209, 26.505]
+      ],
+      "startPoint": { "borderId": 1, "index": 395, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 453, "reverse": false },
+      "startYear": -538,
+      "endYear": -330
+    },
+    {
+      "id": 25,
+      "path": [
+        [26.1986, 69.525],
+        [27.4035, 69.255],
+        [29.1472, 71.595],
+        [31.8607, 73.215],
+        [33.151, 75.735],
+        [35.2352, 76.185],
+        [42.1117, 72.045],
+        [43.6938, 67.545],
+        [45.6142, 63.765],
+        [46.1156, 60.975],
+        [44.4696, 58.275],
+        [42.8419, 57.825],
+        [41.8441, 57.105],
+        [40.3521, 53.415],
+        [41.0345, 48.555],
+        [42.7758, 43.425]
+      ],
+      "startPoint": { "borderId": 1, "index": 361, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 510, "reverse": false },
+      "startYear": -538,
+      "endYear": -330
+    },
+    {
+      "id": 26,
+      "path": [
+        [43.3757, 26.73],
+        [42.6519, 26.325],
+        [41.8525, 26.82],
+        [41.5837, 26.82],
+        [41.4152, 26.46],
+        [41.6174, 25.2],
+        [41.651, 23.805],
+        [41.3139, 22.365],
+        [40.839, 21.87],
+        [40.3607, 21.6],
+        [40.1202, 21.87]
+      ],
+      "startPoint": { "borderId": 1, "index": 12, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 29, "reverse": false },
+      "startYear": -538,
+      "endYear": -330
     }
   ],
   "regions": [
-    { "id": 1, "border": { "borderId": 1 }, "dividers": [15, 17] },
+    { "id": 1, "border": { "borderId": 1 }, "dividers": [15, 17, 18, 20, 23] },
     { "id": 2, "border": { "borderId": 2 } },
     { "id": 3, "border": { "borderId": 3 } },
     { "id": 4, "border": { "borderId": 4 } },
@@ -1140,7 +1298,25 @@
     { "id": 17, "border": { "borderId": 16 } },
     { "id": 18, "border": { "borderId": 16, "reverse": true } },
     { "id": 19, "border": { "borderId": 17 } },
-    { "id": 20, "border": { "borderId": 17, "reverse": true } }
+    { "id": 20, "border": { "borderId": 17, "reverse": true } },
+    { "id": 21, "border": { "borderId": 18 }, "dividers": [19] },
+    { "id": 22, "border": { "borderId": 18, "reverse": true } },
+    { "id": 23, "border": { "borderId": 19 } },
+    { "id": 24, "border": { "borderId": 19, "reverse": true } },
+    { "id": 25, "border": { "borderId": 20 }, "dividers": [21] },
+    { "id": 26, "border": { "borderId": 20, "reverse": true } },
+    { "id": 27, "border": { "borderId": 21 }, "dividers": [22] },
+    { "id": 28, "border": { "borderId": 21, "reverse": true } },
+    { "id": 29, "border": { "borderId": 22 } },
+    { "id": 30, "border": { "borderId": 22, "reverse": true } },
+    { "id": 31, "border": { "borderId": 23 }, "dividers": [24] },
+    { "id": 32, "border": { "borderId": 23, "reverse": true } },
+    { "id": 33, "border": { "borderId": 24 }, "dividers": [25] },
+    { "id": 34, "border": { "borderId": 24, "reverse": true } },
+    { "id": 35, "border": { "borderId": 25 }, "dividers": [26] },
+    { "id": 36, "border": { "borderId": 25, "reverse": true } },
+    { "id": 37, "border": { "borderId": 26 } },
+    { "id": 38, "border": { "borderId": 26, "reverse": true } }
   ],
   "rivers": [
     {
@@ -1929,11 +2105,34 @@
     }
   ],
   "cultures": [
-    { "id": 1, "name": "Akkadian Empire", "regions": [17], "color": "rgb(100,200,133)" },
+    {
+      "id": 1,
+      "name": "Akkadian Empire",
+      "regions": [17],
+      "color": "rgb(100,200,133)"
+    },
     {
       "id": 2,
       "name": "Old Babylonian Empire",
       "regions": [19],
+      "color": "lightgreen"
+    },
+    {
+      "id": 3,
+      "name": "Neo-Assyrian Empire",
+      "regions": [24],
+      "color": "burlywood"
+    },
+    {
+      "id": 4,
+      "name": "Neo-Babylonian Empire",
+      "regions": [29],
+      "color": "coral"
+    },
+    {
+      "id": 5,
+      "name": "Achaemenid Empire",
+      "regions": [36, 38],
       "color": "lightgreen"
     }
   ]

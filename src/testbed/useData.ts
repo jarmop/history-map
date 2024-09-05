@@ -360,6 +360,14 @@ export function useData(year: number, zoom: number) {
     )
   }
 
+  function getNextCultureId() {
+    return (
+      world.cultures.reduce((acc, curr) => {
+        return curr.id > acc ? curr.id : acc
+      }, 0) + 1
+    )
+  }
+
   // console.log('mapRegions')
   // console.log(mapRegions)
   // console.log('mapRegionData')
@@ -533,7 +541,7 @@ export function useData(year: number, zoom: number) {
     const updatedCultureIds = cultures.map((c) => c.id)
     const newCultures = [
       ...world.cultures.filter((c) => !updatedCultureIds.includes(c.id)),
-      ...cultures,
+      ...cultures.map((c) => (c.id < 1 ? { ...c, id: getNextCultureId() } : c)),
     ]
     setWorld({
       ...world,

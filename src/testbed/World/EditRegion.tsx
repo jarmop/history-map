@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Culture, MapRegion, Region } from '../newTypes'
 
 interface EditRegionProps {
@@ -29,6 +29,13 @@ export function EditRegion({
     endYear: mapRegion?.border.endYear || 0,
   })
 
+  useEffect(() => {
+    setYears({
+      startYear: mapRegion?.border.startYear || 0,
+      endYear: mapRegion?.border.endYear || 0,
+    })
+  }, [mapRegion])
+
   if (!mapRegion) {
     return
   }
@@ -44,7 +51,9 @@ export function EditRegion({
           )?.id || 0
         }
         onChange={(e) => {
-          const culture = cultures.find((c) => c.id === e.target.value)
+          const culture = cultures.find(
+            (c) => c.id === parseInt(e.target.value)
+          )
           const previousCulture = cultures.find((c) =>
             activeRegions.every((r) => c.regions.includes(r))
           )
