@@ -430,7 +430,6 @@ export function useData(year: number, zoom: number) {
     start: number,
     end: number
   ) {
-    // console.log('onPathCompleted')
     const region = regionById[mapRegion.id]
 
     const startPoint = confirmBorderConnection(
@@ -459,7 +458,6 @@ export function useData(year: number, zoom: number) {
       startYear: year,
       endYear: year + 5,
     }
-    // setBorders([...allBorders, newBorder])
 
     const region2 = {
       id: getNextRegionId(),
@@ -470,22 +468,15 @@ export function useData(year: number, zoom: number) {
       border: { borderId: newBorder.id, reverse: true },
     }
 
-    // setRegions([
-    //   ...regions.filter((r) => r.id !== region.id),
-    //   { ...region, dividers: [...(region.dividers || []), newBorder.id] },
-    //   region2,
-    //   region3,
-    // ])
-
     setWorld({
       ...world,
       borders: [...allBorders, newBorder],
-      regions: [
+      regions: sortById([
         ...regions.filter((r) => r.id !== region.id),
         { ...region, dividers: [...(region.dividers || []), newBorder.id] },
         region2,
         region3,
-      ],
+      ]),
     })
   }
 
@@ -524,10 +515,10 @@ export function useData(year: number, zoom: number) {
 
     setWorld({
       ...world,
-      borders: [
+      borders: sortById([
         ...allBorders.filter((b) => b.id !== editedBorder.id),
         editedBorder,
-      ],
+      ]),
     })
   }
 

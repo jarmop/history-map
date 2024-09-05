@@ -75,7 +75,9 @@ export function EditRegion({
       >
         <option></option>
         {cultures.map((c) => (
-          <option key={c.id}>{c.id}</option>
+          <option key={c.id} value={c.id}>
+            {c.name}
+          </option>
         ))}
       </select>
       <br />

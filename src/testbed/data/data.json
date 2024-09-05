@@ -1102,10 +1102,26 @@
       "endPoint": { "borderId": 1, "index": 370, "reverse": false },
       "startYear": -2334,
       "endYear": -2154
+    },
+    {
+      "id": 17,
+      "path": [
+        [31.1028, 44.055],
+        [35.5012, 38.655],
+        [36.2306, 38.115],
+        [37.3477, 38.34],
+        [37.5977, 40.14],
+        [37.455, 42.12],
+        [36.665, 43.695]
+      ],
+      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "startYear": -1894,
+      "endYear": -1595
     }
   ],
   "regions": [
-    { "id": 1, "border": { "borderId": 1 }, "dividers": [15] },
+    { "id": 1, "border": { "borderId": 1 }, "dividers": [15, 17] },
     { "id": 2, "border": { "borderId": 2 } },
     { "id": 3, "border": { "borderId": 3 } },
     { "id": 4, "border": { "borderId": 4 } },
@@ -1122,7 +1138,9 @@
     { "id": 15, "border": { "borderId": 15 }, "dividers": [16] },
     { "id": 16, "border": { "borderId": 15, "reverse": true } },
     { "id": 17, "border": { "borderId": 16 } },
-    { "id": 18, "border": { "borderId": 16, "reverse": true } }
+    { "id": 18, "border": { "borderId": 16, "reverse": true } },
+    { "id": 19, "border": { "borderId": 17 } },
+    { "id": 20, "border": { "borderId": 17, "reverse": true } }
   ],
   "rivers": [
     {
@@ -1895,10 +1913,28 @@
       "xy": [32.1906, 48.2578],
       "startYear": -4200,
       "endYear": 1218
+    },
+    { "id": "Harran", "xy": [36.8708, 39.025], "startYear": -2500 },
+    {
+      "id": "Nineveh",
+      "xy": [36.3594, 43.1528],
+      "endYear": -612,
+      "startYear": -6000
+    },
+    {
+      "id": "Shubat-Enlil",
+      "xy": [36.9572, 41.5053],
+      "endYear": -1726,
+      "startYear": -5000
     }
   ],
   "cultures": [
-    { "id": "Akkadian Empire", "regions": [17], "color": "rgb(100,200,133)" },
-    { "id": "Babylonian Empire", "regions": [], "color": "lightgreen" }
+    { "id": 1, "name": "Akkadian Empire", "regions": [17], "color": "rgb(100,200,133)" },
+    {
+      "id": 2,
+      "name": "Old Babylonian Empire",
+      "regions": [19],
+      "color": "lightgreen"
+    }
   ]
 }

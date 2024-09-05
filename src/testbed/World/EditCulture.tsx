@@ -19,6 +19,17 @@ export function EditCulture({ culture, saveCulture }: EditCultureProps) {
     <div style={{ border: '1px solid black' }}>
       Edit {editedCulture.id}
       <br />
+      <br />
+      Name
+      <br />
+      <input
+        type="text"
+        value={editedCulture.name}
+        onChange={(e) =>
+          setEditedCulture({ ...editedCulture, name: e.target.value })
+        }
+      />
+      <br />
       Color
       <br />
       <input
