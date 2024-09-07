@@ -397,7 +397,9 @@
         [29.543, 34.9845],
         [29.4907, 34.9025],
         [27.9455, 34.3696],
+        [29.8684, 32.6346],
         [29.9667, 32.55],
+        [29.894, 32.4595],
         [23.9086, 35.4725],
         [11.5883, 43.145],
         [10.4356, 45.0164],
@@ -1084,7 +1086,7 @@
         [33.9876, 36.7537]
       ],
       "startPoint": { "borderId": 1, "index": 371, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 470, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 472, "reverse": false },
       "startYear": -2334,
       "endYear": -2154
     },
@@ -1098,7 +1100,7 @@
         [33.2381, 47.1038],
         [32.2921, 48.9938]
       ],
-      "startPoint": { "borderId": 1, "index": 473, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 475, "reverse": false },
       "endPoint": { "borderId": 1, "index": 370, "reverse": false },
       "startYear": -2334,
       "endYear": -2154
@@ -1138,7 +1140,7 @@
         [29.6666, 30.465]
       ],
       "startPoint": { "borderId": 1, "index": 371, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 458, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 460, "reverse": false },
       "startYear": -911,
       "endYear": -609
     },
@@ -1158,7 +1160,7 @@
         [37.1328, 33.39]
       ],
       "startPoint": { "borderId": 1, "index": 370, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 474, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 476, "reverse": false },
       "startYear": -911,
       "endYear": -609
     },
@@ -1175,15 +1177,15 @@
       ],
       "startPoint": { "borderId": 1, "index": 371, "reverse": false },
       "endPoint": { "borderId": 1, "index": 389, "reverse": false },
-      "startYear": -626,
+      "startYear": -608,
       "endYear": -539
     },
     {
       "id": 21,
       "path": [],
       "startPoint": { "borderId": 1, "index": 392, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 466, "reverse": false },
-      "startYear": -626,
+      "endPoint": { "borderId": 1, "index": 468, "reverse": false },
+      "startYear": -608,
       "endYear": -539
     },
     {
@@ -1197,9 +1199,9 @@
         [32.3278, 48.96],
         [31.7173, 49.185]
       ],
-      "startPoint": { "borderId": 1, "index": 473, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 475, "reverse": false },
       "endPoint": { "borderId": 1, "index": 370, "reverse": false },
-      "startYear": -626,
+      "startYear": -608,
       "endYear": -539
     },
     {
@@ -1227,8 +1229,8 @@
         [27.4135, 28.08],
         [28.9209, 26.505]
       ],
-      "startPoint": { "borderId": 1, "index": 395, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 453, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 397, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 455, "reverse": false },
       "startYear": -538,
       "endYear": -330
     },
@@ -1253,7 +1255,7 @@
         [42.7758, 43.425]
       ],
       "startPoint": { "borderId": 1, "index": 361, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 510, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 512, "reverse": false },
       "startYear": -538,
       "endYear": -330
     },
@@ -1276,10 +1278,104 @@
       "endPoint": { "borderId": 1, "index": 29, "reverse": false },
       "startYear": -538,
       "endYear": -330
+    },
+    {
+      "id": 27,
+      "path": [
+        [41.6426, 21.06],
+        [42.2451, 21.87],
+        [43.1381, 24.525],
+        [43.9535, 27.18],
+        [45.013, 28.26]
+      ],
+      "startPoint": { "borderId": 1, "index": 67, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 11, "reverse": false },
+      "startYear": -329,
+      "endYear": -323
+    },
+    {
+      "id": 28,
+      "path": [
+        [41.1362, 35.01],
+        [40.66, 34.47],
+        [40.1804, 34.695],
+        [40.3521, 36.135],
+        [40.3178, 36.45],
+        [39.4893, 37.215],
+        [39.2109, 43.155],
+        [40.4891, 45.135],
+        [40.5575, 46.665],
+        [37.909, 51.3],
+        [37.838, 53.1],
+        [37.2672, 55.26],
+        [37.5175, 56.655],
+        [38.3691, 57.015],
+        [38.7211, 59.04],
+        [38.7562, 60.975],
+        [40.0772, 63.27],
+        [40.66, 65.835],
+        [40.2148, 69.255],
+        [40.9665, 71.865],
+        [39.1062, 73.17],
+        [35.5287, 77.94],
+        [32.7734, 77.535],
+        [32.2422, 77.085],
+        [32.2802, 75.96],
+        [30.5134, 72.135],
+        [28.8717, 70.83],
+        [27.4435, 68.535],
+        [26.4406, 68.355],
+        [25.2255, 68.535]
+      ],
+      "startPoint": { "borderId": 1, "index": 504, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 361, "reverse": false },
+      "startYear": -329,
+      "endYear": -323
+    },
+    {
+      "id": 29,
+      "path": [
+        [29.4611, 26.19],
+        [28.9111, 26.415],
+        [24.0393, 32.445],
+        [23.7925, 33.165],
+        [24.0393, 33.435],
+        [28.5164, 32.85],
+        [29.265, 32.355]
+      ],
+      "startPoint": { "borderId": 1, "index": 458, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 396, "reverse": false },
+      "startYear": -329,
+      "endYear": -323
+    },
+    {
+      "id": 30,
+      "path": [
+        [30.7312, 34.7991],
+        [31.5209, 35.4966],
+        [31.9992, 35.5866],
+        [33.231, 36.7791],
+        [34.4272, 38.9391],
+        [34.7421, 39.9066],
+        [34.7051, 40.0866],
+        [34.0179, 41.0766],
+        [33.3627, 42.4716],
+        [32.0755, 43.6866],
+        [30.963, 44.3841],
+        [30.5376, 45.4641]
+      ],
+      "startPoint": { "borderId": 1, "index": 394, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 371, "reverse": false },
+      "startYear": -329,
+      "endYear": -323
     }
   ],
   "regions": [
-    { "id": 1, "border": { "borderId": 1 }, "dividers": [15, 17, 18, 20, 23] },
+    {
+      "id": 1,
+      "border": { "borderId": 1 },
+      "dividers": [15, 17, 18, 20, 23, 27]
+    },
     { "id": 2, "border": { "borderId": 2 } },
     { "id": 3, "border": { "borderId": 3 } },
     { "id": 4, "border": { "borderId": 4 } },
@@ -1316,7 +1412,23 @@
     { "id": 35, "border": { "borderId": 25 }, "dividers": [26] },
     { "id": 36, "border": { "borderId": 25, "reverse": true } },
     { "id": 37, "border": { "borderId": 26 } },
-    { "id": 38, "border": { "borderId": 26, "reverse": true } }
+    { "id": 38, "border": { "borderId": 26, "reverse": true } },
+    { "id": 39, "border": { "borderId": 27 } },
+    {
+      "id": 40,
+      "border": { "borderId": 27, "reverse": true },
+      "dividers": [28]
+    },
+    { "id": 41, "border": { "borderId": 28 }, "dividers": [29] },
+    { "id": 42, "border": { "borderId": 28, "reverse": true } },
+    { "id": 43, "border": { "borderId": 29 } },
+    {
+      "id": 44,
+      "border": { "borderId": 29, "reverse": true },
+      "dividers": [30]
+    },
+    { "id": 45, "border": { "borderId": 30 } },
+    { "id": 46, "border": { "borderId": 30, "reverse": true } }
   ],
   "rivers": [
     {
@@ -2102,7 +2214,10 @@
       "xy": [36.9572, 41.5053],
       "endYear": -1726,
       "startYear": -5000
-    }
+    },
+    { "id": "Syene", "xy": [24.0889, 32.8997], "startYear": -4000 },
+    { "id": "Thebes", "xy": [25.7206, 32.6103], "startYear": -4000 },
+    { "id": "Paraetonium", "xy": [31.3333, 27.2167], "startYear": -1200 }
   ],
   "cultures": [
     {
@@ -2135,6 +2250,12 @@
       "regions": [36, 38],
       "possessions": [{ "regionId": 9, "start": -525, "end": -330 }],
       "color": "lightgreen"
+    },
+    {
+      "id": 6,
+      "name": "Alexander the Great",
+      "regions": [39, 46],
+      "color": "burlywood"
     }
   ]
 }
