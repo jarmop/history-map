@@ -90,24 +90,27 @@ export function EditRegion({
         ))}
       </select>
       <br />
-      <label>Start:</label>
       <br />
+      <label>Start:</label>
+      &nbsp;
       <input
         type="number"
         value={years.startYear || ''}
         onChange={(e) =>
           setYears({ ...years, startYear: parseInt(e.target.value) })
         }
+        style={{ width: '50px' }}
       />
-      <br />
+      &nbsp;
       <label>End:</label>
-      <br />
+      &nbsp;
       <input
         type="number"
         value={years.endYear || ''}
         onChange={(e) => {
           setYears({ ...years, endYear: parseInt(e.target.value) })
         }}
+        style={{ width: '50px' }}
       />
       <br />
       <button

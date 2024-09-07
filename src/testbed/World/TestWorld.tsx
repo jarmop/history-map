@@ -28,11 +28,11 @@ export function TestWorld() {
     saveCultures,
     deleteRegion,
     saveRegionYears,
+    cultureByRegion,
   } = useData(year, zoom)
 
-  const activeCulture = cultures.find((c) =>
-    activeRegions.every((r) => c.regions.includes(r))
-  )
+  const activeCulture =
+    activeRegions.length > 0 && cultureByRegion[activeRegions[0]] || undefined
 
   useEffect(() => {
     const filteredRegions = activeRegions.filter((id) =>
@@ -101,6 +101,7 @@ export function TestWorld() {
             />
             <EditCulture
               culture={activeCulture}
+              regionIds={activeRegions}
               saveCulture={(culture: Culture) => saveCultures([culture])}
             />
           </>

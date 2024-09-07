@@ -613,7 +613,15 @@ export function useData(year: number, zoom: number) {
     endYear?: number
   ) {
     const borders = getTemporaryRegionBorders(regionId)
-    const editerBorders = borders.map((b) => ({ ...b, startYear, endYear }))
+    const editerBorders = borders.map((b) => ({
+      ...b,
+      startYear:
+        b.startYear && startYear && b.startYear < startYear
+          ? b.startYear
+          : startYear,
+      endYear:
+        b.endYear && endYear && b.endYear > endYear ? b.endYear : endYear,
+    }))
     const editerBorderIds = editerBorders.map((b) => b.id)
 
     setWorld({
@@ -637,5 +645,6 @@ export function useData(year: number, zoom: number) {
     saveCultures,
     deleteRegion,
     saveRegionYears,
+    cultureByRegion,
   }
 }

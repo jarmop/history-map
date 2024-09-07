@@ -1368,18 +1368,61 @@
       "endPoint": { "borderId": 1, "index": 371, "reverse": false },
       "startYear": -329,
       "endYear": -323
+    },
+    {
+      "id": 31,
+      "path": [
+        [51.6978, 6.57],
+        [49.9932, 8.235],
+        [48.0759, 7.65],
+        [47.5622, 7.74],
+        [47.6835, 8.82],
+        [48.9995, 12.24],
+        [48.2859, 14.31],
+        [48.3458, 15.66],
+        [47.7441, 19.08],
+        [45.9907, 18.675],
+        [45.3618, 19.035],
+        [44.662, 22.635],
+        [44.2444, 22.545],
+        [43.9211, 23.13],
+        [43.6287, 25.425],
+        [44.2766, 28.035],
+        [45.2986, 28.035],
+        [45.425, 28.305]
+      ],
+      "startPoint": { "borderId": 1, "index": 195, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 11, "reverse": false },
+      "startYear": -27,
+      "endYear": 476
+    },
+    {
+      "id": 32,
+      "path": [],
+      "startPoint": { "borderId": 31, "index": 10 },
+      "endPoint": { "borderId": 1, "index": 72, "reverse": false },
+      "startYear": 395,
+      "endYear": 476
+    },
+    {
+      "id": 33,
+      "path": [],
+      "startPoint": { "borderId": 5, "index": 15, "reverse": false },
+      "endPoint": { "borderId": 5, "index": 44, "reverse": false },
+      "startYear": -27,
+      "endYear": 476
     }
   ],
   "regions": [
     {
       "id": 1,
       "border": { "borderId": 1 },
-      "dividers": [15, 17, 18, 20, 23, 27]
+      "dividers": [15, 17, 18, 20, 23, 27, 31]
     },
     { "id": 2, "border": { "borderId": 2 } },
     { "id": 3, "border": { "borderId": 3 } },
     { "id": 4, "border": { "borderId": 4 } },
-    { "id": 5, "border": { "borderId": 5 } },
+    { "id": 5, "border": { "borderId": 5 }, "dividers": [33] },
     { "id": 6, "border": { "borderId": 6 } },
     { "id": 7, "border": { "borderId": 7 } },
     { "id": 8, "border": { "borderId": 8 } },
@@ -1428,7 +1471,13 @@
       "dividers": [30]
     },
     { "id": 45, "border": { "borderId": 30 } },
-    { "id": 46, "border": { "borderId": 30, "reverse": true } }
+    { "id": 46, "border": { "borderId": 30, "reverse": true } },
+    { "id": 47, "border": { "borderId": 31 }, "dividers": [32] },
+    { "id": 48, "border": { "borderId": 31, "reverse": true } },
+    { "id": 49, "border": { "borderId": 32 } },
+    { "id": 50, "border": { "borderId": 32, "reverse": true } },
+    { "id": 51, "border": { "borderId": 33 } },
+    { "id": 52, "border": { "borderId": 33, "reverse": true } }
   ],
   "rivers": [
     {
@@ -2305,6 +2354,34 @@
       "name": "Alexander the Great",
       "regions": [39, 46],
       "color": "burlywood"
+    },
+    {
+      "id": 7,
+      "name": "Roman Empire",
+      "regions": [47],
+      "color": "burlywood",
+      "possessions": [
+        { "regionId": 51, "start": -27, "end": 394 },
+        { "regionId": 10, "start": -27, "end": 394 },
+        { "regionId": 11, "start": -27, "end": 394 },
+        { "regionId": 12, "start": -27, "end": 394 },
+        { "regionId": 7, "start": -27, "end": 394 },
+        { "regionId": 8, "start": -27, "end": 394 },
+        { "regionId": 9, "start": -27, "end": 394 }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "West Roman Empire",
+      "regions": [49],
+      "color": "lightgreen",
+      "possessions": [
+        { "regionId": 51, "start": 395, "end": 476 },
+        { "regionId": 10, "start": 395, "end": 476 },
+        { "regionId": 11, "start": 395, "end": 476 },
+        { "regionId": 12, "start": 395, "end": 476 },
+        { "regionId": 7, "start": 395, "end": 476 }
+      ]
     }
   ]
 }

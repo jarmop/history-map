@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Culture } from '../newTypes'
+import { Culture, Region } from '../newTypes'
 
 interface EditCultureProps {
   culture: Culture | undefined
+  regionIds: Region['id'][]
   saveCulture: (culture: Culture) => void
 }
 
@@ -13,8 +14,20 @@ const newCulture = {
   color: 'burlywood',
 }
 
-export function EditCulture({ culture, saveCulture }: EditCultureProps) {
+export function EditCulture({
+  culture,
+  regionIds,
+  saveCulture,
+}: EditCultureProps) {
   const [editedCulture, setEditedCulture] = useState(culture)
+
+  const possessions = editedCulture?.possessions?.filter((p) =>
+    regionIds.includes(p.regionId)
+  )
+  const years = {
+    startYear: possessions?.[0]?.start || '',
+    endYear: possessions?.[0]?.end || '',
+  }
 
   useEffect(() => setEditedCulture(culture), [culture])
 
@@ -48,6 +61,84 @@ export function EditCulture({ culture, saveCulture }: EditCultureProps) {
           setEditedCulture({ ...editedCulture, color: e.target.value })
         }
       />
+      <br />
+      <br />
+      <label>Start:</label>
+      &nbsp;
+      <input
+        type="number"
+        value={years.startYear || ''}
+        onChange={(e) => {
+          const newStart = parseInt(e.target.value)
+          if (possessions) {
+            if (!editedCulture.possessions) {
+              throw new Error('no possessions')
+            }
+            const newPossessions = editedCulture.regions
+              .filter((rId) => regionIds.includes(rId))
+              .map((rId) => ({ regionId: rId, start: newStart }))
+            const editedPossessions = [
+              ...editedCulture.possessions.filter(
+                (p) => !regionIds.includes(p.regionId)
+              ),
+              ...possessions.map((p) => ({ ...p, start: newStart })),
+              ...newPossessions,
+            ]
+            setEditedCulture({
+              ...editedCulture,
+              regions: editedCulture.regions.filter(
+                (rId) => !regionIds.includes(rId)
+              ),
+              possessions: editedPossessions,
+            })
+          } else {
+            const oldPossessions = editedCulture.possessions || []
+
+            setEditedCulture({
+              ...editedCulture,
+              regions: editedCulture.regions.filter(
+                (rId) => !regionIds.includes(rId)
+              ),
+              possessions: [
+                ...oldPossessions,
+                ...regionIds.map((rId) => ({
+                  regionId: rId,
+                  start: newStart,
+                })),
+              ],
+            })
+          }
+        }}
+        style={{ width: '50px' }}
+      />
+      {possessions && possessions.length === regionIds.length && (
+        <>
+          &nbsp;
+          <label>End:</label>
+          &nbsp;
+          <input
+            type="number"
+            value={years.endYear || ''}
+            onChange={(e) => {
+              const newEnd = parseInt(e.target.value)
+              if (!editedCulture.possessions) {
+                throw new Error('no possessions')
+              }
+              setEditedCulture({
+                ...editedCulture,
+                possessions: [
+                  ...editedCulture.possessions.filter(
+                    (p) => !regionIds.includes(p.regionId)
+                  ),
+                  ...possessions.map((p) => ({ ...p, end: newEnd })),
+                ],
+              })
+            }}
+            style={{ width: '50px' }}
+          />
+        </>
+      )}
+      <br />
       <br />
       <br />
       <button onClick={() => saveCulture(editedCulture)}>Save</button>
