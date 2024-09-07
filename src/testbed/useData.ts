@@ -8,7 +8,7 @@ import {
   MapRegion,
   Region,
 } from './newTypes'
-import { getRivers, getWorld, latLonToXy } from './geographicData'
+import { getRivers, getSeas, getWorld, latLonToXy } from './geographicData'
 import { LatLon } from '../data/data'
 import { useWorld } from './data/usePersistedState'
 import { sortById } from './helpers'
@@ -50,6 +50,13 @@ export function useData(year: number, zoom: number) {
 
   const rivers = useMemo(() => {
     return getRivers().map((b) => ({
+      ...b,
+      path: b.path.map(zoomXy),
+    }))
+  }, [zoomXy])
+
+  const seas = useMemo(() => {
+    return getSeas().map((b) => ({
       ...b,
       path: b.path.map(zoomXy),
     }))
@@ -623,6 +630,7 @@ export function useData(year: number, zoom: number) {
     onPathCompleted,
     onPointEdited,
     rivers,
+    seas,
     cities,
     addCity,
     cultures: world.cultures,

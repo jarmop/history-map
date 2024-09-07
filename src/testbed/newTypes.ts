@@ -29,6 +29,11 @@ export type River = {
   path: LatLon[]
 }
 
+export type Sea = {
+  id: string
+  path: LatLon[]
+}
+
 export type City = {
   id: string
   xy: [number, number]
@@ -68,6 +73,7 @@ export type World = {
   borders: Border[]
   regions: Region[]
   rivers: River[]
+  seas: Sea[]
   cities: City[]
   cultures: Culture[]
 }
