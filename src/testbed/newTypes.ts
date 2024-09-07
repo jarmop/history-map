@@ -54,7 +54,15 @@ export type Region = {
 export type State = { id: string; regions: Region[] } // Age of regions is defined by the overlapping ages of its borders
 // State can have different age than the regions it is occupying
 
-export type Culture = { id: number; name: string, regions: Region['id'][]; color: string }
+type Possession = { regionId: Region['id']; start: number; end?: number }
+
+export type Culture = {
+  id: number
+  name: string
+  regions: Region['id'][]
+  color: string
+  possessions?: Possession[]
+}
 
 export type World = {
   borders: Border[]

@@ -68,7 +68,7 @@ export function useData(year: number, zoom: number) {
       }))
   }, [world.cities, zoomXy, year])
 
-  const branchesByBorderId = zoomedBorders.reduce<
+  const branchesByBorderId = visibleBorders.reduce<
     Record<
       Border['id'],
       { forward: BorderConnection[]; reverse: BorderConnection[] }
@@ -278,9 +278,9 @@ export function useData(year: number, zoom: number) {
   }
 
   function regionExistsInYear(region: Region): boolean {
-    const border = zoomedBorderById[region.border.borderId]
+    const border = visibleBorderById[region.border.borderId]
     const dividerBorder =
-      region.dividers && region.dividers.some((d) => zoomedBorderById[d])
+      region.dividers && region.dividers.some((d) => visibleBorderById[d])
     return border && !dividerBorder
   }
 
@@ -289,6 +289,13 @@ export function useData(year: number, zoom: number) {
       curr.regions.forEach((r) => {
         acc[r] = curr
       })
+      if (curr.possessions) {
+        curr.possessions.forEach((p) => {
+          if (p.start <= year && (!p.end || p.end >= year)) {
+            acc[p.regionId] = curr
+          }
+        })
+      }
 
       return acc
     },
@@ -425,7 +432,7 @@ export function useData(year: number, zoom: number) {
       throw new Error(`${name} data not found`)
     }
 
-    const border = zoomedBorderById[bc.borderId]
+    const border = visibleBorderById[bc.borderId]
 
     return isRiver(border) && !confirm(`${name} reverse: ${bc.reverse}?`)
       ? { ...bc, reverse: !bc.reverse }
@@ -552,7 +559,7 @@ export function useData(year: number, zoom: number) {
   function deleteRegion(regionId: Region['id']) {
     const regionsToRemove = [regionId]
     const region1 = regionById[regionId]
-    const border = zoomedBorderById[region1.border.borderId]
+    const border = visibleBorderById[region1.border.borderId]
     const region2 = regions.find(
       (r) => r.id !== regionId && r.border.borderId === border.id
     )
