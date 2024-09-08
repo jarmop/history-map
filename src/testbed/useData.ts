@@ -473,7 +473,6 @@ export function useData(year: number, zoom: number) {
       startPoint: startPoint,
       endPoint: endPoint,
       startYear: year,
-      endYear: year + 5,
     }
 
     const region2 = {
