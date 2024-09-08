@@ -1394,7 +1394,7 @@
       "startPoint": { "borderId": 1, "index": 195, "reverse": false },
       "endPoint": { "borderId": 1, "index": 11, "reverse": false },
       "startYear": -27,
-      "endYear": 476
+      "endYear": 1453
     },
     {
       "id": 32,
@@ -1402,7 +1402,7 @@
       "startPoint": { "borderId": 31, "index": 10 },
       "endPoint": { "borderId": 1, "index": 72, "reverse": false },
       "startYear": 395,
-      "endYear": 476
+      "endYear": 1453
     },
     {
       "id": 33,
@@ -1411,6 +1411,44 @@
       "endPoint": { "borderId": 5, "index": 44, "reverse": false },
       "startYear": -27,
       "endYear": 476
+    },
+    {
+      "id": 34,
+      "path": [
+        [32.7167, -3.78],
+        [33.8452, 4.05],
+        [33.5457, 7.65],
+        [29.6568, 16.875],
+        [29.1865, 19.215],
+        [29.6372, 22.68],
+        [28.5362, 26.64],
+        [24.2651, 29.61],
+        [23.1113, 32.85]
+      ],
+      "startPoint": { "borderId": 1, "index": 429, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 397, "reverse": false },
+      "startYear": -27,
+      "endYear": 1453
+    },
+    {
+      "id": 35,
+      "path": [
+        [28.6152, 36.09],
+        [31.9562, 36.9],
+        [35.327, 40.68]
+      ],
+      "startPoint": { "borderId": 1, "index": 390, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 511, "reverse": false },
+      "startYear": -27,
+      "endYear": 1453
+    },
+    {
+      "id": 36,
+      "path": [],
+      "startPoint": { "borderId": 1, "index": 454, "reverse": false },
+      "endPoint": { "borderId": 34, "index": 4, "reverse": true },
+      "startYear": 395,
+      "endYear": 1453
     }
   ],
   "regions": [
@@ -1473,11 +1511,29 @@
     { "id": 45, "border": { "borderId": 30 } },
     { "id": 46, "border": { "borderId": 30, "reverse": true } },
     { "id": 47, "border": { "borderId": 31 }, "dividers": [32] },
-    { "id": 48, "border": { "borderId": 31, "reverse": true } },
+    {
+      "id": 48,
+      "border": { "borderId": 31, "reverse": true },
+      "dividers": [34]
+    },
     { "id": 49, "border": { "borderId": 32 } },
     { "id": 50, "border": { "borderId": 32, "reverse": true } },
     { "id": 51, "border": { "borderId": 33 } },
-    { "id": 52, "border": { "borderId": 33, "reverse": true } }
+    { "id": 52, "border": { "borderId": 33, "reverse": true } },
+    { "id": 53, "border": { "borderId": 34 } },
+    {
+      "id": 54,
+      "border": { "borderId": 34, "reverse": true },
+      "dividers": [35]
+    },
+    { "id": 55, "border": { "borderId": 35 } },
+    {
+      "id": 56,
+      "border": { "borderId": 35, "reverse": true },
+      "dividers": [36]
+    },
+    { "id": 57, "border": { "borderId": 36 } },
+    { "id": 58, "border": { "borderId": 36, "reverse": true } }
   ],
   "rivers": [
     {
@@ -2321,44 +2377,56 @@
     {
       "id": 1,
       "name": "Akkadian Empire",
-      "regions": [17],
-      "color": "rgb(100,200,133)"
+      "regions": [],
+      "color": "rgb(100,200,133)",
+      "possessions": [{ "regionId": 17, "start": -2334, "end": -2154 }]
     },
     {
       "id": 2,
       "name": "Old Babylonian Empire",
-      "regions": [19],
-      "color": "lightgreen"
+      "regions": [],
+      "color": "lightgreen",
+      "possessions": [{ "regionId": 19, "start": -1894, "end": -1595 }]
     },
     {
       "id": 3,
       "name": "Neo-Assyrian Empire",
-      "regions": [24],
-      "color": "burlywood"
+      "regions": [],
+      "color": "burlywood",
+      "possessions": [{ "regionId": 24, "start": -911, "end": -609 }]
     },
     {
       "id": 4,
       "name": "Neo-Babylonian Empire",
-      "regions": [29],
-      "color": "coral"
+      "regions": [],
+      "color": "coral",
+      "possessions": [{ "regionId": 29, "start": -608, "end": -539 }]
     },
     {
       "id": 5,
       "name": "Achaemenid Empire",
-      "regions": [36, 38],
-      "possessions": [{ "regionId": 9, "start": -525, "end": -330 }],
+      "regions": [],
+      "possessions": [
+        { "regionId": 9, "start": -525, "end": -330 },
+        { "regionId": 36, "start": -538, "end": -330 },
+        { "regionId": 38, "start": -538, "end": -330 }
+      ],
       "color": "lightgreen"
     },
     {
       "id": 6,
       "name": "Alexander the Great",
-      "regions": [39, 46],
-      "color": "burlywood"
+      "regions": [],
+      "color": "burlywood",
+      "possessions": [
+        { "regionId": 39, "start": -329, "end": -323 },
+        { "regionId": 46, "start": -329, "end": -323 }
+      ]
     },
     {
       "id": 7,
       "name": "Roman Empire",
-      "regions": [47],
+      "regions": [],
       "color": "burlywood",
       "possessions": [
         { "regionId": 51, "start": -27, "end": 394 },
@@ -2367,20 +2435,36 @@
         { "regionId": 12, "start": -27, "end": 394 },
         { "regionId": 7, "start": -27, "end": 394 },
         { "regionId": 8, "start": -27, "end": 394 },
-        { "regionId": 9, "start": -27, "end": 394 }
+        { "regionId": 9, "start": -27, "end": 394 },
+        { "regionId": 47, "start": -27, "end": 394 },
+        { "regionId": 56, "start": -27, "end": 394 }
       ]
     },
     {
       "id": 8,
       "name": "West Roman Empire",
-      "regions": [49],
+      "regions": [],
       "color": "lightgreen",
       "possessions": [
         { "regionId": 51, "start": 395, "end": 476 },
         { "regionId": 10, "start": 395, "end": 476 },
         { "regionId": 11, "start": 395, "end": 476 },
         { "regionId": 12, "start": 395, "end": 476 },
-        { "regionId": 7, "start": 395, "end": 476 }
+        { "regionId": 7, "start": 395, "end": 476 },
+        { "regionId": 49, "start": 395, "end": 476 },
+        { "regionId": 57, "start": 395, "end": 476 }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "East Roman Empire",
+      "color": "#f9b494",
+      "possessions": [
+        { "regionId": 50, "start": 395, "end": 1453 },
+        { "regionId": 8, "start": 395, "end": 1453 },
+        { "regionId": 56, "start": 395, "end": 1453 },
+        { "regionId": 9, "start": 395, "end": 1453 },
+        { "regionId": 58, "start": 395, "end": 1453 }
       ]
     }
   ]

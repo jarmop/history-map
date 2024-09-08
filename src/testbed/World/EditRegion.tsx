@@ -5,6 +5,8 @@ interface EditRegionProps {
   mapRegions: MapRegion[]
   cultures: Culture[]
   activeRegions: Region['id'][]
+  activeCulture: Culture | undefined
+  year: number
   saveCultures: (cultures: Culture[]) => void
   onDelete: (regionId: Region['id']) => void
   onSaveYears: (
@@ -18,6 +20,8 @@ export function EditRegion({
   mapRegions,
   cultures,
   activeRegions,
+  activeCulture,
+  year,
   saveCultures,
   onDelete,
   onSaveYears,
@@ -45,36 +49,29 @@ export function EditRegion({
       Add region {activeRegions} to culture
       <br />
       <select
-        value={
-          cultures.find((c) =>
-            activeRegions.every((r) => c.regions.includes(r))
-          )?.id || 0
-        }
+        value={activeCulture?.id || 0}
         onChange={(e) => {
           const culture = cultures.find(
             (c) => c.id === parseInt(e.target.value)
           )
-          const previousCulture = cultures.find((c) =>
-            activeRegions.every((r) => c.regions.includes(r))
-          )
+
           const updatedCultures: Culture[] = []
-          if (previousCulture) {
-            updatedCultures.push({
-              ...previousCulture,
-              regions: [
-                ...previousCulture.regions.filter(
-                  (id) => !activeRegions.includes(id)
-                ),
-              ],
-            })
-          }
           if (culture) {
+            const newPossessions = [
+              ...activeRegions
+                .filter(
+                  (rId) => !culture.possessions.find((p) => p.regionId === rId)
+                )
+                .map((rId) => ({
+                  regionId: rId,
+                  start: mapRegion.border.startYear || year,
+                  end: mapRegion.border.endYear,
+                })),
+            ]
+
             updatedCultures.push({
               ...culture,
-              regions: [
-                ...culture.regions.filter((id) => !activeRegions.includes(id)),
-                ...activeRegions,
-              ].sort(),
+              possessions: [...culture.possessions, ...newPossessions],
             })
           }
           if (updatedCultures.length > 0) {

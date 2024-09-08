@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Culture, Region } from '../newTypes'
+import { Culture, Possession, Region } from '../newTypes'
 
 interface EditCultureProps {
   culture: Culture | undefined
@@ -10,8 +10,8 @@ interface EditCultureProps {
 const newCulture = {
   id: 0,
   name: 'New culture',
-  regions: [],
   color: 'burlywood',
+  possessions: [],
 }
 
 export function EditCulture({
@@ -35,6 +35,21 @@ export function EditCulture({
     return (
       <button onClick={() => saveCulture(newCulture)}>Add new culture</button>
     )
+  }
+
+  const updatePossessions = (possessions: Possession[]) => {
+    if (!editedCulture.possessions || !possessions) {
+      throw new Error('no possessions')
+    }
+    setEditedCulture({
+      ...editedCulture,
+      possessions: [
+        ...editedCulture.possessions.filter(
+          (p) => !regionIds.includes(p.regionId)
+        ),
+        ...possessions,
+      ],
+    })
   }
 
   return (
@@ -70,44 +85,10 @@ export function EditCulture({
         value={years.startYear || ''}
         onChange={(e) => {
           const newStart = parseInt(e.target.value)
-          if (possessions) {
-            if (!editedCulture.possessions) {
-              throw new Error('no possessions')
-            }
-            const newPossessions = editedCulture.regions
-              .filter((rId) => regionIds.includes(rId))
-              .map((rId) => ({ regionId: rId, start: newStart }))
-            const editedPossessions = [
-              ...editedCulture.possessions.filter(
-                (p) => !regionIds.includes(p.regionId)
-              ),
-              ...possessions.map((p) => ({ ...p, start: newStart })),
-              ...newPossessions,
-            ]
-            setEditedCulture({
-              ...editedCulture,
-              regions: editedCulture.regions.filter(
-                (rId) => !regionIds.includes(rId)
-              ),
-              possessions: editedPossessions,
-            })
-          } else {
-            const oldPossessions = editedCulture.possessions || []
-
-            setEditedCulture({
-              ...editedCulture,
-              regions: editedCulture.regions.filter(
-                (rId) => !regionIds.includes(rId)
-              ),
-              possessions: [
-                ...oldPossessions,
-                ...regionIds.map((rId) => ({
-                  regionId: rId,
-                  start: newStart,
-                })),
-              ],
-            })
-          }
+          possessions &&
+            updatePossessions(
+              possessions.map((p) => ({ ...p, start: newStart }))
+            )
         }}
         style={{ width: '50px' }}
       />
@@ -121,18 +102,10 @@ export function EditCulture({
             value={years.endYear || ''}
             onChange={(e) => {
               const newEnd = parseInt(e.target.value)
-              if (!editedCulture.possessions) {
-                throw new Error('no possessions')
-              }
-              setEditedCulture({
-                ...editedCulture,
-                possessions: [
-                  ...editedCulture.possessions.filter(
-                    (p) => !regionIds.includes(p.regionId)
-                  ),
-                  ...possessions.map((p) => ({ ...p, end: newEnd })),
-                ],
-              })
+              possessions &&
+                updatePossessions(
+                  possessions.map((p) => ({ ...p, end: newEnd }))
+                )
             }}
             style={{ width: '50px' }}
           />

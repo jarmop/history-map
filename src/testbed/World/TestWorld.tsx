@@ -32,7 +32,7 @@ export function TestWorld() {
   } = useData(year, zoom)
 
   const activeCulture =
-    activeRegions.length > 0 && cultureByRegion[activeRegions[0]] || undefined
+    (activeRegions.length > 0 && cultureByRegion[activeRegions[0]]) || undefined
 
   useEffect(() => {
     const filteredRegions = activeRegions.filter((id) =>
@@ -95,6 +95,8 @@ export function TestWorld() {
               mapRegions={mapRegions}
               cultures={cultures}
               activeRegions={activeRegions}
+              activeCulture={activeCulture}
+              year={year}
               saveCultures={saveCultures}
               onDelete={(regionId: Region['id']) => deleteRegion(regionId)}
               onSaveYears={saveRegionYears}

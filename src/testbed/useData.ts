@@ -293,16 +293,11 @@ export function useData(year: number, zoom: number) {
 
   const cultureByRegion = world.cultures.reduce<Record<Region['id'], Culture>>(
     (acc, curr) => {
-      curr.regions.forEach((r) => {
-        acc[r] = curr
+      curr.possessions.forEach((p) => {
+        if (p.start <= year && (!p.end || p.end >= year)) {
+          acc[p.regionId] = curr
+        }
       })
-      if (curr.possessions) {
-        curr.possessions.forEach((p) => {
-          if (p.start <= year && (!p.end || p.end >= year)) {
-            acc[p.regionId] = curr
-          }
-        })
-      }
 
       return acc
     },
