@@ -75,6 +75,19 @@ export function useData(year: number, zoom: number) {
       }))
   }, [world.cities, zoomXy, year])
 
+  const places = useMemo(() => {
+    return world.places
+      .filter(
+        (place) =>
+          (!place.start || place.start <= year) &&
+          (!place.end || place.end >= year)
+      )
+      .map((b) => ({
+        ...b,
+        xy: zoomXy(b.xy),
+      }))
+  }, [world.places, zoomXy, year])
+
   const branchesByBorderId = visibleBorders.reduce<
     Record<
       Border['id'],
@@ -634,6 +647,7 @@ export function useData(year: number, zoom: number) {
     rivers,
     seas,
     cities,
+    places,
     addCity,
     cultures: world.cultures,
     saveCultures,

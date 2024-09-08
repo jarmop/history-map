@@ -1428,7 +1428,7 @@
       "startPoint": { "borderId": 1, "index": 429, "reverse": false },
       "endPoint": { "borderId": 1, "index": 397, "reverse": false },
       "startYear": -27,
-      "endYear": 1453
+      "endYear": 660
     },
     {
       "id": 35,
@@ -1440,7 +1440,7 @@
       "startPoint": { "borderId": 1, "index": 390, "reverse": false },
       "endPoint": { "borderId": 1, "index": 511, "reverse": false },
       "startYear": -27,
-      "endYear": 1453
+      "endYear": 660
     },
     {
       "id": 36,
@@ -1448,7 +1448,105 @@
       "startPoint": { "borderId": 1, "index": 454, "reverse": false },
       "endPoint": { "borderId": 34, "index": 4, "reverse": true },
       "startYear": 395,
-      "endYear": 1453
+      "endYear": 660
+    },
+    {
+      "id": 37,
+      "path": [
+        [41.1362, -5.4112],
+        [41.508, -3.7463]
+      ],
+      "startPoint": { "borderId": 1, "index": 157, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 168, "reverse": false },
+      "startYear": 718,
+      "endYear": 924
+    },
+    {
+      "id": 38,
+      "path": [
+        [28.8766, -3.6098],
+        [29.2699, 9.1702],
+        [27.1285, 15.3802],
+        [27.5283, 19.3402],
+        [29.5052, 23.8402],
+        [27.4484, 27.5302],
+        [23.7976, 30.7702],
+        [22.7228, 33.3802]
+      ],
+      "startPoint": { "borderId": 1, "index": 425, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 397, "reverse": false },
+      "startYear": 661,
+      "endYear": 750
+    },
+    {
+      "id": 39,
+      "path": [
+        [37.5933, 33.4702],
+        [38.1616, 36.2602],
+        [37.7357, 39.1402],
+        [38.8658, 40.4002]
+      ],
+      "startPoint": { "borderId": 1, "index": 476, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 510, "reverse": false },
+      "startYear": 661,
+      "endYear": 750
+    },
+    {
+      "id": 40,
+      "path": [
+        [42.0825, 45.1702],
+        [42.9449, 47.4202],
+        [40.5276, 49.9402],
+        [37.5219, 48.9502],
+        [37.0924, 49.3102],
+        [35.8622, 51.5602],
+        [35.9351, 54.5302],
+        [37.0924, 55.3402],
+        [37.6645, 54.4402],
+        [38.303, 55.9702],
+        [38.6552, 58.4902],
+        [39.4242, 60.2002],
+        [41.0726, 58.7602],
+        [42.1493, 60.3802],
+        [44.5699, 58.9402],
+        [44.6979, 60.2902],
+        [43.0107, 64.5202],
+        [43.8603, 72.0802],
+        [42.2159, 72.8002],
+        [39.1455, 73.1602],
+        [32.2088, 72.7102]
+      ],
+      "startPoint": { "borderId": 1, "index": 511, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 361, "reverse": false },
+      "startYear": 661,
+      "endYear": 750
+    },
+    {
+      "id": 41,
+      "path": [
+        [42.8295, -6.9848],
+        [42.8625, -4.1948],
+        [42.6312, -1.8548],
+        [42.3657, 0.3052],
+        [42.7304, 2.5102],
+        [43.2898, 2.5552],
+        [43.7791, 3.4552]
+      ],
+      "startPoint": { "borderId": 1, "index": 162, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 135, "reverse": false },
+      "startYear": 711,
+      "endYear": 717
+    },
+    {
+      "id": 42,
+      "path": [
+        [48.6105, -0.2573],
+        [49.0991, 1.4752]
+      ],
+      "startPoint": { "borderId": 1, "index": 180, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 189, "reverse": false },
+      "startYear": 911,
+      "endYear": null
     }
   ],
   "regions": [
@@ -1514,9 +1612,9 @@
     {
       "id": 48,
       "border": { "borderId": 31, "reverse": true },
-      "dividers": [34]
+      "dividers": [34, 38]
     },
-    { "id": 49, "border": { "borderId": 32 } },
+    { "id": 49, "border": { "borderId": 32 }, "dividers": [37, 41, 42] },
     { "id": 50, "border": { "borderId": 32, "reverse": true } },
     { "id": 51, "border": { "borderId": 33 } },
     { "id": 52, "border": { "borderId": 33, "reverse": true } },
@@ -1533,7 +1631,23 @@
       "dividers": [36]
     },
     { "id": 57, "border": { "borderId": 36 } },
-    { "id": 58, "border": { "borderId": 36, "reverse": true } }
+    { "id": 58, "border": { "borderId": 36, "reverse": true } },
+    { "id": 59, "border": { "borderId": 37 } },
+    { "id": 60, "border": { "borderId": 37, "reverse": true } },
+    { "id": 61, "border": { "borderId": 38 } },
+    {
+      "id": 62,
+      "border": { "borderId": 38, "reverse": true },
+      "dividers": [39]
+    },
+    { "id": 63, "border": { "borderId": 39 }, "dividers": [40] },
+    { "id": 64, "border": { "borderId": 39, "reverse": true } },
+    { "id": 65, "border": { "borderId": 40 } },
+    { "id": 66, "border": { "borderId": 40, "reverse": true } },
+    { "id": 67, "border": { "borderId": 41 } },
+    { "id": 68, "border": { "borderId": 41, "reverse": true } },
+    { "id": 69, "border": { "borderId": 42 } },
+    { "id": 70, "border": { "borderId": 42, "reverse": true } }
   ],
   "rivers": [
     {
@@ -2371,7 +2485,578 @@
     },
     { "id": "Syene", "xy": [24.0889, 32.8997], "startYear": -4000 },
     { "id": "Thebes", "xy": [25.7206, 32.6103], "startYear": -4000 },
-    { "id": "Paraetonium", "xy": [31.3333, 27.2167], "startYear": -1200 }
+    { "id": "Paraetonium", "xy": [31.3333, 27.2167], "startYear": -1200 },
+    { "id": "Bologna", "xy": [44.4939, 11.3428], "startYear": -900 },
+    { "id": "Paris", "xy": [48.8567, 2.3522], "startYear": -250 },
+    { "id": "London", "xy": [51.5072, -0.1275], "startYear": -4800 },
+    { "id": "Aachen", "xy": [50.7756, 6.0836], "startYear": -1600 },
+    { "id": "Trier", "xy": [49.7567, 6.6414], "startYear": -16 }
+  ],
+  "places": [
+    {
+      "id": "Paromeos Monastery",
+      "xy": [30.3571, 30.2706],
+      "type": "monastery",
+      "start": 335,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Paromeos_Monastery.jpg/250px-Paromeos_Monastery.jpg"
+    },
+    {
+      "id": "Monastery of Saint Anthony",
+      "xy": [28.92, 32.35],
+      "type": "monastery",
+      "start": 356,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/MonasteroAntonio2.jpg/250px-MonasteroAntonio2.jpg"
+    },
+    {
+      "id": "Debre Sina",
+      "xy": [15.7487, 38.6996],
+      "type": "monastery",
+      "start": 383
+    },
+    {
+      "id": "Monastery of Saint Thaddeus",
+      "xy": [39.0922, 44.5444],
+      "type": "monastery",
+      "start": 239,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Northwestthaddes.jpg/260px-Northwestthaddes.jpg"
+    },
+    {
+      "id": "Mor Mattai Monastery",
+      "xy": [36.49, 43.4428],
+      "type": "monastery",
+      "start": 363,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/The_Monastery_of_Saint_Matthew_and_its_environs_08.jpg/250px-The_Monastery_of_Saint_Matthew_and_its_environs_08.jpg"
+    },
+    {
+      "id": "Stavrovouni Monastery",
+      "xy": [34.8859, 33.4355],
+      "type": "monastery",
+      "start": 328,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Stravrovoini_monastry.jpg/250px-Stravrovoini_monastry.jpg"
+    },
+    {
+      "id": "Saint Catherine's Monastery",
+      "xy": [28.5556, 33.9761],
+      "type": "monastery",
+      "start": 550,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Katharinenkloster_Sinai_BW_2.jpg/250px-Katharinenkloster_Sinai_BW_2.jpg"
+    },
+    {
+      "id": "Debre Dammo",
+      "xy": [14.3739, 39.2903],
+      "type": "monastery",
+      "start": 550,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/ET_Tigray_asv2018-01_img14_Debre_Damo_Monastery.jpg/250px-ET_Tigray_asv2018-01_img14_Debre_Damo_Monastery.jpg"
+    },
+    {
+      "id": "St. Cyril's Monastery",
+      "xy": [50.4831, 30.4718],
+      "type": "monastery",
+      "start": 1140,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/St_Cyril%27s_Monastery_%28Panorama%29.JPG/250px-St_Cyril%27s_Monastery_%28Panorama%29.JPG"
+    },
+    {
+      "id": "Cluny Abbey",
+      "xy": [46.4342, 4.6592],
+      "type": "monastery",
+      "start": 910,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Cluny-Abtei-Ostfluegel-mtob.jpg/250px-Cluny-Abtei-Ostfluegel-mtob.jpg"
+    },
+    {
+      "id": "Lindisfarne Abbey",
+      "xy": [55.68, -1.8025],
+      "type": "monastery",
+      "start": 634
+    },
+    {
+      "id": "Church of Our Lady Mary of Zion",
+      "xy": [14.1303, 38.7194],
+      "type": "church",
+      "start": 400,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Church_Our_Lady_Mary_Zion_Axum_Ethio.jpg/239px-Church_Our_Lady_Mary_Zion_Axum_Ethio.jpg"
+    },
+    {
+      "id": "Dura-Europos church",
+      "xy": [34.7458, 40.728],
+      "type": "church",
+      "start": 233,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dura_Europos_domus_ecclesiae_isometric_view.svg/220px-Dura_Europos_domus_ecclesiae_isometric_view.svg.png"
+    },
+    {
+      "id": "Hagia Sophia, İznik",
+      "xy": [40.4294, 29.7203],
+      "type": "church",
+      "start": 325,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Hagia_Sophia_Iznik.JPG/300px-Hagia_Sophia_Iznik.JPG"
+    },
+    {
+      "id": "Church of the Nativity",
+      "xy": [31.7043, 35.2076],
+      "type": "church",
+      "start": 326,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Church_of_the_Nativity_%287703592746%29.jpg/220px-Church_of_the_Nativity_%287703592746%29.jpg"
+    },
+    {
+      "id": "Church of Saint Peter",
+      "xy": [36.2094, 36.1783],
+      "type": "church",
+      "start": 400,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ChurchSaintPeterAntakya.jpg/220px-ChurchSaintPeterAntakya.jpg"
+    },
+    {
+      "id": "Jubail Church",
+      "xy": [26.9374, 49.6565],
+      "type": "church",
+      "start": 400,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Jubail_Church.jpg/250px-Jubail_Church.jpg"
+    },
+    {
+      "id": "Yererouk",
+      "xy": [40.4397, 43.6092],
+      "type": "church",
+      "start": 500,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/%D4%B5%D6%80%D5%A5%D6%80%D5%B8%D6%82%D5%B5%D6%84%D5%AB_%D5%8F%D5%A1%D5%B3%D5%A1%D6%80_05.jpg/220px-%D4%B5%D6%80%D5%A5%D6%80%D5%B8%D6%82%D5%B5%D6%84%D5%AB_%D5%8F%D5%A1%D5%B3%D5%A1%D6%80_05.jpg"
+    },
+    {
+      "id": "Catacomb of Callixtus",
+      "xy": [41.8589, 12.5108],
+      "type": "church",
+      "start": 220,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/CeciliaGraveCallixtus.jpg/220px-CeciliaGraveCallixtus.jpg"
+    },
+    {
+      "id": "Archbasilica of Saint John Lateran",
+      "xy": [41.8859, 12.5062],
+      "type": "church",
+      "start": 313,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/San_Giovanni_in_Laterano_-_Rome.jpg/270px-San_Giovanni_in_Laterano_-_Rome.jpg"
+    },
+    {
+      "id": "Panagia Ekatontapiliani",
+      "xy": [37.085, 25.1517],
+      "type": "church",
+      "start": 326,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Paros_Parikia4_tango7174.jpg/220px-Paros_Parikia4_tango7174.jpg"
+    },
+    {
+      "id": "Church of Saint George, Sofia",
+      "xy": [42.6969, 23.3229],
+      "type": "church",
+      "start": 337,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/StGeorgeRotundaSofia.JPG/220px-StGeorgeRotundaSofia.JPG"
+    },
+    {
+      "id": "Trier Cathedral",
+      "xy": [49.7561, 6.6431],
+      "type": "church",
+      "start": 340,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Trier_Dom_BW_1.JPG/220px-Trier_Dom_BW_1.JPG"
+    },
+    {
+      "id": "Hagia Sophia",
+      "xy": [41.0083, 28.98],
+      "type": "church",
+      "start": 346,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/300px-Hagia_Sophia_Mars_2013.jpg"
+    },
+    {
+      "id": "Basilica of Sant'Ambrogio",
+      "xy": [45.4624, 9.1758],
+      "type": "church",
+      "start": 379,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Milan_Sant%27Ambrogio_016_4923.jpg/250px-Milan_Sant%27Ambrogio_016_4923.jpg"
+    },
+    {
+      "id": "Basilica of Saint-Pierre-aux-Nonnains",
+      "xy": [49.115, 6.1694],
+      "type": "church",
+      "start": 380,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Metz_-_Eglise_Saint-Pierre-aux-Nonnais_-_Vue_du_c%C3%B4t%C3%A9_Est.jpg/250px-Metz_-_Eglise_Saint-Pierre-aux-Nonnais_-_Vue_du_c%C3%B4t%C3%A9_Est.jpg"
+    },
+    {
+      "id": "Lullingstone Roman Villa",
+      "xy": [51.364, 0.1964],
+      "type": "church",
+      "start": 350,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lullingstone_paintings2.jpg/440px-Lullingstone_paintings2.jpg"
+    },
+    {
+      "id": "Hagia Sophia, Thessaloniki",
+      "xy": [40.6328, 22.9469],
+      "type": "church",
+      "start": 350,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/%D0%A5%D1%80%D0%B0%D0%BC_%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D0%B9_%D0%A1%D0%BE%D1%84%D0%B8%D0%B8_-_panoramio_%281%29.jpg/260px-%D0%A5%D1%80%D0%B0%D0%BC_%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D0%B9_%D0%A1%D0%BE%D1%84%D0%B8%D0%B8_-_panoramio_%281%29.jpg"
+    },
+    {
+      "id": "San Giovanni Evangelista, Ravenna",
+      "xy": [44.4179, 12.2055],
+      "type": "church",
+      "start": 424,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Ravenna_1978_037.jpg/170px-Ravenna_1978_037.jpg"
+    },
+    {
+      "id": "Bolnisi Sioni",
+      "xy": [41.3889, 44.5125],
+      "type": "church",
+      "start": 493,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bolnisi.jpg/220px-Bolnisi.jpg"
+    },
+    {
+      "id": "Basilica of Saint Servatius",
+      "xy": [50.8486, 5.6872],
+      "type": "church",
+      "start": 550,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Maastricht%2C_de_Sint_Servaasbasiliek_op_het_Vrijhof_foto8_2011-01-30_13.01.JPG/220px-Maastricht%2C_de_Sint_Servaasbasiliek_op_het_Vrijhof_foto8_2011-01-30_13.01.JPG"
+    },
+    {
+      "id": "Church of the Dormition of the Theotokos",
+      "xy": [40.0739, 20.2902],
+      "type": "church",
+      "start": 550,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Labova_e_Kryqit3.jpg/220px-Labova_e_Kryqit3.jpg"
+    },
+    {
+      "id": "St Martin's Church, Canterbury",
+      "xy": [51.278, 1.0938],
+      "type": "church",
+      "start": 597,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Canterbury_St_Martin_close.jpg/250px-Canterbury_St_Martin_close.jpg"
+    },
+    {
+      "id": "Church of the Holy Apostles Peter and Paul",
+      "xy": [43.1611, 20.5269],
+      "type": "church",
+      "start": 550,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Iglesia_de_San_Pedro%2C_Novi_Pazar%2C_Serbia%2C_2014-04-15%2C_DD_06.JPG/200px-Iglesia_de_San_Pedro%2C_Novi_Pazar%2C_Serbia%2C_2014-04-15%2C_DD_06.JPG"
+    },
+    {
+      "id": "Chapel of São Frutuoso",
+      "xy": [41.5604, -8.4388],
+      "type": "church",
+      "start": 560,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Capela_de_S._Frutuoso.JPG/250px-Capela_de_S._Frutuoso.JPG"
+    },
+    {
+      "id": "Church of San Juan Bautista, Baños de Cerrato",
+      "xy": [41.9208, -4.4724],
+      "type": "church",
+      "start": 661,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/34200_Ba%C3%B1os_de_Cerrato%2C_Palencia%2C_Spain_-_panoramio_%282%29.jpg/220px-34200_Ba%C3%B1os_de_Cerrato%2C_Palencia%2C_Spain_-_panoramio_%282%29.jpg"
+    },
+    {
+      "id": "San Pedro de la Nave",
+      "xy": [41.5833, -5.9642],
+      "type": "church",
+      "start": 700,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/SanPedroNave1.jpg/250px-SanPedroNave1.jpg"
+    },
+    {
+      "id": "Santa María de Melque",
+      "xy": [39.7508, -4.3731],
+      "type": "church",
+      "start": 668,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Santa_Mar%C3%ADa_de_Melque_%28Toledo%29_01.jpg/300px-Santa_Mar%C3%ADa_de_Melque_%28Toledo%29_01.jpg"
+    },
+    {
+      "id": "Chapel of St Peter-on-the-Wall",
+      "xy": [51.7354, 0.9399],
+      "type": "church",
+      "start": 660,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/St_Peters_Chapel.jpg/200px-St_Peters_Chapel.jpg"
+    },
+    {
+      "id": "Escomb Church",
+      "xy": [54.6661, -1.7081],
+      "type": "church",
+      "start": 670,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/St_John%27s_Church_%2CEscomb.jpg/220px-St_John%27s_Church_%2CEscomb.jpg"
+    },
+    {
+      "id": "All Saints' Church, Brixworth",
+      "xy": [52.3339, -0.9047],
+      "type": "church",
+      "start": 670,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Brixworth_AllSaints_south.jpg/300px-Brixworth_AllSaints_south.jpg"
+    },
+    {
+      "id": "Church of Saint John the Baptist, Kerch",
+      "xy": [45.3514, 36.4758],
+      "type": "church",
+      "start": 757,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Kerch_ChurchOfStJohn.jpg/250px-Kerch_ChurchOfStJohn.jpg"
+    },
+    {
+      "id": "Church of Santa Cruz de Cangas de Onís",
+      "xy": [43.3527, -5.1304],
+      "type": "church",
+      "start": 737,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Iglesia_de_la_santa_cruz.jpg/220px-Iglesia_de_la_santa_cruz.jpg"
+    },
+    {
+      "id": "Church of San Juan Apóstol y Evangelista",
+      "xy": [43.502, -6.0991],
+      "type": "church",
+      "start": 774,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Santianes_de_Pravia_-_04.jpg/220px-Santianes_de_Pravia_-_04.jpg"
+    },
+    {
+      "id": "Aachen Cathedral",
+      "xy": [50.7747, 6.0839],
+      "type": "church",
+      "start": 805,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Aachen_Germany_Imperial-Cathedral-01.jpg/220px-Aachen_Germany_Imperial-Cathedral-01.jpg"
+    },
+    {
+      "id": "San Julián de los Prados",
+      "xy": [43.3677, -5.8373],
+      "type": "church",
+      "start": 830,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Facade_of_the_church_of_San_Juli%C3%A1n_de_los_Prados_-_Oviedo.jpg/220px-Facade_of_the_church_of_San_Juli%C3%A1n_de_los_Prados_-_Oviedo.jpg"
+    },
+    {
+      "id": "Hildesheim Cathedral",
+      "xy": [52.1489, 9.9472],
+      "type": "church",
+      "start": 815,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hildesheimer_Dom_2015.JPG/220px-Hildesheimer_Dom_2015.JPG"
+    },
+    {
+      "id": "Church of Saint Sophia, Ohrid",
+      "xy": [41.1121, 20.7941],
+      "type": "church",
+      "start": 880,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/St_Sophia_%28Ohrid%29.jpg/220px-St_Sophia_%28Ohrid%29.jpg"
+    },
+    {
+      "id": "Church of San Salvador de Priesca",
+      "xy": [43.4851, -5.3587],
+      "type": "church",
+      "start": 921,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Priesca1.jpg/220px-Priesca1.jpg"
+    },
+    {
+      "id": "Church of Saint Margaret of Antioch",
+      "xy": [48.7962, 17.1087],
+      "type": "church",
+      "start": 900,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kop%C4%8Dany_kostol_-_sever.JPG/220px-Kop%C4%8Dany_kostol_-_sever.JPG"
+    },
+    {
+      "id": "Dalby Church",
+      "xy": [55.6644, 13.3442],
+      "type": "church",
+      "start": 1060,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dalby_kyrka_2019.jpg/260px-Dalby_kyrka_2019.jpg"
+    },
+    {
+      "id": "Church of Our Lady, Aarhus",
+      "xy": [56.158, 10.205],
+      "type": "church",
+      "start": 1060,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Vor_Frue_Kirke_%28Aarhus%29_02.jpg/250px-Vor_Frue_Kirke_%28Aarhus%29_02.jpg"
+    },
+    {
+      "id": "Pisa Cathedral",
+      "xy": [43.7233, 10.3958],
+      "type": "church",
+      "start": 1063,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Cathedral_and_Campanary_-_Pisa_2014_%282%29.JPG/220px-Cathedral_and_Campanary_-_Pisa_2014_%282%29.JPG"
+    },
+    {
+      "id": "Santiago de Compostela Cathedral",
+      "xy": [42.8806, -8.5444],
+      "type": "church",
+      "start": 1075,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Santiago_cathedral_2021.jpg/220px-Santiago_cathedral_2021.jpg"
+    },
+    {
+      "id": "Garðar Cathedral",
+      "xy": [60.9873, -45.4232],
+      "type": "church",
+      "start": 1126,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kbh_Mus_Bischof_Gardar.jpg/230px-Kbh_Mus_Bischof_Gardar.jpg"
+    },
+    {
+      "id": "Notre-Dame de Paris",
+      "xy": [48.853, 2.3498],
+      "type": "church",
+      "start": 1163,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Notre-Dame_de_Paris%2C_4_October_2017.jpg/220px-Notre-Dame_de_Paris%2C_4_October_2017.jpg"
+    },
+    {
+      "id": "Church of Saint Demetrius of Thessaloniki",
+      "xy": [43.0878, 25.6483],
+      "type": "church",
+      "start": 1185,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/St_Demetrius_Tarnovo_Klearchos_2.jpg/220px-St_Demetrius_Tarnovo_Klearchos_2.jpg"
+    },
+    {
+      "id": "Church of Saint Michael, Vienna",
+      "xy": [48.2081, 16.3669],
+      "type": "church",
+      "start": 1220,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Michaelerkirche_Vienna_Sept_2007.jpg/220px-Michaelerkirche_Vienna_Sept_2007.jpg"
+    },
+    {
+      "id": "Hagia Sophia, Trabzon",
+      "xy": [41.0033, 39.6961],
+      "type": "church",
+      "start": 1238,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Hagia_Sophia_%28Trabzon%2C_Turkey%29_%2827813329644%29.jpg/300px-Hagia_Sophia_%28Trabzon%2C_Turkey%29_%2827813329644%29.jpg"
+    },
+    {
+      "id": "St Margaret's Chapel, Edinburgh",
+      "xy": [55.9487, -3.2001],
+      "type": "church",
+      "start": 1045,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/St_Margarets_Chapel.JPG/220px-St_Margarets_Chapel.JPG"
+    },
+    {
+      "id": "Saint Sophia Cathedral, Kyiv",
+      "xy": [50.4528, 30.5144],
+      "type": "church",
+      "start": 1037,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/80-391-0151_Kyiv_St.Sophia%27s_Cathedral_RB_18_2_%28cropped%29.jpg/220px-80-391-0151_Kyiv_St.Sophia%27s_Cathedral_RB_18_2_%28cropped%29.jpg"
+    },
+    {
+      "id": "Cathedral of Saint Sophia, Novgorod",
+      "xy": [58.5217, 31.2761],
+      "type": "church",
+      "start": 1045,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Saint_Sophia_Cathedral_in_Novgorod.jpg/220px-Saint_Sophia_Cathedral_in_Novgorod.jpg"
+    },
+    {
+      "id": "Old Aker Church",
+      "xy": [59.9237, 10.7471],
+      "type": "church",
+      "start": 1080,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Gamle_Aker_kirke_S.jpg/270px-Gamle_Aker_kirke_S.jpg"
+    },
+    {
+      "id": "Church of St. Adalbert",
+      "xy": [50.0608, 19.9375],
+      "type": "church",
+      "start": 1100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Church_of_St._Adalbert_%28Wojciech%29%2C_2_Main_Market_square%2C_Old_Town%2C_Krakow%2C_Poland.jpg/220px-Church_of_St._Adalbert_%28Wojciech%29%2C_2_Main_Market_square%2C_Old_Town%2C_Krakow%2C_Poland.jpg"
+    },
+    {
+      "id": "Saint Sophia Cathedral, Polotsk",
+      "xy": [55.4861, 28.7587],
+      "type": "church",
+      "start": 1044,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/%D0%9F%D0%BE%D0%BB%D0%B0%D1%86%D0%BA._%D0%A1%D0%B0%D1%84%D1%96%D0%B9%D1%81%D0%BA%D1%96_%D1%81%D0%B0%D0%B1%D0%BE%D1%80.jpg/300px-%D0%9F%D0%BE%D0%BB%D0%B0%D1%86%D0%BA._%D0%A1%D0%B0%D1%84%D1%96%D0%B9%D1%81%D0%BA%D1%96_%D1%81%D0%B0%D0%B1%D0%BE%D1%80.jpg"
+    },
+    {
+      "id": "Romainmôtier Priory",
+      "xy": [46.6933, 6.4614],
+      "type": "church",
+      "start": 500,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Romainmotier_Abtei2.jpg/220px-Romainmotier_Abtei2.jpg"
+    },
+    {
+      "id": "Lund Cathedral",
+      "xy": [55.7042, 13.1933],
+      "type": "church",
+      "start": 1123,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lunds_domkyrka_augusti_2012.jpg/520px-Lunds_domkyrka_augusti_2012.jpg"
+    },
+    {
+      "id": "St Mary's Cathedral, Limerick",
+      "xy": [52.6683, -8.6233],
+      "type": "church",
+      "start": 1168,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/StMarysLimerickIreland.jpg/220px-StMarysLimerickIreland.jpg"
+    },
+    {
+      "id": "St. Audoen's Church",
+      "xy": [53.3437, -6.274],
+      "type": "church",
+      "start": 1190,
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/StAudoensChurch_October_2022.jpg/220px-StAudoensChurch_October_2022.jpg"
+    },
+    {
+      "id": "Church of Saint Peter, Hamburg",
+      "xy": [53.5503, 9.9964],
+      "type": "church",
+      "start": 1189,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/St._Petri_Hamburg_stitched_2009_1.jpg/250px-St._Petri_Hamburg_stitched_2009_1.jpg"
+    },
+    {
+      "id": "Church of Saint Panteleimon",
+      "xy": [41.977, 21.374],
+      "type": "church",
+      "start": 1164,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/St._Pantelejmon_Church_03.jpg/220px-St._Pantelejmon_Church_03.jpg"
+    },
+    {
+      "id": "St. Mary's Church, Thiruvithamcode",
+      "xy": [8.2416, 77.3018],
+      "type": "church",
+      "start": 60,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/St._Pantelejmon_Church_03.jpg/220px-St._Pantelejmon_Church_03.jpg"
+    },
+    {
+      "id": "Church of Saint Nicholas, Vilnius",
+      "xy": [54.6783, 25.2828],
+      "type": "church",
+      "start": 1387,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Front_fa%C3%A7ade_of_the_Church_of_Saint_Nicholas_in_Vilnius%2C_Lithuania.jpg/251px-Front_fa%C3%A7ade_of_the_Church_of_Saint_Nicholas_in_Vilnius%2C_Lithuania.jpg"
+    },
+    {
+      "id": "Trondenes Church",
+      "xy": [68.8219, 16.5628],
+      "type": "church",
+      "start": 1435,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Harstad_Kirche_von_Trondenes.jpg/220px-Harstad_Kirche_von_Trondenes.jpg"
+    },
+    {
+      "id": "University of Bologna",
+      "xy": [44.4939, 11.3428],
+      "type": "university",
+      "start": 1088
+    },
+    {
+      "id": "Killyleagh Castle",
+      "xy": [54.4025, -5.6542],
+      "type": "fortress",
+      "start": 1180,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Killyleagh_Castle.jpg/250px-Killyleagh_Castle.jpg"
+    },
+    {
+      "id": "Reighsburg Cochem",
+      "xy": [50.1423, 7.167],
+      "type": "fortress",
+      "start": 1000,
+      "image": "https://www.oldest.org/wp-content/uploads/2017/11/Reichsburg-Cochem.jpg"
+    },
+    {
+      "id": "Hohensalzburg Fortress",
+      "xy": [47.795, 13.0472],
+      "type": "fortress",
+      "start": 1077,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salzburg_-_Festung_Hohensalzburg.JPG/250px-Salzburg_-_Festung_Hohensalzburg.JPG"
+    },
+    {
+      "id": "Windsor Castle",
+      "xy": [51.4833, -0.6042],
+      "type": "fortress",
+      "start": 1070,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Windsor_round_tower_03.JPG/170px-Windsor_round_tower_03.JPG"
+    },
+    {
+      "id": "Warwick Castle",
+      "xy": [52.2794, -1.5847],
+      "type": "fortress",
+      "start": 1068,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Warwick_Castle_May_2016.jpg/250px-Warwick_Castle_May_2016.jpg"
+    },
+    {
+      "id": "Lindisfarne Castle",
+      "xy": [55.669, -1.785],
+      "type": "fortress",
+      "start": 1547,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/LindisfarneCastleHolyIsland.jpg/250px-LindisfarneCastleHolyIsland.jpg"
+    }
   ],
   "cultures": [
     {
@@ -2461,11 +3146,33 @@
       "color": "#f9b494",
       "possessions": [
         { "regionId": 50, "start": 395, "end": 1453 },
-        { "regionId": 8, "start": 395, "end": 1453 },
-        { "regionId": 56, "start": 395, "end": 1453 },
-        { "regionId": 9, "start": 395, "end": 1453 },
-        { "regionId": 58, "start": 395, "end": 1453 }
+        { "regionId": 58, "start": 395, "end": 1453 },
+        { "regionId": 64, "start": 661, "end": 750 },
+        { "regionId": 9, "start": 395, "end": 660 },
+        { "regionId": 8, "start": 395, "end": 660 }
       ]
+    },
+    {
+      "id": 10,
+      "name": "Kingdom of Asturias",
+      "color": "gold",
+      "possessions": [{ "regionId": 60, "start": 718, "end": 924 }]
+    },
+    {
+      "id": 11,
+      "name": "Umayyad Caliphate",
+      "color": "lightgreen",
+      "possessions": [
+        { "regionId": 65, "start": 661, "end": 750 },
+        { "regionId": 9, "start": 661, "end": 750 },
+        { "regionId": 67, "start": 711, "end": 717 }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Normans",
+      "color": "pink",
+      "possessions": [{ "regionId": 70, "start": 911, "end": null }]
     }
   ]
 }

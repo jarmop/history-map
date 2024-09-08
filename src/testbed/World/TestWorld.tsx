@@ -23,6 +23,7 @@ export function TestWorld() {
     rivers,
     seas,
     cities,
+    places,
     addCity,
     cultures,
     saveCultures,
@@ -51,6 +52,7 @@ export function TestWorld() {
         rivers={rivers}
         seas={seas}
         cities={config.showCities ? cities : []}
+        places={config.showPlaces ? places : []}
         onPathCompleted={onPathCompleted}
         onPointEdited={onPointEdited}
         zoom={zoom}
@@ -86,6 +88,17 @@ export function TestWorld() {
           }
         />
         <label htmlFor="showCities">Show cities</label>
+        &nbsp;
+        <input
+          type="checkbox"
+          id="showPlaces"
+          name="showPlaces"
+          checked={config.showPlaces}
+          onChange={(e) =>
+            setConfig({ ...config, showPlaces: e.target.checked })
+          }
+        />
+        <label htmlFor="showPlaces">Show places</label>
       </div>
       <div style={{ display: 'flex' }}>
         <NewCity onSave={addCity} />

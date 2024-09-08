@@ -1,6 +1,15 @@
 import data from './data/data.json'
 import { LatLon } from '../data/data'
-import { Border, City, Culture, Region, River, Sea, World } from './newTypes'
+import {
+  Border,
+  City,
+  Culture,
+  Place,
+  Region,
+  River,
+  Sea,
+  World,
+} from './newTypes'
 // import { equirectangular as mapProjection } from '../CustomMap/mapProjections/equiRectangular'
 import { mercator as mapProjection } from '../CustomMap/mapProjections/mercator'
 import { latLonByName, LatLonName } from '../data/coordinates/latLonByName'
@@ -51,6 +60,10 @@ const persistedCities = world.cities.map((city) => {
 
 const cities = [...persistedCities, ...newCities]
 
+const places = world.places.map((place) => {
+  return { ...place, xy: latLonToXy(place.xy) }
+})
+
 export function getBorders(): Border[] {
   return borders
 }
@@ -69,6 +82,10 @@ export function getSeas(): Sea[] {
 
 export function getCities(): City[] {
   return cities
+}
+
+export function getPlaces(): Place[] {
+  return places
 }
 
 export function getCultures(): Culture[] {
@@ -96,6 +113,7 @@ export function prepareForExport(world: World) {
       path: s.path.map(xyToRoundedLatLon),
     })),
     cities: world.cities.map((c) => ({ ...c, xy: xyToRoundedLatLon(c.xy) })),
+    places: world.places.map((p) => ({ ...p, xy: xyToRoundedLatLon(p.xy) })),
   }
 }
 
@@ -106,6 +124,7 @@ export function getWorld() {
     rivers: getRivers(),
     seas: getSeas(),
     cities: getCities(),
+    places: getPlaces(),
     cultures: getCultures(),
   }
 }

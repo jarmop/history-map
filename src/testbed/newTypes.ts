@@ -68,17 +68,28 @@ export type Culture = {
   possessions: Possession[]
 }
 
+export type Place = {
+  id: number
+  xy: [number, number]
+  type: 'monastery' | 'university' | 'fortress' | 'church'
+  start: number
+  end?: number
+  image?: string
+}
+
 export type World = {
   borders: Border[]
   regions: Region[]
   rivers: River[]
   seas: Sea[]
   cities: City[]
+  places: Place[]
   cultures: Culture[]
 }
 
 export type Config = {
   showCities: boolean
+  showPlaces: boolean
 }
 
 export type BorderData = {

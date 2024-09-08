@@ -1,4 +1,4 @@
-import { World } from './data/data'
+import { World } from './testbed/newTypes'
 import { Config } from './types'
 
 type Storage = {
@@ -16,10 +16,12 @@ const defaultStorage: Storage = {
   config: { zoomEnabled: true, showParallelsAndMeridians: false },
   world: {
     borders: [],
-    islands: [],
-    cities: [],
-    states: [],
+    regions: [],
     rivers: [],
+    seas: [],
+    cities: [],
+    places: [],
+    cultures: [],
   },
 }
 
