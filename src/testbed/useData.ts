@@ -558,7 +558,7 @@ export function useData(year: number, zoom: number) {
   }
 
   function deleteRegion(regionId: Region['id']) {
-    const regionsToRemove = [regionId]
+    const regionIdsToRemove = [regionId]
     const region1 = regionById[regionId]
     const border = visibleBorderById[region1.border.borderId]
     const region2 = regions.find(
@@ -568,13 +568,21 @@ export function useData(year: number, zoom: number) {
       throw new Error('region2 not found')
     }
     if (!region2.dividers) {
-      regionsToRemove.push(region2.id)
+      regionIdsToRemove.push(region2.id)
       setWorld({
         ...world,
         borders: [...world.borders.filter((b) => b.id !== border.id)],
         regions: [
-          ...world.regions.filter((r) => !regionsToRemove.includes(r.id)),
+          ...world.regions.filter((r) => !regionIdsToRemove.includes(r.id)),
         ],
+        cultures: [...world.cultures.map(c => {
+          return {
+            ...c,
+            possessions: c.possessions.filter(
+              (p) => !regionIdsToRemove.includes(p.regionId)
+            ),
+          }
+        })]
       })
     } else {
       // merge region1 to region2

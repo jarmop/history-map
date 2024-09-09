@@ -1522,22 +1522,6 @@
       "endYear": 750
     },
     {
-      "id": 41,
-      "path": [
-        [42.8295, -6.9848],
-        [42.8625, -4.1948],
-        [42.6312, -1.8548],
-        [42.3657, 0.3052],
-        [42.7304, 2.5102],
-        [43.2898, 2.5552],
-        [43.7791, 3.4552]
-      ],
-      "startPoint": { "borderId": 1, "index": 162, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 135, "reverse": false },
-      "startYear": 711,
-      "endYear": 717
-    },
-    {
       "id": 42,
       "path": [
         [48.6105, -0.2573],
@@ -1644,8 +1628,6 @@
     { "id": 64, "border": { "borderId": 39, "reverse": true } },
     { "id": 65, "border": { "borderId": 40 } },
     { "id": 66, "border": { "borderId": 40, "reverse": true } },
-    { "id": 67, "border": { "borderId": 41 } },
-    { "id": 68, "border": { "borderId": 41, "reverse": true } },
     { "id": 69, "border": { "borderId": 42 } },
     { "id": 70, "border": { "borderId": 42, "reverse": true } }
   ],
@@ -3273,8 +3255,7 @@
       "color": "lightgreen",
       "possessions": [
         { "regionId": 65, "start": 661, "end": 750 },
-        { "regionId": 9, "start": 661, "end": 750 },
-        { "regionId": 67, "start": 711, "end": 717 }
+        { "regionId": 9, "start": 661, "end": 750 }
       ]
     },
     {
