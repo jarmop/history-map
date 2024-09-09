@@ -140,7 +140,7 @@
         [43.4494, 4.425],
         [43.6119, 3.8772],
         [43.111, 3.1241],
-        [42.4351, 3.1741],
+        [42.8089, 3.1739],
         [41.85, 3.1292],
         [41.3828, 2.1769],
         [41.1175, 1.2528],
@@ -1456,12 +1456,11 @@
         [41.1362, -6.8386],
         [41.2547, -5.9386],
         [41.3224, -4.1161],
-        [42.1951, -2.6986]
+        [42.5276, -2.4961]
       ],
       "startPoint": { "borderId": 1, "index": 157, "reverse": false },
       "endPoint": { "borderId": 1, "index": 168, "reverse": false },
-      "startYear": 763,
-      "endYear": 924
+      "startYear": 763
     },
     {
       "id": 38,
@@ -1561,6 +1560,27 @@
       "endPoint": { "borderId": 1, "index": 134, "reverse": false },
       "startYear": 711,
       "endYear": 762
+    },
+    {
+      "id": 45,
+      "path": [
+        [41.6594, -0.4936],
+        [41.5417, 0.6314]
+      ],
+      "startPoint": { "borderId": 37, "index": 3 },
+      "endPoint": { "borderId": 1, "index": 140, "reverse": false },
+      "startYear": 814
+    },
+    {
+      "id": 46,
+      "path": [
+        [42.8913, -0.4711],
+        [42.6601, 1.2389]
+      ],
+      "startPoint": { "borderId": 1, "index": 169, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 137, "reverse": false },
+      "startYear": 763,
+      "endYear": 813
     }
   ],
   "regions": [
@@ -1646,7 +1666,7 @@
     },
     { "id": 57, "border": { "borderId": 36 } },
     { "id": 58, "border": { "borderId": 36, "reverse": true } },
-    { "id": 59, "border": { "borderId": 37 } },
+    { "id": 59, "border": { "borderId": 37 }, "dividers": [45, 46] },
     { "id": 60, "border": { "borderId": 37, "reverse": true } },
     { "id": 61, "border": { "borderId": 38 } },
     {
@@ -1663,7 +1683,11 @@
     { "id": 71, "border": { "borderId": 43 }, "dividers": [44] },
     { "id": 72, "border": { "borderId": 43, "reverse": true } },
     { "id": 73, "border": { "borderId": 44 } },
-    { "id": 74, "border": { "borderId": 44, "reverse": true } }
+    { "id": 74, "border": { "borderId": 44, "reverse": true } },
+    { "id": 75, "border": { "borderId": 45 } },
+    { "id": 76, "border": { "borderId": 45, "reverse": true } },
+    { "id": 77, "border": { "borderId": 46 } },
+    { "id": 78, "border": { "borderId": 46, "reverse": true } }
   ],
   "rivers": [
     {
@@ -3306,7 +3330,9 @@
       "possessions": [
         { "regionId": 65, "start": 661, "end": 750 },
         { "regionId": 9, "start": 661, "end": 750 },
-        { "regionId": 73, "start": 711, "end": 762 }
+        { "regionId": 73, "start": 711, "end": 762 },
+        { "regionId": 75, "start": 814 },
+        { "regionId": 77, "start": 763, "end": 813 }
       ]
     },
     {

@@ -29,14 +29,14 @@ export function EditRegion({
   const mapRegion = mapRegions.find((r) => r.id === activeRegions[0])
 
   const [years, setYears] = useState({
-    startYear: mapRegion?.border.startYear || 0,
-    endYear: mapRegion?.border.endYear || 0,
+    startYear: mapRegion?.border.startYear,
+    endYear: mapRegion?.border.endYear,
   })
 
   useEffect(() => {
     setYears({
-      startYear: mapRegion?.border.startYear || 0,
-      endYear: mapRegion?.border.endYear || 0,
+      startYear: mapRegion?.border.startYear,
+      endYear: mapRegion?.border.endYear,
     })
   }, [mapRegion])
 
@@ -92,9 +92,13 @@ export function EditRegion({
       &nbsp;
       <input
         type="number"
-        value={years.startYear || ''}
+        value={years.startYear === undefined ? '' : years.startYear}
         onChange={(e) =>
-          setYears({ ...years, startYear: parseInt(e.target.value) })
+          setYears({
+            ...years,
+            startYear:
+              e.target.value === '' ? undefined : parseInt(e.target.value),
+          })
         }
         style={{ width: '50px' }}
       />
@@ -103,9 +107,13 @@ export function EditRegion({
       &nbsp;
       <input
         type="number"
-        value={years.endYear || ''}
+        value={years.endYear === undefined ? '' : years.endYear}
         onChange={(e) => {
-          setYears({ ...years, endYear: parseInt(e.target.value) })
+          setYears({
+            ...years,
+            endYear:
+              e.target.value === '' ? undefined : parseInt(e.target.value),
+          })
         }}
         style={{ width: '50px' }}
       />

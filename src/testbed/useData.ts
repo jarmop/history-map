@@ -538,10 +538,7 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  function onPointAdded(
-    regionId: MapRegion['id'],
-    index: number
-  ) {
+  function onPointAdded(regionId: MapRegion['id'], index: number) {
     const region = regions.find((r) => r.id === regionId)
     if (!region) {
       throw new Error('region not found')
@@ -634,20 +631,12 @@ export function useData(year: number, zoom: number) {
   function getTemporaryRegionBorders(regionId: Region['id']) {
     const region = regionById[regionId]
     const borderData = mapRegionData[regionId]
-    const borderById = borderData.reduce<Record<Border['id'], Border>>(
-      (acc, curr) => {
-        const border = visibleBorderById[curr.borderId]
-        if (border.startYear || border.endYear) {
-          acc[border.id] = border
-        }
-        return acc
-      },
-      {
-        [region.border.borderId]: visibleBorderById[region.border.borderId],
-      }
-    )
-
-    return Object.values(borderById)
+    return [
+      visibleBorderById[region.border.borderId],
+      ...borderData
+        .map((bd) => visibleBorderById[bd.borderId])
+        .filter((b) => b.startYear || b.endYear),
+    ]
   }
 
   function saveRegionYears(
@@ -665,11 +654,11 @@ export function useData(year: number, zoom: number) {
       return {
         ...b,
         startYear:
-          b.startYear && startYear && b.startYear < startYear
-            ? b.startYear
-            : startYear,
+          startYear && b.startYear && startYear < b.startYear
+            ? startYear
+            : b.startYear,
         endYear:
-          b.endYear && endYear && b.endYear > endYear ? b.endYear : endYear,
+          endYear && b.endYear && endYear > b.endYear ? endYear : b.endYear,
       }
     })
     const editerBorderIds = editerBorders.map((b) => b.id)
