@@ -22,7 +22,6 @@ export function TestWorld() {
     onPointEdited,
     rivers,
     seas,
-    cities,
     places,
     addCity,
     cultures,
@@ -51,7 +50,6 @@ export function TestWorld() {
         regions={mapRegions}
         rivers={rivers}
         seas={seas}
-        cities={config.showCities ? cities : []}
         places={config.showPlaces ? places : []}
         onPathCompleted={onPathCompleted}
         onPointEdited={onPointEdited}

@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import { City } from '../newTypes'
 import { getLatLonByName } from '../helpers'
+import { Place } from '../newTypes'
 
 interface NewCityProps {
-  onSave: (city: City) => void
+  onSave: (city: Place) => void
 }
 
-const defaultCity: City = { id: '', xy: [0, 0] }
+const defaultCity: Place = { id: '', xy: [0, 0], type: 'town', start: 0 }
 
 export function NewCity({ onSave }: NewCityProps) {
-  const [city, setCity] = useState<City>(defaultCity)
+  const [city, setCity] = useState<Place>(defaultCity)
   if (!city) {
     return <button onClick={() => setCity(defaultCity)}>Add new city</button>
   }
@@ -33,20 +33,16 @@ export function NewCity({ onSave }: NewCityProps) {
       <br />
       <input
         type="number"
-        value={city.startYear || ''}
-        onChange={(e) =>
-          setCity({ ...city, startYear: parseInt(e.target.value) })
-        }
+        value={city.start || ''}
+        onChange={(e) => setCity({ ...city, start: parseInt(e.target.value) })}
       />
       <br />
       <label>End:</label>
       <br />
       <input
         type="number"
-        value={city.endYear || ''}
-        onChange={(e) =>
-          setCity({ ...city, endYear: parseInt(e.target.value) })
-        }
+        value={city.end || ''}
+        onChange={(e) => setCity({ ...city, end: parseInt(e.target.value) })}
       />
       <br />
       <label>Coordinates:</label>

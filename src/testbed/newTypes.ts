@@ -34,13 +34,6 @@ export type Sea = {
   path: LatLon[]
 }
 
-export type City = {
-  id: string
-  xy: [number, number]
-  startYear?: number
-  endYear?: number
-}
-
 export type RegionBorder = { borderId: Border['id']; reverse?: boolean }
 
 /**
@@ -69,9 +62,9 @@ export type Culture = {
 }
 
 export type Place = {
-  id: number
+  id: string
   xy: [number, number]
-  type: 'monastery' | 'university' | 'fortress' | 'church'
+  type: 'monastery' | 'university' | 'fortress' | 'church' | 'town'
   start: number
   end?: number
   image?: string
@@ -82,7 +75,6 @@ export type World = {
   regions: Region[]
   rivers: River[]
   seas: Sea[]
-  cities: City[]
   places: Place[]
   cultures: Culture[]
 }

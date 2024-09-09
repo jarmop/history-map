@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useMouse } from './useMouse'
 import { Region } from './Region'
 import { DrawPath } from './DrawPath'
-import { City as CityObj, MapRegion, Place, River, Sea } from '../newTypes'
-import { City } from './City'
+import { MapRegion, Place, River, Sea } from '../newTypes'
 import { PlaceMarker } from './PlaceMarker'
 
 // const aspectRatio = 16 / 9
@@ -15,7 +14,6 @@ interface CustomMapProps {
   regions: MapRegion[]
   rivers: River[]
   seas: Sea[]
-  cities: CityObj[]
   places: Place[]
   zoom: number
   activeRegions: MapRegion['id'][]
@@ -37,7 +35,6 @@ export function TestMap({
   regions,
   rivers,
   seas,
-  cities,
   places,
   zoom,
   activeRegions,
@@ -228,9 +225,9 @@ export function TestMap({
             d={`M${sea.path.join(' ')}z`}
           />
         ))}
-        {cities.map((city) => (
+        {/* {cities.map((city) => (
           <City key={city.id} city={city} />
-        ))}
+        ))} */}
         {places.map((place) => (
           <PlaceMarker key={place.id} place={place} />
         ))}

@@ -1,18 +1,8 @@
 import data from './data/data.json'
 import { LatLon } from '../data/data'
-import {
-  Border,
-  City,
-  Culture,
-  Place,
-  Region,
-  River,
-  Sea,
-  World,
-} from './newTypes'
+import { Border, Culture, Place, Region, River, Sea, World } from './newTypes'
 // import { equirectangular as mapProjection } from '../CustomMap/mapProjections/equiRectangular'
 import { mercator as mapProjection } from '../CustomMap/mapProjections/mercator'
-import { latLonByName, LatLonName } from '../data/coordinates/latLonByName'
 import { roundFloat } from './helpers'
 
 export const { lonToX, latToY, latLonToXy, xyToLatLon } = mapProjection(1000)
@@ -48,18 +38,6 @@ const seas = world.seas.map((s) => ({
   }),
 }))
 
-const cityNames: LatLonName[] = []
-const newCities = cityNames.map((city) => {
-  const latLon = latLonByName[city] as [number, number]
-  return { id: city, xy: latLonToXy(latLon) }
-})
-
-const persistedCities = world.cities.map((city) => {
-  return { ...city, xy: latLonToXy(city.xy) }
-})
-
-const cities = [...persistedCities, ...newCities]
-
 const places = world.places.map((place) => {
   return { ...place, xy: latLonToXy(place.xy) }
 })
@@ -80,11 +58,9 @@ export function getSeas(): Sea[] {
   return seas
 }
 
-export function getCities(): City[] {
-  return cities
-}
-
 export function getPlaces(): Place[] {
+  // const cityplaces = cities.map(c => ({id: c.id, xy: c.xy, type: 'town' as const, start: c.startYear, end: c.endYear}))
+  // return [...places, ...cityplaces]
   return places
 }
 
@@ -112,7 +88,6 @@ export function prepareForExport(world: World) {
       ...s,
       path: s.path.map(xyToRoundedLatLon),
     })),
-    cities: world.cities.map((c) => ({ ...c, xy: xyToRoundedLatLon(c.xy) })),
     places: world.places.map((p) => ({ ...p, xy: xyToRoundedLatLon(p.xy) })),
   }
 }
@@ -123,7 +98,6 @@ export function getWorld() {
     regions: getRegions(),
     rivers: getRivers(),
     seas: getSeas(),
-    cities: getCities(),
     places: getPlaces(),
     cultures: getCultures(),
   }

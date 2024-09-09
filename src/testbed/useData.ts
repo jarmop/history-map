@@ -3,9 +3,9 @@ import {
   Border,
   BorderConnection,
   BorderData,
-  City,
   Culture,
   MapRegion,
+  Place,
   Region,
 } from './newTypes'
 import { getRivers, getSeas, getWorld, latLonToXy } from './geographicData'
@@ -61,19 +61,6 @@ export function useData(year: number, zoom: number) {
       path: b.path.map(zoomXy),
     }))
   }, [zoomXy])
-
-  const cities = useMemo(() => {
-    return world.cities
-      .filter(
-        (city) =>
-          (!city.startYear || city.startYear <= year) &&
-          (!city.endYear || city.endYear >= year)
-      )
-      .map((b) => ({
-        ...b,
-        xy: zoomXy(b.xy),
-      }))
-  }, [world.cities, zoomXy, year])
 
   const places = useMemo(() => {
     return world.places
@@ -551,10 +538,10 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  function addCity(city: City) {
+  function addCity(place: Place) {
     setWorld({
       ...world,
-      cities: [...world.cities, { ...city, xy: latLonToXy(city.xy) }],
+      places: [...world.places, { ...place, xy: latLonToXy(place.xy) }],
     })
   }
 
@@ -646,7 +633,6 @@ export function useData(year: number, zoom: number) {
     onPointEdited,
     rivers,
     seas,
-    cities,
     places,
     addCity,
     cultures: world.cultures,

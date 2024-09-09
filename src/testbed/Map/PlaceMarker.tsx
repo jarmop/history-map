@@ -5,11 +5,14 @@ interface PlaceProps {
   place: Place
 }
 
+const r = 3
+
 const styleByType: Record<Place['type'], React.ReactNode> = {
-  monastery: <circle cx={4} cy={4} r="3" fill="yellow" stroke="black" />,
-  church: <circle cx={4} cy={4} r="3" fill="pink" stroke="black" />,
-  university: <circle cx={4} cy={4} r="3" fill="lightblue" stroke="black" />,
-  fortress: <circle cx={4} cy={4} r="3" fill="red" stroke="black" />,
+  monastery: <circle cx={4} cy={4} r={r} fill="yellow" stroke="black" />,
+  church: <circle cx={4} cy={4} r={r} fill="pink" stroke="black" />,
+  university: <circle cx={4} cy={4} r={r} fill="lightblue" stroke="black" />,
+  fortress: <circle cx={4} cy={4} r={r} fill="red" stroke="black" />,
+  town: <circle cx={4} cy={4} r={r} fill="black" stroke="black" />,
 }
 
 export function PlaceMarker({ place }: PlaceProps) {

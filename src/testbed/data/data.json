@@ -2409,89 +2409,6 @@
       ]
     }
   ],
-  "cities": [
-    { "id": "Jerusalem", "xy": [31.7789, 35.2256], "startYear": -1000 },
-    { "id": "Aleppo", "xy": [36.2, 37.16], "startYear": -8000 },
-    { "id": "Beirut", "xy": [33.8983, 35.5057], "startYear": -5000 },
-    { "id": "Damascus", "xy": [33.5131, 36.2919], "startYear": -10000 },
-    { "id": "Tel Aviv-Yafo", "xy": [32.08, 34.78], "startYear": 1909 },
-    { "id": "Haifa", "xy": [32.8192, 34.9992], "startYear": -1400 },
-    { "id": "Amman", "xy": [31.9497, 35.9328], "startYear": -8000 },
-    { "id": "Latakia", "xy": [35.5167, 35.7833], "startYear": -327 },
-    { "id": "Homs", "xy": [34.7308, 36.7094], "startYear": -2000 },
-    {
-      "id": "Palmyra",
-      "xy": [34.5689, 38.2927],
-      "startYear": -3000,
-      "endYear": 1932
-    },
-    { "id": "Sidon", "xy": [33.5606, 35.3758], "startYear": -3000 },
-    { "id": "Rafah", "xy": [31.2725, 34.2586], "startYear": 1906 },
-    { "id": "Baghdad", "xy": [33.3153, 44.3661], "startYear": 762 },
-    { "id": "Ankara", "xy": [39.93, 32.85], "startYear": -280 },
-    { "id": "Cairo", "xy": [30.0444, 31.2358], "startYear": 969 },
-    { "id": "Alexandria", "xy": [31.1975, 29.8925], "startYear": -331 },
-    { "id": "Rome", "xy": [41.8933, 12.4828], "startYear": -753 },
-    { "id": "Toledo", "xy": [39.8622, -4.0277], "startYear": 0 },
-    { "id": "Madrid", "xy": [40.4169, -3.7033], "startYear": 852 },
-    { "id": "Marseille", "xy": [43.2964, 5.37], "startYear": -600 },
-    { "id": "Syracuse", "xy": [37.0727, 15.2881], "startYear": -733 },
-    { "id": "Cordoba", "xy": [37.8845, -4.7796], "startYear": -169 },
-    { "id": "Narbonne", "xy": [43.1836, 3.0042], "startYear": -118 },
-    { "id": "Lisbon", "xy": [38.7253, -9.15], "startYear": -700 },
-    { "id": "A Coruna", "xy": [43.365, -8.41], "startYear": -200 },
-    { "id": "Athens", "xy": [37.9842, 23.7281], "startYear": -508 },
-    { "id": "Carthage", "xy": [36.8528, 10.3233], "startYear": -814 },
-    { "id": "Istanbul", "xy": [41.0136, 28.955], "startYear": -330 },
-    { "id": "Memphis", "xy": [29.8447, 31.2508], "startYear": -3100 },
-    {
-      "id": "Uruk",
-      "xy": [31.3242, 45.6372],
-      "startYear": -5000,
-      "endYear": 700
-    },
-    { "id": "Babylon", "xy": [32.5425, 44.4211], "startYear": -1894 },
-    {
-      "id": "Assur",
-      "xy": [35.4567, 43.2625],
-      "startYear": -2025,
-      "endYear": 200
-    },
-    {
-      "id": "Tuttul",
-      "xy": [35.9575, 39.0475],
-      "startYear": -4000,
-      "endYear": -1500
-    },
-    { "id": "Byblos", "xy": [34.1236, 35.6519], "startYear": -5000 },
-    {
-      "id": "Susa",
-      "xy": [32.1906, 48.2578],
-      "startYear": -4200,
-      "endYear": 1218
-    },
-    { "id": "Harran", "xy": [36.8708, 39.025], "startYear": -2500 },
-    {
-      "id": "Nineveh",
-      "xy": [36.3594, 43.1528],
-      "endYear": -612,
-      "startYear": -6000
-    },
-    {
-      "id": "Shubat-Enlil",
-      "xy": [36.9572, 41.5053],
-      "endYear": -1726,
-      "startYear": -5000
-    },
-    { "id": "Syene", "xy": [24.0889, 32.8997], "startYear": -4000 },
-    { "id": "Thebes", "xy": [25.7206, 32.6103], "startYear": -4000 },
-    { "id": "Paraetonium", "xy": [31.3333, 27.2167], "startYear": -1200 },
-    { "id": "Bologna", "xy": [44.4939, 11.3428], "startYear": -900 },
-    { "id": "Paris", "xy": [48.8567, 2.3522], "startYear": -250 },
-    { "id": "London", "xy": [51.5072, -0.1275], "startYear": -4800 },
-    { "id": "Aachen", "xy": [50.7756, 6.0836], "startYear": -1600 },
-    { "id": "Trier", "xy": [49.7567, 6.6414], "startYear": -16 }
-  ],
   "places": [
     {
       "id": "Paromeos Monastery",
@@ -3056,7 +2973,199 @@
       "type": "fortress",
       "start": 1547,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/LindisfarneCastleHolyIsland.jpg/250px-LindisfarneCastleHolyIsland.jpg"
-    }
+    },
+    {
+      "id": "Jerusalem",
+      "xy": [31.7789, 35.2256],
+      "type": "town",
+      "start": -1000
+    },
+    { "id": "Aleppo", "xy": [36.2, 37.16], "type": "town", "start": -8000 },
+    {
+      "id": "Beirut",
+      "xy": [33.8983, 35.5057],
+      "type": "town",
+      "start": -5000
+    },
+    {
+      "id": "Damascus",
+      "xy": [33.5131, 36.2919],
+      "type": "town",
+      "start": -10000
+    },
+    {
+      "id": "Tel Aviv-Yafo",
+      "xy": [32.08, 34.78],
+      "type": "town",
+      "start": 1909
+    },
+    { "id": "Haifa", "xy": [32.8192, 34.9992], "type": "town", "start": -1400 },
+    { "id": "Amman", "xy": [31.9497, 35.9328], "type": "town", "start": -8000 },
+    {
+      "id": "Latakia",
+      "xy": [35.5167, 35.7833],
+      "type": "town",
+      "start": -327
+    },
+    { "id": "Homs", "xy": [34.7308, 36.7094], "type": "town", "start": -2000 },
+    {
+      "id": "Palmyra",
+      "xy": [34.5689, 38.2927],
+      "type": "town",
+      "start": -3000,
+      "end": 1932
+    },
+    { "id": "Sidon", "xy": [33.5606, 35.3758], "type": "town", "start": -3000 },
+    { "id": "Rafah", "xy": [31.2725, 34.2586], "type": "town", "start": 1906 },
+    { "id": "Baghdad", "xy": [33.3153, 44.3661], "type": "town", "start": 762 },
+    { "id": "Ankara", "xy": [39.93, 32.85], "type": "town", "start": -280 },
+    { "id": "Cairo", "xy": [30.0444, 31.2358], "type": "town", "start": 969 },
+    {
+      "id": "Alexandria",
+      "xy": [31.1975, 29.8925],
+      "type": "town",
+      "start": -331
+    },
+    { "id": "Rome", "xy": [41.8933, 12.4828], "type": "town", "start": -753 },
+    { "id": "Toledo", "xy": [39.8622, -4.0277], "type": "town", "start": 0 },
+    { "id": "Madrid", "xy": [40.4169, -3.7033], "type": "town", "start": 852 },
+    { "id": "Marseille", "xy": [43.2964, 5.37], "type": "town", "start": -600 },
+    {
+      "id": "Syracuse",
+      "xy": [37.0727, 15.2881],
+      "type": "town",
+      "start": -733
+    },
+    {
+      "id": "Cordoba",
+      "xy": [37.8845, -4.7796],
+      "type": "town",
+      "start": -169
+    },
+    {
+      "id": "Narbonne",
+      "xy": [43.1836, 3.0042],
+      "type": "town",
+      "start": -118
+    },
+    { "id": "Lisbon", "xy": [38.7253, -9.15], "type": "town", "start": -700 },
+    { "id": "A Coruna", "xy": [43.365, -8.41], "type": "town", "start": -200 },
+    { "id": "Athens", "xy": [37.9842, 23.7281], "type": "town", "start": -508 },
+    {
+      "id": "Carthage",
+      "xy": [36.8528, 10.3233],
+      "type": "town",
+      "start": -814
+    },
+    {
+      "id": "Istanbul",
+      "xy": [41.0136, 28.955],
+      "type": "town",
+      "start": -330
+    },
+    {
+      "id": "Memphis",
+      "xy": [29.8447, 31.2508],
+      "type": "town",
+      "start": -3100
+    },
+    {
+      "id": "Uruk",
+      "xy": [31.3242, 45.6372],
+      "type": "town",
+      "start": -5000,
+      "end": 700
+    },
+    {
+      "id": "Babylon",
+      "xy": [32.5425, 44.4211],
+      "type": "town",
+      "start": -1894
+    },
+    {
+      "id": "Assur",
+      "xy": [35.4567, 43.2625],
+      "type": "town",
+      "start": -2025,
+      "end": 200
+    },
+    {
+      "id": "Tuttul",
+      "xy": [35.9575, 39.0475],
+      "type": "town",
+      "start": -4000,
+      "end": -1500
+    },
+    {
+      "id": "Byblos",
+      "xy": [34.1236, 35.6519],
+      "type": "town",
+      "start": -5000
+    },
+    {
+      "id": "Susa",
+      "xy": [32.1906, 48.2578],
+      "type": "town",
+      "start": -4200,
+      "end": 1218
+    },
+    { "id": "Harran", "xy": [36.8708, 39.025], "type": "town", "start": -2500 },
+    {
+      "id": "Nineveh",
+      "xy": [36.3594, 43.1528],
+      "type": "town",
+      "start": -6000,
+      "end": -612
+    },
+    {
+      "id": "Shubat-Enlil",
+      "xy": [36.9572, 41.5053],
+      "type": "town",
+      "start": -5000,
+      "end": -1726
+    },
+    { "id": "Syene", "xy": [24.0889, 32.8997], "type": "town", "start": -4000 },
+    {
+      "id": "Thebes",
+      "xy": [25.7206, 32.6103],
+      "type": "town",
+      "start": -4000
+    },
+    {
+      "id": "Paraetonium",
+      "xy": [31.3333, 27.2167],
+      "type": "town",
+      "start": -1200
+    },
+    {
+      "id": "Bologna",
+      "xy": [44.4939, 11.3428],
+      "type": "town",
+      "start": -900
+    },
+    { "id": "Paris", "xy": [48.8567, 2.3522], "type": "town", "start": -250 },
+    {
+      "id": "London",
+      "xy": [51.5072, -0.1275],
+      "type": "town",
+      "start": -4800
+    },
+    { "id": "Aachen", "xy": [50.7756, 6.0836], "type": "town", "start": -1600 },
+    { "id": "Trier", "xy": [49.7567, 6.6414], "type": "town", "start": -16 },
+    { "id": "Genoa", "xy": [44.4111, 8.9328], "type": "town", "start": -4000 },
+    { "id": "Venice", "xy": [45.4375, 12.3358], "type": "town", "start": -421 },
+    { "id": "Milan", "xy": [45.4669, 9.19], "type": "town", "start": -400 },
+    {
+      "id": "Florence",
+      "xy": [43.7714, 11.2542],
+      "type": "town",
+      "start": -59
+    },
+    { "id": "Pisa", "xy": [43.7167, 10.4], "type": "town", "start": -225 },
+    { "id": "Ostia", "xy": [41.7325, 12.2791], "type": "town", "start": -630 },
+    { "id": "Naples", "xy": [40.8333, 14.25], "type": "town", "start": -1500 },
+    { "id": "Amalfi", "xy": [40.6335, 14.6024], "type": "town", "start": 339 },
+    { "id": "Pompeii", "xy": [40.7492, 14.5006], "type": "town", "start": -650 }
   ],
   "cultures": [
     {
