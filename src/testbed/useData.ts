@@ -538,6 +538,45 @@ export function useData(year: number, zoom: number) {
     })
   }
 
+  function onPointAdded(
+    regionId: MapRegion['id'],
+    index: number
+  ) {
+    const region = regions.find((r) => r.id === regionId)
+    if (!region) {
+      throw new Error('region not found')
+    }
+
+    const borderData = getBorderDataByRegionIndex(region, index)
+    if (!borderData) {
+      throw new Error('borderData not found')
+    }
+
+    const border = allBorders.find((b) => b.id === borderData.borderId)
+    if (!border) {
+      throw new Error('border not found')
+    }
+
+    const newPoint = border.path[borderData.index]
+
+    const editedBorder: Border = {
+      ...border,
+      path: [
+        ...border.path.slice(0, borderData.index + 1),
+        newPoint,
+        ...border.path.slice(borderData.index + 1),
+      ],
+    }
+
+    setWorld({
+      ...world,
+      borders: sortById([
+        ...allBorders.filter((b) => b.id !== editedBorder.id),
+        editedBorder,
+      ]),
+    })
+  }
+
   function addPlace(place: Place) {
     setWorld({
       ...world,
@@ -648,6 +687,7 @@ export function useData(year: number, zoom: number) {
     mapRegions,
     onPathCompleted,
     onPointEdited,
+    onPointAdded,
     rivers,
     seas,
     places,

@@ -6,6 +6,7 @@ interface BorderProps {
   fill?: string
   active?: boolean
   selectPoint: (point: [number, number], i: number, initMove: boolean) => void
+  addPoint: (i: number) => void
 }
 
 export function Region({
@@ -14,6 +15,7 @@ export function Region({
   fill = 'lightgrey',
   active = false,
   selectPoint,
+  addPoint,
 }: BorderProps) {
   const [downXy, setDownXy] = useState([0, 0])
   const [activePoint, setActivePoint] = useState(-1)
@@ -50,8 +52,11 @@ export function Region({
             onMouseLeave={() => setActivePoint(-1)}
             onMouseUp={(e) => {
               e.stopPropagation()
-              selectPoint(point, i, e.detail === 2)
-              // console.log('point index:', i, point)
+              if (e.metaKey) {
+                addPoint(i)
+              } else {
+                selectPoint(point, i, e.detail === 2)
+              }
             }}
           />
         ))}

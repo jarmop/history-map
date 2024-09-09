@@ -20,6 +20,7 @@ export function TestWorld() {
     mapRegions,
     onPathCompleted,
     onPointEdited,
+    onPointAdded,
     rivers,
     seas,
     places,
@@ -53,6 +54,7 @@ export function TestWorld() {
         places={config.showPlaces ? places : []}
         onPathCompleted={onPathCompleted}
         onPointEdited={onPointEdited}
+        onPointAdded={onPointAdded}
         zoom={zoom}
         activeRegions={activeRegions}
         setActiveRegions={(regionIds: Region['id'][]) =>

@@ -29,6 +29,7 @@ interface CustomMapProps {
     index: number,
     newPoint: [number, number]
   ) => void
+  onPointAdded: (regionId: MapRegion['id'], index: number) => void
 }
 
 export function TestMap({
@@ -41,6 +42,7 @@ export function TestMap({
   setActiveRegions,
   onPathCompleted,
   onPointEdited,
+  onPointAdded,
 }: CustomMapProps) {
   const [newPath, setNewPath] = useState<{
     start?: { regionId: MapRegion['id']; i: number }
@@ -202,6 +204,10 @@ export function TestMap({
                 } else {
                   selectBorderPoint(region, point, i)
                 }
+              }}
+              addPoint={(i: number) => {
+                onPointAdded(region.id, i)
+                setActiveBorderPoint({ regionId: region.id, i })
               }}
             />
           ))}
