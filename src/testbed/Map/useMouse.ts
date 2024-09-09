@@ -22,6 +22,9 @@ export function useMouse(dom: HTMLDivElement | null) {
     function mouseup() {
       setMousedown(false)
     }
+    function mouseleave() {
+      setMousedown(false)
+    }
 
     if (!dom) {
       return
@@ -29,11 +32,13 @@ export function useMouse(dom: HTMLDivElement | null) {
     dom.addEventListener('mousedown', mousedown)
     dom.addEventListener('mousemove', mousemove)
     dom.addEventListener('mouseup', mouseup)
+    dom.addEventListener('mouseleave', mouseleave)
 
     return () => {
       dom.removeEventListener('mousedown', mousedown)
       dom.removeEventListener('mousemove', mousemove)
       dom.removeEventListener('mouseup', mouseup)
+      dom.removeEventListener('mouseleave', mouseleave)
     }
   }, [isMousedown, setXy, xy, dom])
 
