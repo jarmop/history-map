@@ -538,7 +538,7 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  function addCity(place: Place) {
+  function addPlace(place: Place) {
     setWorld({
       ...world,
       places: [...world.places, { ...place, xy: latLonToXy(place.xy) }],
@@ -651,7 +651,7 @@ export function useData(year: number, zoom: number) {
     rivers,
     seas,
     places,
-    addCity,
+    addPlace,
     cultures: world.cultures,
     saveCultures,
     deleteRegion,

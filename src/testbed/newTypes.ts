@@ -61,10 +61,18 @@ export type Culture = {
   possessions: Possession[]
 }
 
+export const placeTypes = [
+  'monastery',
+  'university',
+  'fortress',
+  'church',
+  'town',
+] as const
+
 export type Place = {
   id: string
   xy: [number, number]
-  type: 'monastery' | 'university' | 'fortress' | 'church' | 'town'
+  type: (typeof placeTypes)[number]
   start: number
   end?: number
   image?: string

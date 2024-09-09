@@ -4,7 +4,7 @@ import { YearInput } from '../../world/YearInput'
 import { useData } from '../useData'
 import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
-import { NewCity } from './NewCity'
+import { NewPlace } from './NewPlace'
 import { Culture, Region } from '../newTypes'
 import { EditRegion } from './EditRegion'
 import { EditCulture } from './EditCulture'
@@ -23,7 +23,7 @@ export function TestWorld() {
     rivers,
     seas,
     places,
-    addCity,
+    addPlace,
     cultures,
     saveCultures,
     deleteRegion,
@@ -99,7 +99,7 @@ export function TestWorld() {
         <label htmlFor="showPlaces">Show places</label>
       </div>
       <div style={{ display: 'flex' }}>
-        <NewCity onSave={addCity} />
+        <NewPlace onSave={addPlace} />
         {activeRegions.length > 0 && (
           <>
             <EditRegion
