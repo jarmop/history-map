@@ -575,14 +575,16 @@ export function useData(year: number, zoom: number) {
         regions: [
           ...world.regions.filter((r) => !regionIdsToRemove.includes(r.id)),
         ],
-        cultures: [...world.cultures.map(c => {
-          return {
-            ...c,
-            possessions: c.possessions.filter(
-              (p) => !regionIdsToRemove.includes(p.regionId)
-            ),
-          }
-        })]
+        cultures: [
+          ...world.cultures.map((c) => {
+            return {
+              ...c,
+              possessions: c.possessions.filter(
+                (p) => !regionIdsToRemove.includes(p.regionId)
+              ),
+            }
+          }),
+        ],
       })
     } else {
       // merge region1 to region2
@@ -615,15 +617,22 @@ export function useData(year: number, zoom: number) {
     endYear?: number
   ) {
     const borders = getTemporaryRegionBorders(regionId)
-    const editerBorders = borders.map((b) => ({
-      ...b,
-      startYear:
-        b.startYear && startYear && b.startYear < startYear
-          ? b.startYear
-          : startYear,
-      endYear:
-        b.endYear && endYear && b.endYear > endYear ? b.endYear : endYear,
-    }))
+    const editerBorders = borders.map((b, i) => {
+      if (i === 0) {
+        // Is the main border of the region
+        return { ...b, startYear: startYear, endYear: endYear }
+      }
+      // Allow only extending the timeline of other borders to avoid corrupting data
+      return {
+        ...b,
+        startYear:
+          b.startYear && startYear && b.startYear < startYear
+            ? b.startYear
+            : startYear,
+        endYear:
+          b.endYear && endYear && b.endYear > endYear ? b.endYear : endYear,
+      }
+    })
     const editerBorderIds = editerBorders.map((b) => b.id)
 
     setWorld({

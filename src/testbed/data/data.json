@@ -1458,7 +1458,7 @@
       ],
       "startPoint": { "borderId": 1, "index": 157, "reverse": false },
       "endPoint": { "borderId": 1, "index": 168, "reverse": false },
-      "startYear": 718,
+      "startYear": 775,
       "endYear": 924
     },
     {
@@ -1531,6 +1531,19 @@
       "endPoint": { "borderId": 1, "index": 189, "reverse": false },
       "startYear": 911,
       "endYear": null
+    },
+    {
+      "id": 43,
+      "path": [
+        [43.1545, -7.3336],
+        [42.8913, -6.8386],
+        [42.8749, -4.0036],
+        [42.7758, -2.3836]
+      ],
+      "startPoint": { "borderId": 1, "index": 162, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 168, "reverse": false },
+      "startYear": 718,
+      "endYear": 774
     }
   ],
   "regions": [
@@ -1598,7 +1611,7 @@
       "border": { "borderId": 31, "reverse": true },
       "dividers": [34, 38]
     },
-    { "id": 49, "border": { "borderId": 32 }, "dividers": [37, 41, 42] },
+    { "id": 49, "border": { "borderId": 32 }, "dividers": [37, 41, 42, 43] },
     { "id": 50, "border": { "borderId": 32, "reverse": true } },
     { "id": 51, "border": { "borderId": 33 } },
     { "id": 52, "border": { "borderId": 33, "reverse": true } },
@@ -1629,7 +1642,9 @@
     { "id": 65, "border": { "borderId": 40 } },
     { "id": 66, "border": { "borderId": 40, "reverse": true } },
     { "id": 69, "border": { "borderId": 42 } },
-    { "id": 70, "border": { "borderId": 42, "reverse": true } }
+    { "id": 70, "border": { "borderId": 42, "reverse": true } },
+    { "id": 71, "border": { "borderId": 43 } },
+    { "id": 72, "border": { "borderId": 43, "reverse": true } }
   ],
   "rivers": [
     {
@@ -3147,7 +3162,13 @@
     { "id": "Ostia", "xy": [41.7325, 12.2791], "type": "town", "start": -630 },
     { "id": "Naples", "xy": [40.8333, 14.25], "type": "town", "start": -1500 },
     { "id": "Amalfi", "xy": [40.6335, 14.6024], "type": "town", "start": 339 },
-    { "id": "Pompeii", "xy": [40.7492, 14.5006], "type": "town", "start": -650 }
+    {
+      "id": "Pompeii",
+      "xy": [40.7492, 14.5006],
+      "type": "town",
+      "start": -650
+    },
+    { "id": "Oviedo", "xy": [43.36, -5.845], "type": "town", "start": 761 }
   ],
   "cultures": [
     {
@@ -3247,7 +3268,10 @@
       "id": 10,
       "name": "Kingdom of Asturias",
       "color": "gold",
-      "possessions": [{ "regionId": 60, "start": 718, "end": 924 }]
+      "possessions": [
+        { "regionId": 60, "start": 775, "end": 924 },
+        { "regionId": 72, "start": 718, "end": 774 }
+      ]
     },
     {
       "id": 11,
