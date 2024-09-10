@@ -15,7 +15,7 @@ const styleByType: Record<Place['type'], React.ReactNode> = {
   church: <circle cx={cx} cy={cy} r={r} fill="pink" stroke="black" />,
   university: <circle cx={cx} cy={cy} r={r} fill="lightblue" stroke="black" />,
   fortress: <circle cx={cx} cy={cy} r={r} fill="red" stroke="black" />,
-  town: <circle cx={cx} cy={cy} r={r} fill="black" stroke="black" />,
+  town: <circle cx={cx} cy={cy} r={1} fill="black" stroke="black" />,
 }
 
 export function PlaceMarker({ place }: PlaceProps) {

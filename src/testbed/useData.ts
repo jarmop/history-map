@@ -315,14 +315,37 @@ export function useData(year: number, zoom: number) {
     {}
   )
 
+  // perhaps count only full borders?
+  const borderUsedForward: Record<Border['id'], boolean> = {}
+  const borderUsedReverse: Record<Border['id'], boolean> = {}
+  // let regionSkipCount = 0
+
   const mapRegions: MapRegion[] = []
   const mapRegionData: Record<Region['id'], BorderData[]> = {}
   regions.filter(regionExistsInYear).forEach((region) => {
+    if (
+      region.border.reverse
+        ? borderUsedReverse[region.border.borderId]
+        : borderUsedForward[region.border.borderId]
+    ) {
+      // console.log('skipping border', region.border)
+      // regionSkipCount++
+      return
+    }
     const border = zoomedBorderById[region.border.borderId]
 
     if (!border.startPoint || !border.endPoint) {
       const borderData = getBorderData(border, false, 0, border.id, border.id)
       const path = borderData.flatMap((p) => p.path)
+
+      borderData.forEach((bd) => {
+        if (bd.reverse) {
+          borderUsedReverse[bd.borderId] = true
+        } else {
+          borderUsedForward[bd.borderId] = true
+        }
+      })
+
       mapRegions.push({
         id: region.id,
         path,
@@ -353,6 +376,14 @@ export function useData(year: number, zoom: number) {
       border.id
     )
 
+    borderData.forEach((bd) => {
+      if (bd.reverse) {
+        borderUsedReverse[bd.borderId] = true
+      } else {
+        borderUsedForward[bd.borderId] = true
+      }
+    })
+
     mapRegions.push({
       id: region.id,
       path: [...firstPath, ...borderData.flatMap((p) => p.path)],
@@ -362,6 +393,8 @@ export function useData(year: number, zoom: number) {
     })
     mapRegionData[region.id] = borderData
   })
+
+  // console.log('regionSkipCount', regionSkipCount)
 
   function getNextBorderId() {
     return (
