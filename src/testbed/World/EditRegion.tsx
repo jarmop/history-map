@@ -97,7 +97,7 @@ export function EditRegion({
       <br />
       <br />
       <label>Start:</label>
-      &nbsp;
+      <br />
       <input
         type="number"
         value={years.startYear === undefined ? '' : years.startYear}
@@ -110,9 +110,12 @@ export function EditRegion({
         }
         style={{ width: '50px' }}
       />
-      &nbsp;
+      <button onClick={() => onSaveYears(mapRegion.id, year, years.endYear)}>
+        {year}
+      </button>
+      <br />
       <label>End:</label>
-      &nbsp;
+      <br />
       <input
         type="number"
         value={years.endYear === undefined ? '' : years.endYear}
@@ -125,6 +128,9 @@ export function EditRegion({
         }}
         style={{ width: '50px' }}
       />
+      <button onClick={() => onSaveYears(mapRegion.id, years.startYear, year)}>
+        {year}
+      </button>
       <br />
       <button
         onClick={() => {

@@ -43,7 +43,7 @@ export function Region({
             key={i}
             cx={point[0]}
             cy={point[1]}
-            r="6"
+            r="4"
             fill={i === activePoint ? 'green' : 'black'}
             // fill={'black'}
             onMouseEnter={() => {
