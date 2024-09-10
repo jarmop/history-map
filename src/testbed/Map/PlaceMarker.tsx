@@ -6,13 +6,16 @@ interface PlaceProps {
 }
 
 const r = 3
+const size = 8
+const cx = size / 2
+const cy = size / 2
 
 const styleByType: Record<Place['type'], React.ReactNode> = {
-  monastery: <circle cx={4} cy={4} r={r} fill="yellow" stroke="black" />,
-  church: <circle cx={4} cy={4} r={r} fill="pink" stroke="black" />,
-  university: <circle cx={4} cy={4} r={r} fill="lightblue" stroke="black" />,
-  fortress: <circle cx={4} cy={4} r={r} fill="red" stroke="black" />,
-  town: <circle cx={4} cy={4} r={r} fill="black" stroke="black" />,
+  monastery: <circle cx={cx} cy={cy} r={r} fill="yellow" stroke="black" />,
+  church: <circle cx={cx} cy={cy} r={r} fill="pink" stroke="black" />,
+  university: <circle cx={cx} cy={cy} r={r} fill="lightblue" stroke="black" />,
+  fortress: <circle cx={cx} cy={cy} r={r} fill="red" stroke="black" />,
+  town: <circle cx={cx} cy={cy} r={r} fill="black" stroke="black" />,
 }
 
 export function PlaceMarker({ place }: PlaceProps) {
@@ -26,10 +29,10 @@ export function PlaceMarker({ place }: PlaceProps) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         // onClick={() => setHover(!hover)}
-        x={place.xy[0]}
-        y={place.xy[1]}
-        width={8}
-        height={8}
+        x={place.xy[0] - cx}
+        y={place.xy[1] - cy}
+        width={size}
+        height={size}
       >
         {marker}
       </svg>
