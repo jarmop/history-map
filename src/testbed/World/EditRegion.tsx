@@ -56,6 +56,14 @@ export function EditRegion({
           )
 
           const updatedCultures: Culture[] = []
+          if (activeCulture) {
+            updatedCultures.push({
+              ...activeCulture,
+              possessions: activeCulture.possessions.filter(
+                (p) => !activeRegions.includes(p.regionId)
+              ),
+            })
+          }
           if (culture) {
             const newPossessions = [
               ...activeRegions

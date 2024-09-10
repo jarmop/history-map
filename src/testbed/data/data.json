@@ -3330,9 +3330,7 @@
       "possessions": [
         { "regionId": 65, "start": 661, "end": 750 },
         { "regionId": 9, "start": 661, "end": 750 },
-        { "regionId": 73, "start": 711, "end": 762 },
-        { "regionId": 75, "start": 814 },
-        { "regionId": 77, "start": 763, "end": 813 }
+        { "regionId": 73, "start": 711, "end": 752 }
       ]
     },
     {
@@ -3340,6 +3338,16 @@
       "name": "Normans",
       "color": "pink",
       "possessions": [{ "regionId": 70, "start": 911, "end": null }]
+    },
+    {
+      "id": 13,
+      "name": "Emirate of Córdoba",
+      "color": "green",
+      "possessions": [
+        { "regionId": 75, "start": 814 },
+        { "regionId": 77, "start": 763, "end": 813 },
+        { "regionId": 73, "start": 753, "end": 762 }
+      ]
     }
   ]
 }
