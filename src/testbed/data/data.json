@@ -140,7 +140,8 @@
         [43.4494, 4.425],
         [43.6119, 3.8772],
         [43.111, 3.1241],
-        [42.8089, 3.1739],
+        [42.626, 3.0839],
+        [42.4353, 3.1627],
         [41.85, 3.1292],
         [41.3828, 2.1769],
         [41.1175, 1.2528],
@@ -160,7 +161,7 @@
         [38.5243, -8.8926],
         [38.7, -9.4167],
         [39.35, -9.3667],
-        [41.1621, -8.622],
+        [41.1055, -8.6217],
         [42.2314, -8.7124],
         [43.1111, -9.1834],
         [43.365, -8.41],
@@ -170,7 +171,7 @@
         [43.3869, -4.2907],
         [43.4628, -3.805],
         [43.5065, -3.5818],
-        [43.2569, -2.9236],
+        [43.2852, -2.9152],
         [43.3214, -1.9856],
         [43.3378, -1.7888],
         [43.49, -1.48],
@@ -1085,8 +1086,8 @@
         [35.0259, 38.5088],
         [33.9876, 36.7537]
       ],
-      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 472, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 372, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 473, "reverse": false },
       "startYear": -2334,
       "endYear": -2154
     },
@@ -1100,8 +1101,8 @@
         [33.2381, 47.1038],
         [32.2921, 48.9938]
       ],
-      "startPoint": { "borderId": 1, "index": 475, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 476, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 371, "reverse": false },
       "startYear": -2334,
       "endYear": -2154
     },
@@ -1116,8 +1117,8 @@
         [37.455, 42.12],
         [36.665, 43.695]
       ],
-      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 372, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 371, "reverse": false },
       "startYear": -1894,
       "endYear": -1595
     },
@@ -1139,8 +1140,8 @@
         [27.6928, 30.645],
         [29.6666, 30.465]
       ],
-      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 460, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 372, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 461, "reverse": false },
       "startYear": -911,
       "endYear": -609
     },
@@ -1159,8 +1160,8 @@
         [37.5621, 33.525],
         [37.1328, 33.39]
       ],
-      "startPoint": { "borderId": 1, "index": 370, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 476, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 477, "reverse": false },
       "startYear": -911,
       "endYear": -609
     },
@@ -1175,16 +1176,16 @@
         [27.8421, 38.97],
         [26.8026, 39.33]
       ],
-      "startPoint": { "borderId": 1, "index": 371, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 389, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 372, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 390, "reverse": false },
       "startYear": -608,
       "endYear": -539
     },
     {
       "id": 21,
       "path": [],
-      "startPoint": { "borderId": 1, "index": 392, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 468, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 393, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 469, "reverse": false },
       "startYear": -608,
       "endYear": -539
     },
@@ -1199,8 +1200,8 @@
         [32.3278, 48.96],
         [31.7173, 49.185]
       ],
-      "startPoint": { "borderId": 1, "index": 475, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 476, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 371, "reverse": false },
       "startYear": -608,
       "endYear": -539
     },
@@ -1216,8 +1217,8 @@
         [29.039, 37.755],
         [26.8528, 38.25]
       ],
-      "startPoint": { "borderId": 1, "index": 372, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 389, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 373, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 390, "reverse": false },
       "startYear": -538,
       "endYear": -330
     },
@@ -1229,8 +1230,8 @@
         [27.4135, 28.08],
         [28.9209, 26.505]
       ],
-      "startPoint": { "borderId": 1, "index": 397, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 455, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 398, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 456, "reverse": false },
       "startYear": -538,
       "endYear": -330
     },
@@ -1254,8 +1255,8 @@
         [41.0345, 48.555],
         [42.7758, 43.425]
       ],
-      "startPoint": { "borderId": 1, "index": 361, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 512, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 362, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 513, "reverse": false },
       "startYear": -538,
       "endYear": -330
     },
@@ -1327,8 +1328,8 @@
         [26.4406, 68.355],
         [25.2255, 68.535]
       ],
-      "startPoint": { "borderId": 1, "index": 504, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 361, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 505, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 362, "reverse": false },
       "startYear": -329,
       "endYear": -323
     },
@@ -1343,8 +1344,8 @@
         [28.5164, 32.85],
         [29.265, 32.355]
       ],
-      "startPoint": { "borderId": 1, "index": 458, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 396, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 459, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 397, "reverse": false },
       "startYear": -329,
       "endYear": -323
     },
@@ -1364,8 +1365,8 @@
         [30.963, 44.3841],
         [30.5376, 45.4641]
       ],
-      "startPoint": { "borderId": 1, "index": 394, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 371, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 395, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 372, "reverse": false },
       "startYear": -329,
       "endYear": -323
     },
@@ -1391,7 +1392,7 @@
         [45.2986, 28.035],
         [45.425, 28.305]
       ],
-      "startPoint": { "borderId": 1, "index": 195, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 196, "reverse": false },
       "endPoint": { "borderId": 1, "index": 11, "reverse": false },
       "startYear": -27,
       "endYear": 1453
@@ -1425,8 +1426,8 @@
         [24.2651, 29.61],
         [23.1113, 32.85]
       ],
-      "startPoint": { "borderId": 1, "index": 429, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 397, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 430, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 398, "reverse": false },
       "startYear": -27,
       "endYear": 660
     },
@@ -1437,15 +1438,15 @@
         [31.9562, 36.9],
         [35.327, 40.68]
       ],
-      "startPoint": { "borderId": 1, "index": 390, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 511, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 391, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 512, "reverse": false },
       "startYear": -27,
       "endYear": 660
     },
     {
       "id": 36,
       "path": [],
-      "startPoint": { "borderId": 1, "index": 454, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 455, "reverse": false },
       "endPoint": { "borderId": 34, "index": 4, "reverse": true },
       "startYear": 395,
       "endYear": 660
@@ -1458,9 +1459,10 @@
         [41.3224, -4.1161],
         [42.5276, -2.4961]
       ],
-      "startPoint": { "borderId": 1, "index": 157, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 168, "reverse": false },
-      "startYear": 763
+      "startPoint": { "borderId": 1, "index": 158, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 169, "reverse": false },
+      "startYear": 763,
+      "endYear": 1030
     },
     {
       "id": 38,
@@ -1474,8 +1476,8 @@
         [23.7976, 30.7702],
         [22.7228, 33.3802]
       ],
-      "startPoint": { "borderId": 1, "index": 425, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 397, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 426, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 398, "reverse": false },
       "startYear": 661,
       "endYear": 750
     },
@@ -1487,8 +1489,8 @@
         [37.7357, 39.1402],
         [38.8658, 40.4002]
       ],
-      "startPoint": { "borderId": 1, "index": 476, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 510, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 477, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 511, "reverse": false },
       "startYear": 661,
       "endYear": 750
     },
@@ -1517,8 +1519,8 @@
         [39.1455, 73.1602],
         [32.2088, 72.7102]
       ],
-      "startPoint": { "borderId": 1, "index": 511, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 361, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 512, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 362, "reverse": false },
       "startYear": 661,
       "endYear": 750
     },
@@ -1528,10 +1530,9 @@
         [48.6105, -0.2573],
         [49.0991, 1.4752]
       ],
-      "startPoint": { "borderId": 1, "index": 180, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 189, "reverse": false },
-      "startYear": 911,
-      "endYear": null
+      "startPoint": { "borderId": 1, "index": 181, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 190, "reverse": false },
+      "startYear": 911
     },
     {
       "id": 43,
@@ -1541,8 +1542,8 @@
         [42.8749, -4.0036],
         [42.7758, -2.3836]
       ],
-      "startPoint": { "borderId": 1, "index": 162, "reverse": false },
-      "endPoint": { "borderId": 1, "index": 168, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 163, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 169, "reverse": false },
       "startYear": 711,
       "endYear": 762
     },
@@ -1556,7 +1557,7 @@
         [43.8725, 3.6464],
         [43.8725, 4.1639]
       ],
-      "startPoint": { "borderId": 1, "index": 169, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 170, "reverse": false },
       "endPoint": { "borderId": 1, "index": 134, "reverse": false },
       "startYear": 711,
       "endYear": 762
@@ -1568,8 +1569,9 @@
         [41.5417, 0.6314]
       ],
       "startPoint": { "borderId": 37, "index": 3 },
-      "endPoint": { "borderId": 1, "index": 140, "reverse": false },
-      "startYear": 814
+      "endPoint": { "borderId": 1, "index": 141, "reverse": false },
+      "startYear": 814,
+      "endYear": 1030
     },
     {
       "id": 46,
@@ -1577,10 +1579,21 @@
         [42.8913, -0.4711],
         [42.6601, 1.2389]
       ],
-      "startPoint": { "borderId": 1, "index": 169, "reverse": false },
+      "startPoint": { "borderId": 1, "index": 170, "reverse": false },
       "endPoint": { "borderId": 1, "index": 137, "reverse": false },
       "startYear": 763,
       "endYear": 813
+    },
+    {
+      "id": 47,
+      "path": [
+        [43.1125, -1.4273],
+        [42.8078, 0.7327],
+        [42.4436, 2.1952]
+      ],
+      "startPoint": { "borderId": 1, "index": 170, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 138, "reverse": false },
+      "startYear": 1031
     }
   ],
   "regions": [
@@ -1678,7 +1691,7 @@
     { "id": 64, "border": { "borderId": 39, "reverse": true } },
     { "id": 65, "border": { "borderId": 40 } },
     { "id": 66, "border": { "borderId": 40, "reverse": true } },
-    { "id": 69, "border": { "borderId": 42 } },
+    { "id": 69, "border": { "borderId": 42 }, "dividers": [47] },
     { "id": 70, "border": { "borderId": 42, "reverse": true } },
     { "id": 71, "border": { "borderId": 43 }, "dividers": [44] },
     { "id": 72, "border": { "borderId": 43, "reverse": true } },
@@ -1687,7 +1700,9 @@
     { "id": 75, "border": { "borderId": 45 } },
     { "id": 76, "border": { "borderId": 45, "reverse": true } },
     { "id": 77, "border": { "borderId": 46 } },
-    { "id": 78, "border": { "borderId": 46, "reverse": true } }
+    { "id": 78, "border": { "borderId": 46, "reverse": true } },
+    { "id": 79, "border": { "borderId": 47 } },
+    { "id": 80, "border": { "borderId": 47, "reverse": true } }
   ],
   "rivers": [
     {
@@ -3218,7 +3233,27 @@
       "type": "monastery",
       "start": 761,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Monasterio_de_San_Vicente.jpg/250px-Monasterio_de_San_Vicente.jpg"
-    }
+    },
+    { "id": "Porto", "xy": [41.1621, -8.622], "type": "town", "start": -800 },
+    {
+      "id": "Salamanca",
+      "xy": [40.9673, -5.6658],
+      "type": "town",
+      "start": -700
+    },
+    { "id": "Pamplona", "xy": [42.8167, -1.65], "type": "town", "start": -75 },
+    {
+      "id": "Barcelona",
+      "xy": [41.3828, 2.1769],
+      "type": "town",
+      "start": -5000
+    },
+    { "id": "Valencia", "xy": [39.47, -0.3764], "type": "town", "start": -138 },
+    { "id": "Bilbao", "xy": [43.2569, -2.9236], "type": "town", "start": -300 },
+    { "id": "Bayonne", "xy": [43.49, -1.48], "type": "town", "start": 1 },
+    { "id": "Donostia", "xy": [43.3214, -1.9856], "type": "town", "start": 50 },
+    { "id": "Girona", "xy": [41.9844, 2.8211], "type": "town", "start": 1 },
+    { "id": "Perpignan", "xy": [42.6986, 2.8956], "type": "town", "start": 1 }
   ],
   "cultures": [
     {
@@ -3337,17 +3372,23 @@
       "id": 12,
       "name": "Normans",
       "color": "pink",
-      "possessions": [{ "regionId": 70, "start": 911, "end": null }]
+      "possessions": [{ "regionId": 70, "start": 911 }]
     },
     {
       "id": 13,
       "name": "Emirate of Córdoba",
       "color": "green",
       "possessions": [
-        { "regionId": 75, "start": 814 },
         { "regionId": 77, "start": 763, "end": 813 },
-        { "regionId": 73, "start": 753, "end": 762 }
+        { "regionId": 73, "start": 753, "end": 762 },
+        { "regionId": 75, "start": 814, "end": 1030 }
       ]
+    },
+    {
+      "id": 14,
+      "name": "Emirate of Crete",
+      "color": "lightgreen",
+      "possessions": [{ "regionId": 8, "start": 824 }]
     }
   ]
 }

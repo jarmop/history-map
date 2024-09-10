@@ -565,11 +565,48 @@ export function useData(year: number, zoom: number) {
       ],
     }
 
+    const affectedBorders = allBorders.filter(
+      (b) =>
+        (b.startPoint?.borderId === editedBorder.id &&
+          b.startPoint.index > borderData.index) ||
+        (b.endPoint?.borderId === editedBorder.id &&
+          b.endPoint.index > borderData.index)
+    )
+
+    const fixedAffectedBorders = affectedBorders.map((b) => {
+      const fixedBorder = { ...b }
+      if (
+        fixedBorder.startPoint &&
+        fixedBorder.startPoint?.borderId === editedBorder.id &&
+        fixedBorder.startPoint.index > borderData.index
+      ) {
+        fixedBorder.startPoint = {
+          ...fixedBorder.startPoint,
+          index: fixedBorder.startPoint.index + 1,
+        }
+      }
+      if (
+        fixedBorder.endPoint &&
+        fixedBorder.endPoint?.borderId === editedBorder.id &&
+        fixedBorder.endPoint.index > borderData.index
+      ) {
+        fixedBorder.endPoint = {
+          ...fixedBorder.endPoint,
+          index: fixedBorder.endPoint.index + 1,
+        }
+      }
+      return fixedBorder
+    })
+
+    const editedBorders = [editedBorder, ...fixedAffectedBorders]
+
+    const editedBorderIds = editedBorders.map((b) => b.id)
+
     setWorld({
       ...world,
       borders: sortById([
-        ...allBorders.filter((b) => b.id !== editedBorder.id),
-        editedBorder,
+        ...allBorders.filter((b) => !editedBorderIds.includes(b.id)),
+        ...editedBorders,
       ]),
     })
   }
