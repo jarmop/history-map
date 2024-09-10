@@ -13,7 +13,7 @@
         [45.9386, 33.7611],
         [46.6425, 32.625],
         [46.4775, 30.7326],
-        [46.0908, 30.4918],
+        [45.502, 29.9152],
         [45.2056, 29.6813],
         [43.2167, 27.9167],
         [42.5173, 27.5583],
@@ -1836,6 +1836,55 @@
       "endPoint": { "borderId": 1, "index": 89, "reverse": false },
       "startYear": 1130,
       "endYear": 1815
+    },
+    {
+      "id": 69,
+      "path": [
+        [47.5888, 29.0039],
+        [51.2739, 40.8839],
+        [56.1664, 48.3989],
+        [55.3595, 88.3139],
+        [53.4813, 88.5389],
+        [46.5274, 79.0439],
+        [46.4034, 64.1039],
+        [42.2867, 59.9639],
+        [38.8702, 54.2039],
+        [41.4827, 48.6239]
+      ],
+      "startPoint": { "borderId": 31, "index": 11, "reverse": true },
+      "endPoint": { "borderId": 1, "index": 523, "reverse": false },
+      "startYear": 1258
+    },
+    {
+      "id": 70,
+      "path": [
+        [39.9522, 32.4014],
+        [39.0495, 32.2664]
+      ],
+      "startPoint": { "borderId": 1, "index": 515, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 491, "reverse": false },
+      "startYear": 1258
+    },
+    {
+      "id": 71,
+      "path": [
+        [36.5204, 37.9139],
+        [34.1716, 40.3439]
+      ],
+      "startPoint": { "borderId": 1, "index": 482, "reverse": false },
+      "endPoint": { "borderId": 1, "index": 379, "reverse": false },
+      "startYear": 1258
+    },
+    {
+      "id": 72,
+      "path": [
+        [33.4237, 70.6739],
+        [37.1686, 68.8739],
+        [39.706, 62.6639]
+      ],
+      "startPoint": { "borderId": 1, "index": 370, "reverse": false },
+      "endPoint": { "borderId": 69, "index": 7, "reverse": true },
+      "startYear": 1258
     }
   ],
   "regions": [
@@ -2017,11 +2066,31 @@
     { "id": 114, "border": { "borderId": 64, "reverse": true } },
     { "id": 115, "border": { "borderId": 65 } },
     { "id": 116, "border": { "borderId": 65, "reverse": true } },
-    { "id": 117, "border": { "borderId": 66 } },
+    { "id": 117, "border": { "borderId": 66 }, "dividers": [69] },
     { "id": 118, "border": { "borderId": 66, "reverse": true } },
     { "id": 119, "border": { "borderId": 67 } },
     { "id": 120, "border": { "borderId": 68 } },
-    { "id": 121, "border": { "borderId": 68, "reverse": true } }
+    { "id": 121, "border": { "borderId": 68, "reverse": true } },
+    { "id": 122, "border": { "borderId": 69 } },
+    {
+      "id": 123,
+      "border": { "borderId": 69, "reverse": true },
+      "dividers": [70]
+    },
+    { "id": 124, "border": { "borderId": 70 } },
+    {
+      "id": 125,
+      "border": { "borderId": 70, "reverse": true },
+      "dividers": [71]
+    },
+    { "id": 126, "border": { "borderId": 71 } },
+    {
+      "id": 127,
+      "border": { "borderId": 71, "reverse": true },
+      "dividers": [72]
+    },
+    { "id": 128, "border": { "borderId": 72 } },
+    { "id": 129, "border": { "borderId": 72, "reverse": true } }
   ],
   "rivers": [
     {
@@ -3901,6 +3970,21 @@
       "name": "Kingdom of Naples",
       "color": "burlywood",
       "possessions": [{ "regionId": 120, "start": 1282, "end": 1815 }]
+    },
+    {
+      "id": 31,
+      "name": "Golden Horde",
+      "color": "gold",
+      "possessions": [{ "regionId": 122, "start": 1259 }]
+    },
+    {
+      "id": 32,
+      "name": "Mongol Empire",
+      "color": "brown",
+      "possessions": [
+        { "regionId": 122, "start": 1258, "end": 1258 },
+        { "regionId": 129, "start": 1258 }
+      ]
     }
   ]
 }

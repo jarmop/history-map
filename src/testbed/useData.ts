@@ -190,9 +190,12 @@ export function useData(year: number, zoom: number) {
     firstBorderId: number,
     previousBorderId: Border['id']
   ): BorderData[] {
-    // console.log('border', border)
-    // console.log('reverse', reverse)
-    // console.log('startIndex', startIndex)
+    // if (firstBorderId === 31) {
+    //   console.log('getBorderData')
+    //   console.log('border.id', border.id)
+    //   console.log('border', border)
+    //   console.log('reverse', reverse)
+    // }
 
     let nextConnection: BorderConnection | undefined = getNextBranch(
       border,
@@ -228,7 +231,7 @@ export function useData(year: number, zoom: number) {
         // nextBorder = borderById[nextConnection.borderId]
       } else {
         // island connecting to start
-        // console.log('b')
+        // console.log('c')
         nextBorder = border
         if (border.id === firstBorderId) {
           nextConnection = undefined
@@ -245,7 +248,7 @@ export function useData(year: number, zoom: number) {
 
       endIndex = reverse ? 0 : nextBorder.path.length - 1
     } else {
-      // console.log('c')
+      // console.log('d')
       endIndex = nextConnection.index
       if (nextConnection.borderId === firstBorderId) {
         nextConnection = undefined
@@ -285,6 +288,14 @@ export function useData(year: number, zoom: number) {
   }
 
   function regionExistsInYear(region: Region): boolean {
+    const branchesByDirection = branchesByBorderId[region.border.borderId]
+    if (
+      branchesByDirection &&
+      branchesByDirection[region.border.reverse ? 'reverse' : 'forward']
+        .length > 0
+    ) {
+      return false
+    }
     const border = visibleBorderById[region.border.borderId]
     const dividerBorder =
       region.dividers && region.dividers.some((d) => visibleBorderById[d])
@@ -334,7 +345,6 @@ export function useData(year: number, zoom: number) {
 
     const point = region.border.reverse ? border.startPoint : border.endPoint
 
-    // console.log('getting border data', region.id)
     const borderData = getBorderData(
       nextBorder,
       point.reverse || false,
