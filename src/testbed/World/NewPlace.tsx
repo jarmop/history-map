@@ -43,16 +43,20 @@ export function NewPlace({ onSave }: NewPlaceProps) {
       </select>
       <br />
       <label>Start:</label>
-      <br />
+      &nbsp;
       <input
+        style={{ width: '50px' }}
         type="number"
         value={place.start || ''}
-        onChange={(e) => setPlace({ ...place, start: parseInt(e.target.value) })}
+        onChange={(e) =>
+          setPlace({ ...place, start: parseInt(e.target.value) })
+        }
       />
-      <br />
+      &nbsp;
       <label>End:</label>
-      <br />
+      &nbsp;
       <input
+        style={{ width: '50px' }}
         type="number"
         value={place.end || ''}
         onChange={(e) => setPlace({ ...place, end: parseInt(e.target.value) })}
@@ -71,6 +75,17 @@ export function NewPlace({ onSave }: NewPlaceProps) {
           !isNaN(xy[0]) && !isNaN(xy[1]) && setPlace({ ...place, xy })
         }}
       />
+      <br />
+      <label>Image:</label>
+      <br />
+      <input
+        type="text"
+        value={place.image}
+        onChange={(e) => {
+          setPlace({ ...place, image: e.target.value })
+        }}
+      />
+      <br />
       <br />
       <button onClick={() => onSave(place)}>Add</button>
     </div>
