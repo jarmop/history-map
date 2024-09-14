@@ -261,8 +261,10 @@ export function TestMap({
           <circle
             cx={activeMarker.xy[0]}
             cy={activeMarker.xy[1]}
-            r="6"
-            fill="red"
+            r="10"
+            fill="none"
+            stroke="red"
+            strokeWidth="5"
           />
         )}
       </svg>

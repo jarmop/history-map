@@ -4099,7 +4099,8 @@
       "type": "artefact",
       "start": 1235,
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bonaventura_Berlinghieri_Francesco.jpg/152px-Bonaventura_Berlinghieri_Francesco.jpg",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Bonaventura_Berlinghieri_Francesco.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Bonaventura_Berlinghieri_Francesco.jpg",
+      "artist": "Bonaventura Berlinghieri"
     },
     { "id": "Lucca", "xy": [43.8417, 10.5028], "type": "town", "start": -89 },
     {
@@ -4108,7 +4109,8 @@
       "type": "artefact",
       "start": 1260,
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pulpit_-_Baptistry_-_Pisa_2014_B.jpg/320px-Pulpit_-_Baptistry_-_Pisa_2014_B.jpg",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Pulpit_-_Baptistry_-_Pisa_2014_B.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Pulpit_-_Baptistry_-_Pisa_2014_B.jpg",
+      "artist": "Nicola Pisano"
     },
     {
       "id": "Mosaic on the vault (Detail of the Hell Scene)",
@@ -4156,7 +4158,7 @@
       "location": "",
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cimabue_-_Flagellation.jpg/159px-Cimabue_-_Flagellation.jpg",
       "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cimabue_-_Flagellation.jpg",
-      "description": "Location (corodinates) uncertain."
+      "description": "Location (coordinates) uncertain."
     },
     {
       "id": "Saint Francis receiving the Stigmata.",
@@ -4178,6 +4180,1402 @@
       "artist": "Duccio",
       "description": "Date and location uncertain.",
       "location": "Siena"
+    },
+    {
+      "id": "Adam and Eve, the original sin",
+      "xy": [42.717, 12.1133],
+      "type": "artefact",
+      "start": 1330,
+      "location": "Orvieto Cathedral",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Orvieto059.jpg/225px-Orvieto059.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Orvieto059.jpg/1280px-Orvieto059.jpg",
+      "artist": "Lorenzo Maitani",
+      "end": null
+    },
+    {
+      "id": "Orvieto",
+      "xy": [42.7183, 12.1103],
+      "type": "town",
+      "start": 1000
+    },
+    {
+      "id": "Orvieto Cathedral",
+      "xy": [42.717, 12.1133],
+      "type": "church",
+      "start": 1000,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Orvieto_-_Duomo_di_Orvieto_-_2023-10-01_01-15-01_001.JPG/220px-Orvieto_-_Duomo_di_Orvieto_-_2023-10-01_01-15-01_001.JPG",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Orvieto_-_Duomo_di_Orvieto_-_2023-10-01_01-15-01_001.JPG/1280px-Orvieto_-_Duomo_di_Orvieto_-_2023-10-01_01-15-01_001.JPG"
+    },
+    {
+      "id": "Blessed Agostino Novello Triptych",
+      "xy": [43.3186, 11.3306],
+      "type": "artefact",
+      "start": 1328,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Simone_Martini_073.jpg/300px-Simone_Martini_073.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Simone_Martini_073.jpg",
+      "location": "A church in Siena",
+      "description": "Produced for a church in Siena between 1324 and 1328.",
+      "artist": "Simone Martini"
+    },
+    {
+      "id": "Florence Cathedral",
+      "xy": [43.7731, 11.2569],
+      "type": "church",
+      "start": 1296,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/View_of_Santa_Maria_del_Fiore_in_Florence.jpg/1280px-View_of_Santa_Maria_del_Fiore_in_Florence.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/View_of_Santa_Maria_del_Fiore_in_Florence.jpg/220px-View_of_Santa_Maria_del_Fiore_in_Florence.jpg",
+      "artist": "Brunelleschi",
+      "description": "Construction completed in 1436 by Filippo Brunelleschi."
+    },
+    {
+      "id": "Baroncelli Chapel",
+      "xy": [43.7681, 11.2633],
+      "type": "church",
+      "start": 1328,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cappella_baroncelli_001.JPG/240px-Cappella_baroncelli_001.JPG",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cappella_baroncelli_001.JPG/1280px-Cappella_baroncelli_001.JPG",
+      "location": "Florence",
+      "description": "Taddeo Gaddi added the Frescos in 1328. The chapel itself was probably built before that."
+    },
+    {
+      "id": "Annunciation",
+      "xy": [55.75, 37.6169],
+      "type": "artefact",
+      "start": 1405,
+      "location": "Cathedral of the Annunciation, Moscow",
+      "description": "Part of a Fresco in the Cathedral of the Annunciation in Moscow, which he decorated in company with Theophanes the Greek and Prokhor of Gorodets.",
+      "artist": "Andrei Rublev",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Annunciation_from_Vasilyevskiy_chin_%281408%2C_Tretyakov_gallery%29.jpg/146px-Annunciation_from_Vasilyevskiy_chin_%281408%2C_Tretyakov_gallery%29.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Annunciation_from_Vasilyevskiy_chin_%281408%2C_Tretyakov_gallery%29.jpg/800px-Annunciation_from_Vasilyevskiy_chin_%281408%2C_Tretyakov_gallery%29.jpg"
+    },
+    {
+      "id": "Cathedral of the Annunciation",
+      "xy": [55.75, 37.6169],
+      "type": "church",
+      "start": 1489,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/The_Cathedral_of_the_Annunciation.jpg/230px-The_Cathedral_of_the_Annunciation.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/The_Cathedral_of_the_Annunciation.jpg/1280px-The_Cathedral_of_the_Annunciation.jpg",
+      "location": "Kreml, Moscow"
+    },
+    { "id": "Novgorod", "xy": [58.55, 31.2667], "type": "town", "start": 859 },
+    {
+      "id": "Nizhny Novgorod",
+      "xy": [56.3269, 44.0075],
+      "type": "town",
+      "start": 1221
+    },
+    {
+      "id": "Novgorod Kremlin",
+      "xy": [58.521, 31.2756],
+      "type": "fortress",
+      "start": 1044,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/VNovogorod_Detinets_VN13.jpg/250px-VNovogorod_Detinets_VN13.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/VNovogorod_Detinets_VN13.jpg/1280px-VNovogorod_Detinets_VN13.jpg",
+      "location": "Novgorod"
+    },
+    {
+      "id": "Adoration of the Magi",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1423,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Gentile_da_Fabriano_Adoration.jpg/220px-Gentile_da_Fabriano_Adoration.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Gentile_da_Fabriano_Adoration.jpg",
+      "description": "Altarpiece. Commissioned by the famous banker Palla Strozzi.",
+      "artist": "Gentile da Fabriano",
+      "location": "Florence"
+    },
+    {
+      "id": "Portrait of a Man",
+      "xy": [50.6056, 3.3881],
+      "type": "artefact",
+      "start": 1435,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Robert_Campin_013.jpg/400px-Robert_Campin_013.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Robert_Campin_013.jpg/1024px-Robert_Campin_013.jpg",
+      "artist": "Robert Campin",
+      "description": "",
+      "location": ""
+    },
+    {
+      "id": "Portrait of a Woman",
+      "xy": [50.6056, 3.3881],
+      "type": "artefact",
+      "start": 1435,
+      "description": "",
+      "artist": "Robert Campin",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Robert_Campin_012.jpg/1024px-Robert_Campin_012.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Robert_Campin_012.jpg/400px-Robert_Campin_012.jpg"
+    },
+    {
+      "id": "Tournai",
+      "xy": [50.6056, 3.3881],
+      "type": "town",
+      "start": 300,
+      "description": "",
+      "artist": "",
+      "location": "",
+      "image": "",
+      "thumbnail": ""
+    },
+    {
+      "id": "Mérode Altarpiece",
+      "xy": [50.6056, 3.3881],
+      "type": "artefact",
+      "start": 1428,
+      "description": "",
+      "artist": "Robert Campin",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Annunciation_Triptych_%28Merode_Altarpiece%29_MET_DP273206.jpg/1280px-Annunciation_Triptych_%28Merode_Altarpiece%29_MET_DP273206.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Annunciation_Triptych_%28Merode_Altarpiece%29_MET_DP273206.jpg/640px-Annunciation_Triptych_%28Merode_Altarpiece%29_MET_DP273206.jpg"
+    },
+    {
+      "id": "The Virgin and Child before a Firescreen",
+      "xy": [50.6056, 3.3881],
+      "type": "artefact",
+      "start": 1440,
+      "description": "",
+      "artist": "Robert Campin",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Robert_Campin_-_The_Virgin_and_Child_before_a_Firescreen_%28National_Gallery_London%29.jpg/1280px-Robert_Campin_-_The_Virgin_and_Child_before_a_Firescreen_%28National_Gallery_London%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Robert_Campin_-_The_Virgin_and_Child_before_a_Firescreen_%28National_Gallery_London%29.jpg/367px-Robert_Campin_-_The_Virgin_and_Child_before_a_Firescreen_%28National_Gallery_London%29.jpg"
+    },
+    {
+      "id": "Holy Trinity",
+      "xy": [50.6056, 3.3881],
+      "type": "artefact",
+      "start": 1435,
+      "artist": "Robert Campin",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/RobertCampin-Trinity.jpg/1024px-RobertCampin-Trinity.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/RobertCampin-Trinity.jpg/310px-RobertCampin-Trinity.jpg"
+    },
+    {
+      "id": "Portrait of St. Veronica",
+      "xy": [50.6056, 3.3881],
+      "type": "artefact",
+      "start": 1410,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CampinVeronica.jpg/360px-CampinVeronica.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/CampinVeronica.jpg",
+      "artist": " Robert Campin"
+    },
+    {
+      "id": "Saint George and the Princess",
+      "xy": [43.7167, 10.4],
+      "type": "artefact",
+      "start": 1436,
+      "description": "The date of the work is uncertain. It is generally assigned to the period between the painter's return from Rome in 1433 and his departure to Ferrara in 1438.",
+      "artist": "Pisanello",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Saint_George_and_the_princess_by_Pisanello_-_Pellegrini_Chapel_-_Sant%27Anastasia_-_Verona_2016_and_corrections_%28perspective%2C_lights%2C_definition_by_Paolo_Villa_2019%29.jpg/360px-thumbnail.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Saint_George_and_the_princess_by_Pisanello_-_Pellegrini_Chapel_-_Sant%27Anastasia_-_Verona_2016_and_corrections_%28perspective%2C_lights%2C_definition_by_Paolo_Villa_2019%29.jpg/1280px-thumbnail.jpg"
+    },
+    {
+      "id": "Studies of Cats",
+      "xy": [43.7167, 10.4],
+      "type": "artefact",
+      "start": 1430,
+      "description": "The date of the work is uncertain.",
+      "artist": "Pisanello",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Pisanello%2C_disegno_gatti.jpg/144px-Pisanello%2C_disegno_gatti.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Pisanello%2C_disegno_gatti.jpg"
+    },
+    {
+      "id": "Boar",
+      "xy": [43.7167, 10.4],
+      "type": "artefact",
+      "start": 1430,
+      "description": "The date of the work is uncertain.",
+      "artist": "Pisanello",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Pisanello%2C_disegni%2C_fitzwilliam_museum_pd.124.1961.jpg/200px-Pisanello%2C_disegni%2C_fitzwilliam_museum_pd.124.1961.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Pisanello%2C_disegni%2C_fitzwilliam_museum_pd.124.1961.jpg"
+    },
+    {
+      "id": "Portrait of a Man",
+      "xy": [51.2089, 3.2242],
+      "type": "artefact",
+      "start": 1433,
+      "description": "",
+      "artist": "Jan van Eyck",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Portrait_of_a_Man_by_Jan_van_Eyck-small.jpg/220px-Portrait_of_a_Man_by_Jan_van_Eyck-small.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Portrait_of_a_Man_by_Jan_van_Eyck-small.jpg/1280px-Portrait_of_a_Man_by_Jan_van_Eyck-small.jpg"
+    },
+    {
+      "id": "Arnolfini Portrait",
+      "xy": [51.2089, 3.2242],
+      "type": "artefact",
+      "start": 1434,
+      "description": "",
+      "artist": "Jan van Eyck",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Van_Eyck_-_Arnolfini_Portrait.jpg/220px-Van_Eyck_-_Arnolfini_Portrait.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Van_Eyck_-_Arnolfini_Portrait.jpg/1280px-Van_Eyck_-_Arnolfini_Portrait.jpg"
+    },
+    {
+      "id": "Ghent Altarpiece",
+      "xy": [51.2089, 3.2242],
+      "type": "artefact",
+      "start": 1432,
+      "description": "",
+      "artist": "Jan van Eyck",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Lamgods_open.jpg/220px-Lamgods_open.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Lamgods_open.jpg/2560px-Lamgods_open.jpg"
+    },
+    {
+      "id": "Portrait of Jan de Leeuw",
+      "xy": [51.2089, 3.2242],
+      "type": "artefact",
+      "start": 1436,
+      "description": "",
+      "artist": "Jan van Eyck",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Jan_van_Eyck_-_Portrait_of_Jan_de_Leeuw_-_WGA7609.jpg/164px-Jan_van_Eyck_-_Portrait_of_Jan_de_Leeuw_-_WGA7609.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Jan_van_Eyck_-_Portrait_of_Jan_de_Leeuw_-_WGA7609.jpg"
+    },
+    {
+      "id": "Portrait of Baudouin de Lannoy",
+      "xy": [51.2089, 3.2242],
+      "type": "artefact",
+      "start": 1435,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Jan_van_Eyck_-_Baudouin_de_Lannoy.jpg/260px-Jan_van_Eyck_-_Baudouin_de_Lannoy.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Jan_van_Eyck_-_Baudouin_de_Lannoy.jpg/1280px-Jan_van_Eyck_-_Baudouin_de_Lannoy.jpg",
+      "artist": "Jan van Eyck"
+    },
+    {
+      "id": "Crucifixion and Last Judgement diptych",
+      "xy": [51.2089, 3.2242],
+      "type": "artefact",
+      "start": 1435,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Van_Eyck_-_The_Crucifixion%3B_The_Last_Judgment.jpg/400px-Van_Eyck_-_The_Crucifixion%3B_The_Last_Judgment.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Van_Eyck_-_The_Crucifixion%3B_The_Last_Judgment.jpg/1280px-Van_Eyck_-_The_Crucifixion%3B_The_Last_Judgment.jpg",
+      "artist": "Jan van Eyck",
+      "description": "Date uncertain."
+    },
+    {
+      "id": "Virgin and Child with Canon van der Paele",
+      "xy": [51.2089, 3.2242],
+      "type": "artefact",
+      "start": 1435,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/La_Madone_au_Chanoine_Van_der_Paele.jpg/440px-La_Madone_au_Chanoine_Van_der_Paele.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/La_Madone_au_Chanoine_Van_der_Paele.jpg",
+      "artist": "Jan van Eyck",
+      "description": "Date uncertain, 1434-1436."
+    },
+    { "id": "Bruges", "xy": [51.2089, 3.2242], "type": "town", "start": -50 },
+    {
+      "id": "Nijmegen",
+      "xy": [51.8475, 5.8625],
+      "type": "town",
+      "start": 1230
+    },
+    {
+      "id": "The Anatomical Zodiac Man",
+      "xy": [51.8475, 5.8625],
+      "type": "artefact",
+      "start": 1416,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Anatomical_Man.jpg/220px-Anatomical_Man.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Anatomical_Man.jpg/1280px-Anatomical_Man.jpg",
+      "artist": "Limbourg brothers"
+    },
+    {
+      "id": "January",
+      "xy": [51.8475, 5.8625],
+      "type": "artefact",
+      "start": 1416,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_Janvier.jpg/300px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_Janvier.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_Janvier.jpg/1024px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_Janvier.jpg",
+      "artist": "Limbourg brothers"
+    },
+    {
+      "id": "February",
+      "xy": [51.8475, 5.8625],
+      "type": "artefact",
+      "start": 1416,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_f%C3%A9vrier.jpg/132px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_f%C3%A9vrier.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_f%C3%A9vrier.jpg/1024px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_f%C3%A9vrier.jpg",
+      "artist": "Limbourg brothers"
+    },
+    {
+      "id": "March",
+      "xy": [52.551, 0.088],
+      "type": "artefact",
+      "start": 1416,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_mars.jpg/136px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_mars.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_mars.jpg/1024px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_mars.jpg",
+      "artist": "Limbourg brothers"
+    },
+    {
+      "id": "October",
+      "xy": [52.551, 0.088],
+      "type": "artefact",
+      "start": 1416,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_octobre.jpg/132px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_octobre.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_octobre.jpg/1024px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_octobre.jpg",
+      "artist": "Limbourg brothers"
+    },
+    {
+      "id": "Purgatory",
+      "xy": [47.0844, 2.3964],
+      "type": "artefact",
+      "start": 1489,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Folio_113v_-_Purgatory.jpg/220px-Folio_113v_-_Purgatory.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Folio_113v_-_Purgatory.jpg/1280px-Folio_113v_-_Purgatory.jpg",
+      "artist": "Jean Colombe",
+      "description": "Date uncertain"
+    },
+    {
+      "id": "The funeral of Raymond Diocrès",
+      "xy": [47.0844, 2.3964],
+      "type": "artefact",
+      "start": 1489,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Folio_86v_-_The_Funeral_of_Raymond_Diocr%C3%A8s_%28cropped%29.jpg/200px-Folio_86v_-_The_Funeral_of_Raymond_Diocr%C3%A8s_%28cropped%29.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Folio_86v_-_The_Funeral_of_Raymond_Diocr%C3%A8s_%28cropped%29.jpg/1024px-Folio_86v_-_The_Funeral_of_Raymond_Diocr%C3%A8s_%28cropped%29.jpg",
+      "artist": "Jean Colombe",
+      "description": "Date uncertain."
+    },
+    {
+      "id": "The Council of Clermont",
+      "xy": [47.0844, 2.3964],
+      "type": "artefact",
+      "start": 1474,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Passages_d%27outremer_Fr5594%2C_fol._19r%2C_Concile_de_Clermont.jpg/220px-Passages_d%27outremer_Fr5594%2C_fol._19r%2C_Concile_de_Clermont.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Passages_d%27outremer_Fr5594%2C_fol._19r%2C_Concile_de_Clermont.jpg/1024px-Passages_d%27outremer_Fr5594%2C_fol._19r%2C_Concile_de_Clermont.jpg",
+      "artist": "Jean Colombe",
+      "description": "Passages d'outremer"
+    },
+    {
+      "id": "Jerusalem",
+      "xy": [47.0844, 2.3964],
+      "type": "artefact",
+      "start": 1474,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Passages_d%27outremer%2C_minature_of_Jerusalem%2C_painted_by_Jean_Coulombe._BnF_fr._5594_fol._86v.jpeg/220px-Passages_d%27outremer%2C_minature_of_Jerusalem%2C_painted_by_Jean_Coulombe._BnF_fr._5594_fol._86v.jpeg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/85/Passages_d%27outremer%2C_minature_of_Jerusalem%2C_painted_by_Jean_Coulombe._BnF_fr._5594_fol._86v.jpeg",
+      "artist": "Jean Colombe",
+      "description": "Passages d'outremer"
+    },
+    {
+      "id": "Bourges",
+      "xy": [47.0844, 2.3964],
+      "type": "town",
+      "start": -400,
+      "thumbnail": "",
+      "image": "",
+      "artist": "",
+      "description": ""
+    },
+    {
+      "id": "David",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1440,
+      "artist": "Donatello",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Florence_-_David_by_Donatello.jpg/220px-Florence_-_David_by_Donatello.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Florence_-_David_by_Donatello.jpg/1024px-Florence_-_David_by_Donatello.jpg"
+    },
+    {
+      "id": "Bearded Prophet",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1420,
+      "artist": "Donatello",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Donatello%2C_Bearded_Prophet%2C_1418-20%2C_Museo_dell%27Opera_del_Duomo%2C_Florence.jpg/83px-Donatello%2C_Bearded_Prophet%2C_1418-20%2C_Museo_dell%27Opera_del_Duomo%2C_Florence.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Donatello%2C_Bearded_Prophet%2C_1418-20%2C_Museo_dell%27Opera_del_Duomo%2C_Florence.jpg/800px-Donatello%2C_Bearded_Prophet%2C_1418-20%2C_Museo_dell%27Opera_del_Duomo%2C_Florence.jpg"
+    },
+    {
+      "id": "St. George",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1417,
+      "artist": "Donatello",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/St._Georg%2C_Donatello%2C_1416-17%2C_Bargello_Florenz-03.jpg/270px-St._Georg%2C_Donatello%2C_1416-17%2C_Bargello_Florenz-03.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/St._Georg%2C_Donatello%2C_1416-17%2C_Bargello_Florenz-03.jpg/1024px-St._Georg%2C_Donatello%2C_1416-17%2C_Bargello_Florenz-03.jpg"
+    },
+    {
+      "id": "The Day of Judgement",
+      "xy": [43.7785, 11.259],
+      "type": "artefact",
+      "start": 1430,
+      "artist": "Fra Angelico",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Fra_Angelico_009.jpg/388px-Fra_Angelico_009.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Fra_Angelico_009.jpg",
+      "location": "San Marco, Florence"
+    },
+    {
+      "id": "Thebaide",
+      "xy": [43.7785, 11.259],
+      "type": "artefact",
+      "start": 1420,
+      "artist": "Fra Angelico",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Fra_Angelico_-_Thebaid.jpg/388px-Fra_Angelico_-_Thebaid.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/Fra_Angelico_-_Thebaid.jpg",
+      "description": "From the book \"Historia religiosa seu ascetica vivendi ratio\"."
+    },
+    {
+      "id": "Saint George and the Dragon",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1470,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Paolo_Uccello_Heiliger_Georg_und_der_Drachen_1_470.jpg/250px-Paolo_Uccello_Heiliger_Georg_und_der_Drachen_1_470.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Paolo_Uccello_Heiliger_Georg_und_der_Drachen_1_470.jpg/1280px-Paolo_Uccello_Heiliger_Georg_und_der_Drachen_1_470.jpg",
+      "artist": "Paolo Uccello"
+    },
+    {
+      "id": "Beaune Altarpiece",
+      "xy": [47.0219, 4.8367],
+      "type": "artefact",
+      "start": 1451,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Rogier_van_der_Weyden_-_The_Last_Judgment_Polyptych_-_WGA25625.jpg/570px-Rogier_van_der_Weyden_-_The_Last_Judgment_Polyptych_-_WGA25625.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Rogier_van_der_Weyden_-_The_Last_Judgment_Polyptych_-_WGA25625.jpg",
+      "artist": "Rogier van der Weyden"
+    },
+    {
+      "id": "Portrait of a Lady",
+      "xy": [50.8467, 4.3525],
+      "type": "artefact",
+      "start": 1460,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rogier_van_der_Weyden_-_Portrait_of_a_Lady_-_Google_Art_Project.jpg/220px-Rogier_van_der_Weyden_-_Portrait_of_a_Lady_-_Google_Art_Project.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rogier_van_der_Weyden_-_Portrait_of_a_Lady_-_Google_Art_Project.jpg/1280px-Rogier_van_der_Weyden_-_Portrait_of_a_Lady_-_Google_Art_Project.jpg",
+      "artist": "Rogier van der Weyden"
+    },
+    { "id": "Brussels", "xy": [50.8467, 4.3525], "type": "town", "start": 979 },
+    { "id": "Beaune", "xy": [47.025, 4.8397], "type": "town", "start": 50 },
+    {
+      "id": "Hospices de Beaune",
+      "xy": [47.0219, 4.8367],
+      "type": "hospital",
+      "start": 1443,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Hospices_de_Beaune.jpg/250px-Hospices_de_Beaune.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Hospices_de_Beaune.jpg/1280px-Hospices_de_Beaune.jpg",
+      "description": "A charitable almshouse. A hospital for the poor."
+    },
+    {
+      "id": "The Expulsion",
+      "xy": [43.7677, 11.2436],
+      "type": "artefact",
+      "start": 1425,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Masaccio-TheExpulsionOfAdamAndEveFromEden-Restoration.jpg/220px-Masaccio-TheExpulsionOfAdamAndEveFromEden-Restoration.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Masaccio-TheExpulsionOfAdamAndEveFromEden-Restoration.jpg",
+      "description": "Centuries later some prude Medici covered the genitals.",
+      "location": "Brancacci Chapel",
+      "artist": "Masaccio"
+    },
+    {
+      "id": "The Annunciation, with St. Emidius",
+      "xy": [42.8517, 13.5721],
+      "type": "artefact",
+      "start": 1486,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/The_Annunciation%2C_with_Saint_Emidius_-_Carlo_Crivelli_-_National_Gallery.jpg/180px-The_Annunciation%2C_with_Saint_Emidius_-_Carlo_Crivelli_-_National_Gallery.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/The_Annunciation%2C_with_Saint_Emidius_-_Carlo_Crivelli_-_National_Gallery.jpg/1280px-The_Annunciation%2C_with_Saint_Emidius_-_Carlo_Crivelli_-_National_Gallery.jpg",
+      "description": "Altarpiece painted for the Church of SS. Annunziata in the Italian town of Ascoli.",
+      "location": "Church of SS. Annunziata, Ascoli",
+      "artist": "Carlo Crivelli"
+    },
+    {
+      "id": "St Thomas Aquinas",
+      "xy": [42.8517, 13.5721],
+      "type": "artefact",
+      "start": 1476,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/St-thomas-aquinas.jpg/220px-St-thomas-aquinas.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/St-thomas-aquinas.jpg/1024px-St-thomas-aquinas.jpg",
+      "description": "Part of The Demidoff Altarpiece constructed for the Dominican church of Ascoli Piceno.",
+      "location": "Dominican church of Ascoli Piceno",
+      "artist": "Carlo Crivelli"
+    },
+    {
+      "id": "Portrait of Mehmet II",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1480,
+      "artist": "Gentile Bellini",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Bellini%2C_Gentile_-_Sultan_Mehmet_II.jpg/270px-Bellini%2C_Gentile_-_Sultan_Mehmet_II.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Bellini%2C_Gentile_-_Sultan_Mehmet_II.jpg/1280px-Bellini%2C_Gentile_-_Sultan_Mehmet_II.jpg"
+    },
+    {
+      "id": "St. Mark Preaching in Alexandria",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1507,
+      "artist": "Gentile Bellini",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Gentile_Bellini_001.jpg/400px-Gentile_Bellini_001.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Gentile_Bellini_001.jpg",
+      "description": "With Giovanni Bellini."
+    },
+    {
+      "id": "Doge Giovanni Mocenigo",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1478,
+      "artist": "Gentile Bellini",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/%28Venice%29_Doge_Giovanni_Mocenigo_by_Gentile_Bellini_-_Correr_Museum.jpg/220px-%28Venice%29_Doge_Giovanni_Mocenigo_by_Gentile_Bellini_-_Correr_Museum.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/%28Venice%29_Doge_Giovanni_Mocenigo_by_Gentile_Bellini_-_Correr_Museum.jpg/1280px-%28Venice%29_Doge_Giovanni_Mocenigo_by_Gentile_Bellini_-_Correr_Museum.jpg"
+    },
+    {
+      "id": "Procession of the True Cross in Piazza San Marco",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1496,
+      "artist": "Gentile Bellini",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Accademia_-_Procession_in_piazza_San_Marco_by_Gentile_Bellini.jpg/220px-Accademia_-_Procession_in_piazza_San_Marco_by_Gentile_Bellini.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Accademia_-_Procession_in_piazza_San_Marco_by_Gentile_Bellini.jpg"
+    },
+    {
+      "id": "Queen Caterina Cornaro",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1500,
+      "artist": "Gentile Bellini",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gentile_Bellini_002.jpg/220px-Gentile_Bellini_002.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Gentile_Bellini_002.jpg"
+    },
+    {
+      "id": "Adoration of the Magi",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1476,
+      "description": "Contains a (probable) self-portrait of Botticelli himself as the rightmost character, looking at us.",
+      "artist": "Botticelli",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Botticelli_-_Adoration_of_the_Magi_%28Zanobi_Altar%29_-_Uffizi.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Botticelli_-_Adoration_of_the_Magi_%28Zanobi_Altar%29_-_Uffizi.jpg/350px-Botticelli_-_Adoration_of_the_Magi_%28Zanobi_Altar%29_-_Uffizi.jpg"
+    },
+    {
+      "id": "The Birth of Venus",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1486,
+      "description": "",
+      "artist": "Botticelli",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/400px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg"
+    },
+    {
+      "id": "Dante Alighieri",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1495,
+      "description": "",
+      "artist": "Botticelli",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Portrait_de_Dante.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Portrait_de_Dante.jpg/131px-Portrait_de_Dante.jpg"
+    },
+    {
+      "id": "A Young Man Holding a Roundel",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1485,
+      "description": "",
+      "artist": "Botticelli",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Botticelli_-_Portrait_of_a_young_man_holding_a_medallion.jpg/1024px-Botticelli_-_Portrait_of_a_young_man_holding_a_medallion.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Botticelli_-_Portrait_of_a_young_man_holding_a_medallion.jpg/133px-Botticelli_-_Portrait_of_a_young_man_holding_a_medallion.jpg"
+    },
+    {
+      "id": "A Young Man",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1485,
+      "description": "",
+      "artist": "Botticelli",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Botticelli-Portrait_of_a_Youth.jpg/1280px-Botticelli-Portrait_of_a_Youth.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Botticelli-Portrait_of_a_Youth.jpg/150px-Botticelli-Portrait_of_a_Youth.jpg"
+    },
+    {
+      "id": "A Young Woman",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1484,
+      "description": "Possibly Simonetta Vespucci. The Roman engraved gem on her necklace was owned by Lorenzo de’ Medici.",
+      "artist": "Botticelli",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Sandro_Botticelli_-_Idealized_Portrait_of_a_Lady_%28Portrait_of_Simonetta_Vespucci_as_Nymph%29_-_Google_Art_Project.jpg/1024px-Sandro_Botticelli_-_Idealized_Portrait_of_a_Lady_%28Portrait_of_Simonetta_Vespucci_as_Nymph%29_-_Google_Art_Project.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Sandro_Botticelli_-_Idealized_Portrait_of_a_Lady_%28Portrait_of_Simonetta_Vespucci_as_Nymph%29_-_Google_Art_Project.jpg/133px-Sandro_Botticelli_-_Idealized_Portrait_of_a_Lady_%28Portrait_of_Simonetta_Vespucci_as_Nymph%29_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": "La Bella Simonetta",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1483,
+      "description": "Possibly Simonetta Vespucci. Date uncertain: 1480-1485.",
+      "artist": "Botticelli",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Simonetta_Vespucci007.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Simonetta_Vespucci007.jpg/135px-Simonetta_Vespucci007.jpg"
+    },
+    {
+      "id": "The Crucifixion of Saint Wilgefortis",
+      "xy": [51.6833, 5.3],
+      "type": "artefact",
+      "start": 1497,
+      "artist": "Hieronymus Bosch",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/BoschTheCrucifixionOfStJulia.jpg/2310px-BoschTheCrucifixionOfStJulia.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/BoschTheCrucifixionOfStJulia.jpg/350px-BoschTheCrucifixionOfStJulia.jpg"
+    },
+    {
+      "id": "Triptych of the Temptation of St. Anthony",
+      "xy": [51.6833, 5.3],
+      "type": "artefact",
+      "start": 1501,
+      "artist": "Hieronymus Bosch",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Jeroen_Bosch_%28ca._1450-1516%29_-_De_verzoeking_van_de_heilige_Antonius_%28ca.1500%29_-_Lissabon_Museu_Nacional_de_Arte_Antiga_19-10-2010_16-21-31.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Jeroen_Bosch_%28ca._1450-1516%29_-_De_verzoeking_van_de_heilige_Antonius_%28ca.1500%29_-_Lissabon_Museu_Nacional_de_Arte_Antiga_19-10-2010_16-21-31.jpg/500px-Jeroen_Bosch_%28ca._1450-1516%29_-_De_verzoeking_van_de_heilige_Antonius_%28ca.1500%29_-_Lissabon_Museu_Nacional_de_Arte_Antiga_19-10-2010_16-21-31.jpg"
+    },
+    {
+      "id": "The Garden of Earthly Delights",
+      "xy": [51.6833, 5.3],
+      "type": "artefact",
+      "start": 1510,
+      "artist": "Hieronymus Bosch",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/The_Garden_of_earthly_delights.jpg/2560px-The_Garden_of_earthly_delights.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/The_Garden_of_earthly_delights.jpg/550px-The_Garden_of_earthly_delights.jpg"
+    },
+    {
+      "id": "The Vitruvian Man",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1485,
+      "artist": "Leonardo da Vinci",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Da_Vinci_Vitruve_Luc_Viatour_%28cropped%29.jpg/1280px-Da_Vinci_Vitruve_Luc_Viatour_%28cropped%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Da_Vinci_Vitruve_Luc_Viatour_%28cropped%29.jpg/120px-Da_Vinci_Vitruve_Luc_Viatour_%28cropped%29.jpg"
+    },
+    {
+      "id": "The Last Supper",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1498,
+      "artist": "Leonardo da Vinci",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/1920px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/330px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg"
+    },
+    {
+      "id": "Mona Lisa",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1516,
+      "description": "",
+      "artist": "Leonardo da Vinci",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/170px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+    },
+    {
+      "id": "La Scapigliata",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1508,
+      "description": "",
+      "artist": "Leonardo da Vinci",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Leonardo_da_vinci_-_La_scapigliata.jpg/800px-Leonardo_da_vinci_-_La_scapigliata.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Leonardo_da_vinci_-_La_scapigliata.jpg/110px-Leonardo_da_vinci_-_La_scapigliata.jpg"
+    },
+    {
+      "id": "Nuremberg",
+      "xy": [49.4539, 11.0775],
+      "type": "town",
+      "start": 1050
+    },
+    {
+      "id": "Self-portrait at 26",
+      "xy": [49.4539, 11.0775],
+      "type": "artefact",
+      "start": 1498,
+      "artist": "Albrecht Dürer",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Albrecht_D%C3%BCrer%2C_Selbstbildnis_mit_26_Jahren_%28Prado%2C_Madrid%29.jpg/1280px-Albrecht_D%C3%BCrer%2C_Selbstbildnis_mit_26_Jahren_%28Prado%2C_Madrid%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Albrecht_D%C3%BCrer%2C_Selbstbildnis_mit_26_Jahren_%28Prado%2C_Madrid%29.jpg/220px-Albrecht_D%C3%BCrer%2C_Selbstbildnis_mit_26_Jahren_%28Prado%2C_Madrid%29.jpg"
+    },
+    {
+      "id": "Self-portrait at 28",
+      "xy": [49.4539, 11.0775],
+      "type": "artefact",
+      "start": 1500,
+      "artist": "Albrecht Dürer",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/D%C3%BCrer_Alte_Pinakothek.jpg/1280px-D%C3%BCrer_Alte_Pinakothek.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/D%C3%BCrer_Alte_Pinakothek.jpg/128px-D%C3%BCrer_Alte_Pinakothek.jpg"
+    },
+    {
+      "id": "Martin Luther",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1529,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Martin_Luther_by_Cranach-restoration.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Martin_Luther_by_Cranach-restoration.jpg/170px-Martin_Luther_by_Cranach-restoration.jpg"
+    },
+    {
+      "id": "Frederick III, Elector of Saxony",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1535,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Portrait_of_Frederick_the_Wise_by_Lucas_Cranach_the_Elder.jpg/1280px-Portrait_of_Frederick_the_Wise_by_Lucas_Cranach_the_Elder.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Portrait_of_Frederick_the_Wise_by_Lucas_Cranach_the_Elder.jpg/220px-Portrait_of_Frederick_the_Wise_by_Lucas_Cranach_the_Elder.jpg"
+    },
+    {
+      "id": "Earlier Martin Luther",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1526,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/D_2363_2_Print_890kopie.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/D_2363_2_Print_890kopie.jpg/170px-D_2363_2_Print_890kopie.jpg"
+    },
+    {
+      "id": "Madonna under the Fir Tree",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1510,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cranach_Madonna_under_the_fir_tree.jpg/1280px-Cranach_Madonna_under_the_fir_tree.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cranach_Madonna_under_the_fir_tree.jpg/199px-Cranach_Madonna_under_the_fir_tree.jpg"
+    },
+    {
+      "id": "Moses and the Pillar of Cloud",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1530,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Lucas_Cranach_d._%C3%84._%28Werkst.%29_-_Moses_und_die_Wolkens%C3%A4ule_%28nach_1530%29.jpg/1920px-Lucas_Cranach_d._%C3%84._%28Werkst.%29_-_Moses_und_die_Wolkens%C3%A4ule_%28nach_1530%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Lucas_Cranach_d._%C3%84._%28Werkst.%29_-_Moses_und_die_Wolkens%C3%A4ule_%28nach_1530%29.jpg/200px-Lucas_Cranach_d._%C3%84._%28Werkst.%29_-_Moses_und_die_Wolkens%C3%A4ule_%28nach_1530%29.jpg"
+    },
+    {
+      "id": "Allegory of Law and Grace",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1529,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/1529_Cranach_Allegorie_auf_Gesetz_und_Gnade_anagoria.JPG/1920px-1529_Cranach_Allegorie_auf_Gesetz_und_Gnade_anagoria.JPG",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/1529_Cranach_Allegorie_auf_Gesetz_und_Gnade_anagoria.JPG/220px-1529_Cranach_Allegorie_auf_Gesetz_und_Gnade_anagoria.JPG"
+    },
+    {
+      "id": "Allegory of Law and Grace",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1520,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Infant_Jesus_and_John_the_Baptist_as_child.jpg/1024px-Infant_Jesus_and_John_the_Baptist_as_child.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Infant_Jesus_and_John_the_Baptist_as_child.jpg/167px-Infant_Jesus_and_John_the_Baptist_as_child.jpg"
+    },
+    {
+      "id": "Judgement of Paris",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1528,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Judgement_of_Paris_by_Lucas_Cranach_the_Elder_%281528%29.jpg/1024px-Judgement_of_Paris_by_Lucas_Cranach_the_Elder_%281528%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Judgement_of_Paris_by_Lucas_Cranach_the_Elder_%281528%29.jpg/147px-Judgement_of_Paris_by_Lucas_Cranach_the_Elder_%281528%29.jpg"
+    },
+    {
+      "id": "Caritas",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1537,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Lucas_Cranach_d.%C3%84._-_Caritas_%28Koninklijk_Museum_v._Schone_Kunsten_Antwerpen%29.jpg/1024px-Lucas_Cranach_d.%C3%84._-_Caritas_%28Koninklijk_Museum_v._Schone_Kunsten_Antwerpen%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Lucas_Cranach_d.%C3%84._-_Caritas_%28Koninklijk_Museum_v._Schone_Kunsten_Antwerpen%29.jpg/150px-Lucas_Cranach_d.%C3%84._-_Caritas_%28Koninklijk_Museum_v._Schone_Kunsten_Antwerpen%29.jpg"
+    },
+    {
+      "id": "The Fountain of Youth",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1546,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Lucas_Cranach_-_Der_Jungbrunnen_%28Gem%C3%A4ldegalerie_Berlin%29.jpg/2880px-Lucas_Cranach_-_Der_Jungbrunnen_%28Gem%C3%A4ldegalerie_Berlin%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Lucas_Cranach_-_Der_Jungbrunnen_%28Gem%C3%A4ldegalerie_Berlin%29.jpg/700px-Lucas_Cranach_-_Der_Jungbrunnen_%28Gem%C3%A4ldegalerie_Berlin%29.jpg"
+    },
+    {
+      "id": "Duke Henry the Pious",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1514,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lucas_Cranach_the_Elder_-_Duke_Henry_the_Pious_-_Google_Art_Project.jpg/800px-Lucas_Cranach_the_Elder_-_Duke_Henry_the_Pious_-_Google_Art_Project.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lucas_Cranach_the_Elder_-_Duke_Henry_the_Pious_-_Google_Art_Project.jpg/109px-Lucas_Cranach_the_Elder_-_Duke_Henry_the_Pious_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": "Catherine of Mecklenburg",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1514,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Attributed_to_Lucas_Cranach_the_Elder_Portrait_of_the_Duchess_Catherine_Thielska_78.tif/lossy-page1-1024px-Attributed_to_Lucas_Cranach_the_Elder_Portrait_of_the_Duchess_Catherine_Thielska_78.tif.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Attributed_to_Lucas_Cranach_the_Elder_Portrait_of_the_Duchess_Catherine_Thielska_78.tif/lossy-page1-220px-Attributed_to_Lucas_Cranach_the_Elder_Portrait_of_the_Duchess_Catherine_Thielska_78.tif.jpg"
+    },
+    {
+      "id": "Judith with the head of Holofernes",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1530,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Lucas_Cranach_d._%C3%84._-_Judith_Victorious_-_WGA05720.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Lucas_Cranach_d._%C3%84._-_Judith_Victorious_-_WGA05720.jpg/140px-Lucas_Cranach_d._%C3%84._-_Judith_Victorious_-_WGA05720.jpg"
+    },
+    {
+      "id": "Lovers",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1489,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Bemberg_fondation_Toulouse_-_Les_amoureux_-_Lucas_Cranach_l%27Ancien.jpg/1024px-Bemberg_fondation_Toulouse_-_Les_amoureux_-_Lucas_Cranach_l%27Ancien.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Bemberg_fondation_Toulouse_-_Les_amoureux_-_Lucas_Cranach_l%27Ancien.jpg/136px-Bemberg_fondation_Toulouse_-_Les_amoureux_-_Lucas_Cranach_l%27Ancien.jpg"
+    },
+    {
+      "id": "Phyllis and Aristotle",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1530,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Lucas_Cranach_d.%C3%84._-_Phyllis_und_Aristotle_%281530%29.jpg/1024px-Lucas_Cranach_d.%C3%84._-_Phyllis_und_Aristotle_%281530%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Lucas_Cranach_d.%C3%84._-_Phyllis_und_Aristotle_%281530%29.jpg/132px-Lucas_Cranach_d.%C3%84._-_Phyllis_und_Aristotle_%281530%29.jpg"
+    },
+    {
+      "id": "Phyllis and Aristotle",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1526,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/CranachBrandenburgasJerome.jpg/1024px-CranachBrandenburgasJerome.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/CranachBrandenburgasJerome.jpg/135px-CranachBrandenburgasJerome.jpg"
+    },
+    {
+      "id": "A Saxon Prince",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1517,
+      "description": "possibly Johann, husband of Elizabeth of Hesse",
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Lucas_Cranach_d.%C3%84._-_Portr%C3%A4t_eines_s%C3%A4chsischen_Prinzen.jpg/1280px-Lucas_Cranach_d.%C3%84._-_Portr%C3%A4t_eines_s%C3%A4chsischen_Prinzen.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Lucas_Cranach_d.%C3%84._-_Portr%C3%A4t_eines_s%C3%A4chsischen_Prinzen.jpg/180px-Lucas_Cranach_d.%C3%84._-_Portr%C3%A4t_eines_s%C3%A4chsischen_Prinzen.jpg"
+    },
+    {
+      "id": "A Saxon Princess",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1517,
+      "description": "possibly George of Saxony's daughter-in-law Elizabeth of Hesse",
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Lucas_Cranach_d._%C3%84._052.jpg/1280px-Lucas_Cranach_d._%C3%84._052.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Lucas_Cranach_d._%C3%84._052.jpg/183px-Lucas_Cranach_d._%C3%84._052.jpg"
+    },
+    {
+      "id": "Sibylle of Cleves",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1526,
+      "description": "",
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Lucas_Cranach_d.%C3%84._-_Bildnis_der_Prinzessin_Sibylle_von_Cleve_%281526%2C_Klassik_Stiftung_Weimar%29.jpg/1024px-Lucas_Cranach_d.%C3%84._-_Bildnis_der_Prinzessin_Sibylle_von_Cleve_%281526%2C_Klassik_Stiftung_Weimar%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Lucas_Cranach_d.%C3%84._-_Bildnis_der_Prinzessin_Sibylle_von_Cleve_%281526%2C_Klassik_Stiftung_Weimar%29.jpg/166px-Lucas_Cranach_d.%C3%84._-_Bildnis_der_Prinzessin_Sibylle_von_Cleve_%281526%2C_Klassik_Stiftung_Weimar%29.jpg"
+    },
+    {
+      "id": "John Frederick I",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1531,
+      "artist": "Lucas Cranach the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Lucas_Cranach_d._%C3%84._044FXD.jpg/1024px-Lucas_Cranach_d._%C3%84._044FXD.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Lucas_Cranach_d._%C3%84._044FXD.jpg/170px-Lucas_Cranach_d._%C3%84._044FXD.jpg"
+    },
+    {
+      "id": "A Bearded Man",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1546,
+      "description": "A possible self-portrait.",
+      "artist": "Lucas Cranach the Younger",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Cranach_the_Younger_Portrait_of_a_bearded_man.jpg/1280px-Cranach_the_Younger_Portrait_of_a_bearded_man.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Cranach_the_Younger_Portrait_of_a_bearded_man.jpg/250px-Cranach_the_Younger_Portrait_of_a_bearded_man.jpg"
+    },
+    {
+      "id": "Lucas Cranach the Elder",
+      "xy": [51.8671, 12.6484],
+      "type": "artefact",
+      "start": 1550,
+      "artist": "Lucas Cranach the Younger",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Lucas_Cranach_d._%C3%84._063.jpg/1280px-Lucas_Cranach_d._%C3%84._063.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Lucas_Cranach_d._%C3%84._063.jpg/250px-Lucas_Cranach_d._%C3%84._063.jpg"
+    },
+    {
+      "id": "Wittenberg",
+      "xy": [51.8624, 12.6408],
+      "type": "town",
+      "start": 1180
+    },
+    { "id": "Mainz", "xy": [49.9994, 8.2736], "type": "town", "start": -12 },
+    {
+      "id": "Printing press",
+      "xy": [49.9994, 8.2736],
+      "type": "artefact",
+      "start": 1440,
+      "artist": "Johannes Gutenberg",
+      "location": "Mainz",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/PrintMus_038.jpg/1280px-PrintMus_038.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/PrintMus_038.jpg/220px-PrintMus_038.jpg"
+    },
+    {
+      "id": "Pietà",
+      "xy": [41.9022, 12.4533],
+      "type": "artefact",
+      "start": 1499,
+      "artist": "Michelangelo",
+      "location": "Old St. Peter's Basilica",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Michelangelo%27s_Pieta_5450_cropncleaned_edit.jpg/1280px-Michelangelo%27s_Pieta_5450_cropncleaned_edit.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Michelangelo%27s_Pieta_5450_cropncleaned_edit.jpg/280px-Michelangelo%27s_Pieta_5450_cropncleaned_edit.jpg"
+    },
+    {
+      "id": "David",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1504,
+      "artist": "Michelangelo",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/%27David%27_by_Michelangelo_Fir_JBU004.jpg/1024px-%27David%27_by_Michelangelo_Fir_JBU004.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/%27David%27_by_Michelangelo_Fir_JBU004.jpg/220px-%27David%27_by_Michelangelo_Fir_JBU004.jpg"
+    },
+    {
+      "id": "The Creation of Adam",
+      "xy": [41.9031, 12.4544],
+      "type": "artefact",
+      "start": 1512,
+      "description": "Part of the Sistine Chapel ceiling",
+      "artist": "Michelangelo",
+      "location": "Sistine Chapel",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/2880px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/540px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg"
+    },
+    {
+      "id": "Sistine Chapel",
+      "xy": [41.9031, 12.4544],
+      "type": "church",
+      "start": 1483,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cappella_Sistina_-_2005.jpg/1280px-Cappella_Sistina_-_2005.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cappella_Sistina_-_2005.jpg/220px-Cappella_Sistina_-_2005.jpg"
+    },
+    {
+      "id": "Old St. Peter's Basilica",
+      "xy": [41.9022, 12.4533],
+      "type": "church",
+      "start": 322,
+      "description": "318-322",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Old_St_Peter%27s_Basilica%2C_Rome%2C_about_the_year_1450_restored_from_ancient_authorities.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Old_St_Peter%27s_Basilica%2C_Rome%2C_about_the_year_1450_restored_from_ancient_authorities.jpg/220px-Old_St_Peter%27s_Basilica%2C_Rome%2C_about_the_year_1450_restored_from_ancient_authorities.jpg"
+    },
+    {
+      "id": "Presumed self-portrait",
+      "xy": [43.7167, 12.6333],
+      "type": "artefact",
+      "start": 1506,
+      "description": "",
+      "artist": "Raphael",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Raffaello_Sanzio.jpg/1280px-Raffaello_Sanzio.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Raffaello_Sanzio.jpg/220px-Raffaello_Sanzio.jpg"
+    },
+    {
+      "id": "The School of Athens",
+      "xy": [41.9036, 12.4564],
+      "type": "artefact",
+      "start": 1511,
+      "artist": "Raphael",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Escola_de_atenas_-_vaticano.jpg/600px-Escola_de_atenas_-_vaticano.jpg"
+    },
+    {
+      "id": "Portrait of Pope Julius II",
+      "xy": [41.9025, 12.4525],
+      "type": "artefact",
+      "start": 1512,
+      "description": "",
+      "artist": "Raphael",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Pope_Julius_II.jpg/1280px-Pope_Julius_II.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Pope_Julius_II.jpg/147px-Pope_Julius_II.jpg"
+    },
+    {
+      "id": "Apostolic Palace",
+      "xy": [41.9036, 12.4564],
+      "type": "building",
+      "start": 1589,
+      "description": "The official residence of the Pope",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Saint_Peter%27s_Square_-_Vatican_City_-_DSC00638.jpg/2880px-Saint_Peter%27s_Square_-_Vatican_City_-_DSC00638.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Saint_Peter%27s_Square_-_Vatican_City_-_DSC00638.jpg/500px-Saint_Peter%27s_Square_-_Vatican_City_-_DSC00638.jpg"
+    },
+    {
+      "id": "Urbino",
+      "xy": [43.7167, 12.6333],
+      "type": "town",
+      "start": 538,
+      "description": "Hometown of Raphael",
+      "image": "",
+      "thumbnail": ""
+    },
+    {
+      "id": "The Flaying of Marsyas",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1570,
+      "description": "",
+      "artist": "Titian",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Titian_-_The_Flaying_of_Marsyas.jpg/1280px-Titian_-_The_Flaying_of_Marsyas.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Titian_-_The_Flaying_of_Marsyas.jpg/180px-Titian_-_The_Flaying_of_Marsyas.jpg"
+    },
+    {
+      "id": "Salome with the Head of John the Baptist,",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1515,
+      "description": "",
+      "artist": "Titian",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Vecelli%2C_Tiziano_-_Judith_-_c._1515.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Vecelli%2C_Tiziano_-_Judith_-_c._1515.jpg/220px-Vecelli%2C_Tiziano_-_Judith_-_c._1515.jpg"
+    },
+    {
+      "id": "A Man with a Quilted Sleeve",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1509,
+      "description": "",
+      "artist": "Titian",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Titian_-_Portrait_of_a_man_with_a_quilted_sleeve.jpg/1280px-Titian_-_Portrait_of_a_man_with_a_quilted_sleeve.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Titian_-_Portrait_of_a_man_with_a_quilted_sleeve.jpg/220px-Titian_-_Portrait_of_a_man_with_a_quilted_sleeve.jpg"
+    },
+    {
+      "id": "Equestrian Portrait of Charles V",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1548,
+      "description": "",
+      "artist": "Titian",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Carlos_V_en_M%C3%BChlberg%2C_by_Titian%2C_from_Prado_in_Google_Earth.jpg/1280px-Carlos_V_en_M%C3%BChlberg%2C_by_Titian%2C_from_Prado_in_Google_Earth.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Carlos_V_en_M%C3%BChlberg%2C_by_Titian%2C_from_Prado_in_Google_Earth.jpg/220px-Carlos_V_en_M%C3%BChlberg%2C_by_Titian%2C_from_Prado_in_Google_Earth.jpg"
+    },
+    {
+      "id": "Self-Portrait",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1567,
+      "description": "",
+      "artist": "Titian",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Tizian_090.jpg/1280px-Tizian_090.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Tizian_090.jpg/220px-Tizian_090.jpg"
+    },
+    {
+      "id": "The Death of Actaeon",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1570,
+      "description": "Date uncertain: 1559–1575",
+      "artist": "Titian",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Titian_-_The_Death_of_Actaeon_-_Google_Art_Project.jpg/1280px-Titian_-_The_Death_of_Actaeon_-_Google_Art_Project.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Titian_-_The_Death_of_Actaeon_-_Google_Art_Project.jpg/160px-Titian_-_The_Death_of_Actaeon_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": "Self-portrait in later age",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1580,
+      "description": "Date uncertain, Bassano died in 1592, aged 82.",
+      "artist": "Jacopo Bassano",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Jacopo_da_Ponte_012.jpg/1280px-Jacopo_da_Ponte_012.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Jacopo_da_Ponte_012.jpg/220px-Jacopo_da_Ponte_012.jpg"
+    },
+    {
+      "id": "Portrait of a Gentleman",
+      "xy": [45.4375, 12.3358],
+      "type": "artefact",
+      "start": 1580,
+      "description": "Date uncertain",
+      "artist": "Jacopo Bassano",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/JACOPO_DA_PONTE%2C_CALLED_BASSANO_PORTRAIT_OF_A_GENTLEMAN.jpg/1280px-JACOPO_DA_PONTE%2C_CALLED_BASSANO_PORTRAIT_OF_A_GENTLEMAN.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/JACOPO_DA_PONTE%2C_CALLED_BASSANO_PORTRAIT_OF_A_GENTLEMAN.jpg/176px-JACOPO_DA_PONTE%2C_CALLED_BASSANO_PORTRAIT_OF_A_GENTLEMAN.jpg"
+    },
+    {
+      "id": "Vatican City",
+      "xy": [41.904, 12.453],
+      "type": "town",
+      "start": 754
+    },
+    {
+      "id": "Netherlandish Proverbs",
+      "xy": [51.2178, 4.4003],
+      "type": "artefact",
+      "start": 1559,
+      "artist": "Pieter Bruegel the Elder",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pieter_Brueghel_the_Elder_-_The_Dutch_Proverbs_-_Google_Art_Project.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Pieter_Brueghel_the_Elder_-_The_Dutch_Proverbs_-_Google_Art_Project.jpg/200px-Pieter_Brueghel_the_Elder_-_The_Dutch_Proverbs_-_Google_Art_Project.jpg"
+    },
+    { "id": "Antwerp", "xy": [51.2178, 4.4003], "type": "town", "start": 600 },
+    {
+      "id": "Het Steen",
+      "xy": [51.2227, 4.3974],
+      "type": "fortress",
+      "start": 1225,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/0_Het_Steen_-_Antwerpen_%281%29.JPG/400px-0_Het_Steen_-_Antwerpen_%281%29.JPG",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/0_Het_Steen_-_Antwerpen_%281%29.JPG/400px-0_Het_Steen_-_Antwerpen_%281%29.JPG"
+    },
+    {
+      "id": "Judith Beheading Holofernes",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1602,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Caravaggio_Judith_Beheading_Holofernes.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Caravaggio_Judith_Beheading_Holofernes.jpg/290px-Caravaggio_Judith_Beheading_Holofernes.jpg"
+    },
+    {
+      "id": "David with the Head of Goliath",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1610,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg/1280px-David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg/170px-David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg"
+    },
+    {
+      "id": "Amor Vincit Omnia",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1602,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Amor_Vincet_Omnia.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Amor_Vincet_Omnia.jpg/280px-Amor_Vincet_Omnia.jpg"
+    },
+    {
+      "id": "Medusa",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1597,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Caravaggio_-_Medusa_-_Google_Art_Project.jpg/1280px-Caravaggio_-_Medusa_-_Google_Art_Project.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Caravaggio_-_Medusa_-_Google_Art_Project.jpg/220px-Caravaggio_-_Medusa_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": "Narcissus at the Source",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1599,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Narcissus-Caravaggio_%281594-96%29_edited.jpg/1280px-Narcissus-Caravaggio_%281594-96%29_edited.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Narcissus-Caravaggio_%281594-96%29_edited.jpg/220px-Narcissus-Caravaggio_%281594-96%29_edited.jpg"
+    },
+    {
+      "id": "Saint Jerome Writing",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1606,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg/1280px-Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg/220px-Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg"
+    },
+    {
+      "id": "The Calling of Saint Matthew",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1600,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/1280px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/300px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg"
+    },
+    {
+      "id": "Crucifixion of Saint Peter",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1601,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Crucifixion_of_Saint_Peter-Caravaggio_%28c.1600%29.jpg/1280px-Crucifixion_of_Saint_Peter-Caravaggio_%28c.1600%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Crucifixion_of_Saint_Peter-Caravaggio_%28c.1600%29.jpg/220px-Crucifixion_of_Saint_Peter-Caravaggio_%28c.1600%29.jpg"
+    },
+    {
+      "id": "The Beheading of Saint John",
+      "xy": [41.8933, 12.4828],
+      "type": "artefact",
+      "start": 1608,
+      "artist": "Caravaggio",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/The_Beheading_of_Saint_John-Caravaggio_%281608%29.jpg/1280px-The_Beheading_of_Saint_John-Caravaggio_%281608%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/The_Beheading_of_Saint_John-Caravaggio_%281608%29.jpg/244px-The_Beheading_of_Saint_John-Caravaggio_%281608%29.jpg"
+    },
+    {
+      "id": "Self-Portrait",
+      "xy": [51.2178, 4.4003],
+      "type": "artefact",
+      "start": 1623,
+      "artist": "Peter Paul Rubens",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sir_Peter_Paul_Rubens_-_Portrait_of_the_Artist_-_Google_Art_Project.jpg/1280px-Sir_Peter_Paul_Rubens_-_Portrait_of_the_Artist_-_Google_Art_Project.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sir_Peter_Paul_Rubens_-_Portrait_of_the_Artist_-_Google_Art_Project.jpg/220px-Sir_Peter_Paul_Rubens_-_Portrait_of_the_Artist_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": "Self-Portrait in a Circle of Friends from Mantua",
+      "xy": [45.1564, 10.7917],
+      "type": "artefact",
+      "start": 1606,
+      "artist": "Peter Paul Rubens",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Peter_Paul_Rubens_-_Self-Portrait_in_a_Circle_of_Friends_at_Mantua.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Peter_Paul_Rubens_-_Self-Portrait_in_a_Circle_of_Friends_at_Mantua.jpg/300px-Peter_Paul_Rubens_-_Self-Portrait_in_a_Circle_of_Friends_at_Mantua.jpg"
+    },
+    {
+      "id": "Family of Jan Brueghel the Elder",
+      "xy": [51.2178, 4.4003],
+      "type": "artefact",
+      "start": 1615,
+      "artist": "Peter Paul Rubens",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Peter_Paul_Rubens_-_Familie_van_Jan_Brueghel_de_Oude.jpg/1280px-Peter_Paul_Rubens_-_Familie_van_Jan_Brueghel_de_Oude.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Peter_Paul_Rubens_-_Familie_van_Jan_Brueghel_de_Oude.jpg/170px-Peter_Paul_Rubens_-_Familie_van_Jan_Brueghel_de_Oude.jpg"
+    },
+    {
+      "id": "Anna of Austria, Queen of France",
+      "xy": [48.8483, 2.3372],
+      "type": "artefact",
+      "start": 1625,
+      "artist": "Peter Paul Rubens",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Anna_of_Austria_by_Rubens_%281622-1625%2C_Norton_Simon_Museum%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Anna_of_Austria_by_Rubens_%281622-1625%2C_Norton_Simon_Museum%29.jpg/220px-Anna_of_Austria_by_Rubens_%281622-1625%2C_Norton_Simon_Museum%29.jpg"
+    },
+    {
+      "id": "Old Woman and Boy with Candles",
+      "xy": [51.2178, 4.4003],
+      "type": "artefact",
+      "start": 1617,
+      "artist": "Peter Paul Rubens",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Peter_Paul_Rubens_-_Old_Woman_and_Boy_with_Candles.jpg/1280px-Peter_Paul_Rubens_-_Old_Woman_and_Boy_with_Candles.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Peter_Paul_Rubens_-_Old_Woman_and_Boy_with_Candles.jpg/220px-Peter_Paul_Rubens_-_Old_Woman_and_Boy_with_Candles.jpg"
+    },
+    {
+      "id": "Santa Maria della Vittoria",
+      "xy": [41.9047, 12.4942],
+      "type": "church",
+      "start": 1620,
+      "description": "Groundbreaking 1605",
+      "location": "Rome",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Santa_Maria_della_Vittoria_in_Rome_-_Front.jpg/1024px-Santa_Maria_della_Vittoria_in_Rome_-_Front.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Santa_Maria_della_Vittoria_in_Rome_-_Front.jpg/270px-Santa_Maria_della_Vittoria_in_Rome_-_Front.jpg"
+    },
+    {
+      "id": "Ecstasy of Saint Teresa",
+      "xy": [41.9047, 12.4942],
+      "type": "artefact",
+      "start": 1652,
+      "description": "",
+      "artist": "Gian Lorenzo Bernini",
+      "location": "Santa Maria della Vittoria, Rome",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ecstasy_of_Saint_Teresa_September_2015-2a.jpg/1024px-Ecstasy_of_Saint_Teresa_September_2015-2a.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ecstasy_of_Saint_Teresa_September_2015-2a.jpg/220px-Ecstasy_of_Saint_Teresa_September_2015-2a.jpg"
+    },
+    {
+      "id": "Blessed Ludovica Albertoni",
+      "xy": [41.8847, 12.4728],
+      "type": "artefact",
+      "start": 1674,
+      "description": "",
+      "artist": "Gian Lorenzo Bernini",
+      "location": "San Francesco a Ripa",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Cappella_palluzzi-albertoni_di_giacomo_mola_%281622-25%29%2C_con_beata_ludovica_alberoni_di_bernini_%281671-75%29_e_pala_del_baciccio_%28s._anna_e_la_vergine%29_05.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Cappella_palluzzi-albertoni_di_giacomo_mola_%281622-25%29%2C_con_beata_ludovica_alberoni_di_bernini_%281671-75%29_e_pala_del_baciccio_%28s._anna_e_la_vergine%29_05.jpg/220px-Cappella_palluzzi-albertoni_di_giacomo_mola_%281622-25%29%2C_con_beata_ludovica_alberoni_di_bernini_%281671-75%29_e_pala_del_baciccio_%28s._anna_e_la_vergine%29_05.jpg"
+    },
+    { "id": "Leipzig", "xy": [51.34, 12.375], "type": "town", "start": 1015 },
+    {
+      "id": "Dresden",
+      "xy": [51.05, 13.74],
+      "type": "town",
+      "start": 1206,
+      "description": "Dietrich, Margrave of Meissen, chose Dresden as his interim residence in 1206, as documented in a record calling the place \"Civitas Dresdene\"."
+    },
+    {
+      "id": "Amsterdam",
+      "xy": [52.3728, 4.8936],
+      "type": "town",
+      "start": 1000,
+      "description": "The origins of the city lie around 1000 CE,[1][2] when inhabitants settled at the mouth of the Amstel and began peatland reclamation.[1] After the All Saints' Flood (1170), a dam was built in the Amstel to protect the lower lands from floods."
+    },
+    {
+      "id": "Görlitz",
+      "xy": [51.1528, 14.9872],
+      "type": "town",
+      "start": 1071,
+      "description": "In 1126–1131 Bohemian Duke Soběslav I erected a castle here, one of several new castles on the Bohemian-Polish border."
+    },
+    {
+      "id": "Chemnitz",
+      "xy": [50.8333, 12.9167],
+      "type": "town",
+      "start": 1143,
+      "description": ""
+    },
+    {
+      "id": "Frankfurt (Oder)",
+      "xy": [52.3419, 14.5517],
+      "type": "town",
+      "start": 1253,
+      "description": ""
+    },
+    {
+      "id": "Potsdam",
+      "xy": [52.4, 13.0667],
+      "type": "town",
+      "start": 1317,
+      "description": ""
+    },
+    {
+      "id": "Mühlhausen",
+      "xy": [51.2167, 10.45],
+      "type": "town",
+      "start": 967,
+      "description": ""
+    },
+    {
+      "id": "Gutenberg Bible",
+      "xy": [49.9994, 8.2736],
+      "type": "literature",
+      "start": 1455,
+      "description": "The first printed book.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gutenberg_Bible_at_Yale.jpg/1280px-Gutenberg_Bible_at_Yale.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gutenberg_Bible_at_Yale.jpg/220px-Gutenberg_Bible_at_Yale.jpg"
+    },
+    {
+      "id": "John Wycliffe",
+      "xy": [54.38, -1.719],
+      "type": "person",
+      "start": 1328,
+      "description": "Christian reformer.",
+      "end": 1384
+    },
+    {
+      "id": "Philip IV",
+      "xy": [48.4022, 2.7006],
+      "type": "person",
+      "start": 1268,
+      "description": "The Iron king. Reigned since 1285.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/98/Philip_iv_and_family._2_%28detail_crop%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Philip_iv_and_family._2_%28detail_crop%29.jpg/220px-Philip_iv_and_family._2_%28detail_crop%29.jpg",
+      "end": 1314
+    },
+    {
+      "id": "Louis IX",
+      "xy": [48.9294, 2.0456],
+      "type": "person",
+      "start": 1214,
+      "end": 1270,
+      "description": "Saint Louis. Reigned from 1226.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Saintlouis_%28cropped%29.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Saintlouis_%28cropped%29.jpg/220px-Saintlouis_%28cropped%29.jpg"
+    },
+    { "id": "Reims", "xy": [49.2628, 4.0347], "type": "town", "start": -80 },
+    {
+      "id": "Orleans",
+      "xy": [47.9025, 1.909],
+      "type": "town",
+      "start": 275,
+      "description": "In the late 3rd century AD, Roman Emperor Aurelian rebuilt the city and renamed it civitas Aurelianorum."
+    },
+    {
+      "id": "Pope Leo X",
+      "xy": [41.8933, 12.4828],
+      "type": "person",
+      "start": 1475,
+      "description": "The first Medici Pope. Papacy 1513 - 1521.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Raffaello%2C_ritratto_di_papa_leone_X_tra_i_cardinali_luigi_de%27_rossi_e_giulio_de%27_medici%2C_1518%2C_03.jpg/1280px-Raffaello%2C_ritratto_di_papa_leone_X_tra_i_cardinali_luigi_de%27_rossi_e_giulio_de%27_medici%2C_1518%2C_03.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Raffaello%2C_ritratto_di_papa_leone_X_tra_i_cardinali_luigi_de%27_rossi_e_giulio_de%27_medici%2C_1518%2C_03.jpg/220px-Raffaello%2C_ritratto_di_papa_leone_X_tra_i_cardinali_luigi_de%27_rossi_e_giulio_de%27_medici%2C_1518%2C_03.jpg",
+      "end": 1521
     }
   ],
   "cultures": [

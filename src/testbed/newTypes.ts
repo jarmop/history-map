@@ -68,6 +68,14 @@ export const markerTypes = [
   'church',
   'town',
   'artefact',
+  'hospital',
+  'building',
+  'invention',
+  'literature',
+  'event',
+  'music',
+  'person',
+  'institution',
 ] as const
 
 export type Marker = {

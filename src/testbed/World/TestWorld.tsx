@@ -132,31 +132,84 @@ export function TestWorld() {
       </div>
       <div
         style={{
-          minWidth: '404px',
+          minWidth: '910px',
           display: 'grid',
-          gridTemplateColumns: '50% 50%',
+          gridTemplateColumns: 'repeat(auto-fill, 150px)',
           height: 'fit-content',
           gap: 2,
           padding: 2,
         }}
       >
         {markers
-          .filter((p) => p.type === 'artefact')
+          .filter((a) =>
+            [
+              'literature',
+              'person',
+              // 'church'
+            ].includes(a.type)
+          )
           .sort((a, b) => b.start - a.start)
-          .slice(0, 20)
-          .map((p) => (
-            <img
-              key={p.id}
-              src={p.thumbnail}
-              onMouseEnter={() => setActiveMarker(p)}
+          .slice(0, 100)
+          .map((a) => (
+            <div
+              key={a.id}
+              onMouseEnter={() => setActiveMarker(a)}
               onMouseLeave={() => setActiveMarker(undefined)}
-              onClick={() => window.open(p.image)}
+              onClick={() => window.open(a.image)}
               style={{
-                objectFit: 'contain',
-                width: '200px',
-                maxHeight: '200px',
+                position: 'relative',
+                cursor: 'pointer',
               }}
-            />
+            >
+              {a.thumbnail ? (
+                <img
+                  src={a.thumbnail}
+                  style={{
+                    objectFit: 'contain',
+                    width: '150px',
+                    maxHeight: '150px',
+                  }}
+                />
+              ) : (
+                <>{a.id}</>
+              )}
+
+              {activeMarker?.id === a.id && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '0',
+                    backgroundColor: 'rgba(255,255,255,0.9)',
+                    fontSize: '11px',
+                    width: '100%',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '11px',
+                    }}
+                  >
+                    {a.id}
+                  </div>
+                  {a.artist
+                    ? `{a.artist}, {a.start}`
+                    : a.end
+                    ? `${a.start} - ${a.end}`
+                    : a.end}
+
+                  <br />
+                  {a.location}
+                  <br />
+                  <div
+                    style={{
+                      fontSize: '11px',
+                    }}
+                  >
+                    {a.description}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
       </div>
     </div>

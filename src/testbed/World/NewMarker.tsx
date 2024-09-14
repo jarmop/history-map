@@ -6,7 +6,17 @@ interface NewMarkerProps {
   onSave: (marker: Marker) => void
 }
 
-const defaultMarker: Marker = { id: '', xy: [0, 0], type: 'town', start: 0 }
+const defaultMarker: Marker = {
+  id: '',
+  xy: [0, 0],
+  type: 'artefact',
+  start: 0,
+  description: undefined,
+  artist: undefined,
+  location: undefined,
+  image: undefined,
+  thumbnail: undefined,
+}
 
 export function NewMarker({ onSave }: NewMarkerProps) {
   const [marker, setMarker] = useState<Marker>(defaultMarker)
@@ -143,7 +153,14 @@ export function NewMarker({ onSave }: NewMarkerProps) {
             rows={5}
           />
         </div>
-        <button onClick={() => onSave(marker)}>Add</button>
+        <button
+          onClick={() => {
+            onSave(marker)
+            // setMarker(defaultMarker)
+          }}
+        >
+          Add
+        </button>
       </div>
     </div>
   )
