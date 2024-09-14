@@ -4,10 +4,10 @@ import { YearInput } from '../../world/YearInput'
 import { useData } from '../useData'
 import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
-import { NewPlace } from './NewPlace'
-import { Culture, Place, Region } from '../newTypes'
+import { Culture, Marker, Region } from '../newTypes'
 import { EditRegion } from './EditRegion'
 import { EditCulture } from './EditCulture'
+import { NewMarker } from './NewMarker'
 
 export function TestWorld() {
   const years = [-4000]
@@ -15,7 +15,7 @@ export function TestWorld() {
   const [zoom, setZoom] = useZoom()
   const [config, setConfig] = useConfig()
   const [activeRegions, setActiveRegions] = useState<number[]>([17])
-  const [activePlace, setActivePlace] = useState<Place>()
+  const [activeMarker, setActiveMarker] = useState<Marker>()
 
   const {
     mapRegions,
@@ -24,8 +24,8 @@ export function TestWorld() {
     onPointAdded,
     rivers,
     seas,
-    places,
-    addPlace,
+    markers,
+    addMarker,
     cultures,
     saveCultures,
     deleteRegion,
@@ -57,7 +57,7 @@ export function TestWorld() {
           }
           rivers={rivers}
           seas={seas}
-          places={config.showPlaces ? places : []}
+          markers={config.showMarkers ? markers : []}
           onPathCompleted={onPathCompleted}
           onPointEdited={onPointEdited}
           onPointAdded={onPointAdded}
@@ -66,7 +66,7 @@ export function TestWorld() {
           setActiveRegions={(regionIds: Region['id'][]) =>
             setActiveRegions(regionIds)
           }
-          activePlace={activePlace}
+          activeMarker={activeMarker}
         />
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <YearInput
@@ -87,25 +87,14 @@ export function TestWorld() {
         <div>
           <input
             type="checkbox"
-            id="showCities"
-            name="showCities"
-            checked={config.showCities}
+            id="showMarkers"
+            name="showMarkers"
+            checked={config.showMarkers}
             onChange={(e) =>
-              setConfig({ ...config, showCities: e.target.checked })
+              setConfig({ ...config, showMarkers: e.target.checked })
             }
           />
-          <label htmlFor="showCities">Show cities</label>
-          &nbsp;
-          <input
-            type="checkbox"
-            id="showPlaces"
-            name="showPlaces"
-            checked={config.showPlaces}
-            onChange={(e) =>
-              setConfig({ ...config, showPlaces: e.target.checked })
-            }
-          />
-          <label htmlFor="showPlaces">Show places</label>
+          <label htmlFor="showMarkers">Show markers</label>
           &nbsp;
           <input
             type="checkbox"
@@ -119,7 +108,7 @@ export function TestWorld() {
           <label htmlFor="showCultures">Show Cultures</label>
         </div>
         <div style={{ display: 'flex' }}>
-          <NewPlace onSave={addPlace} />
+          <NewMarker onSave={addMarker} />
           {activeRegions.length > 0 && (
             <>
               <EditRegion
@@ -142,16 +131,15 @@ export function TestWorld() {
         </div>
       </div>
       <div style={{ minWidth: '200px' }}>
-        {places
+        {markers
           .filter((p) => p.type === 'artefact')
           .map((p) => (
-            <div>
+            <div key={p.id}>
               <img
-                key={p.id}
                 src={p.image}
                 width="200px"
-                onMouseEnter={() => setActivePlace(p)}
-                onMouseLeave={() => setActivePlace(undefined)}
+                onMouseEnter={() => setActiveMarker(p)}
+                onMouseLeave={() => setActiveMarker(undefined)}
               />
             </div>
           ))}

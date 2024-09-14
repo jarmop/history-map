@@ -1,43 +1,43 @@
 import { useState } from 'react'
 import { getLatLonByName } from '../helpers'
-import { Place, placeTypes } from '../newTypes'
+import { Marker, markerTypes } from '../newTypes'
 
-interface NewPlaceProps {
-  onSave: (place: Place) => void
+interface NewMarkerProps {
+  onSave: (marker: Marker) => void
 }
 
-const defaultPlace: Place = { id: '', xy: [0, 0], type: 'town', start: 0 }
+const defaultMarker: Marker = { id: '', xy: [0, 0], type: 'town', start: 0 }
 
-export function NewPlace({ onSave }: NewPlaceProps) {
-  const [place, setPlace] = useState<Place>(defaultPlace)
-  if (!place) {
-    return <button onClick={() => setPlace(defaultPlace)}>Add new place</button>
+export function NewMarker({ onSave }: NewMarkerProps) {
+  const [marker, setMarker] = useState<Marker>(defaultMarker)
+  if (!marker) {
+    return <button onClick={() => setMarker(defaultMarker)}>Add new marker</button>
   }
 
   return (
     <div style={{ border: '1px solid black', padding: '10px' }}>
-      <h4>Add new place</h4>
+      <h4>Add new marker</h4>
       <label>Name:</label>
       <br />
       <input
         type="text"
-        value={place.id}
+        value={marker.id}
         onChange={(e) => {
           const id = e.target.value
           const xy = getLatLonByName(id) || [0, 0]
-          setPlace({ ...place, id, xy })
+          setMarker({ ...marker, id, xy })
         }}
       />
       <br />
       <label>Type:</label>
       <br />
       <select
-        value={place.type}
+        value={marker.type}
         onChange={(e) =>
-          setPlace({ ...place, type: e.target.value as Place['type'] })
+          setMarker({ ...marker, type: e.target.value as Marker['type'] })
         }
       >
-        {placeTypes.map((type) => (
+        {markerTypes.map((type) => (
           <option key={type}>{type}</option>
         ))}
       </select>
@@ -47,9 +47,9 @@ export function NewPlace({ onSave }: NewPlaceProps) {
       <input
         style={{ width: '50px' }}
         type="number"
-        value={place.start || ''}
+        value={marker.start || ''}
         onChange={(e) =>
-          setPlace({ ...place, start: parseInt(e.target.value) })
+          setMarker({ ...marker, start: parseInt(e.target.value) })
         }
       />
       &nbsp;
@@ -58,21 +58,21 @@ export function NewPlace({ onSave }: NewPlaceProps) {
       <input
         style={{ width: '50px' }}
         type="number"
-        value={place.end || ''}
-        onChange={(e) => setPlace({ ...place, end: parseInt(e.target.value) })}
+        value={marker.end || ''}
+        onChange={(e) => setMarker({ ...marker, end: parseInt(e.target.value) })}
       />
       <br />
       <label>Coordinates:</label>
       <br />
       <input
         type="text"
-        value={`${place.xy[0]}, ${place.xy[1]}`}
+        value={`${marker.xy[0]}, ${marker.xy[1]}`}
         onChange={(e) => {
           const xy = e.target.value
             .split(', ')
             .map((val) => parseFloat(val)) as [number, number]
 
-          !isNaN(xy[0]) && !isNaN(xy[1]) && setPlace({ ...place, xy })
+          !isNaN(xy[0]) && !isNaN(xy[1]) && setMarker({ ...marker, xy })
         }}
       />
       <br />
@@ -80,9 +80,9 @@ export function NewPlace({ onSave }: NewPlaceProps) {
       <br />
       <input
         type="text"
-        value={place.image}
+        value={marker.image}
         onChange={(e) => {
-          setPlace({ ...place, image: e.target.value })
+          setMarker({ ...marker, image: e.target.value })
         }}
       />
       <br />
@@ -90,9 +90,9 @@ export function NewPlace({ onSave }: NewPlaceProps) {
       <br />
       <input
         type="text"
-        value={place.artist}
+        value={marker.artist}
         onChange={(e) => {
-          setPlace({ ...place, artist: e.target.value })
+          setMarker({ ...marker, artist: e.target.value })
         }}
       />
       <br />
@@ -100,14 +100,14 @@ export function NewPlace({ onSave }: NewPlaceProps) {
       <br />
       <input
         type="text"
-        value={place.location}
+        value={marker.location}
         onChange={(e) => {
-          setPlace({ ...place, location: e.target.value })
+          setMarker({ ...marker, location: e.target.value })
         }}
       />
       <br />
       <br />
-      <button onClick={() => onSave(place)}>Add</button>
+      <button onClick={() => onSave(marker)}>Add</button>
     </div>
   )
 }

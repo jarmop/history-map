@@ -13,7 +13,7 @@ const defaultStorage: StorageData = {
   zoom: 4,
   xy: [3700, 1100],
   world: undefined,
-  config: { showCities: false, showCultures: true, showPlaces: false },
+  config: { showCultures: false, showMarkers: false },
 }
 
 const storageKey = 'test-history-map'

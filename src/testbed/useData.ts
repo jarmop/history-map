@@ -5,7 +5,7 @@ import {
   BorderData,
   Culture,
   MapRegion,
-  Place,
+  Marker,
   Region,
 } from './newTypes'
 import { getRivers, getSeas, getWorld, latLonToXy } from './geographicData'
@@ -62,18 +62,18 @@ export function useData(year: number, zoom: number) {
     }))
   }, [zoomXy])
 
-  const places = useMemo(() => {
-    return world.places
+  const markers = useMemo(() => {
+    return world.markers
       .filter(
-        (place) =>
-          (!place.start || place.start <= year) &&
-          (!place.end || place.end >= year)
+        (marker) =>
+          (!marker.start || marker.start <= year) &&
+          (!marker.end || marker.end >= year)
       )
       .map((b) => ({
         ...b,
         xy: zoomXy(b.xy),
       }))
-  }, [world.places, zoomXy, year])
+  }, [world.markers, zoomXy, year])
 
   const branchesByBorderId = visibleBorders.reduce<
     Record<
@@ -654,10 +654,10 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  function addPlace(place: Place) {
+  function addMarker(marker: Marker) {
     setWorld({
       ...world,
-      places: [...world.places, { ...place, xy: latLonToXy(place.xy) }],
+      markers: [...world.markers, { ...marker, xy: latLonToXy(marker.xy) }],
     })
   }
 
@@ -759,8 +759,8 @@ export function useData(year: number, zoom: number) {
     onPointAdded,
     rivers,
     seas,
-    places,
-    addPlace,
+    markers,
+    addMarker,
     cultures: world.cultures,
     saveCultures,
     deleteRegion,

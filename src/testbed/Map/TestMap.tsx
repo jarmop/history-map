@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useMouse } from './useMouse'
 import { Region } from './Region'
 import { DrawPath } from './DrawPath'
-import { MapRegion, Place, River, Sea } from '../newTypes'
-import { PlaceMarker } from './PlaceMarker'
+import { MapRegion, Marker as MarkerType, River, Sea } from '../newTypes'
+import { Marker } from './Marker'
 
 // const aspectRatio = 16 / 9
 const aspectRatio = 4 / 3
@@ -14,11 +14,11 @@ interface CustomMapProps {
   regions: MapRegion[]
   rivers: River[]
   seas: Sea[]
-  places: Place[]
+  markers: MarkerType[]
   zoom: number
   activeRegions: MapRegion['id'][]
   setActiveRegions: (regions: MapRegion['id'][]) => void
-  activePlace?: Place
+  activeMarker?: MarkerType
   onPathCompleted: (
     region: MapRegion,
     points: [number, number][],
@@ -37,10 +37,10 @@ export function TestMap({
   regions,
   rivers,
   seas,
-  places,
+  markers,
   zoom,
   activeRegions,
-  activePlace,
+  activeMarker,
   setActiveRegions,
   onPathCompleted,
   onPointEdited,
@@ -233,11 +233,8 @@ export function TestMap({
             d={`M${sea.path.join(' ')}z`}
           />
         ))}
-        {/* {cities.map((city) => (
-          <City key={city.id} city={city} />
-        ))} */}
-        {places.map((place) => (
-          <PlaceMarker key={place.id} place={place} />
+        {markers.map((marker) => (
+          <Marker key={marker.id} marker={marker} />
         ))}
         {points.length > 0 && mouseXY && (
           <DrawPath points={points} mouseXY={mouseXY} />
@@ -260,10 +257,10 @@ export function TestMap({
             }}
           />
         )}
-        {activePlace && (
+        {activeMarker && (
           <circle
-            cx={activePlace.xy[0]}
-            cy={activePlace.xy[1]}
+            cx={activeMarker.xy[0]}
+            cy={activeMarker.xy[1]}
             r="6"
             fill="red"
           />

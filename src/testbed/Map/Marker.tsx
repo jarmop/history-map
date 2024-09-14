@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Place } from '../newTypes'
+import { Marker as MarkerType } from '../newTypes'
 
-interface PlaceProps {
-  place: Place
+interface MarkerProps {
+  marker: MarkerType
 }
 
 const r = 3
@@ -10,15 +10,16 @@ const size = 8
 const cx = size / 2
 const cy = size / 2
 
-const styleByType: Record<Place['type'], React.ReactNode> = {
+const styleByType: Record<MarkerType['type'], React.ReactNode> = {
   monastery: <circle cx={cx} cy={cy} r={r} fill="yellow" stroke="black" />,
   church: <circle cx={cx} cy={cy} r={r} fill="pink" stroke="black" />,
   university: <circle cx={cx} cy={cy} r={r} fill="lightblue" stroke="black" />,
   fortress: <circle cx={cx} cy={cy} r={r} fill="red" stroke="black" />,
   town: <circle cx={cx} cy={cy} r={1} fill="black" stroke="black" />,
+  artefact: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
 }
 
-export function PlaceMarker({ place }: PlaceProps) {
+export function Marker({ marker: place }: MarkerProps) {
   const [hover, setHover] = useState(false)
 
   const marker = styleByType[place.type]

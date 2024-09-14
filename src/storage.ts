@@ -20,7 +20,7 @@ const defaultStorage: Storage = {
     rivers: [],
     seas: [],
     cities: [],
-    places: [],
+    markers: [],
     cultures: [],
   },
 }

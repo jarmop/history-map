@@ -61,7 +61,7 @@ export type Culture = {
   possessions: Possession[]
 }
 
-export const placeTypes = [
+export const markerTypes = [
   'monastery',
   'university',
   'fortress',
@@ -70,10 +70,10 @@ export const placeTypes = [
   'artefact',
 ] as const
 
-export type Place = {
+export type Marker = {
   id: string
   xy: [number, number]
-  type: (typeof placeTypes)[number]
+  type: (typeof markerTypes)[number]
   start: number
   end?: number
   image?: string
@@ -86,13 +86,12 @@ export type World = {
   regions: Region[]
   rivers: River[]
   seas: Sea[]
-  places: Place[]
+  markers: Marker[]
   cultures: Culture[]
 }
 
 export type Config = {
-  showCities: boolean
-  showPlaces: boolean
+  showMarkers: boolean
   showCultures: boolean
 }
 
