@@ -4098,6 +4098,7 @@
       "xy": [43.905, 10.691],
       "type": "artefact",
       "start": 1235,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bonaventura_Berlinghieri_Francesco.jpg/152px-Bonaventura_Berlinghieri_Francesco.jpg",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Bonaventura_Berlinghieri_Francesco.jpg"
     },
     { "id": "Lucca", "xy": [43.8417, 10.5028], "type": "town", "start": -89 },
@@ -4106,6 +4107,7 @@
       "xy": [43.7233, 10.3939],
       "type": "artefact",
       "start": 1260,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pulpit_-_Baptistry_-_Pisa_2014_B.jpg/320px-Pulpit_-_Baptistry_-_Pisa_2014_B.jpg",
       "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Pulpit_-_Baptistry_-_Pisa_2014_B.jpg"
     },
     {
@@ -4113,6 +4115,7 @@
       "xy": [43.7732, 11.2546],
       "type": "artefact",
       "start": 1270,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Coppo_di_Marcovaldo%2C_Hell.JPG/240px-Coppo_di_Marcovaldo%2C_Hell.JPG",
       "image": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Coppo_di_Marcovaldo%2C_Hell.JPG",
       "artist": "Coppo di Marcovaldo"
     },
@@ -4151,8 +4154,30 @@
       "start": 1280,
       "artist": "Cimabue",
       "location": "",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cimabue_-_Flagellation.jpg/159px-Cimabue_-_Flagellation.jpg",
       "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cimabue_-_Flagellation.jpg",
       "description": "Location (corodinates) uncertain."
+    },
+    {
+      "id": "Saint Francis receiving the Stigmata.",
+      "xy": [43.7183, 10.4064],
+      "type": "artefact",
+      "start": 1300,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/F0459_Louvre_Giotto_Stigmates_INV309_rwk.jpg/106px-F0459_Louvre_Giotto_Stigmates_INV309_rwk.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/F0459_Louvre_Giotto_Stigmates_INV309_rwk.jpg",
+      "artist": "Giotto",
+      "location": "San Francesco, Pisa"
+    },
+    {
+      "id": "Christ and the Samaritan Woman",
+      "xy": [43.3186, 11.3306],
+      "type": "artefact",
+      "start": 1310,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Duccio_di_Buoninsegna_-_Christ_and_the_Samaritan_Woman_-_Google_Art_Project.jpg/200px-Duccio_di_Buoninsegna_-_Christ_and_the_Samaritan_Woman_-_Google_Art_Project.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Duccio_di_Buoninsegna_-_Christ_and_the_Samaritan_Woman_-_Google_Art_Project.jpg/1280px-Duccio_di_Buoninsegna_-_Christ_and_the_Samaritan_Woman_-_Google_Art_Project.jpg",
+      "artist": "Duccio",
+      "description": "Date and location uncertain.",
+      "location": "Siena"
     }
   ],
   "cultures": [

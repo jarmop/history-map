@@ -130,20 +130,33 @@ export function TestWorld() {
           )}
         </div>
       </div>
-      <div style={{ minWidth: '200px' }}>
+      <div
+        style={{
+          minWidth: '404px',
+          display: 'grid',
+          gridTemplateColumns: '50% 50%',
+          height: 'fit-content',
+          gap: 2,
+          padding: 2,
+        }}
+      >
         {markers
           .filter((p) => p.type === 'artefact')
           .sort((a, b) => b.start - a.start)
-          .slice(0, 5)
+          .slice(0, 20)
           .map((p) => (
-            <div key={p.id}>
-              <img
-                src={p.image}
-                width="200px"
-                onMouseEnter={() => setActiveMarker(p)}
-                onMouseLeave={() => setActiveMarker(undefined)}
-              />
-            </div>
+            <img
+              key={p.id}
+              src={p.thumbnail}
+              onMouseEnter={() => setActiveMarker(p)}
+              onMouseLeave={() => setActiveMarker(undefined)}
+              onClick={() => window.open(p.image)}
+              style={{
+                objectFit: 'contain',
+                width: '200px',
+                maxHeight: '200px',
+              }}
+            />
           ))}
       </div>
     </div>
