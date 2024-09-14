@@ -77,8 +77,10 @@ export type Marker = {
   start: number
   end?: number
   image?: string
+  thumbnail?: string
   artist?: string
   location?: string
+  description?: string
 }
 
 export type World = {

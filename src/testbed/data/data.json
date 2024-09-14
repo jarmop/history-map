@@ -4129,6 +4129,30 @@
       "type": "town",
       "start": 500,
       "image": ""
+    },
+    {
+      "id": "San Francesco, Pescia",
+      "xy": [43.905, 10.691],
+      "type": "church",
+      "start": 1295,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pescia%2C_san_francesco_01.JPG/220px-Pescia%2C_san_francesco_01.JPG"
+    },
+    {
+      "id": "Pisa Baptistery",
+      "xy": [43.7233, 10.3939],
+      "type": "church",
+      "start": 1363,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/CampodeiMiracoliPisa.jpg/220px-CampodeiMiracoliPisa.jpg"
+    },
+    {
+      "id": "The Flagellation of Christ",
+      "xy": [43.7167, 10.4],
+      "type": "artefact",
+      "start": 1280,
+      "artist": "Cimabue",
+      "location": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cimabue_-_Flagellation.jpg",
+      "description": "Location (corodinates) uncertain."
     }
   ],
   "cultures": [

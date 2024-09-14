@@ -133,6 +133,8 @@ export function TestWorld() {
       <div style={{ minWidth: '200px' }}>
         {markers
           .filter((p) => p.type === 'artefact')
+          .sort((a, b) => b.start - a.start)
+          .slice(0, 5)
           .map((p) => (
             <div key={p.id}>
               <img
