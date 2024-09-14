@@ -67,6 +67,7 @@ export const placeTypes = [
   'fortress',
   'church',
   'town',
+  'artefact',
 ] as const
 
 export type Place = {
@@ -76,6 +77,8 @@ export type Place = {
   start: number
   end?: number
   image?: string
+  artist?: string
+  location?: string
 }
 
 export type World = {
@@ -90,6 +93,7 @@ export type World = {
 export type Config = {
   showCities: boolean
   showPlaces: boolean
+  showCultures: boolean
 }
 
 export type BorderData = {

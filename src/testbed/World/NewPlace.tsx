@@ -86,6 +86,26 @@ export function NewPlace({ onSave }: NewPlaceProps) {
         }}
       />
       <br />
+      <label>Artist:</label>
+      <br />
+      <input
+        type="text"
+        value={place.artist}
+        onChange={(e) => {
+          setPlace({ ...place, artist: e.target.value })
+        }}
+      />
+      <br />
+      <label>Location:</label>
+      <br />
+      <input
+        type="text"
+        value={place.location}
+        onChange={(e) => {
+          setPlace({ ...place, location: e.target.value })
+        }}
+      />
+      <br />
       <br />
       <button onClick={() => onSave(place)}>Add</button>
     </div>

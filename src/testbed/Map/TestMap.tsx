@@ -18,6 +18,7 @@ interface CustomMapProps {
   zoom: number
   activeRegions: MapRegion['id'][]
   setActiveRegions: (regions: MapRegion['id'][]) => void
+  activePlace?: Place
   onPathCompleted: (
     region: MapRegion,
     points: [number, number][],
@@ -39,6 +40,7 @@ export function TestMap({
   places,
   zoom,
   activeRegions,
+  activePlace,
   setActiveRegions,
   onPathCompleted,
   onPointEdited,
@@ -256,6 +258,14 @@ export function TestMap({
               )
               setActiveBorderPoint(undefined)
             }}
+          />
+        )}
+        {activePlace && (
+          <circle
+            cx={activePlace.xy[0]}
+            cy={activePlace.xy[1]}
+            r="6"
+            fill="red"
           />
         )}
       </svg>

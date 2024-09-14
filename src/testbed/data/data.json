@@ -2115,7 +2115,8 @@
       ],
       "startPoint": { "borderId": 2, "index": 175, "reverse": false },
       "endPoint": { "borderId": 2, "index": 152, "reverse": false },
-      "startYear": 1650
+      "startYear": 1650,
+      "endYear": 1790
     },
     {
       "id": 91,
@@ -3335,7 +3336,7 @@
       "xy": [51.364, 0.1964],
       "type": "church",
       "start": 350,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lullingstone_paintings2.jpg/440px-Lullingstone_paintings2.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lullingstone_artefacts2.jpg/440px-Lullingstone_artefacts2.jpg"
     },
     {
       "id": "Hagia Sophia, Thessaloniki",
@@ -4091,6 +4092,43 @@
       "xy": [6.8058, -58.1508],
       "type": "town",
       "start": 1781
+    },
+    {
+      "id": "Saint Francis of Assisi",
+      "xy": [43.905, 10.691],
+      "type": "artefact",
+      "start": 1235,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Bonaventura_Berlinghieri_Francesco.jpg"
+    },
+    { "id": "Lucca", "xy": [43.8417, 10.5028], "type": "town", "start": -89 },
+    {
+      "id": "Pulpit in the Pisa Baptistery",
+      "xy": [43.7233, 10.3939],
+      "type": "artefact",
+      "start": 1260,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Pulpit_-_Baptistry_-_Pisa_2014_B.jpg"
+    },
+    {
+      "id": "Mosaic on the vault (Detail of the Hell Scene)",
+      "xy": [43.7732, 11.2546],
+      "type": "artefact",
+      "start": 1270,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Coppo_di_Marcovaldo%2C_Hell.JPG",
+      "artist": "Coppo di Marcovaldo"
+    },
+    {
+      "id": "Florence Baptistery",
+      "xy": [43.7732, 11.2546],
+      "type": "church",
+      "start": 1070,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Baptistery%2C_Florence.jpg/220px-Baptistery%2C_Florence.jpg"
+    },
+    {
+      "id": "Pescia",
+      "xy": [43.9017, 10.6898],
+      "type": "town",
+      "start": 500,
+      "image": ""
     }
   ],
   "cultures": [
@@ -4441,8 +4479,8 @@
       "name": "Spanish Empire",
       "color": "#F1BF00",
       "possessions": [
-        { "regionId": 158, "start": 1492 },
-        { "regionId": 165, "start": 1650 }
+        { "regionId": 165, "start": 1650, "end": 1790 },
+        { "regionId": 158, "start": 1492, "end": 1976 }
       ]
     }
   ]
