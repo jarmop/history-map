@@ -16,15 +16,16 @@ const styleByType: Record<MarkerType['type'], React.ReactNode> = {
   university: <circle cx={cx} cy={cy} r={r} fill="lightblue" stroke="black" />,
   fortress: <circle cx={cx} cy={cy} r={r} fill="red" stroke="black" />,
   town: <circle cx={cx} cy={cy} r={1} fill="black" stroke="black" />,
-  artefact: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
   hospital: <circle cx={cx} cy={cy} r={r} fill="white" stroke="red" />,
   building: <circle cx={cx} cy={cy} r={r} fill="gray" stroke="black" />,
-  literature: <circle cx={cx} cy={cy} r={r} fill="gray" stroke="black" />,
-  invention: <circle cx={cx} cy={cy} r={r} fill="gray" stroke="black" />,
-  event: <circle cx={cx} cy={cy} r={r} fill="gray" stroke="black" />,
-  music: <circle cx={cx} cy={cy} r={r} fill="gray" stroke="black" />,
-  person: <circle cx={cx} cy={cy} r={r} fill="gray" stroke="black" />,
-  institution: <circle cx={cx} cy={cy} r={r} fill="gray" stroke="black" />,
+  // transparent, maybe rather filter these out
+  artefact: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
+  event: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
+  literature: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
+  invention: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
+  person: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
+  institution: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
+  music: <circle cx={cx} cy={cy} r={0} fill="none" stroke="none" />,
 }
 
 export function Marker({ marker }: MarkerProps) {

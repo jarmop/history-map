@@ -65,9 +65,8 @@ export function useData(year: number, zoom: number) {
   const markers = useMemo(() => {
     return world.markers
       .filter(
-        (marker) =>
-          (!marker.start || marker.start <= year) &&
-          (!marker.end || marker.end >= year)
+        (marker) => !marker.start || marker.start <= year
+        // && (!marker.end || marker.end >= year)
       )
       .map((b) => ({
         ...b,
@@ -670,6 +669,7 @@ export function useData(year: number, zoom: number) {
         ...marker,
         id: marker.id === 0 ? getNextMarkerId() : marker.id,
         xy: latLonToXy(marker.xy),
+        latLon: marker.xy,
       },
     ]
     setWorld({

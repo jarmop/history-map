@@ -8,6 +8,7 @@ import { Culture, Marker, Region } from '../newTypes'
 import { EditRegion } from './EditRegion'
 import { EditCulture } from './EditCulture'
 import { EditMarker } from './EditMarker'
+import deathImage from '../../assets/death.svg'
 
 export function TestWorld() {
   const years = [-4000]
@@ -144,9 +145,13 @@ export function TestWorld() {
         {markers
           .filter((a) =>
             [
+              //
               'literature',
               'person',
-              // 'church'
+              'event',
+              'invention',
+              'institution',
+              // 'artefact',
             ].includes(a.type)
           )
           .sort((a, b) => b.start - a.start)
@@ -158,7 +163,7 @@ export function TestWorld() {
               onMouseLeave={() => setActiveMarker(undefined)}
               onClick={(e) => {
                 if (e.detail === 2) {
-                  window.open(a.image)
+                  a.image && window.open(a.image)
                 } else {
                   setSelectedMarker((s) => (s?.id === a.id ? undefined : a))
                 }
@@ -182,8 +187,29 @@ export function TestWorld() {
               ) : (
                 <>{a.name}</>
               )}
-
-              {activeMarker?.id === a.id && (
+              {a.type === 'person' && a.end && a.end < year && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '0',
+                    backgroundColor: 'rgba(255,255,255,0.8)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    height: '100%',
+                  }}
+                >
+                  <img
+                    src={deathImage}
+                    style={{
+                      width: '60%',
+                      // height: '100%',
+                      objectFit: 'contain',
+                      opacity: '0.3',
+                    }}
+                  />
+                </div>
+              )}
+              {activeMarker?.id === a.id ? (
                 <div
                   style={{
                     position: 'absolute',
@@ -201,10 +227,10 @@ export function TestWorld() {
                     {a.name}
                   </div>
                   {a.artist
-                    ? `{a.artist}, {a.start}`
+                    ? `${a.artist}, ${a.start}`
                     : a.end
                     ? `${a.start} - ${a.end}`
-                    : a.end}
+                    : a.start}
 
                   <br />
                   {a.location}
@@ -216,6 +242,37 @@ export function TestWorld() {
                   >
                     {a.description}
                   </div>
+                </div>
+              ) : (
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '0',
+                    backgroundColor: 'rgba(255,255,255,0.9)',
+                    fontSize: '12px',
+                    width: '100%',
+                    textAlign: 'center',
+                  }}
+                >
+                  <div>
+                    {a.name}
+                    {a.type === 'person' ? (
+                      (!a.end || a.end >= year) && ', ' + (year - a.start)
+                    ) : (
+                      <>
+                        {', '}
+                        <span style={{ textWrap: 'nowrap' }}>
+                          {a.start}
+                          {a.end ? '-' + a.end : ''}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                  {a.type === 'person' && a.end && a.end < year && (
+                    <div>
+                      Died in {a.end} at the age of {a.end - a.start}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

@@ -11,7 +11,7 @@ const defaultMarker: Marker = {
   id: 0,
   name: '',
   xy: [0, 0],
-  type: 'artefact',
+  type: 'person',
   start: 0,
   description: undefined,
   artist: undefined,
@@ -176,7 +176,11 @@ export function EditMarker({ onSave, marker: markerProp }: EditMarkerProps) {
           <textarea
             value={marker.description || ''}
             onChange={(e) => {
-              setMarker({ ...marker, description: e.target.value })
+              const input = e.target.value
+              setMarker({
+                ...marker,
+                description: input.length > 0 ? input : undefined,
+              })
             }}
             cols={36}
             rows={5}
@@ -185,7 +189,7 @@ export function EditMarker({ onSave, marker: markerProp }: EditMarkerProps) {
         <button
           onClick={() => {
             onSave(marker)
-            // setMarker(defaultMarker)
+            !markerProp && setMarker(defaultMarker)
           }}
         >
           Save
