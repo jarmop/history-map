@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getLatLonByName } from '../helpers'
 import { Marker, markerTypes } from '../newTypes'
 
-interface NewMarkerProps {
+interface EditMarkerProps {
   onSave: (marker: Marker) => void
+  marker?: Marker
 }
 
 const defaultMarker: Marker = {
-  id: '',
+  id: 0,
+  name: '',
   xy: [0, 0],
   type: 'artefact',
   start: 0,
@@ -18,8 +20,17 @@ const defaultMarker: Marker = {
   thumbnail: undefined,
 }
 
-export function NewMarker({ onSave }: NewMarkerProps) {
+export function EditMarker({ onSave, marker: markerProp }: EditMarkerProps) {
   const [marker, setMarker] = useState<Marker>(defaultMarker)
+
+  useEffect(() => {
+    setMarker(
+      markerProp
+        ? { ...markerProp, xy: markerProp.latLon || defaultMarker.xy }
+        : defaultMarker
+    )
+  }, [markerProp])
+
   if (!marker) {
     return (
       <button onClick={() => setMarker(defaultMarker)}>Add new marker</button>
@@ -28,7 +39,9 @@ export function NewMarker({ onSave }: NewMarkerProps) {
 
   return (
     <div style={{ border: '1px solid black', padding: '10px' }}>
-      <h4 style={{ margin: '0 0 10px' }}>Add new marker</h4>
+      <h4 style={{ margin: '0 0 10px' }}>
+        {markerProp ? `Edit ${marker.name}` : 'Add new marker'}
+      </h4>
       <div
         style={{ display: 'grid', gridTemplateColumns: '50% 50%', gap: '5px' }}
       >
@@ -37,11 +50,11 @@ export function NewMarker({ onSave }: NewMarkerProps) {
           <br />
           <input
             type="text"
-            value={marker.id}
+            value={marker.name}
             onChange={(e) => {
-              const id = e.target.value
-              const xy = getLatLonByName(id) || marker.xy
-              setMarker({ ...marker, id, xy })
+              const name = e.target.value
+              const xy = getLatLonByName(name) || marker.xy
+              setMarker({ ...marker, name, xy })
             }}
           />
         </div>
@@ -65,9 +78,13 @@ export function NewMarker({ onSave }: NewMarkerProps) {
           <br />
           <input
             type="text"
-            value={marker.image}
+            value={marker.image || ''}
             onChange={(e) => {
-              setMarker({ ...marker, image: e.target.value })
+              const input = e.target.value
+              setMarker({
+                ...marker,
+                image: input.length > 0 ? input : undefined,
+              })
             }}
           />
         </div>
@@ -76,9 +93,13 @@ export function NewMarker({ onSave }: NewMarkerProps) {
           <br />
           <input
             type="text"
-            value={marker.thumbnail}
+            value={marker.thumbnail || ''}
             onChange={(e) => {
-              setMarker({ ...marker, thumbnail: e.target.value })
+              const input = e.target.value
+              setMarker({
+                ...marker,
+                thumbnail: input.length > 0 ? input : undefined,
+              })
             }}
           />
         </div>
@@ -87,9 +108,13 @@ export function NewMarker({ onSave }: NewMarkerProps) {
           <br />
           <input
             type="text"
-            value={marker.artist}
+            value={marker.artist || ''}
             onChange={(e) => {
-              setMarker({ ...marker, artist: e.target.value })
+              const input = e.target.value
+              setMarker({
+                ...marker,
+                artist: input.length > 0 ? input : undefined,
+              })
             }}
           />
         </div>
@@ -98,9 +123,13 @@ export function NewMarker({ onSave }: NewMarkerProps) {
           <br />
           <input
             type="text"
-            value={marker.location}
+            value={marker.location || ''}
             onChange={(e) => {
-              setMarker({ ...marker, location: e.target.value })
+              const input = e.target.value
+              setMarker({
+                ...marker,
+                location: input.length > 0 ? input : undefined,
+              })
             }}
           />
         </div>
@@ -145,7 +174,7 @@ export function NewMarker({ onSave }: NewMarkerProps) {
           <label>Description:</label>
           <br />
           <textarea
-            value={marker.description}
+            value={marker.description || ''}
             onChange={(e) => {
               setMarker({ ...marker, description: e.target.value })
             }}
@@ -159,7 +188,7 @@ export function NewMarker({ onSave }: NewMarkerProps) {
             // setMarker(defaultMarker)
           }}
         >
-          Add
+          Save
         </button>
       </div>
     </div>

@@ -7,7 +7,7 @@ import { Tools } from './Tools'
 import { Culture, Marker, Region } from '../newTypes'
 import { EditRegion } from './EditRegion'
 import { EditCulture } from './EditCulture'
-import { NewMarker } from './NewMarker'
+import { EditMarker } from './EditMarker'
 
 export function TestWorld() {
   const years = [-4000]
@@ -16,6 +16,7 @@ export function TestWorld() {
   const [config, setConfig] = useConfig()
   const [activeRegions, setActiveRegions] = useState<number[]>([17])
   const [activeMarker, setActiveMarker] = useState<Marker>()
+  const [selectedMarker, setSelectedMarker] = useState<Marker>()
 
   const {
     mapRegions,
@@ -25,7 +26,7 @@ export function TestWorld() {
     rivers,
     seas,
     markers,
-    addMarker,
+    saveMarker,
     cultures,
     saveCultures,
     deleteRegion,
@@ -108,7 +109,7 @@ export function TestWorld() {
           <label htmlFor="showCultures">Show Cultures</label>
         </div>
         <div style={{ display: 'flex' }}>
-          <NewMarker onSave={addMarker} />
+          <EditMarker onSave={saveMarker} marker={selectedMarker} />
           {activeRegions.length > 0 && (
             <>
               <EditRegion
@@ -155,10 +156,18 @@ export function TestWorld() {
               key={a.id}
               onMouseEnter={() => setActiveMarker(a)}
               onMouseLeave={() => setActiveMarker(undefined)}
-              onClick={() => window.open(a.image)}
+              onClick={(e) => {
+                if (e.detail === 2) {
+                  window.open(a.image)
+                } else {
+                  setSelectedMarker((s) => (s?.id === a.id ? undefined : a))
+                }
+              }}
               style={{
                 position: 'relative',
                 cursor: 'pointer',
+                backgroundColor:
+                  a.id === selectedMarker?.id ? 'lightgreen' : '',
               }}
             >
               {a.thumbnail ? (
@@ -171,7 +180,7 @@ export function TestWorld() {
                   }}
                 />
               ) : (
-                <>{a.id}</>
+                <>{a.name}</>
               )}
 
               {activeMarker?.id === a.id && (
@@ -189,7 +198,7 @@ export function TestWorld() {
                       fontSize: '11px',
                     }}
                   >
-                    {a.id}
+                    {a.name}
                   </div>
                   {a.artist
                     ? `{a.artist}, {a.start}`

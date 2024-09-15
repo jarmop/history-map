@@ -420,6 +420,14 @@ export function useData(year: number, zoom: number) {
     )
   }
 
+  function getNextMarkerId() {
+    return (
+      world.markers.reduce((acc, curr) => {
+        return curr.id > acc ? curr.id : acc
+      }, 0) + 1
+    )
+  }
+
   // console.log('mapRegions')
   // console.log(mapRegions)
   // console.log('mapRegionData')
@@ -654,10 +662,19 @@ export function useData(year: number, zoom: number) {
     })
   }
 
-  function addMarker(marker: Marker) {
+  // Add new marker if does not exist
+  function saveMarker(marker: Marker) {
+    const updateMarkers = [
+      ...world.markers.filter((m) => m.id !== marker.id),
+      {
+        ...marker,
+        id: marker.id === 0 ? getNextMarkerId() : marker.id,
+        xy: latLonToXy(marker.xy),
+      },
+    ]
     setWorld({
       ...world,
-      markers: [...world.markers, { ...marker, xy: latLonToXy(marker.xy) }],
+      markers: sortById(updateMarkers),
     })
   }
 
@@ -760,7 +777,7 @@ export function useData(year: number, zoom: number) {
     rivers,
     seas,
     markers,
-    addMarker,
+    saveMarker,
     cultures: world.cultures,
     saveCultures,
     deleteRegion,

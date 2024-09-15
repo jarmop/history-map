@@ -82,6 +82,7 @@ export type Marker = {
   id: number
   name: string
   xy: [number, number]
+  latLon?: [number, number]
   type: (typeof markerTypes)[number]
   start: number
   end?: number

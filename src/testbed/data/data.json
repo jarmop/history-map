@@ -6255,7 +6255,9 @@
       "type": "person",
       "start": 1328,
       "description": "Christian reformer.",
-      "end": 1384
+      "end": 1384,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Portrait_of_John_Wycliffe.jpg/220px-Portrait_of_John_Wycliffe.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Portrait_of_John_Wycliffe.jpg/1280px-Portrait_of_John_Wycliffe.jpg"
     },
     {
       "id": 359,

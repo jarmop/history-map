@@ -39,7 +39,7 @@ const seas = world.seas.map((s) => ({
 }))
 
 const markers = world.markers.map((marker) => {
-  return { ...marker, xy: latLonToXy(marker.xy) }
+  return { ...marker, xy: latLonToXy(marker.xy), latLon: marker.xy }
 })
 
 export function getBorders(): Border[] {
@@ -86,7 +86,11 @@ export function prepareForExport(world: World) {
       ...s,
       path: s.path.map(xyToRoundedLatLon),
     })),
-    markers: world.markers.map((p) => ({ ...p, xy: xyToRoundedLatLon(p.xy) })),
+    markers: world.markers.map((p) => {
+      const marker = { ...p, xy: xyToRoundedLatLon(p.xy) }
+      delete marker.latLon
+      return marker
+    }),
   }
 }
 
