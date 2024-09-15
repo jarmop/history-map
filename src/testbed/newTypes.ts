@@ -79,7 +79,8 @@ export const markerTypes = [
 ] as const
 
 export type Marker = {
-  id: string
+  id: number
+  name: string
   xy: [number, number]
   type: (typeof markerTypes)[number]
   start: number
