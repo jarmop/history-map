@@ -21,7 +21,11 @@ function isRiver(border: Border) {
   return !border.startPoint && border.endPoint
 }
 
-export function useData(year: number, zoom: number) {
+export function useData(
+  year: number,
+  zoom: number,
+  showOnlyPhysicalBorders: boolean
+) {
   const [world, setWorld] = useWorld(getWorld())
   const allBorders = world.borders
   const regions = world.regions
@@ -35,11 +39,12 @@ export function useData(year: number, zoom: number) {
   )
 
   const visibleBorders = useMemo(() => {
-    return allBorders.filter(
-      ({ startYear, endYear }) =>
-        (!startYear || startYear <= year) && (!endYear || endYear >= year)
+    return allBorders.filter(({ startYear, endYear, startPoint }) =>
+      showOnlyPhysicalBorders
+        ? !startPoint
+        : (!startYear || startYear <= year) && (!endYear || endYear >= year)
     )
-  }, [allBorders, year])
+  }, [allBorders, year, showOnlyPhysicalBorders])
 
   const zoomedBorders = useMemo(() => {
     return visibleBorders.map((b) => ({

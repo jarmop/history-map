@@ -53,7 +53,7 @@ export function Marker({ marker }: MarkerProps) {
           width="400"
           height="200"
         >
-          <image href={marker.image} height="180" />
+          <image href={marker.thumbnail || marker.image} height="180" />
           <text x="0" y="194">
             {marker.name}, {marker.start}
           </text>

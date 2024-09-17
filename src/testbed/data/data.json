@@ -6755,7 +6755,8 @@
       "type": "event",
       "start": 1566,
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Battle_of_Gibraltar_1607.jpg/300px-Battle_of_Gibraltar_1607.jpg",
-      "end": 1648
+      "end": 1648,
+      "description": "An armed conflict in the Habsburg Netherlands between disparate groups of rebels and the Spanish government."
     },
     {
       "id": 409,
@@ -7613,6 +7614,107 @@
       "start": 1701,
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Final_War_of_the_Spanish_Succession_Collage.jpg/300px-Final_War_of_the_Spanish_Succession_Collage.jpg",
       "end": 1714
+    },
+    {
+      "id": 504,
+      "name": "George Washington",
+      "xy": [38.1856, -76.9164],
+      "type": "person",
+      "start": 1732,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg/220px-Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
+      "end": 1799
+    },
+    {
+      "id": 505,
+      "name": "Petrarch",
+      "xy": [43.4633, 11.8783],
+      "type": "person",
+      "start": 1304,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Altichiero%2C_ritratto_di_Francesco_Petrarca.jpg/220px-Altichiero%2C_ritratto_di_Francesco_Petrarca.jpg",
+      "end": 1374
+    },
+    {
+      "id": 506,
+      "name": "Dante",
+      "xy": [43.7714, 11.2542],
+      "type": "person",
+      "start": 1265,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bargello_-_Kapelle_Fresko_2a.jpg/170px-Bargello_-_Kapelle_Fresko_2a.jpg",
+      "end": 1321
+    },
+    {
+      "id": 507,
+      "name": "Divine Comedy",
+      "xy": [43.7714, 11.2542],
+      "type": "literature",
+      "start": 1321,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Dante_Domenico_di_Michelino.jpg/220px-Dante_Domenico_di_Michelino.jpg"
+    },
+    {
+      "id": 508,
+      "name": "Giovanni Boccaccio",
+      "xy": [43.5478, 11.0411],
+      "type": "person",
+      "start": 1313,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Andrea_del_Castagno_Giovanni_Boccaccio_c_1450.jpg/220px-Andrea_del_Castagno_Giovanni_Boccaccio_c_1450.jpg",
+      "end": 1375
+    },
+    {
+      "id": 509,
+      "name": "Black Death",
+      "xy": [0, 0],
+      "type": "event",
+      "start": 1346,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/1346-1353_spread_of_the_Black_Death_in_Europe_map.svg/1280px-1346-1353_spread_of_the_Black_Death_in_Europe_map.svg.png",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/1346-1353_spread_of_the_Black_Death_in_Europe_map.svg/400px-1346-1353_spread_of_the_Black_Death_in_Europe_map.svg.png",
+      "end": 1353
+    },
+    {
+      "id": 510,
+      "name": "Decameron",
+      "xy": [0, 0],
+      "type": "literature",
+      "start": 1348,
+      "artist": "Boccaccio",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Boccaccio_-_Decameron%2C_MCCCCLXXXXII_ad_di_XX_de_giugno_-_3852856_Scan00015.tif/lossy-page1-1024px-Boccaccio_-_Decameron%2C_MCCCCLXXXXII_ad_di_XX_de_giugno_-_3852856_Scan00015.tif.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Boccaccio_-_Decameron%2C_MCCCCLXXXXII_ad_di_XX_de_giugno_-_3852856_Scan00015.tif/lossy-page1-220px-Boccaccio_-_Decameron%2C_MCCCCLXXXXII_ad_di_XX_de_giugno_-_3852856_Scan00015.tif.jpg",
+      "end": 1353
+    },
+    {
+      "id": 511,
+      "name": "Compromise of Nobles",
+      "xy": [51.5889, 4.7758],
+      "type": "event",
+      "start": 1566,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Eedverbond.gif/200px-Eedverbond.gif"
+    },
+    {
+      "id": 512,
+      "name": "Pacification of Ghent",
+      "xy": [51.2133, 4.4028],
+      "type": "event",
+      "start": 1576,
+      "description": "An alliance between the provinces of the Habsburg Netherlands gets rid of the plundering mercenaries, that the bankrupt Spain couldn't pay for.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Allegorie_op_de_Pacificatie_van_Gent%2C_1576_Pacificatie_Van_Gend._1577_%28titel_op_object%29%2C_RP-P-OB-79.662.jpg/350px-Allegorie_op_de_Pacificatie_van_Gent%2C_1576_Pacificatie_Van_Gend._1577_%28titel_op_object%29%2C_RP-P-OB-79.662.jpg"
+    },
+    {
+      "id": 513,
+      "name": "Sack of Antwerp",
+      "xy": [51.2133, 4.4028],
+      "type": "event",
+      "start": 1576,
+      "description": "Plundering mercenaries sack Antwerp after not getting paid by the bankrupt Spain.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/De_Spaanse_Furie%2C_anoniem%2C_ca_1585%2C_MAS.jpg/300px-De_Spaanse_Furie%2C_anoniem%2C_ca_1585%2C_MAS.jpg"
+    },
+    {
+      "id": 514,
+      "name": "Fernando Álvarez de Toledo",
+      "xy": [40.4636, -5.3275],
+      "type": "person",
+      "start": 1507,
+      "description": "Achieved notoriety for his actions during the Eighty Years' War in the Spanish Netherlands, where his prolonged military campaigns and harsh repression failed to suppress the Dutch Revolt.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Willem_Key_-_Don_Fernando_%C3%81lvarez_de_Toledo%2C_III_duque_de_Alba%2C_Fundaci%C3%B3n_Casa_de_Alba.jpg/220px-Willem_Key_-_Don_Fernando_%C3%81lvarez_de_Toledo%2C_III_duque_de_Alba%2C_Fundaci%C3%B3n_Casa_de_Alba.jpg",
+      "end": 1582
     }
   ],
   "cultures": [
@@ -7840,10 +7942,10 @@
       "name": "Crown of Aragon",
       "color": "#AA151B",
       "possessions": [
-        { "regionId": 12, "start": 1282, "end": 1713 },
-        { "regionId": 10, "start": 1287 },
-        { "regionId": 11, "start": 1412 },
-        { "regionId": 113, "start": 1164, "end": 1491 }
+        { "regionId": 113, "start": 1164, "end": 1491 },
+        { "regionId": 10, "start": 1287, "end": 1491 },
+        { "regionId": 11, "start": 1412, "end": 1491 },
+        { "regionId": 12, "start": 1282, "end": 1491 }
       ]
     },
     {
@@ -7964,7 +8066,10 @@
       "color": "#F1BF00",
       "possessions": [
         { "regionId": 165, "start": 1650, "end": 1790 },
-        { "regionId": 158, "start": 1492, "end": 1976 }
+        { "regionId": 158, "start": 1492, "end": 1976 },
+        { "regionId": 10, "start": 1492 },
+        { "regionId": 11, "start": 1492 },
+        { "regionId": 12, "start": 1492 }
       ]
     }
   ]

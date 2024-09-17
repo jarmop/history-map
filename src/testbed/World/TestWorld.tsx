@@ -33,7 +33,7 @@ export function TestWorld() {
     deleteRegion,
     saveRegionYears,
     cultureByRegion,
-  } = useData(year, zoom)
+  } = useData(year, zoom, !config.showCultures)
 
   const activeCulture =
     (activeRegions.length > 0 && cultureByRegion[activeRegions[0]]) || undefined
@@ -154,7 +154,11 @@ export function TestWorld() {
               // 'artefact',
             ].includes(a.type)
           )
-          .sort((a, b) => b.start - a.start)
+          .sort(
+            (a, b) =>
+              ((b.end && b.end < year && b.end) || b.start) -
+              ((a.end && a.end < year && a.end) || a.start)
+          )
           .slice(0, 100)
           .map((a) => (
             <div
