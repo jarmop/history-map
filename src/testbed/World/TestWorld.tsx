@@ -4,7 +4,7 @@ import { YearInput } from '../../world/YearInput'
 import { useData } from '../useData'
 import { useConfig, useYear, useZoom } from '../data/usePersistedState'
 import { Tools } from './Tools'
-import { Culture, Marker, Region } from '../newTypes'
+import { Culture, Marker, markerTypes, Region } from '../newTypes'
 import { EditRegion } from './EditRegion'
 import { EditCulture } from './EditCulture'
 import { EditMarker } from './EditMarker'
@@ -47,6 +47,8 @@ export function TestWorld() {
     }
   }, [mapRegions, activeRegions])
 
+  console.log(config.markerTypesOnGallery)
+
   return (
     <div style={{ display: 'flex' }}>
       <div style={{ width: '100%' }}>
@@ -59,7 +61,9 @@ export function TestWorld() {
           }
           rivers={rivers}
           seas={seas}
-          markers={config.showMarkers ? markers : []}
+          markers={markers.filter((m) =>
+            config.markerTypesOnMap.includes(m.type)
+          )}
           onPathCompleted={onPathCompleted}
           onPointEdited={onPointEdited}
           onPointAdded={onPointAdded}
@@ -86,29 +90,6 @@ export function TestWorld() {
         <Tools />
         <br />
         <br />
-        <div>
-          <input
-            type="checkbox"
-            id="showMarkers"
-            name="showMarkers"
-            checked={config.showMarkers}
-            onChange={(e) =>
-              setConfig({ ...config, showMarkers: e.target.checked })
-            }
-          />
-          <label htmlFor="showMarkers">Show markers</label>
-          &nbsp;
-          <input
-            type="checkbox"
-            id="showCultures"
-            name="showCultures"
-            checked={config.showCultures}
-            onChange={(e) =>
-              setConfig({ ...config, showCultures: e.target.checked })
-            }
-          />
-          <label htmlFor="showCultures">Show Cultures</label>
-        </div>
         <div style={{ display: 'flex' }}>
           <EditMarker onSave={saveMarker} marker={selectedMarker} />
           {activeRegions.length > 0 && (
@@ -130,11 +111,74 @@ export function TestWorld() {
               />
             </>
           )}
+          <div
+            style={{
+              display: 'grid',
+              gap: '5px',
+            }}
+          >
+            <div>
+              <div>Show on map:</div>
+              <select
+                value={config.markerTypesOnMap}
+                onChange={(e) => {
+                  const options = [...e.target.selectedOptions]
+                  const values = options.map(
+                    (option) => option.value
+                  ) as Marker['type'][]
+                  setConfig({
+                    ...config,
+                    markerTypesOnMap: values,
+                  })
+                }}
+                multiple
+                className="multiSelect"
+              >
+                {markerTypes.map((type) => (
+                  <option key={type}>{type}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <div>Show on gallery:</div>
+              <select
+                value={config.markerTypesOnGallery}
+                onChange={(e) => {
+                  const options = [...e.target.selectedOptions]
+                  const values = options.map(
+                    (option) => option.value
+                  ) as Marker['type'][]
+                  setConfig({
+                    ...config,
+                    markerTypesOnGallery: values,
+                  })
+                }}
+                multiple
+                className="multiSelect"
+              >
+                {markerTypes.map((type) => (
+                  <option key={type}>{type}</option>
+                ))}
+              </select>
+            </div>
+            <div style={{ gridColumn: 'span 2' }}>
+              <input
+                type="checkbox"
+                id="showCultures"
+                name="showCultures"
+                checked={config.showCultures}
+                onChange={(e) =>
+                  setConfig({ ...config, showCultures: e.target.checked })
+                }
+              />
+              <label htmlFor="showCultures">Show Cultures on map</label>
+            </div>
+          </div>
         </div>
       </div>
       <div
         style={{
-          minWidth: '910px',
+          minWidth: '914px',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, 150px)',
           height: 'fit-content',
@@ -143,17 +187,7 @@ export function TestWorld() {
         }}
       >
         {markers
-          .filter((a) =>
-            [
-              //
-              'literature',
-              'person',
-              'event',
-              'invention',
-              'institution',
-              // 'artefact',
-            ].includes(a.type)
-          )
+          .filter((a) => config.markerTypesOnGallery.includes(a.type))
           .sort(
             (a, b) =>
               ((b.end && b.end < year && b.end) || b.start) -
@@ -179,9 +213,9 @@ export function TestWorld() {
                   a.id === selectedMarker?.id ? 'lightgreen' : '',
               }}
             >
-              {a.thumbnail ? (
+              {a.thumbnail || a.image ? (
                 <img
-                  src={a.thumbnail}
+                  src={a.thumbnail || a.image}
                   style={{
                     objectFit: 'contain',
                     width: '150px',

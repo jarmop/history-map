@@ -7127,7 +7127,8 @@
       "xy": [54.3475, 18.6453],
       "type": "person",
       "start": 1788,
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg/220px-Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg"
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg/220px-Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg",
+      "end": 1860
     },
     {
       "id": 450,
@@ -7558,7 +7559,8 @@
       "type": "person",
       "start": 1585,
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Champaigne_portrait_richelieu_eb.jpg/220px-Champaigne_portrait_richelieu_eb.jpg",
-      "end": 1642
+      "end": 1642,
+      "description": "French chief minister from 1624 until 1642, and creator of the anti-Habsburg alliance"
     },
     {
       "id": 498,
@@ -7715,6 +7717,99 @@
       "description": "Achieved notoriety for his actions during the Eighty Years' War in the Spanish Netherlands, where his prolonged military campaigns and harsh repression failed to suppress the Dutch Revolt.",
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Willem_Key_-_Don_Fernando_%C3%81lvarez_de_Toledo%2C_III_duque_de_Alba%2C_Fundaci%C3%B3n_Casa_de_Alba.jpg/220px-Willem_Key_-_Don_Fernando_%C3%81lvarez_de_Toledo%2C_III_duque_de_Alba%2C_Fundaci%C3%B3n_Casa_de_Alba.jpg",
       "end": 1582
+    },
+    {
+      "id": 515,
+      "name": "Alessandro Farnese",
+      "xy": [41.8933, 12.4828],
+      "type": "person",
+      "start": 1545,
+      "description": "Governor of the Spanish Netherlands 1578-1592. Duke of Parma 1586-1592.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Vaenius_-_Alexander_Farnese.png/220px-Vaenius_-_Alexander_Farnese.png",
+      "end": 1592
+    },
+    {
+      "id": 516,
+      "name": "Treaty of Arras",
+      "xy": [50.292, 2.78],
+      "type": "event",
+      "start": 1579,
+      "description": "Southern parts of the Netherlands (Union of Arras) sign a separate peace treaty with the Spanish Crown. The northern Union of Utrecht continues the war.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Portrait_of_Philip_III_of_Spain%2C_misidentified_with_Alessandro_Farnese_-_Stibbert_Museum.jpg/150px-Portrait_of_Philip_III_of_Spain%2C_misidentified_with_Alessandro_Farnese_-_Stibbert_Museum.jpg"
+    },
+    {
+      "id": 517,
+      "name": "Split of the Habsburg dynasty",
+      "xy": [0, 0],
+      "type": "event",
+      "start": 1556,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/COA_Habsburg_early_crest.svg/146px-COA_Habsburg_early_crest.svg.png"
+    },
+    {
+      "id": 518,
+      "name": "Alexandre Dumas",
+      "xy": [49.26, 3.0906],
+      "type": "person",
+      "start": 1802,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg/440px-Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg",
+      "end": 1870
+    },
+    {
+      "id": 519,
+      "name": "Portolan chart 1541",
+      "xy": [44.4075, 8.9333],
+      "type": "artefact",
+      "start": 1541,
+      "artist": "Visconte Maggiolo",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Maggiolo_-_Portolankarte_-_1541.png",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Maggiolo_-_Portolankarte_-_1541.png/220px-Maggiolo_-_Portolankarte_-_1541.png"
+    },
+    {
+      "id": 520,
+      "name": "Mansa Musa",
+      "xy": [16.773, -2.999],
+      "type": "person",
+      "start": 1280,
+      "description": "Really no idea when he was born. Reign 1312-1337.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Catalan_Atlas_BNF_Sheet_6_Mansa_Musa_%28cropped%29.jpg/220px-Catalan_Atlas_BNF_Sheet_6_Mansa_Musa_%28cropped%29.jpg",
+      "end": 1337
+    },
+    {
+      "id": 521,
+      "name": "Genghis Khan",
+      "xy": [48.7833, 109.167],
+      "type": "person",
+      "start": 1162,
+      "description": "Reign 1206-1227",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/YuanEmperorAlbumGenghisPortrait.jpg/220px-YuanEmperorAlbumGenghisPortrait.jpg",
+      "end": 1227
+    },
+    {
+      "id": 522,
+      "name": "Marco Polo",
+      "xy": [45.4375, 12.3358],
+      "type": "person",
+      "start": 1254,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Marco_Polo_portrait.jpg/220px-Marco_Polo_portrait.jpg",
+      "end": 1324
+    },
+    {
+      "id": 523,
+      "name": "Fall of Baghdad",
+      "xy": [33.3475, 44.335],
+      "type": "event",
+      "start": 1258,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bagdad1258.jpg/300px-Bagdad1258.jpg"
+    },
+    {
+      "id": 524,
+      "name": "Kublai Khan",
+      "xy": [39.9333, 116.4],
+      "type": "person",
+      "start": 1215,
+      "description": "Reign 1260-1294",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/YuanEmperorAlbumKhubilaiPortrait.jpg/220px-YuanEmperorAlbumKhubilaiPortrait.jpg",
+      "end": 1294
     }
   ],
   "cultures": [

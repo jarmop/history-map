@@ -5,3 +5,7 @@
 .yearinput button {
   min-width: 40px;
 }
+
+.multiSelect {
+  field-sizing: content;
+}

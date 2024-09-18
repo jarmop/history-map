@@ -103,7 +103,8 @@ export type World = {
 }
 
 export type Config = {
-  showMarkers: boolean
+  markerTypesOnMap: Marker['type'][]
+  markerTypesOnGallery: Marker['type'][]
   showCultures: boolean
 }
 
