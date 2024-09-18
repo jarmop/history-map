@@ -6313,7 +6313,7 @@
       "xy": [47.5855, 1.331],
       "type": "person",
       "start": 1519,
-      "description": "Queen consort of France 1547-1559. Queen regent of France 1560-1563. Major influence on his sons, the kings of France even after the official regency.",
+      "description": "Queen consort of France 1547-1559. Queen regent of France 1560-1563. Major influence on his sons, who ruled France 1562-1598 even after the official regency.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/0/01/Catherine_de_M%C3%A9dicis_-_entourage_de_Fran%C3%A7ois_Clouet.jpg",
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Catherine_de_M%C3%A9dicis_-_entourage_de_Fran%C3%A7ois_Clouet.jpg/220px-Catherine_de_M%C3%A9dicis_-_entourage_de_Fran%C3%A7ois_Clouet.jpg",
       "end": 1589
@@ -7335,7 +7335,8 @@
       "type": "person",
       "start": 1494,
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Fran%C3%A7ois_Ier_Louvre.jpg/220px-Fran%C3%A7ois_Ier_Louvre.jpg",
-      "end": 1547
+      "end": 1547,
+      "description": "Reign 1515-1547"
     },
     {
       "id": 473,
@@ -7810,6 +7811,64 @@
       "description": "Reign 1260-1294",
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/YuanEmperorAlbumKhubilaiPortrait.jpg/220px-YuanEmperorAlbumKhubilaiPortrait.jpg",
       "end": 1294
+    },
+    {
+      "id": 525,
+      "name": "War of the Austrian Succession",
+      "xy": [48.2078, 16.3714],
+      "type": "event",
+      "start": 1740,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/War_of_The_Austrian_Succesion_Collage_1.jpg/1280px-War_of_The_Austrian_Succesion_Collage_1.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/War_of_The_Austrian_Succesion_Collage_1.jpg/280px-War_of_The_Austrian_Succesion_Collage_1.jpg",
+      "end": 1748
+    },
+    {
+      "id": 526,
+      "name": "Seven Years' War",
+      "xy": [51.6, 17.2],
+      "type": "event",
+      "start": 1756,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Seven_Years%27_War_Collage.jpg/1280px-Seven_Years%27_War_Collage.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Seven_Years%27_War_Collage.jpg/300px-Seven_Years%27_War_Collage.jpg",
+      "end": 1763
+    },
+    {
+      "id": 527,
+      "name": "Concordat of Bologna",
+      "xy": [44.4939, 11.3428],
+      "type": "event",
+      "start": 1516,
+      "description": "Permitted the Pope to collect all the income that the Catholic Church made in France, while the King of France was confirmed in his right to tithe the clerics[5] and to restrict their right of appeal to Rome. Superseded the Pragmatic Sanction of Bourges (1438).",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Francis_at_Marignan.jpg/300px-Francis_at_Marignan.jpg"
+    },
+    {
+      "id": 528,
+      "name": "Charles V",
+      "xy": [51.0592, 3.7157],
+      "type": "person",
+      "start": 1500,
+      "description": "Reign 1519-1556",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Portrait_of_Charles_V%2C_Holy_Roman_Emperor%2C_seated_%281500%E2%80%931558%29%2C_formerly_attributed_to_Titian_%28Alte_Pinakothek%2C_Munich%29.jpg/220px-Portrait_of_Charles_V%2C_Holy_Roman_Emperor%2C_seated_%281500%E2%80%931558%29%2C_formerly_attributed_to_Titian_%28Alte_Pinakothek%2C_Munich%29.jpg",
+      "end": 1558
+    },
+    {
+      "id": 529,
+      "name": "Ferdinand Magellan",
+      "xy": [41.1621, -8.622],
+      "type": "person",
+      "start": 1480,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ferdinand_Magellan.jpg/220px-Ferdinand_Magellan.jpg",
+      "end": 1521
+    },
+    {
+      "id": 530,
+      "name": "Circumnavigation",
+      "xy": [36.7667, -6.35],
+      "type": "event",
+      "start": 1522,
+      "description": "Magellan Expedition returns to Spain without Magellan.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Magellan_Elcano_Circumnavigation-en.svg/1280px-Magellan_Elcano_Circumnavigation-en.svg.png",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Magellan_Elcano_Circumnavigation-en.svg/400px-Magellan_Elcano_Circumnavigation-en.svg.png"
     }
   ],
   "cultures": [
