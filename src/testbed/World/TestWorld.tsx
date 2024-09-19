@@ -48,7 +48,7 @@ export function TestWorld() {
   }, [mapRegions, activeRegions])
 
   function isPersonAlive(person: Marker) {
-    return !(person.type === 'person' && person.end && person.end < year)
+    return person.type !== 'person' || !person.end || person.end >= year
   }
 
   return (

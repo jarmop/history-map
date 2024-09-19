@@ -18,6 +18,10 @@ export function Gallery({
   setActiveMarker,
   setSelectedMarker,
 }: GalleryProps) {
+  function personIsDead(person: Marker) {
+    return person.type === 'person' && person.end && person.end <= year
+  }
+
   return (
     <div
       style={{
@@ -66,7 +70,7 @@ export function Gallery({
             ) : (
               <>{a.name}</>
             )}
-            {a.type === 'person' && a.end && a.end < year && (
+            {personIsDead(a) && (
               <div
                 style={{
                   position: 'absolute',
@@ -147,7 +151,7 @@ export function Gallery({
                     </>
                   )}
                 </div>
-                {a.type === 'person' && a.end && a.end < year && (
+                {personIsDead(a) && a.end && (
                   <div>
                     Died in {a.end} at the age of {a.end - a.start}
                   </div>

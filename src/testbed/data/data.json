@@ -7675,7 +7675,7 @@
     {
       "id": 510,
       "name": "Decameron",
-      "xy": [0, 0],
+      "xy": [43.7694, 11.2561],
       "type": "literature",
       "start": 1348,
       "artist": "Boccaccio",
@@ -7869,6 +7869,727 @@
       "description": "Magellan Expedition returns to Spain without Magellan.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Magellan_Elcano_Circumnavigation-en.svg/1280px-Magellan_Elcano_Circumnavigation-en.svg.png",
       "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Magellan_Elcano_Circumnavigation-en.svg/400px-Magellan_Elcano_Circumnavigation-en.svg.png"
+    },
+    {
+      "id": 531,
+      "name": "Essays",
+      "xy": [44.25, -79.7833],
+      "type": "literature",
+      "start": 1580,
+      "artist": "Michel de Montaigne",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/St_Michel_de_Montaigne_Tour01.jpg/1280px-St_Michel_de_Montaigne_Tour01.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/St_Michel_de_Montaigne_Tour01.jpg/220px-St_Michel_de_Montaigne_Tour01.jpg"
+    },
+    {
+      "id": 532,
+      "name": "François Rabelais",
+      "xy": [47.1347, 0.1725],
+      "type": "person",
+      "start": 1490,
+      "description": "Birth date uncertain: 1483-1494.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Francois_Rabelais_-_Portrait.jpg/220px-Francois_Rabelais_-_Portrait.jpg",
+      "end": 1553
+    },
+    {
+      "id": 533,
+      "name": "Venus, Cupid, Folly and Time",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1545,
+      "artist": "Bronzino",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Angelo_Bronzino_-_Venus%2C_Cupid%2C_Folly_and_Time_-_National_Gallery%2C_London.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Angelo_Bronzino_-_Venus%2C_Cupid%2C_Folly_and_Time_-_National_Gallery%2C_London.jpg/220px-Angelo_Bronzino_-_Venus%2C_Cupid%2C_Folly_and_Time_-_National_Gallery%2C_London.jpg"
+    },
+    {
+      "id": 534,
+      "name": "Portrait of Eleanor of Toledo",
+      "xy": [43.7714, 11.2542],
+      "type": "artefact",
+      "start": 1545,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bronzino_-_Eleonora_di_Toledo_col_figlio_Giovanni_-_Google_Art_Project.jpg/1280px-Bronzino_-_Eleonora_di_Toledo_col_figlio_Giovanni_-_Google_Art_Project.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bronzino_-_Eleonora_di_Toledo_col_figlio_Giovanni_-_Google_Art_Project.jpg/270px-Bronzino_-_Eleonora_di_Toledo_col_figlio_Giovanni_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 535,
+      "name": "Bronzino",
+      "xy": [43.7714, 11.2542],
+      "type": "person",
+      "start": 1503,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Alessandro_Allori%2C_santissima_trinit%C3%A0%2C_1567-1571_circa%2C_ritratto_dei_maestri%2C_bronzino_%28cropped%29.jpg/200px-Alessandro_Allori%2C_santissima_trinit%C3%A0%2C_1567-1571_circa%2C_ritratto_dei_maestri%2C_bronzino_%28cropped%29.jpg",
+      "end": 1572
+    },
+    {
+      "id": 536,
+      "name": "Geoffrey Chaucer",
+      "xy": [51.5072, -0.1275],
+      "type": "person",
+      "start": 1343,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Chaucer_manuscrit_portrait_%28d%C3%A9tail%29.jpeg/220px-Chaucer_manuscrit_portrait_%28d%C3%A9tail%29.jpeg",
+      "end": 1400
+    },
+    {
+      "id": 537,
+      "name": "The Canterbury Tales",
+      "xy": [0, 0],
+      "type": "literature",
+      "start": 1400,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Canterbury_Tales_characters_around_table_%E2%80%94_traced.svg/220px-Canterbury_Tales_characters_around_table_%E2%80%94_traced.svg.png"
+    },
+    {
+      "id": 538,
+      "name": "Cesare Beccaria",
+      "xy": [45.4669, 9.19],
+      "type": "person",
+      "start": 1738,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Cesare_Beccaria.jpg/220px-Cesare_Beccaria.jpg",
+      "end": 1794
+    },
+    {
+      "id": 539,
+      "name": "Thomas Paine",
+      "xy": [52.41, 0.74],
+      "type": "person",
+      "start": 1737,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Laurent_Dabos_%E2%80%93_Thomas_Paine_%E2%80%93_Google_Art_Project.jpg/220px-Laurent_Dabos_%E2%80%93_Thomas_Paine_%E2%80%93_Google_Art_Project.jpg",
+      "end": 1809
+    },
+    {
+      "id": 540,
+      "name": "Jeremy Bentham",
+      "xy": [51.5072, -0.1275],
+      "type": "person",
+      "start": 1748,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Jeremy_Bentham_by_Henry_William_Pickersgill_detail.jpg/220px-Jeremy_Bentham_by_Henry_William_Pickersgill_detail.jpg",
+      "end": 1832
+    },
+    {
+      "id": 541,
+      "name": "John Stuart Mill",
+      "xy": [51.532, -0.114],
+      "type": "person",
+      "start": 1806,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Stuart_Mill_G_F_Watts.jpg/220px-Stuart_Mill_G_F_Watts.jpg",
+      "end": 1873
+    },
+    {
+      "id": 542,
+      "name": "Immanuel Kant",
+      "xy": [54.7115, 20.5093],
+      "type": "person",
+      "start": 1724,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Immanuel_Kant_-_Gemaelde_1.jpg/220px-Immanuel_Kant_-_Gemaelde_1.jpg",
+      "end": 1804
+    },
+    {
+      "id": 543,
+      "name": "John Austin",
+      "xy": [52.2, 1],
+      "type": "person",
+      "start": 1790,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/John_Austin_%28cropped%29.jpg/220px-John_Austin_%28cropped%29.jpg",
+      "end": 1859
+    },
+    {
+      "id": 544,
+      "name": "H. L. A. Hart",
+      "xy": [53.9919, -1.5378],
+      "type": "person",
+      "start": 1907,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/d/de/H.L.A.Hart.jpg",
+      "end": 1992
+    },
+    {
+      "id": 545,
+      "name": "Bertrand Russell",
+      "xy": [51.7451, -2.7256],
+      "type": "person",
+      "start": 1872,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Bertrand_Russell_1949.jpg/220px-Bertrand_Russell_1949.jpg",
+      "end": 1970
+    },
+    {
+      "id": 546,
+      "name": "Dostoevsky",
+      "xy": [55.7558, 37.6172],
+      "type": "person",
+      "start": 1821,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg/220px-Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
+      "end": 1881
+    },
+    {
+      "id": 547,
+      "name": "Tolstoy",
+      "xy": [54.0761, 37.5261],
+      "type": "person",
+      "start": 1828,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/L._N._Tolstoy%2C_by_Prokudin-Gorsky_%28cropped%29.jpg/220px-L._N._Tolstoy%2C_by_Prokudin-Gorsky_%28cropped%29.jpg",
+      "end": 1910
+    },
+    {
+      "id": 548,
+      "name": "Oscar Wilde",
+      "xy": [53.35, -6.2603],
+      "type": "person",
+      "start": 1854,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Oscar_Wilde_by_Napoleon_Sarony._Three-quarter-length_photograph%2C_seated.jpg/220px-Oscar_Wilde_by_Napoleon_Sarony._Three-quarter-length_photograph%2C_seated.jpg",
+      "end": 1900
+    },
+    {
+      "id": 549,
+      "name": "Charles Dickens",
+      "xy": [51.4992, -0.1275],
+      "type": "person",
+      "start": 1812,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Dickens_Gurney_head.jpg/220px-Dickens_Gurney_head.jpg",
+      "end": 1870
+    },
+    {
+      "id": 550,
+      "name": "John Milton",
+      "xy": [51.5144, -0.0966],
+      "type": "person",
+      "start": 1608,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/John_Milton_Christ%27s_College.jpg/220px-John_Milton_Christ%27s_College.jpg",
+      "end": 1674
+    },
+    {
+      "id": 551,
+      "name": "Ernest Hemingway",
+      "xy": [41.8883, -87.7894],
+      "type": "person",
+      "start": 1899,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ErnestHemingway.jpg/220px-ErnestHemingway.jpg",
+      "end": 1961
+    },
+    {
+      "id": 552,
+      "name": "Victor Hugo",
+      "xy": [47.24, 6.02],
+      "type": "person",
+      "start": 1802,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg/220px-Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg",
+      "end": 1885
+    },
+    {
+      "id": 553,
+      "name": "Rachmaninoff",
+      "xy": [58, 31.3333],
+      "type": "person",
+      "start": 1873,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Sergei_Rachmaninoff_cph.3a40575.jpg/220px-Sergei_Rachmaninoff_cph.3a40575.jpg",
+      "end": 1943
+    },
+    {
+      "id": 554,
+      "name": "Adolf Hitler",
+      "xy": [48.2583, 13.035],
+      "type": "person",
+      "start": 1889,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/220px-Hitler_portrait_crop.jpg",
+      "end": 1945
+    },
+    {
+      "id": 555,
+      "name": "Albert Einstein",
+      "xy": [48.4, 9.9833],
+      "type": "person",
+      "start": 1879,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg/220px-Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+      "end": 1955
+    },
+    {
+      "id": 556,
+      "name": "Mannerheim",
+      "xy": [60.5709, 21.8311],
+      "type": "person",
+      "start": 1867,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Mannerheim1940.jpg/220px-Mannerheim1940.jpg",
+      "end": 1951
+    },
+    {
+      "id": 557,
+      "name": "Mussolini",
+      "xy": [44.1, 11.9833],
+      "type": "person",
+      "start": 1883,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Mussolini_biografia.jpg/220px-Mussolini_biografia.jpg",
+      "end": 1945
+    },
+    {
+      "id": 558,
+      "name": "Stalin",
+      "xy": [41.9667, 44.1],
+      "type": "person",
+      "start": 1878,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/StalinCropped1943.jpg/220px-StalinCropped1943.jpg",
+      "end": 1953
+    },
+    {
+      "id": 559,
+      "name": "Lenin",
+      "xy": [54.3167, 48.3667],
+      "type": "person",
+      "start": 1870,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Lenin_in_1920_%28cropped%29.jpg/220px-Lenin_in_1920_%28cropped%29.jpg",
+      "end": 1924
+    },
+    {
+      "id": 560,
+      "name": "Karl Marx",
+      "xy": [49.7567, 6.6414],
+      "type": "person",
+      "start": 1818,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Karl_Marx_001_%28rotated%29.jpg/220px-Karl_Marx_001_%28rotated%29.jpg",
+      "end": 1883
+    },
+    {
+      "id": 561,
+      "name": "H. G. Wells",
+      "xy": [51.407, 0.021],
+      "type": "person",
+      "start": 1866,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/H.G._Wells_by_Beresford.jpg/220px-H.G._Wells_by_Beresford.jpg",
+      "end": 1946
+    },
+    {
+      "id": 562,
+      "name": "Thomas Edison",
+      "xy": [41.2881, -82.5994],
+      "type": "person",
+      "start": 1847,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Thomas_Edison2.jpg/220px-Thomas_Edison2.jpg",
+      "end": 1931
+    },
+    {
+      "id": 563,
+      "name": "Winston Churchill",
+      "xy": [51.842, -1.361],
+      "type": "person",
+      "start": 1874,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/220px-Sir_Winston_Churchill_-_19086236948.jpg",
+      "end": 1965
+    },
+    {
+      "id": 564,
+      "name": "Arthur Conan Doyle",
+      "xy": [55.9533, -3.1892],
+      "type": "person",
+      "start": 1859,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png/220px-Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png",
+      "end": 1930
+    },
+    {
+      "id": 565,
+      "name": "Agatha Christie",
+      "xy": [50.47, -3.53],
+      "type": "person",
+      "start": 1890,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Agatha_Christie.png/220px-Agatha_Christie.png",
+      "end": 1976
+    },
+    {
+      "id": 566,
+      "name": "Ludwig Wittgenstein",
+      "xy": [48.2078, 16.3714],
+      "type": "person",
+      "start": 1889,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ludwig_Wittgenstein_1929.jpg/220px-Ludwig_Wittgenstein_1929.jpg",
+      "end": 1951
+    },
+    {
+      "id": 567,
+      "name": "Alfred Hitchcock",
+      "xy": [51.569, 0.01],
+      "type": "person",
+      "start": 1899,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Hitchcock%2C_Alfred_02.jpg/220px-Hitchcock%2C_Alfred_02.jpg",
+      "end": 1980
+    },
+    {
+      "id": 568,
+      "name": "Roosevelt",
+      "xy": [40.7127, -74.0059],
+      "type": "person",
+      "start": 1858,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Theodore_Roosevelt_by_the_Pach_Bros.jpg/268px-Theodore_Roosevelt_by_the_Pach_Bros.jpg",
+      "end": 1919
+    },
+    {
+      "id": 569,
+      "name": "Picasso",
+      "xy": [36.7194, -4.42],
+      "type": "person",
+      "start": 1881,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Portrait_de_Picasso%2C_1908.jpg/220px-Portrait_de_Picasso%2C_1908.jpg",
+      "end": 1973
+    },
+    {
+      "id": 570,
+      "name": "Prokofiev",
+      "xy": [48.45, 34.9833],
+      "type": "person",
+      "start": 1891,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Prokofieff_%28i.e._Prokofiev%29_LCCN2014708419_Crop_2.jpg/220px-Prokofieff_%28i.e._Prokofiev%29_LCCN2014708419_Crop_2.jpg",
+      "end": 1953
+    },
+    {
+      "id": 571,
+      "name": "George Gershwin",
+      "xy": [40.7127, -74.0059],
+      "type": "person",
+      "start": 1898,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/George_Gershwin-signed.jpg/220px-George_Gershwin-signed.jpg",
+      "end": 1937
+    },
+    {
+      "id": 572,
+      "name": "Salvador Dalí",
+      "xy": [42.2667, 2.965],
+      "type": "person",
+      "start": 1904,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Salvador_Dal%C3%AD_1939.jpg/220px-Salvador_Dal%C3%AD_1939.jpg",
+      "end": 1989
+    },
+    {
+      "id": 573,
+      "name": "J. R. R. Tolkien",
+      "xy": [-29.1167, 26.2167],
+      "type": "person",
+      "start": 1892,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/J._R._R._Tolkien%2C_ca._1925.jpg/220px-J._R._R._Tolkien%2C_ca._1925.jpg",
+      "end": 1973
+    },
+    {
+      "id": 574,
+      "name": "Lewis Carroll",
+      "xy": [53.3402, -2.6332],
+      "type": "person",
+      "start": 1832,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/LewisCarrollSelfPhoto.jpg/220px-LewisCarrollSelfPhoto.jpg",
+      "end": 1898
+    },
+    {
+      "id": 575,
+      "name": "Jules Verne",
+      "xy": [47.2181, -1.5528],
+      "type": "person",
+      "start": 1828,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Jules_Verne_by_%C3%89tienne_Carjat.jpg/220px-Jules_Verne_by_%C3%89tienne_Carjat.jpg",
+      "end": 1905
+    },
+    {
+      "id": 576,
+      "name": "Mao Zedong",
+      "xy": [27.915, 112.5267],
+      "type": "person",
+      "start": 1893,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Mao_Zedong_in_1959_%28cropped%29.jpg/220px-Mao_Zedong_in_1959_%28cropped%29.jpg",
+      "end": 1976
+    },
+    {
+      "id": 577,
+      "name": "Edgar Allan Poe",
+      "xy": [42.3603, -71.0578],
+      "type": "person",
+      "start": 1809,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Edgar_Allan_Poe%2C_circa_1849%2C_restored%2C_squared_off.jpg/220px-Edgar_Allan_Poe%2C_circa_1849%2C_restored%2C_squared_off.jpg",
+      "end": 1849
+    },
+    {
+      "id": 578,
+      "name": "Rasputin",
+      "xy": [57.2425, 66.7906],
+      "type": "person",
+      "start": 1869,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Rasputin_PA.jpg/220px-Rasputin_PA.jpg",
+      "end": 1916
+    },
+    {
+      "id": 579,
+      "name": "Dalai Lama",
+      "xy": [36.3781, 101.8659],
+      "type": "person",
+      "start": 1935,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Dalailama1_20121014_4639.jpg/220px-Dalailama1_20121014_4639.jpg"
+    },
+    {
+      "id": 580,
+      "name": "Tove Jansson",
+      "xy": [60.1708, 24.9375],
+      "type": "person",
+      "start": 1914,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Tove_Jansson_with_flower_crown_001.tiff/lossy-page1-220px-Tove_Jansson_with_flower_crown_001.tiff.jpg",
+      "end": 2001
+    },
+    {
+      "id": 581,
+      "name": "Väinö Linna",
+      "xy": [61.0806, 23.55],
+      "type": "person",
+      "start": 1920,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Vaino-Linna-1976.jpg/250px-Vaino-Linna-1976.jpg",
+      "end": 1992
+    },
+    {
+      "id": 582,
+      "name": "Debussy",
+      "xy": [48.8989, 2.0938],
+      "type": "person",
+      "start": 1862,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Claude_Debussy_by_Atelier_Nadar.jpg/220px-Claude_Debussy_by_Atelier_Nadar.jpg",
+      "end": 1918
+    },
+    {
+      "id": 583,
+      "name": "Erik Satie",
+      "xy": [49.4194, 0.2325],
+      "type": "person",
+      "start": 1866,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ericsatie.jpg/220px-Ericsatie.jpg",
+      "end": 1925
+    },
+    {
+      "id": 584,
+      "name": "Tchaikovsky",
+      "xy": [57.05, 54],
+      "type": "person",
+      "start": 1840,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Tchaikovsky_by_Reutlinger_%28cropped%29.jpg/220px-Tchaikovsky_by_Reutlinger_%28cropped%29.jpg",
+      "end": 1893
+    },
+    {
+      "id": 585,
+      "name": "Sibelius",
+      "xy": [60.9944, 24.4667],
+      "type": "person",
+      "start": 1865,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/JeanSibelius_circa1898-1900.jpg/220px-JeanSibelius_circa1898-1900.jpg",
+      "end": 1957
+    },
+    {
+      "id": 586,
+      "name": "Mark Twain",
+      "xy": [39.4931, -91.7906],
+      "type": "person",
+      "start": 1835,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mark_Twain_by_AF_Bradley.jpg/220px-Mark_Twain_by_AF_Bradley.jpg",
+      "end": 1910
+    },
+    {
+      "id": 587,
+      "name": "Aleksis Kivi",
+      "xy": [60.4195, 24.8725],
+      "type": "person",
+      "start": 1834,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Aleksis_Kivi.jpg/220px-Aleksis_Kivi.jpg",
+      "end": 1872
+    },
+    {
+      "id": 588,
+      "name": "Elias Lönnrot",
+      "xy": [60.3208, 23.8208],
+      "type": "person",
+      "start": 1802,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Elias_L%C3%B6nnrot_portrait-2.jpg/220px-Elias_L%C3%B6nnrot_portrait-2.jpg",
+      "end": 1884
+    },
+    {
+      "id": 589,
+      "name": "Runeberg",
+      "xy": [63.6667, 22.7],
+      "type": "person",
+      "start": 1804,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Johan_Ludvig_Runeberg_1893.jpg/220px-Johan_Ludvig_Runeberg_1893.jpg",
+      "end": 1877
+    },
+    {
+      "id": 590,
+      "name": "Eino Leino",
+      "xy": [64.2808, 27.6517],
+      "type": "person",
+      "start": 1878,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Eino_Leino.jpg/248px-Eino_Leino.jpg",
+      "end": 1926
+    },
+    {
+      "id": 591,
+      "name": "Snellman",
+      "xy": [59.3294, 18.0686],
+      "type": "person",
+      "start": 1806,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/JV_Snellman.jpg/240px-JV_Snellman.jpg",
+      "end": 1881
+    },
+    {
+      "id": 592,
+      "name": "Albert Edelfelt",
+      "xy": [60.3944, 25.6639],
+      "type": "person",
+      "start": 1854,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Albert_Edelfelt-Sj%C3%A4lvportr%C3%A4tt.jpg/220px-Albert_Edelfelt-Sj%C3%A4lvportr%C3%A4tt.jpg",
+      "end": 1905
+    },
+    {
+      "id": 593,
+      "name": "Akseli Gallen-Kallela",
+      "xy": [61.4833, 21.8],
+      "type": "person",
+      "start": 1865,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Akseli_Gallen-Kallela.jpg/230px-Akseli_Gallen-Kallela.jpg",
+      "end": 1931
+    },
+    {
+      "id": 594,
+      "name": "Ernst Kirchner",
+      "xy": [49.9667, 9.15],
+      "type": "person",
+      "start": 1880,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kirchner_1919_portrait.jpg/215px-Kirchner_1919_portrait.jpg",
+      "end": 1938
+    },
+    {
+      "id": 595,
+      "name": "Otto von Bismarck",
+      "xy": [52.5786, 12.0397],
+      "type": "person",
+      "start": 1815,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Bundesarchiv_Bild_146-2005-0057%2C_Otto_von_Bismarck_%28cropped%29.jpg/220px-Bundesarchiv_Bild_146-2005-0057%2C_Otto_von_Bismarck_%28cropped%29.jpg",
+      "end": 1898
+    },
+    {
+      "id": 596,
+      "name": "Kyösti Kallio",
+      "xy": [64.075, 24.5333],
+      "type": "person",
+      "start": 1873,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/President_of_Finland_Ky%C3%B6sti_Kallio.jpg/250px-President_of_Finland_Ky%C3%B6sti_Kallio.jpg",
+      "end": 1940
+    },
+    {
+      "id": 597,
+      "name": "Urho Kekkonen",
+      "xy": [63.2333, 26.7583],
+      "type": "person",
+      "start": 1900,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Urho-Kekkonen-1975_%28cropped%29.jpg/220px-Urho-Kekkonen-1975_%28cropped%29.jpg",
+      "end": 1986
+    },
+    {
+      "id": 598,
+      "name": "Nietzsche",
+      "xy": [51.2408, 12.1161],
+      "type": "person",
+      "start": 1844,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/220px-Nietzsche187a.jpg",
+      "end": 1900
+    },
+    {
+      "id": 599,
+      "name": "Chopin",
+      "xy": [52.25, 20.3167],
+      "type": "person",
+      "start": 1810,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Frederic_Chopin_photo.jpeg/220px-Frederic_Chopin_photo.jpeg",
+      "end": 1849
+    },
+    {
+      "id": 600,
+      "name": "Smetana",
+      "xy": [49.8719, 16.3106],
+      "type": "person",
+      "start": 1824,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Smetana_LCCN2014716851_%28cropped%29.jpg/220px-Smetana_LCCN2014716851_%28cropped%29.jpg",
+      "end": 1884
+    },
+    {
+      "id": 601,
+      "name": "Liszt",
+      "xy": [47.5667, 16.5333],
+      "type": "person",
+      "start": 1811,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Franz_Liszt_1858.jpg/220px-Franz_Liszt_1858.jpg",
+      "end": 1886
+    },
+    {
+      "id": 602,
+      "name": "Grieg",
+      "xy": [60.3894, 5.33],
+      "type": "person",
+      "start": 1843,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Edvard_Grieg_portrait_%28cropped%29.jpg/220px-Edvard_Grieg_portrait_%28cropped%29.jpg",
+      "end": 1907
+    },
+    {
+      "id": 603,
+      "name": "Munch",
+      "xy": [60.7965, 11.3088],
+      "type": "person",
+      "start": 1863,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Portrett_av_Edvard_Munch_%28cropped%29.jpg/220px-Portrett_av_Edvard_Munch_%28cropped%29.jpg",
+      "end": 1944
+    },
+    {
+      "id": 604,
+      "name": "Robespierre",
+      "xy": [50.292, 2.78],
+      "type": "person",
+      "start": 1758,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Robespierre.jpg/220px-Robespierre.jpg",
+      "end": 1794
+    },
+    {
+      "id": 605,
+      "name": "Horatio Nelson",
+      "xy": [52.936, 0.76],
+      "type": "person",
+      "start": 1758,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/HoratioNelson1.jpg/220px-HoratioNelson1.jpg",
+      "end": 1805
+    },
+    {
+      "id": 606,
+      "name": "K. Pattabhi Jois",
+      "xy": [13, 76],
+      "type": "person",
+      "start": 1915,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Guruji_white.jpg/220px-Guruji_white.jpg",
+      "end": 2009
+    },
+    {
+      "id": 607,
+      "name": "A. C. Bhaktivedanta Swami Prabhupada",
+      "xy": [22.5675, 88.37],
+      "type": "person",
+      "start": 1896,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Prabhupada_singing_%28Germany_1974%29.jpg/220px-Prabhupada_singing_%28Germany_1974%29.jpg",
+      "end": 1977
+    },
+    {
+      "id": 608,
+      "name": "Gandhi",
+      "xy": [21.6417, 69.6293],
+      "type": "person",
+      "start": 1869,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/220px-Mahatma-Gandhi%2C_studio%2C_1931.jpg",
+      "end": 1948
+    },
+    {
+      "id": 609,
+      "name": "Khomeini",
+      "xy": [33.6422, 50.0789],
+      "type": "person",
+      "start": 1900,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/220px-Portrait_of_Ruhollah_Khomeini.jpg",
+      "end": 1989
+    },
+    {
+      "id": 610,
+      "name": "Atatürk",
+      "xy": [40.6403, 22.9356],
+      "type": "person",
+      "start": 1881,
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ataturk1930s.jpg/220px-Ataturk1930s.jpg",
+      "end": 1938
     }
   ],
   "cultures": [
